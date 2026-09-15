@@ -78,9 +78,9 @@ public final class LintKt {
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "SharedFlow never completes, so this operator typically has not effect, it can only catch exceptions from 'onSubscribe' operator", replaceWith = @ReplaceWith(expression = "this", imports = {}))
     /* renamed from: catch  reason: not valid java name */
-    private static final <T> Flow<T> m1805catch(SharedFlow<? extends T> sharedFlow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+    private static final <T> Flow<T> m1806catch(SharedFlow<? extends T> sharedFlow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
         Intrinsics.checkNotNull(sharedFlow, "null cannot be cast to non-null type kotlinx.coroutines.flow.Flow<T of kotlinx.coroutines.flow.LintKt.catch>");
-        return FlowKt.m1793catch(sharedFlow, function3);
+        return FlowKt.m1794catch(sharedFlow, function3);
     }
 
     static /* synthetic */ Flow retry$default(SharedFlow $this$retry_u24default, long retries, Function2 predicate, int i, Object obj) {

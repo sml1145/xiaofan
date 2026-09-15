@@ -29,7 +29,7 @@ public abstract class BaseContinuationImpl implements Continuation<Object>, Coro
     /* JADX WARN: Type inference failed for: r4v0, types: [kotlin.coroutines.Continuation, java.lang.Object, kotlin.coroutines.Continuation<java.lang.Object>] */
     @Override // kotlin.coroutines.Continuation
     public final void resumeWith(Object result) {
-        Object m261constructorimpl;
+        Object m262constructorimpl;
         Object outcome;
         BaseContinuationImpl baseContinuationImpl = this;
         Object param = result;
@@ -42,14 +42,14 @@ public abstract class BaseContinuationImpl implements Continuation<Object>, Coro
                 outcome = $this$resumeWith_u24lambda_u240.invokeSuspend(param);
             } catch (Throwable exception) {
                 Result.Companion companion = Result.Companion;
-                m261constructorimpl = Result.m261constructorimpl(ResultKt.createFailure(exception));
+                m262constructorimpl = Result.m262constructorimpl(ResultKt.createFailure(exception));
             }
             if (outcome == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 return;
             }
             Result.Companion companion2 = Result.Companion;
-            m261constructorimpl = Result.m261constructorimpl(outcome);
-            Object outcome2 = m261constructorimpl;
+            m262constructorimpl = Result.m262constructorimpl(outcome);
+            Object outcome2 = m262constructorimpl;
             $this$resumeWith_u24lambda_u240.releaseIntercepted();
             if (r4 instanceof BaseContinuationImpl) {
                 baseContinuationImpl = r4;

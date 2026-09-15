@@ -249,7 +249,8 @@ public final class OfflineBrain {
         Context app = ctx.getApplicationContext();
         OfflineModels offlineModels = OfflineModels.INSTANCE;
         Intrinsics.checkNotNull(app);
-        if (offlineModels.isReady(app, OfflineModels.Kind.LLM)) {
+        offlineModels.cleanupLegacy(app);
+        if (OfflineModels.INSTANCE.isReady(app, OfflineModels.Kind.LLM)) {
             emit(OfflineModels.Kind.LLM, Phase.READY, 100);
             LocalBrain.INSTANCE.ensureLoaded(app, new Function1<String, Unit>() { // from class: com.xiaofan.bangfan.ai.OfflineBrain$bootstrap$1
                 @Override // kotlin.jvm.functions.Function1

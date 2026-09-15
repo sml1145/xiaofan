@@ -17,14 +17,14 @@ public final class TimedValue<T> {
 
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: copy-RFiDyg4$default  reason: not valid java name */
-    public static /* synthetic */ TimedValue m1745copyRFiDyg4$default(TimedValue timedValue, Object obj, long j, int i, Object obj2) {
+    public static /* synthetic */ TimedValue m1746copyRFiDyg4$default(TimedValue timedValue, Object obj, long j, int i, Object obj2) {
         if ((i & 1) != 0) {
             obj = timedValue.value;
         }
         if ((i & 2) != 0) {
             j = timedValue.duration;
         }
-        return timedValue.m1747copyRFiDyg4(obj, j);
+        return timedValue.m1748copyRFiDyg4(obj, j);
     }
 
     public final T component1() {
@@ -32,12 +32,12 @@ public final class TimedValue<T> {
     }
 
     /* renamed from: component2-UwyO8pc  reason: not valid java name */
-    public final long m1746component2UwyO8pc() {
+    public final long m1747component2UwyO8pc() {
         return this.duration;
     }
 
     /* renamed from: copy-RFiDyg4  reason: not valid java name */
-    public final TimedValue<T> m1747copyRFiDyg4(T t, long j) {
+    public final TimedValue<T> m1748copyRFiDyg4(T t, long j) {
         return new TimedValue<>(t, j, null);
     }
 
@@ -47,17 +47,17 @@ public final class TimedValue<T> {
         }
         if (obj instanceof TimedValue) {
             TimedValue timedValue = (TimedValue) obj;
-            return Intrinsics.areEqual(this.value, timedValue.value) && Duration.m1592equalsimpl0(this.duration, timedValue.duration);
+            return Intrinsics.areEqual(this.value, timedValue.value) && Duration.m1593equalsimpl0(this.duration, timedValue.duration);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((this.value == null ? 0 : this.value.hashCode()) * 31) + Duration.m1615hashCodeimpl(this.duration);
+        return ((this.value == null ? 0 : this.value.hashCode()) * 31) + Duration.m1616hashCodeimpl(this.duration);
     }
 
     public String toString() {
-        return "TimedValue(value=" + this.value + ", duration=" + ((Object) Duration.m1636toStringimpl(this.duration)) + ')';
+        return "TimedValue(value=" + this.value + ", duration=" + ((Object) Duration.m1637toStringimpl(this.duration)) + ')';
     }
 
     private TimedValue(T t, long duration) {
@@ -66,7 +66,7 @@ public final class TimedValue<T> {
     }
 
     /* renamed from: getDuration-UwyO8pc  reason: not valid java name */
-    public final long m1748getDurationUwyO8pc() {
+    public final long m1749getDurationUwyO8pc() {
         return this.duration;
     }
 

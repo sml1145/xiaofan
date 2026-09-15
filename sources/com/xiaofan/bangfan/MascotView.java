@@ -32,8 +32,9 @@ import kotlin.Pair;
 import kotlin.TuplesKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.ranges.RangesKt;
 /* compiled from: MascotView.kt */
-@Metadata(d1 = {"\u0000\u008a\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0017\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\bD\u0018\u0000 \u009c\u00012\u00020\u0001:\u0004\u009c\u0001\u009d\u0001B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010L\u001a\u00020MJ\u0010\u0010N\u001a\u00020M2\u0006\u0010O\u001a\u00020PH\u0002J\u000e\u0010Q\u001a\u00020M2\u0006\u0010\u0002\u001a\u00020\u0003J\b\u0010R\u001a\u00020MH\u0002J \u0010S\u001a\u00020\u000e2\u0006\u0010T\u001a\u00020\u000e2\u0006\u0010U\u001a\u00020\u000e2\u0006\u0010V\u001a\u00020\u000eH\u0002J\b\u0010W\u001a\u00020!H\u0002J\u0018\u0010X\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u0017H\u0002J(\u0010\\\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010]\u001a\u00020\t2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!H\u0002J \u0010`\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u00172\u0006\u0010a\u001a\u00020\u000eH\u0002J \u0010b\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u00172\u0006\u0010a\u001a\u00020\u000eH\u0002J \u0010c\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!H\u0002J\u0018\u0010d\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u0017H\u0002J(\u0010e\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!2\u0006\u0010f\u001a\u00020!H\u0002J \u0010g\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u00172\u0006\u0010h\u001a\u00020\u000eH\u0002J\u0018\u0010i\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u0017H\u0002J \u0010j\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!H\u0002J \u0010k\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!H\u0002J\u0018\u0010l\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u0017H\u0002J0\u0010m\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!2\u0006\u0010n\u001a\u00020!2\u0006\u0010o\u001a\u00020\u000eH\u0002J(\u0010p\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010q\u001a\u00020\u000e2\u0006\u0010r\u001a\u00020\u000e2\u0006\u0010s\u001a\u00020\u000eH\u0002J8\u0010t\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010u\u001a\u00020\u000e2\u0006\u0010v\u001a\u00020\u000e2\u0006\u0010w\u001a\u00020\u000e2\u0006\u0010x\u001a\u00020\u000e2\u0006\u0010n\u001a\u00020!H\u0002J8\u0010y\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010u\u001a\u00020\u000e2\u0006\u0010v\u001a\u00020\u000e2\u0006\u0010z\u001a\u00020!2\u0006\u0010x\u001a\u00020\u000e2\u0006\u0010n\u001a\u00020!H\u0002J\u0018\u0010{\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u0017H\u0002J@\u0010|\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010u\u001a\u00020\u000e2\u0006\u0010v\u001a\u00020\u000e2\u0006\u0010}\u001a\u00020!2\u0006\u0010~\u001a\u00020!2\u0006\u0010x\u001a\u00020\u000e2\u0006\u0010n\u001a\u00020!H\u0002J \u0010\u007f\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!H\u0002J!\u0010\u0080\u0001\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010[\u001a\u00020\u00172\u0006\u0010a\u001a\u00020\u000eH\u0002J!\u0010\u0081\u0001\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!H\u0002J!\u0010\u0082\u0001\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!H\u0002J*\u0010\u0083\u0001\u001a\u00020M2\u0006\u0010Y\u001a\u00020Z2\u0006\u0010^\u001a\u00020!2\u0006\u0010_\u001a\u00020!2\u0007\u0010\u0084\u0001\u001a\u00020!H\u0002J\u0007\u0010\u0085\u0001\u001a\u00020MJ\t\u0010\u0086\u0001\u001a\u00020MH\u0014J\u0011\u0010\u0087\u0001\u001a\u00020M2\u0006\u0010Y\u001a\u00020ZH\u0014J\u0011\u0010\u0088\u0001\u001a\u00020\u00102\u0006\u0010O\u001a\u00020PH\u0016J\u001b\u0010\u0089\u0001\u001a\u00020M2\u0007\u0010\u008a\u0001\u001a\u00020\u00012\u0007\u0010\u008b\u0001\u001a\u00020!H\u0014J\u0012\u0010\u008c\u0001\u001a\u00020M2\u0007\u0010\u008b\u0001\u001a\u00020!H\u0014J\t\u0010\u008d\u0001\u001a\u00020MH\u0002J\u0011\u0010\u008e\u0001\u001a\u00020\u000e2\u0006\u0010^\u001a\u00020!H\u0002J\t\u0010\u008f\u0001\u001a\u00020MH\u0002J\u000f\u0010\u0090\u0001\u001a\u00020M2\u0006\u0010T\u001a\u00020\u0010J\u0010\u0010\u0091\u0001\u001a\u00020M2\u0007\u0010\u0092\u0001\u001a\u00020\u0010J\u0012\u0010\u0093\u0001\u001a\u00020M2\t\u0010\u0094\u0001\u001a\u0004\u0018\u00010/J\u000f\u0010\u0095\u0001\u001a\u00020M2\u0006\u0010T\u001a\u00020\u0010J\u000f\u0010\u0096\u0001\u001a\u00020M2\u0006\u0010T\u001a\u00020\u0010J\u000f\u0010\u0097\u0001\u001a\u00020M2\u0006\u0010T\u001a\u00020\u0010J\t\u0010\u0098\u0001\u001a\u00020MH\u0002J\t\u0010\u0099\u0001\u001a\u00020MH\u0002J\t\u0010\u009a\u0001\u001a\u00020MH\u0002J\t\u0010\u009b\u0001\u001a\u00020MH\u0002R\u0018\u0010\u0007\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\t0\bX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\nR\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020!X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020-X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010.\u001a\u0004\u0018\u00010/X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00101\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00102\u001a\u000203X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00104\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00106\u001a\u00020-X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00107\u001a\u00020!X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u00020-X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00109\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010:\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010;\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010<\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010=\u001a\u00020!X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010>\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010?\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010@\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010A\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010B\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010C\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010D\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010E\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010F\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010G\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010H\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010I\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010J\u001a\u00020KX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u009e\u0001"}, d2 = {"Lcom/xiaofan/bangfan/MascotView;", "Landroid/view/View;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "bgBitmaps", "", "Landroid/graphics/Bitmap;", "[Landroid/graphics/Bitmap;", "bgPaint", "Landroid/graphics/Paint;", "bgTransition", "", "bgTransitioning", "", "blinkAmount", "blinkEnabled", "blinking", "body", "bodyPaint", "bodyRect", "Landroid/graphics/RectF;", "camera", "Landroid/graphics/Camera;", "chestFlash", "cloudOffset", "cpuRenderPaused", "crownPaint", "curRotX", "curRotY", "currentBg", "", "eyePatchPaint", "frameTask", "Ljava/lang/Runnable;", "gazeX", "gazeY", "glowPaint", "highlightPaint", "idleBobY", "idleBreath", "idleSway", "lastSceneCheckAt", "", "listener", "Lcom/xiaofan/bangfan/MascotView$MascotListener;", "longPressFired", "longPressTask", "main", "Landroid/os/Handler;", "mouthOpen", "mouthPaint", "mouthPhaseStart", "nextBg", "nextBlinkAt", "nightGlow", "planner", "pressOffsetY", "scale", "scene", "sceneEnabled", "scenePaint", "shadowPaint", "shimmerPhase", "speaking", "starTwinkle", "targetGazeX", "targetGazeY", "targetPressOffsetY", "targetRotX", "targetRotY", "targetScale", "tiltMatrix", "Landroid/graphics/Matrix;", "applySceneByTime", "", "applyTiltFromTouch", NotificationCompat.CATEGORY_EVENT, "Landroid/view/MotionEvent;", "applyVisualState", "bounce", "clamp", "v", "min", "max", "computeSceneByTime", "drawAura", "canvas", "Landroid/graphics/Canvas;", "rect", "drawBgBitmap", "bmp", "w", "h", "drawBlink", "amount", "drawChestGlow", "drawDynamicElements", "drawGazeHighlights", "drawGradientFallback", "s", "drawGroundShadow", "rotY", "drawLightOverlay", "drawMeteor", "drawMoonFace", "drawMouth", "drawMovingClouds", "color", "speedFactor", "drawPixelCloud", "x", "y", "u", "drawPixelDisc", "cx", "cy", "r", "cell", "drawPixelSmile", "halfCells", "drawPlannerMarks", "drawPxRect", "cols", "rows", "drawScene", "drawSpeakGlow", "drawSunFace", "drawSunsetFace", "drawTwinklingStars", "count", "flashChest", "onDetachedFromWindow", "onDraw", "onTouchEvent", "onVisibilityChanged", "changedView", "visibility", "onWindowVisibilityChanged", "openEyes", "pxCell", "scheduleNextBlink", "setBlinkEnabled", "setCpuRenderPaused", "paused", "setMascotListener", "l", "setNightGlow", "setSceneEnabled", "setSpeaking", "startRenderLoop", "stopRenderLoop", "triggerBlink", "updateFrame", "Companion", "MascotListener", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000\u008e\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0019\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\bF\u0018\u0000 £\u00012\u00020\u0001:\u0004£\u0001¤\u0001B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010Q\u001a\u00020RJ\u0010\u0010S\u001a\u00020R2\u0006\u0010T\u001a\u00020UH\u0002J\u000e\u0010V\u001a\u00020R2\u0006\u0010\u0002\u001a\u00020\u0003J\b\u0010W\u001a\u00020RH\u0002J \u0010X\u001a\u00020\u00122\u0006\u0010Y\u001a\u00020\u00122\u0006\u0010Z\u001a\u00020\u00122\u0006\u0010[\u001a\u00020\u0012H\u0002J\b\u0010\\\u001a\u00020%H\u0002J\u0018\u0010]\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001bH\u0002J(\u0010a\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010b\u001a\u00020\f2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%H\u0002J \u0010e\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001b2\u0006\u0010f\u001a\u00020\u0012H\u0002J \u0010g\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001b2\u0006\u0010f\u001a\u00020\u0012H\u0002J \u0010h\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%H\u0002J\u0018\u0010i\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001bH\u0002J(\u0010j\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%2\u0006\u0010k\u001a\u00020%H\u0002J \u0010l\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001b2\u0006\u0010m\u001a\u00020\u0012H\u0002J\u0018\u0010n\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001bH\u0002J \u0010o\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%H\u0002J \u0010p\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%H\u0002J\u0018\u0010q\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001bH\u0002J0\u0010r\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%2\u0006\u0010s\u001a\u00020%2\u0006\u0010t\u001a\u00020\u0012H\u0002J(\u0010u\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010v\u001a\u00020\u00122\u0006\u0010w\u001a\u00020\u00122\u0006\u0010x\u001a\u00020\u0012H\u0002J8\u0010y\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010z\u001a\u00020\u00122\u0006\u0010{\u001a\u00020\u00122\u0006\u0010|\u001a\u00020\u00122\u0006\u0010}\u001a\u00020\u00122\u0006\u0010s\u001a\u00020%H\u0002J8\u0010~\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010z\u001a\u00020\u00122\u0006\u0010{\u001a\u00020\u00122\u0006\u0010\u007f\u001a\u00020%2\u0006\u0010}\u001a\u00020\u00122\u0006\u0010s\u001a\u00020%H\u0002J\u0019\u0010\u0080\u0001\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001bH\u0002JC\u0010\u0081\u0001\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010z\u001a\u00020\u00122\u0006\u0010{\u001a\u00020\u00122\u0007\u0010\u0082\u0001\u001a\u00020%2\u0007\u0010\u0083\u0001\u001a\u00020%2\u0006\u0010}\u001a\u00020\u00122\u0006\u0010s\u001a\u00020%H\u0002J!\u0010\u0084\u0001\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%H\u0002J!\u0010\u0085\u0001\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010`\u001a\u00020\u001b2\u0006\u0010f\u001a\u00020\u0012H\u0002J!\u0010\u0086\u0001\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%H\u0002J!\u0010\u0087\u0001\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%H\u0002J*\u0010\u0088\u0001\u001a\u00020R2\u0006\u0010^\u001a\u00020_2\u0006\u0010c\u001a\u00020%2\u0006\u0010d\u001a\u00020%2\u0007\u0010\u0089\u0001\u001a\u00020%H\u0002J\u0007\u0010\u008a\u0001\u001a\u00020RJ\t\u0010\u008b\u0001\u001a\u00020RH\u0014J\u0011\u0010\u008c\u0001\u001a\u00020R2\u0006\u0010^\u001a\u00020_H\u0014J\u0011\u0010\u008d\u0001\u001a\u00020\u00142\u0006\u0010T\u001a\u00020UH\u0016J\u001b\u0010\u008e\u0001\u001a\u00020R2\u0007\u0010\u008f\u0001\u001a\u00020\u00012\u0007\u0010\u0090\u0001\u001a\u00020%H\u0014J\u0012\u0010\u0091\u0001\u001a\u00020R2\u0007\u0010\u0090\u0001\u001a\u00020%H\u0014J\t\u0010\u0092\u0001\u001a\u00020RH\u0002J\u0011\u0010\u0093\u0001\u001a\u00020\u00122\u0006\u0010c\u001a\u00020%H\u0002J\t\u0010\u0094\u0001\u001a\u00020RH\u0002J\u000f\u0010\u0095\u0001\u001a\u00020R2\u0006\u0010Y\u001a\u00020\u0014J\u0010\u0010\u0096\u0001\u001a\u00020R2\u0007\u0010\u0097\u0001\u001a\u00020\u0014J\u0012\u0010\u0098\u0001\u001a\u00020R2\t\u0010\u0099\u0001\u001a\u0004\u0018\u000102J\u000f\u0010\u009a\u0001\u001a\u00020R2\u0006\u0010Y\u001a\u00020\u0014J\u000f\u0010\u009b\u0001\u001a\u00020R2\u0006\u0010Y\u001a\u00020\u0014J\u000f\u0010\u009c\u0001\u001a\u00020R2\u0006\u0010Y\u001a\u00020\u0014J\t\u0010\u009d\u0001\u001a\u00020RH\u0002J\t\u0010\u009e\u0001\u001a\u00020RH\u0002J\t\u0010\u009f\u0001\u001a\u00020RH\u0002J\t\u0010 \u0001\u001a\u00020RH\u0002J\t\u0010¡\u0001\u001a\u00020RH\u0002J\t\u0010¢\u0001\u001a\u00020RH\u0002R\u000e\u0010\u0007\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u0018\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\f0\u000bX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\rR\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u001dX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020%X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010'\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010.\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00101\u001a\u0004\u0018\u000102X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00103\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00104\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u000206X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00107\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00109\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010:\u001a\u00020%X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010;\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010<\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010=\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010>\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010?\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010@\u001a\u00020%X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010A\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010B\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010C\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010D\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010E\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010F\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010G\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010H\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010I\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010J\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010K\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010L\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010M\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010N\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010O\u001a\u00020PX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006¥\u0001"}, d2 = {"Lcom/xiaofan/bangfan/MascotView;", "Landroid/view/View;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "BG_TRANS_MS", "", "SCENE_TICK_MS", "bgBitmaps", "", "Landroid/graphics/Bitmap;", "[Landroid/graphics/Bitmap;", "bgPaint", "Landroid/graphics/Paint;", "bgTransStartAt", "bgTransition", "", "bgTransitioning", "", "blinkAmount", "blinkEnabled", "blinking", "body", "bodyPaint", "bodyRect", "Landroid/graphics/RectF;", "camera", "Landroid/graphics/Camera;", "chestFlash", "cloudOffset", "cpuRenderPaused", "crownPaint", "curRotX", "curRotY", "currentBg", "", "eyePatchPaint", "frameTask", "Ljava/lang/Runnable;", "gazeX", "gazeY", "glowPaint", "highlightPaint", "idleBobY", "idleBreath", "idleSway", "lastSceneCheckAt", "listener", "Lcom/xiaofan/bangfan/MascotView$MascotListener;", "longPressFired", "longPressTask", "main", "Landroid/os/Handler;", "mouthOpen", "mouthPaint", "mouthPhaseStart", "nextBg", "nextBlinkAt", "nightGlow", "planner", "pressOffsetY", "scale", "scene", "sceneEnabled", "sceneFinalizeTask", "scenePaint", "sceneTickTask", "shadowPaint", "shimmerPhase", "speaking", "starTwinkle", "targetGazeX", "targetGazeY", "targetPressOffsetY", "targetRotX", "targetRotY", "targetScale", "tiltMatrix", "Landroid/graphics/Matrix;", "applySceneByTime", "", "applyTiltFromTouch", NotificationCompat.CATEGORY_EVENT, "Landroid/view/MotionEvent;", "applyVisualState", "bounce", "clamp", "v", "min", "max", "computeSceneByTime", "drawAura", "canvas", "Landroid/graphics/Canvas;", "rect", "drawBgBitmap", "bmp", "w", "h", "drawBlink", "amount", "drawChestGlow", "drawDynamicElements", "drawGazeHighlights", "drawGradientFallback", "s", "drawGroundShadow", "rotY", "drawLightOverlay", "drawMeteor", "drawMoonFace", "drawMouth", "drawMovingClouds", "color", "speedFactor", "drawPixelCloud", "x", "y", "u", "drawPixelDisc", "cx", "cy", "r", "cell", "drawPixelSmile", "halfCells", "drawPlannerMarks", "drawPxRect", "cols", "rows", "drawScene", "drawSpeakGlow", "drawSunFace", "drawSunsetFace", "drawTwinklingStars", "count", "flashChest", "onDetachedFromWindow", "onDraw", "onTouchEvent", "onVisibilityChanged", "changedView", "visibility", "onWindowVisibilityChanged", "openEyes", "pxCell", "scheduleNextBlink", "setBlinkEnabled", "setCpuRenderPaused", "paused", "setMascotListener", "l", "setNightGlow", "setSceneEnabled", "setSpeaking", "startRenderLoop", "startSceneTick", "stopRenderLoop", "stopSceneTick", "triggerBlink", "updateFrame", "Companion", "MascotListener", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class MascotView extends View {
     private static final float CHEST_Y = 0.682f;
@@ -45,8 +46,11 @@ public final class MascotView extends View {
     private static final float EYE_Y = 0.4f;
     private static final float MAX_TILT = 14.0f;
     private static final float MOUTH_Y = 0.5f;
+    private final long BG_TRANS_MS;
+    private final long SCENE_TICK_MS;
     private final Bitmap[] bgBitmaps;
     private final Paint bgPaint;
+    private long bgTransStartAt;
     private float bgTransition;
     private boolean bgTransitioning;
     private float blinkAmount;
@@ -88,7 +92,9 @@ public final class MascotView extends View {
     private float scale;
     private volatile int scene;
     private volatile boolean sceneEnabled;
+    private Runnable sceneFinalizeTask;
     private final Paint scenePaint;
+    private Runnable sceneTickTask;
     private final Paint shadowPaint;
     private float shimmerPhase;
     private volatile boolean speaking;
@@ -126,6 +132,7 @@ public final class MascotView extends View {
         Intrinsics.checkNotNullParameter(context, "context");
         this.bgBitmaps = new Bitmap[4];
         this.nextBg = -1;
+        this.BG_TRANS_MS = 800L;
         this.bodyRect = new RectF();
         this.bodyPaint = new Paint(3);
         this.bgPaint = new Paint(3);
@@ -143,6 +150,7 @@ public final class MascotView extends View {
         this.crownPaint = new Paint(1);
         this.targetScale = 1.0f;
         this.tiltMatrix = new Matrix();
+        this.SCENE_TICK_MS = 10000L;
         this.idleBreath = 1.0f;
         setLayerType(2, null);
         int bodyRes = context.getResources().getIdentifier("mascot_body", "drawable", context.getPackageName());
@@ -171,6 +179,7 @@ public final class MascotView extends View {
         this.shadowPaint.setColor(857747520);
         scheduleNextBlink();
         startRenderLoop();
+        startSceneTick();
     }
 
     /* compiled from: MascotView.kt */
@@ -236,34 +245,43 @@ public final class MascotView extends View {
     }
 
     public final void applySceneByTime() {
-        int s = computeSceneByTime();
+        final int s = computeSceneByTime();
         if (s != this.scene) {
             this.scene = s;
-            if (s != this.currentBg && !this.bgTransitioning) {
-                this.nextBg = s;
-                this.bgTransition = 0.0f;
-                this.bgTransitioning = true;
+        }
+        if (s == this.currentBg || s == this.nextBg) {
+            return;
+        }
+        this.nextBg = s;
+        this.bgTransitioning = true;
+        this.bgTransStartAt = System.currentTimeMillis();
+        Runnable it = this.sceneFinalizeTask;
+        if (it != null) {
+            this.main.removeCallbacks(it);
+        }
+        Runnable fin = new Runnable() { // from class: com.xiaofan.bangfan.MascotView$$ExternalSyntheticLambda2
+            @Override // java.lang.Runnable
+            public final void run() {
+                MascotView.applySceneByTime$lambda$1(MascotView.this, s);
             }
+        };
+        this.sceneFinalizeTask = fin;
+        this.main.postDelayed(fin, this.BG_TRANS_MS + 60);
+        invalidate();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void applySceneByTime$lambda$1(MascotView this$0, int $s) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        if (this$0.bgTransitioning && this$0.nextBg == $s) {
+            this$0.invalidate();
         }
     }
 
     private final int computeSceneByTime() {
         Calendar cal = Calendar.getInstance();
         int minutes = (cal.get(11) * 60) + cal.get(12);
-        boolean z = false;
-        if (360 <= minutes && minutes < 1020) {
-            return 0;
-        }
-        if (1020 <= minutes && minutes < 1140) {
-            z = true;
-        }
-        if (z) {
-            return 1;
-        }
-        if (minutes >= 1140 || minutes <= 119) {
-            return 2;
-        }
-        return 3;
+        return SceneClock.INSTANCE.sceneForMinutes(minutes);
     }
 
     private final void openEyes() {
@@ -485,9 +503,8 @@ public final class MascotView extends View {
 
     private final void drawScene(Canvas canvas, int w, int h) {
         if (this.bgTransitioning && this.nextBg >= 0) {
-            this.bgTransition += 0.025f;
+            this.bgTransition = RangesKt.coerceIn(((float) (System.currentTimeMillis() - this.bgTransStartAt)) / ((float) this.BG_TRANS_MS), 0.0f, 1.0f);
             if (this.bgTransition >= 1.0f) {
-                this.bgTransition = 1.0f;
                 this.currentBg = this.nextBg;
                 this.nextBg = -1;
                 this.bgTransitioning = false;
@@ -915,7 +932,7 @@ public final class MascotView extends View {
                 Runnable task = new Runnable() { // from class: com.xiaofan.bangfan.MascotView$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        MascotView.onTouchEvent$lambda$1(MascotView.this);
+                        MascotView.onTouchEvent$lambda$3(MascotView.this);
                     }
                 };
                 this.longPressTask = task;
@@ -949,7 +966,7 @@ public final class MascotView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void onTouchEvent$lambda$1(MascotView this$0) {
+    public static final void onTouchEvent$lambda$3(MascotView this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         if (!this$0.longPressFired) {
             this$0.longPressFired = true;
@@ -979,14 +996,14 @@ public final class MascotView extends View {
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.xiaofan.bangfan.MascotView$$ExternalSyntheticLambda1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                MascotView.bounce$lambda$3(MascotView.this, valueAnimator);
+                MascotView.bounce$lambda$5(MascotView.this, valueAnimator);
             }
         });
         anim.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void bounce$lambda$3(MascotView this$0, ValueAnimator it) {
+    public static final void bounce$lambda$5(MascotView this$0, ValueAnimator it) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(it, "it");
         Object animatedValue = it.getAnimatedValue();
@@ -1016,6 +1033,42 @@ public final class MascotView extends View {
             this.main.removeCallbacks(it);
         }
         this.frameTask = null;
+    }
+
+    private final void startSceneTick() {
+        stopSceneTick();
+        Runnable runnable = new Runnable() { // from class: com.xiaofan.bangfan.MascotView$startSceneTick$task$1
+            @Override // java.lang.Runnable
+            public void run() {
+                Handler handler;
+                long j;
+                try {
+                    if (MascotView.this.isAttachedToWindow() && MascotView.this.getVisibility() == 0) {
+                        MascotView.this.applySceneByTime();
+                        MascotView.this.invalidate();
+                    }
+                } finally {
+                    handler = MascotView.this.main;
+                    j = MascotView.this.SCENE_TICK_MS;
+                    handler.postDelayed(this, j);
+                }
+            }
+        };
+        this.sceneTickTask = runnable;
+        this.main.postDelayed(runnable, this.SCENE_TICK_MS);
+    }
+
+    private final void stopSceneTick() {
+        Runnable it = this.sceneTickTask;
+        if (it != null) {
+            this.main.removeCallbacks(it);
+        }
+        this.sceneTickTask = null;
+        Runnable it2 = this.sceneFinalizeTask;
+        if (it2 != null) {
+            this.main.removeCallbacks(it2);
+        }
+        this.sceneFinalizeTask = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1098,6 +1151,7 @@ public final class MascotView extends View {
         super.onDetachedFromWindow();
         XiaoFanVoice.INSTANCE.detachMascot(this);
         stopRenderLoop();
+        stopSceneTick();
         Runnable it = this.longPressTask;
         if (it != null) {
             this.main.removeCallbacks(it);

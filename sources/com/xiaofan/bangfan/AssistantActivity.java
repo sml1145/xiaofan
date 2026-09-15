@@ -279,7 +279,7 @@ public final class AssistantActivity extends BaseActivity {
             }
         }), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 4.0f), 0, 0));
         updateCard.addView(UiKit.INSTANCE.divider(this));
-        updateCard.addView(UiKit.INSTANCE.switchRow(this, "启动时自动检测新版本", "发现新版会弹窗，经你确认后下载安装（默认开）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda25
+        updateCard.addView(UiKit.INSTANCE.switchRow(this, "进入App时自动检测新版本", "每次进入App检测一次，发现新版弹窗，告知网络与所需流量，经你确认后下载（默认开）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda25
             @Override // com.xiaofan.bangfan.UiKit.Getter
             public final Object get() {
                 boolean onCreate$lambda$30;

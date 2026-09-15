@@ -78,7 +78,7 @@ public class HardwareVideoEncoderWrapper implements VideoEncoder {
                 return retryWithoutCropping(originalSettings.width, originalSettings.height, new Runnable() { // from class: org.webrtc.HardwareVideoEncoderWrapper$$ExternalSyntheticLambda2
                     @Override // java.lang.Runnable
                     public final void run() {
-                        HardwareVideoEncoderWrapper.this.m2104lambda$initEncode$0$orgwebrtcHardwareVideoEncoderWrapper(originalSettings, callback);
+                        HardwareVideoEncoderWrapper.this.m2105lambda$initEncode$0$orgwebrtcHardwareVideoEncoderWrapper(originalSettings, callback);
                     }
                 });
             }
@@ -88,7 +88,7 @@ public class HardwareVideoEncoderWrapper implements VideoEncoder {
             return retryWithoutCropping(originalSettings.width, originalSettings.height, new Runnable() { // from class: org.webrtc.HardwareVideoEncoderWrapper$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
                 public final void run() {
-                    HardwareVideoEncoderWrapper.this.m2105lambda$initEncode$1$orgwebrtcHardwareVideoEncoderWrapper(originalSettings, callback);
+                    HardwareVideoEncoderWrapper.this.m2106lambda$initEncode$1$orgwebrtcHardwareVideoEncoderWrapper(originalSettings, callback);
                 }
             });
         }
@@ -96,13 +96,13 @@ public class HardwareVideoEncoderWrapper implements VideoEncoder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$initEncode$0$org-webrtc-HardwareVideoEncoderWrapper  reason: not valid java name */
-    public /* synthetic */ void m2104lambda$initEncode$0$orgwebrtcHardwareVideoEncoderWrapper(VideoEncoder.Settings originalSettings, VideoEncoder.Callback callback) {
+    public /* synthetic */ void m2105lambda$initEncode$0$orgwebrtcHardwareVideoEncoderWrapper(VideoEncoder.Settings originalSettings, VideoEncoder.Callback callback) {
         this.internalEncoder.initEncode(originalSettings, callback);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$initEncode$1$org-webrtc-HardwareVideoEncoderWrapper  reason: not valid java name */
-    public /* synthetic */ void m2105lambda$initEncode$1$orgwebrtcHardwareVideoEncoderWrapper(VideoEncoder.Settings originalSettings, VideoEncoder.Callback callback) {
+    public /* synthetic */ void m2106lambda$initEncode$1$orgwebrtcHardwareVideoEncoderWrapper(VideoEncoder.Settings originalSettings, VideoEncoder.Callback callback) {
         this.internalEncoder.initEncode(originalSettings, callback);
     }
 
@@ -128,7 +128,7 @@ public class HardwareVideoEncoderWrapper implements VideoEncoder {
                     return retryWithoutCropping(frame.getBuffer().getWidth(), frame.getBuffer().getHeight(), new Runnable() { // from class: org.webrtc.HardwareVideoEncoderWrapper$$ExternalSyntheticLambda0
                         @Override // java.lang.Runnable
                         public final void run() {
-                            HardwareVideoEncoderWrapper.this.m2102lambda$encode$2$orgwebrtcHardwareVideoEncoderWrapper(frame, encodeInfo);
+                            HardwareVideoEncoderWrapper.this.m2103lambda$encode$2$orgwebrtcHardwareVideoEncoderWrapper(frame, encodeInfo);
                         }
                     });
                 }
@@ -138,7 +138,7 @@ public class HardwareVideoEncoderWrapper implements VideoEncoder {
                 return retryWithoutCropping(frame.getBuffer().getWidth(), frame.getBuffer().getHeight(), new Runnable() { // from class: org.webrtc.HardwareVideoEncoderWrapper$$ExternalSyntheticLambda1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        HardwareVideoEncoderWrapper.this.m2103lambda$encode$3$orgwebrtcHardwareVideoEncoderWrapper(frame, encodeInfo);
+                        HardwareVideoEncoderWrapper.this.m2104lambda$encode$3$orgwebrtcHardwareVideoEncoderWrapper(frame, encodeInfo);
                     }
                 });
             } finally {
@@ -150,13 +150,13 @@ public class HardwareVideoEncoderWrapper implements VideoEncoder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$encode$2$org-webrtc-HardwareVideoEncoderWrapper  reason: not valid java name */
-    public /* synthetic */ void m2102lambda$encode$2$orgwebrtcHardwareVideoEncoderWrapper(VideoFrame frame, VideoEncoder.EncodeInfo encodeInfo) {
+    public /* synthetic */ void m2103lambda$encode$2$orgwebrtcHardwareVideoEncoderWrapper(VideoFrame frame, VideoEncoder.EncodeInfo encodeInfo) {
         this.internalEncoder.encode(frame, encodeInfo);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$encode$3$org-webrtc-HardwareVideoEncoderWrapper  reason: not valid java name */
-    public /* synthetic */ void m2103lambda$encode$3$orgwebrtcHardwareVideoEncoderWrapper(VideoFrame frame, VideoEncoder.EncodeInfo encodeInfo) {
+    public /* synthetic */ void m2104lambda$encode$3$orgwebrtcHardwareVideoEncoderWrapper(VideoFrame frame, VideoEncoder.EncodeInfo encodeInfo) {
         this.internalEncoder.encode(frame, encodeInfo);
     }
 

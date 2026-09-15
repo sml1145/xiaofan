@@ -179,7 +179,7 @@ public final class HashingSource extends ForwardingSource implements Source {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "hash", imports = {}))
     /* renamed from: -deprecated_hash  reason: not valid java name */
-    public final ByteString m1989deprecated_hash() {
+    public final ByteString m1990deprecated_hash() {
         return hash();
     }
 

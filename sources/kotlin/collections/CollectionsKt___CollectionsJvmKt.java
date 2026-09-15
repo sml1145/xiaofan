@@ -59,7 +59,7 @@ public class CollectionsKt___CollectionsJvmKt extends CollectionsKt__ReversedVie
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", hiddenSince = "1.6", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final /* synthetic */ Double m688max(Iterable $this$max) {
+    public static final /* synthetic */ Double m689max(Iterable $this$max) {
         Intrinsics.checkNotNullParameter($this$max, "<this>");
         return CollectionsKt.maxOrNull((Iterable<? extends Double>) $this$max);
     }
@@ -67,7 +67,7 @@ public class CollectionsKt___CollectionsJvmKt extends CollectionsKt__ReversedVie
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", hiddenSince = "1.6", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final /* synthetic */ Float m689max(Iterable $this$max) {
+    public static final /* synthetic */ Float m690max(Iterable $this$max) {
         Intrinsics.checkNotNullParameter($this$max, "<this>");
         return CollectionsKt.maxOrNull((Iterable<? extends Float>) $this$max);
     }
@@ -122,7 +122,7 @@ public class CollectionsKt___CollectionsJvmKt extends CollectionsKt__ReversedVie
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", hiddenSince = "1.6", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final /* synthetic */ Double m690min(Iterable $this$min) {
+    public static final /* synthetic */ Double m691min(Iterable $this$min) {
         Intrinsics.checkNotNullParameter($this$min, "<this>");
         return CollectionsKt.minOrNull((Iterable<? extends Double>) $this$min);
     }
@@ -130,7 +130,7 @@ public class CollectionsKt___CollectionsJvmKt extends CollectionsKt__ReversedVie
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", hiddenSince = "1.6", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final /* synthetic */ Float m691min(Iterable $this$min) {
+    public static final /* synthetic */ Float m692min(Iterable $this$min) {
         Intrinsics.checkNotNullParameter($this$min, "<this>");
         return CollectionsKt.minOrNull((Iterable<? extends Float>) $this$min);
     }

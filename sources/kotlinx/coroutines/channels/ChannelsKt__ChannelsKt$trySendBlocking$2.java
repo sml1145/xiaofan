@@ -94,7 +94,7 @@ public final class ChannelsKt__ChannelsKt$trySendBlocking$2 extends SuspendLambd
             r1 = r2
         L34:
             kotlin.Unit r1 = kotlin.Unit.INSTANCE     // Catch: java.lang.Throwable -> L17
-            java.lang.Object r1 = kotlin.Result.m261constructorimpl(r1)     // Catch: java.lang.Throwable -> L17
+            java.lang.Object r1 = kotlin.Result.m262constructorimpl(r1)     // Catch: java.lang.Throwable -> L17
             goto L49
         L3b:
             r0 = move-exception
@@ -104,20 +104,20 @@ public final class ChannelsKt__ChannelsKt$trySendBlocking$2 extends SuspendLambd
         L3f:
             kotlin.Result$Companion r2 = kotlin.Result.Companion
             java.lang.Object r1 = kotlin.ResultKt.createFailure(r1)
-            java.lang.Object r1 = kotlin.Result.m261constructorimpl(r1)
+            java.lang.Object r1 = kotlin.Result.m262constructorimpl(r1)
         L49:
-            boolean r2 = kotlin.Result.m268isSuccessimpl(r1)
+            boolean r2 = kotlin.Result.m269isSuccessimpl(r1)
             if (r2 == 0) goto L58
             kotlinx.coroutines.channels.ChannelResult$Companion r2 = kotlinx.coroutines.channels.ChannelResult.Companion
             kotlin.Unit r3 = kotlin.Unit.INSTANCE
-            java.lang.Object r2 = r2.m1789successJP2dKIU(r3)
+            java.lang.Object r2 = r2.m1790successJP2dKIU(r3)
             goto L62
         L58:
             kotlinx.coroutines.channels.ChannelResult$Companion r2 = kotlinx.coroutines.channels.ChannelResult.Companion
-            java.lang.Throwable r3 = kotlin.Result.m264exceptionOrNullimpl(r1)
-            java.lang.Object r2 = r2.m1787closedJP2dKIU(r3)
+            java.lang.Throwable r3 = kotlin.Result.m265exceptionOrNullimpl(r1)
+            java.lang.Object r2 = r2.m1788closedJP2dKIU(r3)
         L62:
-            kotlinx.coroutines.channels.ChannelResult r1 = kotlinx.coroutines.channels.ChannelResult.m1774boximpl(r2)
+            kotlinx.coroutines.channels.ChannelResult r1 = kotlinx.coroutines.channels.ChannelResult.m1775boximpl(r2)
             return r1
         */
         throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.ChannelsKt__ChannelsKt$trySendBlocking$2.invokeSuspend(java.lang.Object):java.lang.Object");

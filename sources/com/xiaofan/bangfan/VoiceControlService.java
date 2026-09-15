@@ -52,7 +52,7 @@ public final class VoiceControlService extends Service {
     private static final int NOTIF_ID = 2006;
     private static final int PREROLL_FRAMES = 10;
     private static final int SAMPLE_RATE = 16000;
-    private static final int SIL_TAIL_FRAMES = 35;
+    private static final int SIL_TAIL_FRAMES = 25;
     private static volatile boolean alive;
     private static volatile boolean liveNow;
     private static volatile Companion.UiListener uiListener;
@@ -327,9 +327,16 @@ public final class VoiceControlService extends Service {
                     VoiceControlService.beginLive$lambda$2$lambda$1(VoiceControlService.this);
                 }
             });
-        } else {
-            this$0.runContinuous();
+            return;
         }
+        try {
+            long t0 = SystemClock.uptimeMillis();
+            NativeAsr.INSTANCE.nativeTranscribe(this$0.asrHandle, new short[4000], "zh");
+            Log.i("VoiceCtrl", "asr warmup cost=" + (SystemClock.uptimeMillis() - t0) + "ms");
+        } catch (Throwable th) {
+            Log.w("VoiceCtrl", "warmup failed", th);
+        }
+        this$0.runContinuous();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -496,7 +503,7 @@ public final class VoiceControlService extends Service {
                                 ((ArrayList) utter3.element).addAll(ArraysKt.toList(copy));
                                 if (rms < runContinuous$dynOff(noiseFloor2)) {
                                     silentFrames4.element++;
-                                    if (silentFrames4.element >= 35) {
+                                    if (silentFrames4.element >= 25) {
                                         noiseFloor = noiseFloor2;
                                         silentFrames2 = silentFrames4;
                                         preRoll2 = preRoll4;
@@ -738,11 +745,13 @@ public final class VoiceControlService extends Service {
         final String text;
         Intrinsics.checkNotNullParameter(pcm, "$pcm");
         Intrinsics.checkNotNullParameter(this$0, "this$0");
+        long t0 = SystemClock.uptimeMillis();
         try {
             text = NativeAsr.INSTANCE.nativeTranscribe($h, pcm, "zh");
         } catch (Throwable th) {
             text = null;
         }
+        Log.i("VoiceCtrl", "decode cost=" + (SystemClock.uptimeMillis() - t0) + "ms samples=" + pcm.length);
         this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda2
             @Override // java.lang.Runnable
             public final void run() {

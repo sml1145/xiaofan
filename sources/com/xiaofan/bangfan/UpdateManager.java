@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
+import com.xiaofan.bangfan.NetState;
 import com.xiaofan.bangfan.UpdateManager;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,27 +26,27 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Arrays;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.io.CloseableKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
 import kotlin.ranges.RangesKt;
 import kotlin.text.StringsKt;
 /* compiled from: UpdateManager.kt */
-@Metadata(d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\bÆ\u0002\u0018\u00002\u00020\u0001:\u0001.B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0013J\u0010\u0010\u0014\u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\u0016\u0010\u0017\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0018\u001a\u00020\nJ\u000e\u0010\u0019\u001a\u00020\b2\u0006\u0010\u0015\u001a\u00020\u0016J\u0018\u0010\u001a\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u001b\u001a\u00020\u000fH\u0002J2\u0010\u001c\u001a\u00020\u00112\u0006\u0010\u001d\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u000f2\u0018\u0010\u001f\u001a\u0014\u0012\u0004\u0012\u00020!\u0012\u0004\u0012\u00020!\u0012\u0004\u0012\u00020\u00110 H\u0002J\u0012\u0010\"\u001a\u0004\u0018\u00010#2\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\u0018\u0010$\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u001b\u001a\u00020\u000fH\u0002J\u000e\u0010%\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0013J \u0010&\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0010\b\u0002\u0010'\u001a\n\u0012\u0004\u0012\u00020\u0011\u0018\u00010(J \u0010)\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010*\u001a\u00020#2\u0006\u0010+\u001a\u00020\bH\u0002J\u000e\u0010,\u001a\u00020\b2\u0006\u0010\u0015\u001a\u00020\u0016J\u0018\u0010-\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010*\u001a\u00020#H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006/"}, d2 = {"Lcom/xiaofan/bangfan/UpdateManager;", "", "()V", "CONNECT_TIMEOUT", "", "READ_TIMEOUT", "REQ_UNKNOWN_INSTALL", "TAG", "", "autoCheckedThisProcess", "", "checking", "main", "Landroid/os/Handler;", "pendingInstall", "Ljava/io/File;", "autoCheckOnLaunch", "", "activity", "Landroid/app/Activity;", "canInstall", "ctx", "Landroid/content/Context;", "checkAndPrompt", "silent", "currentVersion", "doInstall", "file", "downloadFile", "urlStr", "target", "onProgress", "Lkotlin/Function2;", "", "fetchLatest", "Lcom/xiaofan/bangfan/UpdateManager$Release;", "installOrRequestPermission", "resumePendingInstall", "showSourceDialog", "onSaved", "Lkotlin/Function0;", "showUpdateDialog", "rel", "cur", "sourceSlug", "startDownload", "Release", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\bÆ\u0002\u0018\u00002\u00020\u0001:\u00010B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0013\u001a\u00020\f2\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\u0016\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\fJ\u000e\u0010\u001b\u001a\u00020\n2\u0006\u0010\u0014\u001a\u00020\u0015J\u0018\u0010\u001c\u001a\u00020\u00172\u0006\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u001d\u001a\u00020\u0011H\u0002J2\u0010\u001e\u001a\u00020\u00172\u0006\u0010\u001f\u001a\u00020\n2\u0006\u0010 \u001a\u00020\u00112\u0018\u0010!\u001a\u0014\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00170\"H\u0002J\u0012\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\u0018\u0010%\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001d\u001a\u00020\u0011H\u0002J\u000e\u0010&\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019J\u000e\u0010'\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019J \u0010(\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0010\b\u0002\u0010)\u001a\n\u0012\u0004\u0012\u00020\u0017\u0018\u00010*J \u0010+\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010,\u001a\u00020$2\u0006\u0010-\u001a\u00020\nH\u0002J\u000e\u0010.\u001a\u00020\n2\u0006\u0010\u0014\u001a\u00020\u0015J\u0018\u0010/\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010,\u001a\u00020$H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00061"}, d2 = {"Lcom/xiaofan/bangfan/UpdateManager;", "", "()V", "CONNECT_TIMEOUT", "", "MIN_AUTO_INTERVAL_MS", "", "READ_TIMEOUT", "REQ_UNKNOWN_INSTALL", "TAG", "", "checking", "", "lastAutoAt", "main", "Landroid/os/Handler;", "pendingInstall", "Ljava/io/File;", "updateDialogShowing", "canInstall", "ctx", "Landroid/content/Context;", "checkAndPrompt", "", "activity", "Landroid/app/Activity;", "silent", "currentVersion", "doInstall", "file", "downloadFile", "urlStr", "target", "onProgress", "Lkotlin/Function2;", "fetchLatest", "Lcom/xiaofan/bangfan/UpdateManager$Release;", "installOrRequestPermission", "onEnterApp", "resumePendingInstall", "showSourceDialog", "onSaved", "Lkotlin/Function0;", "showUpdateDialog", "rel", "cur", "sourceSlug", "startDownload", "Release", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class UpdateManager {
     private static final int CONNECT_TIMEOUT = 12000;
+    private static final long MIN_AUTO_INTERVAL_MS = 15000;
     private static final int READ_TIMEOUT = 30000;
     private static final int REQ_UNKNOWN_INSTALL = 4310;
     private static final String TAG = "XiaoFanUpdate";
-    private static volatile boolean autoCheckedThisProcess;
     private static volatile boolean checking;
+    private static volatile long lastAutoAt;
     private static volatile File pendingInstall;
+    private static volatile boolean updateDialogShowing;
     public static final UpdateManager INSTANCE = new UpdateManager();
     private static final Handler main = new Handler(Looper.getMainLooper());
 
@@ -202,12 +203,16 @@ public final class UpdateManager {
         return StringsKt.isBlank(owner) ? "" : owner + "/" + repo;
     }
 
-    public final void autoCheckOnLaunch(Activity activity) {
+    public final void onEnterApp(Activity activity) {
         Intrinsics.checkNotNullParameter(activity, "activity");
-        if (autoCheckedThisProcess || checking || !AppPrefs.INSTANCE.updateAutoCheck(activity) || StringsKt.isBlank(sourceSlug(activity))) {
+        if (checking || updateDialogShowing || !AppPrefs.INSTANCE.updateAutoCheck(activity) || StringsKt.isBlank(sourceSlug(activity)) || !NetState.INSTANCE.isOnline(activity)) {
             return;
         }
-        autoCheckedThisProcess = true;
+        long now = System.currentTimeMillis();
+        if (now - lastAutoAt < MIN_AUTO_INTERVAL_MS) {
+            return;
+        }
+        lastAutoAt = now;
         checkAndPrompt(activity, true);
     }
 
@@ -220,7 +225,7 @@ public final class UpdateManager {
         if (StringsKt.isBlank(slug)) {
             if (!silent) {
                 final AlertDialog d = new AlertDialog.Builder(activity).setTitle("还没设置更新源").setMessage("应用内更新从 GitHub Releases 拉取，请先填写你的 GitHub 仓库（格式：用户名/仓库名），并把每个版本的 APK 传到该仓库的 Releases。").setPositiveButton("去设置", (DialogInterface.OnClickListener) null).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
-                d.getButton(-1).setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda2
+                d.getButton(-1).setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda3
                     @Override // android.view.View.OnClickListener
                     public final void onClick(View view) {
                         UpdateManager.checkAndPrompt$lambda$1$lambda$0(d, activity, view);
@@ -235,7 +240,7 @@ public final class UpdateManager {
             Toast.makeText(activity, "正在检查更新…", 0).show();
         }
         final String cur = currentVersion(activity);
-        new Thread(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda3
+        new Thread(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable
             public final void run() {
                 UpdateManager.checkAndPrompt$lambda$4(activity, silent, cur);
@@ -276,7 +281,7 @@ public final class UpdateManager {
             rel = INSTANCE.fetchLatest(activity);
         } catch (Throwable th) {
             Log.w(TAG, "fetch latest failed", th);
-            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda5
+            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda8
                 @Override // java.lang.Runnable
                 public final void run() {
                     UpdateManager.checkAndPrompt$lambda$4$lambda$2($silent, activity, th);
@@ -287,7 +292,7 @@ public final class UpdateManager {
         if (rel == null) {
             return;
         }
-        main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda6
+        main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda9
             @Override // java.lang.Runnable
             public final void run() {
                 UpdateManager.checkAndPrompt$lambda$4$lambda$3(UpdateManager.Release.this, cur, $silent, activity);
@@ -326,32 +331,28 @@ public final class UpdateManager {
     }
 
     private final void showUpdateDialog(final Activity activity, final Release rel, String cur) {
-        String sizeText;
-        String format;
-        if (rel.getSize() > 0) {
-            double it = (rel.getSize() / 1024.0d) / 1024.0d;
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            Intrinsics.checkNotNullExpressionValue(String.format("%.1f", Arrays.copyOf(new Object[]{Double.valueOf(it)}, 1)), "format(...)");
-            sizeText = "，大小约 " + ((Object) format) + "MB";
-        } else {
-            sizeText = "";
+        if (updateDialogShowing) {
+            return;
         }
-        String version = rel.getVersion();
-        String notes = rel.getNotes();
-        if (StringsKt.isBlank(notes)) {
-            notes = "建议更新到最新版本以获得修复与优化。";
-        }
-        String msg = "发现新版本 V" + version + "（当前 V" + cur + "）" + sizeText + "\n\n" + ((Object) notes) + "\n\n来源：GitHub Release " + rel.getTagName() + "\n资产：" + rel.getAssetName();
-        new AlertDialog.Builder(activity).setTitle("发现新版本 V" + rel.getVersion()).setMessage(msg).setPositiveButton("立即更新", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda9
+        NetState.Kind netKind = NetState.INSTANCE.kind(activity);
+        String msg = NetState.INSTANCE.composeUpdateMessage(rel.getVersion(), cur, rel.getSize(), netKind, rel.getNotes(), rel.getTagName(), rel.getAssetName());
+        updateDialogShowing = true;
+        AlertDialog dialog = new AlertDialog.Builder(activity).setTitle("发现新版本 V" + rel.getVersion()).setMessage(msg).setPositiveButton("立即更新", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda10
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                UpdateManager.showUpdateDialog$lambda$7(activity, rel, dialogInterface, i);
+                UpdateManager.showUpdateDialog$lambda$5(activity, rel, dialogInterface, i);
             }
-        }).setNegativeButton("稍后", (DialogInterface.OnClickListener) null).setCancelable(false).show();
+        }).setNegativeButton("暂不更新", (DialogInterface.OnClickListener) null).setCancelable(true).show();
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda1
+            @Override // android.content.DialogInterface.OnDismissListener
+            public final void onDismiss(DialogInterface dialogInterface) {
+                UpdateManager.updateDialogShowing = false;
+            }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showUpdateDialog$lambda$7(Activity activity, Release rel, DialogInterface dialogInterface, int i) {
+    public static final void showUpdateDialog$lambda$5(Activity activity, Release rel, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(activity, "$activity");
         Intrinsics.checkNotNullParameter(rel, "$rel");
         INSTANCE.startDownload(activity, rel);
@@ -375,28 +376,28 @@ public final class UpdateManager {
         LinearLayout box = new LinearLayout(activity);
         box.setOrientation(1);
         box.setPadding(UiKit.INSTANCE.dp(activity, 20.0f), UiKit.INSTANCE.dp(activity, 12.0f), UiKit.INSTANCE.dp(activity, 20.0f), 0);
-        final ProgressBar $this$startDownload_u24lambda_u2413 = new ProgressBar(activity, null, 16842872);
-        $this$startDownload_u24lambda_u2413.setMax(100);
-        $this$startDownload_u24lambda_u2413.setProgress(0);
-        final TextView $this$startDownload_u24lambda_u2414 = new TextView(activity);
-        $this$startDownload_u24lambda_u2414.setGravity(17);
-        $this$startDownload_u24lambda_u2414.setText("准备下载…");
-        box.addView($this$startDownload_u24lambda_u2413);
+        final ProgressBar $this$startDownload_u24lambda_u2412 = new ProgressBar(activity, null, 16842872);
+        $this$startDownload_u24lambda_u2412.setMax(100);
+        $this$startDownload_u24lambda_u2412.setProgress(0);
+        final TextView $this$startDownload_u24lambda_u2413 = new TextView(activity);
+        $this$startDownload_u24lambda_u2413.setGravity(17);
+        $this$startDownload_u24lambda_u2413.setText("准备下载…");
+        box.addView($this$startDownload_u24lambda_u2412);
         LinearLayout.LayoutParams it = new LinearLayout.LayoutParams(-1, -2);
         it.topMargin = UiKit.INSTANCE.dp(activity, 8.0f);
         Unit unit = Unit.INSTANCE;
-        box.addView($this$startDownload_u24lambda_u2414, it);
+        box.addView($this$startDownload_u24lambda_u2413, it);
         final AlertDialog dialog = new AlertDialog.Builder(activity).setTitle("正在下载 V" + rel.getVersion()).setView(box).setCancelable(false).show();
         new Thread(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                UpdateManager.startDownload$lambda$19(activity, rel, $this$startDownload_u24lambda_u2413, $this$startDownload_u24lambda_u2414, dialog);
+                UpdateManager.startDownload$lambda$18(activity, rel, $this$startDownload_u24lambda_u2412, $this$startDownload_u24lambda_u2413, dialog);
             }
         }, "xf-update-download").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void startDownload$lambda$19(final Activity activity, final Release rel, ProgressBar bar, TextView pct, final AlertDialog $dialog) {
+    public static final void startDownload$lambda$18(final Activity activity, final Release rel, ProgressBar bar, TextView pct, final AlertDialog $dialog) {
         Intrinsics.checkNotNullParameter(activity, "$activity");
         Intrinsics.checkNotNullParameter(rel, "$rel");
         Intrinsics.checkNotNullParameter(bar, "$bar");
@@ -414,25 +415,25 @@ public final class UpdateManager {
                 target.delete();
             }
             INSTANCE.downloadFile(rel.getApkUrl(), target, new UpdateManager$startDownload$2$1(bar, pct));
-            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda7
+            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda6
                 @Override // java.lang.Runnable
                 public final void run() {
-                    UpdateManager.startDownload$lambda$19$lambda$16($dialog, target, activity);
+                    UpdateManager.startDownload$lambda$18$lambda$15($dialog, target, activity);
                 }
             });
         } catch (Throwable th) {
             Log.w(TAG, "download failed", th);
-            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda8
+            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda7
                 @Override // java.lang.Runnable
                 public final void run() {
-                    UpdateManager.startDownload$lambda$19$lambda$18($dialog, activity, th, rel);
+                    UpdateManager.startDownload$lambda$18$lambda$17($dialog, activity, th, rel);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void startDownload$lambda$19$lambda$16(AlertDialog $dialog, File target, Activity activity) {
+    public static final void startDownload$lambda$18$lambda$15(AlertDialog $dialog, File target, Activity activity) {
         Intrinsics.checkNotNullParameter(target, "$target");
         Intrinsics.checkNotNullParameter(activity, "$activity");
         try {
@@ -444,7 +445,7 @@ public final class UpdateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void startDownload$lambda$19$lambda$18(AlertDialog $dialog, final Activity activity, Throwable th, final Release rel) {
+    public static final void startDownload$lambda$18$lambda$17(AlertDialog $dialog, final Activity activity, Throwable th, final Release rel) {
         Intrinsics.checkNotNullParameter(activity, "$activity");
         Intrinsics.checkNotNullParameter(th, "$th");
         Intrinsics.checkNotNullParameter(rel, "$rel");
@@ -457,16 +458,16 @@ public final class UpdateManager {
         if (message == null) {
             message = "网络中断";
         }
-        title.setMessage(message + "\n可换网络后重试。").setPositiveButton("重试", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda1
+        title.setMessage(message + "\n可换网络后重试。").setPositiveButton("重试", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda2
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                UpdateManager.startDownload$lambda$19$lambda$18$lambda$17(activity, rel, dialogInterface, i);
+                UpdateManager.startDownload$lambda$18$lambda$17$lambda$16(activity, rel, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void startDownload$lambda$19$lambda$18$lambda$17(Activity activity, Release rel, DialogInterface dialogInterface, int i) {
+    public static final void startDownload$lambda$18$lambda$17$lambda$16(Activity activity, Release rel, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(activity, "$activity");
         Intrinsics.checkNotNullParameter(rel, "$rel");
         INSTANCE.startDownload(activity, rel);
@@ -476,14 +477,14 @@ public final class UpdateManager {
         int code;
         URLConnection openConnection = new URL(urlStr).openConnection();
         Intrinsics.checkNotNull(openConnection, "null cannot be cast to non-null type java.net.HttpURLConnection");
-        HttpURLConnection $this$downloadFile_u24lambda_u2420 = (HttpURLConnection) openConnection;
-        $this$downloadFile_u24lambda_u2420.setConnectTimeout(CONNECT_TIMEOUT);
-        $this$downloadFile_u24lambda_u2420.setReadTimeout(READ_TIMEOUT);
+        HttpURLConnection $this$downloadFile_u24lambda_u2419 = (HttpURLConnection) openConnection;
+        $this$downloadFile_u24lambda_u2419.setConnectTimeout(CONNECT_TIMEOUT);
+        $this$downloadFile_u24lambda_u2419.setReadTimeout(READ_TIMEOUT);
         boolean z = true;
-        $this$downloadFile_u24lambda_u2420.setInstanceFollowRedirects(true);
-        $this$downloadFile_u24lambda_u2420.setRequestProperty("User-Agent", "xiaofan-bangfan-update");
+        $this$downloadFile_u24lambda_u2419.setInstanceFollowRedirects(true);
+        $this$downloadFile_u24lambda_u2419.setRequestProperty("User-Agent", "xiaofan-bangfan-update");
         try {
-            code = $this$downloadFile_u24lambda_u2420.getResponseCode();
+            code = $this$downloadFile_u24lambda_u2419.getResponseCode();
             if (200 > code || code >= 300) {
                 z = false;
             }
@@ -494,9 +495,9 @@ public final class UpdateManager {
             if (!z) {
                 throw new RuntimeException("下载返回 " + code);
             }
-            long total = RangesKt.coerceAtLeast($this$downloadFile_u24lambda_u2420.getContentLengthLong(), 0L);
+            long total = RangesKt.coerceAtLeast($this$downloadFile_u24lambda_u2419.getContentLengthLong(), 0L);
             long done = 0;
-            InputStream inputStream = $this$downloadFile_u24lambda_u2420.getInputStream();
+            InputStream inputStream = $this$downloadFile_u24lambda_u2419.getInputStream();
             try {
                 InputStream input = inputStream;
                 boolean z2 = false;
@@ -516,7 +517,7 @@ public final class UpdateManager {
                                 CloseableKt.closeFinally(inputStream, null);
                                 function2.invoke(Long.valueOf(done), Long.valueOf(total));
                                 try {
-                                    $this$downloadFile_u24lambda_u2420.disconnect();
+                                    $this$downloadFile_u24lambda_u2419.disconnect();
                                     return;
                                 } catch (Throwable th2) {
                                     return;
@@ -559,7 +560,7 @@ public final class UpdateManager {
             th = th8;
             Throwable th9 = th;
             try {
-                $this$downloadFile_u24lambda_u2420.disconnect();
+                $this$downloadFile_u24lambda_u2419.disconnect();
             } catch (Throwable th10) {
             }
             throw th9;
@@ -623,23 +624,23 @@ public final class UpdateManager {
         LinearLayout container = new LinearLayout(activity);
         container.setOrientation(1);
         container.setPadding(UiKit.INSTANCE.dp(activity, 20.0f), UiKit.INSTANCE.dp(activity, 8.0f), UiKit.INSTANCE.dp(activity, 20.0f), 0);
-        TextView $this$showSourceDialog_u24lambda_u2425 = new TextView(activity);
-        $this$showSourceDialog_u24lambda_u2425.setText("填写 GitHub 仓库，格式：用户名/仓库名\n例如：your-name/XiaoFan");
-        final EditText $this$showSourceDialog_u24lambda_u2426 = new EditText(activity);
-        $this$showSourceDialog_u24lambda_u2426.setHint("用户名/仓库名");
-        $this$showSourceDialog_u24lambda_u2426.setText(INSTANCE.sourceSlug(activity));
+        TextView $this$showSourceDialog_u24lambda_u2424 = new TextView(activity);
+        $this$showSourceDialog_u24lambda_u2424.setText("填写 GitHub 仓库，格式：用户名/仓库名\n例如：your-name/XiaoFan");
+        final EditText $this$showSourceDialog_u24lambda_u2425 = new EditText(activity);
+        $this$showSourceDialog_u24lambda_u2425.setHint("用户名/仓库名");
+        $this$showSourceDialog_u24lambda_u2425.setText(INSTANCE.sourceSlug(activity));
+        container.addView($this$showSourceDialog_u24lambda_u2424);
         container.addView($this$showSourceDialog_u24lambda_u2425);
-        container.addView($this$showSourceDialog_u24lambda_u2426);
-        new AlertDialog.Builder(activity).setTitle("更新源（GitHub 仓库）").setView(container).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda4
+        new AlertDialog.Builder(activity).setTitle("更新源（GitHub 仓库）").setView(container).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda5
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                UpdateManager.showSourceDialog$lambda$27($this$showSourceDialog_u24lambda_u2426, activity, function0, dialogInterface, i);
+                UpdateManager.showSourceDialog$lambda$26($this$showSourceDialog_u24lambda_u2425, activity, function0, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showSourceDialog$lambda$27(EditText input, Activity activity, Function0 $onSaved, DialogInterface dialogInterface, int i) {
+    public static final void showSourceDialog$lambda$26(EditText input, Activity activity, Function0 $onSaved, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(input, "$input");
         Intrinsics.checkNotNullParameter(activity, "$activity");
         String raw = StringsKt.trimEnd(StringsKt.trim((CharSequence) input.getText().toString()).toString(), '/');
@@ -647,7 +648,7 @@ public final class UpdateManager {
             String owner = StringsKt.trim((CharSequence) StringsKt.substringBefore$default(raw, '/', (String) null, 2, (Object) null)).toString();
             String repo = StringsKt.substringBefore$default(StringsKt.trim((CharSequence) StringsKt.substringAfter$default(raw, '/', (String) null, 2, (Object) null)).toString(), '/', (String) null, 2, (Object) null);
             AppPrefs.INSTANCE.setUpdateSource(activity, owner, repo);
-            autoCheckedThisProcess = false;
+            lastAutoAt = 0L;
             Toast.makeText(activity, "已保存更新源 " + owner + "/" + repo, 0).show();
             if ($onSaved != null) {
                 $onSaved.invoke();

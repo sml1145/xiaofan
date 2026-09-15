@@ -44,8 +44,8 @@ public final class LimitedDispatcher extends CoroutineDispatcher implements Dela
 
     @Override // kotlinx.coroutines.Delay
     /* renamed from: scheduleResumeAfterDelay */
-    public void mo1821scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
-        this.$$delegate_0.mo1821scheduleResumeAfterDelay(j, cancellableContinuation);
+    public void mo1822scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
+        this.$$delegate_0.mo1822scheduleResumeAfterDelay(j, cancellableContinuation);
     }
 
     public LimitedDispatcher(CoroutineDispatcher dispatcher, int parallelism) {
@@ -65,12 +65,12 @@ public final class LimitedDispatcher extends CoroutineDispatcher implements Dela
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public void mo1820dispatch(CoroutineContext context, Runnable block) {
+    public void mo1821dispatch(CoroutineContext context, Runnable block) {
         Runnable task$iv;
         this.queue.addLast(block);
         if (runningWorkers$FU.get(this) < this.parallelism && tryAllocateWorker() && (task$iv = obtainTaskOrDeallocateWorker()) != null) {
             Worker worker = new Worker(task$iv);
-            this.dispatcher.mo1820dispatch(this, worker);
+            this.dispatcher.mo1821dispatch(this, worker);
         }
     }
 
@@ -147,7 +147,7 @@ public final class LimitedDispatcher extends CoroutineDispatcher implements Dela
                 this.currentTask = obtainTaskOrDeallocateWorker;
                 fairnessCounter++;
                 if (fairnessCounter >= 16 && LimitedDispatcher.this.dispatcher.isDispatchNeeded(LimitedDispatcher.this)) {
-                    LimitedDispatcher.this.dispatcher.mo1820dispatch(LimitedDispatcher.this, this);
+                    LimitedDispatcher.this.dispatcher.mo1821dispatch(LimitedDispatcher.this, this);
                     return;
                 }
             }

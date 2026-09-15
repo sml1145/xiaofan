@@ -11,13 +11,13 @@ public final class UIntArrayKt {
         Intrinsics.checkNotNullParameter(init, "init");
         int[] iArr = new int[size];
         for (int i = 0; i < size; i++) {
-            iArr[i] = init.invoke(Integer.valueOf(i)).m408unboximpl();
+            iArr[i] = init.invoke(Integer.valueOf(i)).m409unboximpl();
         }
-        return UIntArray.m411constructorimpl(iArr);
+        return UIntArray.m412constructorimpl(iArr);
     }
 
     /* renamed from: uintArrayOf--ajY-9A  reason: not valid java name */
-    private static final int[] m427uintArrayOfajY9A(int... elements) {
+    private static final int[] m428uintArrayOfajY9A(int... elements) {
         Intrinsics.checkNotNullParameter(elements, "elements");
         return elements;
     }

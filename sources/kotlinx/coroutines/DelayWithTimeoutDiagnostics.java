@@ -14,7 +14,7 @@ import kotlinx.coroutines.Delay;
 /* loaded from: classes.dex */
 public interface DelayWithTimeoutDiagnostics extends Delay {
     /* renamed from: timeoutMessage-LRDsOJo  reason: not valid java name */
-    String m1753timeoutMessageLRDsOJo(long j);
+    String m1754timeoutMessageLRDsOJo(long j);
 
     /* compiled from: Delay.kt */
     @Metadata(k = 3, mv = {1, 8, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)

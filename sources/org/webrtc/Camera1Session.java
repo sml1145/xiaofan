@@ -206,14 +206,14 @@ public class Camera1Session implements CameraSession {
         this.surfaceTextureHelper.startListening(new VideoSink() { // from class: org.webrtc.Camera1Session$$ExternalSyntheticLambda0
             @Override // org.webrtc.VideoSink
             public final void onFrame(VideoFrame videoFrame) {
-                Camera1Session.this.m2007lambda$listenForTextureFrames$0$orgwebrtcCamera1Session(videoFrame);
+                Camera1Session.this.m2008lambda$listenForTextureFrames$0$orgwebrtcCamera1Session(videoFrame);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$listenForTextureFrames$0$org-webrtc-Camera1Session  reason: not valid java name */
-    public /* synthetic */ void m2007lambda$listenForTextureFrames$0$orgwebrtcCamera1Session(VideoFrame frame) {
+    public /* synthetic */ void m2008lambda$listenForTextureFrames$0$orgwebrtcCamera1Session(VideoFrame frame) {
         checkIsOnCameraThread();
         if (this.state != SessionState.RUNNING) {
             Logging.d(TAG, "Texture frame captured but camera is no longer running.");
@@ -253,7 +253,7 @@ public class Camera1Session implements CameraSession {
                 VideoFrame.Buffer frameBuffer = new NV21Buffer(data, Camera1Session.this.captureFormat.width, Camera1Session.this.captureFormat.height, new Runnable() { // from class: org.webrtc.Camera1Session$2$$ExternalSyntheticLambda1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        Camera1Session.AnonymousClass2.this.m2009lambda$onPreviewFrame$1$orgwebrtcCamera1Session$2(data);
+                        Camera1Session.AnonymousClass2.this.m2010lambda$onPreviewFrame$1$orgwebrtcCamera1Session$2(data);
                     }
                 });
                 VideoFrame frame = new VideoFrame(frameBuffer, Camera1Session.this.getFrameOrientation(), captureTimeNs);
@@ -264,18 +264,18 @@ public class Camera1Session implements CameraSession {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$onPreviewFrame$1$org-webrtc-Camera1Session$2  reason: not valid java name */
-        public /* synthetic */ void m2009lambda$onPreviewFrame$1$orgwebrtcCamera1Session$2(final byte[] data) {
+        public /* synthetic */ void m2010lambda$onPreviewFrame$1$orgwebrtcCamera1Session$2(final byte[] data) {
             Camera1Session.this.cameraThreadHandler.post(new Runnable() { // from class: org.webrtc.Camera1Session$2$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    Camera1Session.AnonymousClass2.this.m2008lambda$onPreviewFrame$0$orgwebrtcCamera1Session$2(data);
+                    Camera1Session.AnonymousClass2.this.m2009lambda$onPreviewFrame$0$orgwebrtcCamera1Session$2(data);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$onPreviewFrame$0$org-webrtc-Camera1Session$2  reason: not valid java name */
-        public /* synthetic */ void m2008lambda$onPreviewFrame$0$orgwebrtcCamera1Session$2(byte[] data) {
+        public /* synthetic */ void m2009lambda$onPreviewFrame$0$orgwebrtcCamera1Session$2(byte[] data) {
             if (Camera1Session.this.state == SessionState.RUNNING) {
                 Camera1Session.this.camera.addCallbackBuffer(data);
             }

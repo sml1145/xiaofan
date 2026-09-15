@@ -15,7 +15,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt;
 import okhttp3.OkHttpClient;
 /* compiled from: OfflineModels.kt */
-@Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\bÆ\u0002\u0018\u00002\u00020\u0001:\u0001\u001aB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\fJ2\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\u000f\u001a\u00020\u00102\u0012\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u0013\u0012\u0004\u0012\u00020\u00140\u00122\u0006\u0010\u0015\u001a\u00020\u0016J\u0016\u0010\u0017\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\u000f\u001a\u00020\u0010J\u0016\u0010\u0018\u001a\u00020\u000e2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\u000f\u001a\u00020\u0010J\u0016\u0010\u0019\u001a\u00020\u00132\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\u000f\u001a\u00020\u0010R\u001b\u0010\u0003\u001a\u00020\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u001b"}, d2 = {"Lcom/xiaofan/bangfan/ai/OfflineModels;", "", "()V", "http", "Lokhttp3/OkHttpClient;", "getHttp", "()Lokhttp3/OkHttpClient;", "http$delegate", "Lkotlin/Lazy;", "dir", "Ljava/io/File;", "ctx", "Landroid/content/Context;", "download", "", "kind", "Lcom/xiaofan/bangfan/ai/OfflineModels$Kind;", "onProgress", "Lkotlin/Function1;", "", "", "cancel", "Ljava/util/concurrent/atomic/AtomicBoolean;", "file", "isReady", NotificationCompat.CATEGORY_PROGRESS, "Kind", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\bÆ\u0002\u0018\u00002\u00020\u0001:\u0001\u001bB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\fJ\u000e\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000b\u001a\u00020\fJ2\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\u0011\u001a\u00020\u00122\u0012\u0010\u0013\u001a\u000e\u0012\u0004\u0012\u00020\u0015\u0012\u0004\u0012\u00020\n0\u00142\u0006\u0010\u0016\u001a\u00020\u0017J\u0016\u0010\u0018\u001a\u00020\u000e2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\u0011\u001a\u00020\u0012J\u0016\u0010\u0019\u001a\u00020\u00102\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\u0011\u001a\u00020\u0012J\u0016\u0010\u001a\u001a\u00020\u00152\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\u0011\u001a\u00020\u0012R\u001b\u0010\u0003\u001a\u00020\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u001c"}, d2 = {"Lcom/xiaofan/bangfan/ai/OfflineModels;", "", "()V", "http", "Lokhttp3/OkHttpClient;", "getHttp", "()Lokhttp3/OkHttpClient;", "http$delegate", "Lkotlin/Lazy;", "cleanupLegacy", "", "ctx", "Landroid/content/Context;", "dir", "Ljava/io/File;", "download", "", "kind", "Lcom/xiaofan/bangfan/ai/OfflineModels$Kind;", "onProgress", "Lkotlin/Function1;", "", "cancel", "Ljava/util/concurrent/atomic/AtomicBoolean;", "file", "isReady", NotificationCompat.CATEGORY_PROGRESS, "Kind", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes3.dex */
 public final class OfflineModels {
     public static final OfflineModels INSTANCE = new OfflineModels();
@@ -31,7 +31,7 @@ public final class OfflineModels {
     /* loaded from: classes3.dex */
     public enum Kind {
         LLM("qwen25-0.5b-instruct-q4km.gguf", "https://hf-mirror.com/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf", 491400032, "离线对话大脑"),
-        ASR("whisper-base.bin", "https://hf-mirror.com/ggerganov/whisper.cpp/resolve/main/ggml-base.bin", 147951465, "离线声控识别");
+        ASR("whisper-base-q8_0.bin", "https://hf-mirror.com/ggerganov/whisper.cpp/resolve/main/ggml-base-q8_0.bin", 81768585, "离线声控识别");
         
         private final long expectSize;
         private final String fileName;
@@ -68,6 +68,17 @@ public final class OfflineModels {
     }
 
     private OfflineModels() {
+    }
+
+    public final void cleanupLegacy(Context ctx) {
+        Intrinsics.checkNotNullParameter(ctx, "ctx");
+        try {
+            File legacy = new File(dir(ctx), "whisper-base.bin");
+            if (legacy.exists()) {
+                legacy.delete();
+            }
+        } catch (Throwable th) {
+        }
     }
 
     public final File dir(Context ctx) {

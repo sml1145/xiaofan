@@ -13,9 +13,9 @@ public final class MeasureTimeKt {
     public static final long measureTime(Function0<Unit> block) {
         Intrinsics.checkNotNullParameter(block, "block");
         TimeSource.Monotonic $this$measureTime$iv = TimeSource.Monotonic.INSTANCE;
-        long mark$iv = $this$measureTime$iv.m1726markNowz9LOYto();
+        long mark$iv = $this$measureTime$iv.m1727markNowz9LOYto();
         block.invoke();
-        return TimeSource.Monotonic.ValueTimeMark.m1731elapsedNowUwyO8pc(mark$iv);
+        return TimeSource.Monotonic.ValueTimeMark.m1732elapsedNowUwyO8pc(mark$iv);
     }
 
     public static final long measureTime(TimeSource $this$measureTime, Function0<Unit> block) {
@@ -23,23 +23,23 @@ public final class MeasureTimeKt {
         Intrinsics.checkNotNullParameter(block, "block");
         TimeMark mark = $this$measureTime.markNow();
         block.invoke();
-        return mark.mo1577elapsedNowUwyO8pc();
+        return mark.mo1578elapsedNowUwyO8pc();
     }
 
     public static final long measureTime(TimeSource.Monotonic $this$measureTime, Function0<Unit> block) {
         Intrinsics.checkNotNullParameter($this$measureTime, "<this>");
         Intrinsics.checkNotNullParameter(block, "block");
-        long mark = $this$measureTime.m1726markNowz9LOYto();
+        long mark = $this$measureTime.m1727markNowz9LOYto();
         block.invoke();
-        return TimeSource.Monotonic.ValueTimeMark.m1731elapsedNowUwyO8pc(mark);
+        return TimeSource.Monotonic.ValueTimeMark.m1732elapsedNowUwyO8pc(mark);
     }
 
     public static final <T> TimedValue<T> measureTimedValue(Function0<? extends T> block) {
         Intrinsics.checkNotNullParameter(block, "block");
         TimeSource.Monotonic $this$measureTimedValue$iv = TimeSource.Monotonic.INSTANCE;
-        long mark$iv = $this$measureTimedValue$iv.m1726markNowz9LOYto();
+        long mark$iv = $this$measureTimedValue$iv.m1727markNowz9LOYto();
         Object result$iv = block.invoke();
-        return new TimedValue<>(result$iv, TimeSource.Monotonic.ValueTimeMark.m1731elapsedNowUwyO8pc(mark$iv), null);
+        return new TimedValue<>(result$iv, TimeSource.Monotonic.ValueTimeMark.m1732elapsedNowUwyO8pc(mark$iv), null);
     }
 
     public static final <T> TimedValue<T> measureTimedValue(TimeSource $this$measureTimedValue, Function0<? extends T> block) {
@@ -47,14 +47,14 @@ public final class MeasureTimeKt {
         Intrinsics.checkNotNullParameter(block, "block");
         TimeMark mark = $this$measureTimedValue.markNow();
         Object result = block.invoke();
-        return new TimedValue<>(result, mark.mo1577elapsedNowUwyO8pc(), null);
+        return new TimedValue<>(result, mark.mo1578elapsedNowUwyO8pc(), null);
     }
 
     public static final <T> TimedValue<T> measureTimedValue(TimeSource.Monotonic $this$measureTimedValue, Function0<? extends T> block) {
         Intrinsics.checkNotNullParameter($this$measureTimedValue, "<this>");
         Intrinsics.checkNotNullParameter(block, "block");
-        long mark = $this$measureTimedValue.m1726markNowz9LOYto();
+        long mark = $this$measureTimedValue.m1727markNowz9LOYto();
         Object result = block.invoke();
-        return new TimedValue<>(result, TimeSource.Monotonic.ValueTimeMark.m1731elapsedNowUwyO8pc(mark), null);
+        return new TimedValue<>(result, TimeSource.Monotonic.ValueTimeMark.m1732elapsedNowUwyO8pc(mark), null);
     }
 }
