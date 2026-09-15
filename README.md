@@ -1,4 +1,4 @@
-# 小翻 (XiaoFan) v2.2
+# 小翻 (XiaoFan) v2.3
 
 <p align="center">
   <img src="assets/ic_launcher.png" alt="小翻图标" width="128" height="128">
@@ -7,7 +7,7 @@
 
 ## 项目简介
 
-小翻是一款 Android 应用，包名为 `com.xiaofan.bangfan`，最新版本 2.2。
+小翻是一款 Android 应用，包名为 `com.xiaofan.bangfan`，最新版本 2.3。
 
 本仓库为 APK 反编译后的源代码，用于学习和研究目的。
 
