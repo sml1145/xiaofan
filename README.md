@@ -27,7 +27,17 @@
 
 ## 应用截图
 
-> 界面截图待补充。如需添加截图，请将图片放入 `assets/screenshots/` 目录。
+| 欢迎引导页 | AI 助手主页 |
+|-----------|------------|
+| ![欢迎引导页](assets/screenshots/01_welcome.png) | ![AI助手主页](assets/screenshots/02_home.png) |
+
+| 离线声控设置 | 离线 AI 大脑 |
+|------------|-------------|
+| ![离线声控设置](assets/screenshots/03_offline_voice.png) | ![离线AI大脑](assets/screenshots/04_offline_ai.png) |
+
+| 功能列表 |
+|---------|
+| ![功能列表](assets/screenshots/05_features.png) |
 
 ## 主要权限
 
