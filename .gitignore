@@ -1,0 +1,19 @@
+# Build files
+build/
+*.apk
+*.ap_
+*.dex
+*.class
+
+# IDE
+.idea/
+*.iml
+local.properties
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

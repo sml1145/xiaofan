@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bad">#fff57fb6</color>
+    <color name="bg">#ff0e1621</color>
+    <color name="brand_light">#ff12323f</color>
+    <color name="calib_bg">#ff0e1621</color>
+    <color name="calib_todo">#ff4a5a6a</color>
+    <color name="card">#ff18222e</color>
+    <color name="ink">#ffe8eef4</color>
+    <color name="line">#ff2a3644</color>
+    <color name="muted">#ff93a1b0</color>
+    <color name="ok">#ff54d89a</color>
+    <color name="splash_bg">#ff0e1621</color>
+    <color name="warn">#fff0c463</color>
+</resources>
