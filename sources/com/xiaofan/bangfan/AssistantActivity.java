@@ -58,7 +58,7 @@ public final class AssistantActivity extends BaseActivity {
         content.addView(textView, UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 4.0f), 0, UiKit.INSTANCE.dp(this, 10.0f)));
         LinearLayout voiceCard = UiKit.INSTANCE.card(this);
         voiceCard.addView(UiKit.INSTANCE.cardTitle(this, "小翻的声音"));
-        voiceCard.addView(UiKit.INSTANCE.switchRow(this, "让小翻说话", "精灵儿童音播报", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda38
+        voiceCard.addView(UiKit.INSTANCE.switchRow(this, "让小翻说话", "精灵儿童音播报", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda46
             @Override // com.xiaofan.bangfan.UiKit.Getter
             public final Object get() {
                 boolean onCreate$lambda$0;
@@ -72,56 +72,56 @@ public final class AssistantActivity extends BaseActivity {
             }
         }), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 4.0f), 0, 0));
         voiceCard.addView(UiKit.INSTANCE.divider(this));
-        voiceCard.addView(UiKit.INSTANCE.switchRow(this, "翻页时也说话", "关闭可减少打扰（默认关）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda21
+        voiceCard.addView(UiKit.INSTANCE.switchRow(this, "翻页时也说话", "关闭可减少打扰（默认关）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda24
             @Override // com.xiaofan.bangfan.UiKit.Getter
             public final Object get() {
                 boolean onCreate$lambda$2;
                 onCreate$lambda$2 = AssistantActivity.onCreate$lambda$2(AssistantActivity.this);
                 return Boolean.valueOf(onCreate$lambda$2);
             }
-        }, new UiKit.Setter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda23
+        }, new UiKit.Setter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda31
             @Override // com.xiaofan.bangfan.UiKit.Setter
             public final void set(boolean z) {
                 AssistantActivity.onCreate$lambda$3(AssistantActivity.this, z);
             }
         }));
         voiceCard.addView(UiKit.INSTANCE.divider(this));
-        voiceCard.addView(UiKit.INSTANCE.switchRow(this, "按键音效", "点击按钮/开关时响起轻反馈音（默认开）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda24
+        voiceCard.addView(UiKit.INSTANCE.switchRow(this, "按键音效", "点击按钮/开关时响起轻反馈音（默认开）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda32
             @Override // com.xiaofan.bangfan.UiKit.Getter
             public final Object get() {
                 boolean onCreate$lambda$4;
                 onCreate$lambda$4 = AssistantActivity.onCreate$lambda$4(AssistantActivity.this);
                 return Boolean.valueOf(onCreate$lambda$4);
             }
-        }, new UiKit.Setter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda25
+        }, new UiKit.Setter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda34
             @Override // com.xiaofan.bangfan.UiKit.Setter
             public final void set(boolean z) {
                 AssistantActivity.onCreate$lambda$5(AssistantActivity.this, z);
             }
         }));
         voiceCard.addView(UiKit.INSTANCE.divider(this));
-        voiceCard.addView(UiKit.INSTANCE.valueRow(this, "音调（越高越像小朋友）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda26
+        voiceCard.addView(UiKit.INSTANCE.valueRow(this, "音调（越高越像小朋友）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda35
             @Override // com.xiaofan.bangfan.UiKit.Getter
             public final Object get() {
                 String onCreate$lambda$6;
                 onCreate$lambda$6 = AssistantActivity.onCreate$lambda$6(AssistantActivity.this);
                 return onCreate$lambda$6;
             }
-        }, new View.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda27
+        }, new View.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda36
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 AssistantActivity.onCreate$lambda$7(AssistantActivity.this, view);
             }
         }));
         voiceCard.addView(UiKit.INSTANCE.divider(this));
-        voiceCard.addView(UiKit.INSTANCE.valueRow(this, "音色包", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda28
+        voiceCard.addView(UiKit.INSTANCE.valueRow(this, "音色包", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda37
             @Override // com.xiaofan.bangfan.UiKit.Getter
             public final Object get() {
                 String onCreate$lambda$8;
                 onCreate$lambda$8 = AssistantActivity.onCreate$lambda$8(AssistantActivity.this);
                 return onCreate$lambda$8;
             }
-        }, new View.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda29
+        }, new View.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda38
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 AssistantActivity.onCreate$lambda$9(AssistantActivity.this, view);
@@ -263,6 +263,64 @@ public final class AssistantActivity extends BaseActivity {
             }
         }));
         content.addView(aiCard, UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 12.0f), 0, 0));
+        LinearLayout updateCard = UiKit.INSTANCE.card(this);
+        updateCard.addView(UiKit.INSTANCE.cardTitle(this, "版本与更新"));
+        updateCard.addView(UiKit.INSTANCE.valueRow(this, "当前版本", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda21
+            @Override // com.xiaofan.bangfan.UiKit.Getter
+            public final Object get() {
+                String onCreate$lambda$28;
+                onCreate$lambda$28 = AssistantActivity.onCreate$lambda$28(AssistantActivity.this);
+                return onCreate$lambda$28;
+            }
+        }, new View.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda23
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view) {
+                AssistantActivity.onCreate$lambda$29(AssistantActivity.this, view);
+            }
+        }), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 4.0f), 0, 0));
+        updateCard.addView(UiKit.INSTANCE.divider(this));
+        updateCard.addView(UiKit.INSTANCE.switchRow(this, "启动时自动检测新版本", "发现新版会弹窗，经你确认后下载安装（默认开）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda25
+            @Override // com.xiaofan.bangfan.UiKit.Getter
+            public final Object get() {
+                boolean onCreate$lambda$30;
+                onCreate$lambda$30 = AssistantActivity.onCreate$lambda$30(AssistantActivity.this);
+                return Boolean.valueOf(onCreate$lambda$30);
+            }
+        }, new UiKit.Setter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda26
+            @Override // com.xiaofan.bangfan.UiKit.Setter
+            public final void set(boolean z) {
+                AssistantActivity.onCreate$lambda$31(AssistantActivity.this, z);
+            }
+        }));
+        updateCard.addView(UiKit.INSTANCE.divider(this));
+        updateCard.addView(UiKit.INSTANCE.valueRow(this, "检查更新", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda27
+            @Override // com.xiaofan.bangfan.UiKit.Getter
+            public final Object get() {
+                String onCreate$lambda$32;
+                onCreate$lambda$32 = AssistantActivity.onCreate$lambda$32();
+                return onCreate$lambda$32;
+            }
+        }, new View.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda28
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view) {
+                AssistantActivity.onCreate$lambda$33(AssistantActivity.this, view);
+            }
+        }));
+        updateCard.addView(UiKit.INSTANCE.divider(this));
+        updateCard.addView(UiKit.INSTANCE.valueRow(this, "更新源（GitHub 仓库）", new UiKit.Getter() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda29
+            @Override // com.xiaofan.bangfan.UiKit.Getter
+            public final Object get() {
+                String onCreate$lambda$35;
+                onCreate$lambda$35 = AssistantActivity.onCreate$lambda$35(AssistantActivity.this);
+                return onCreate$lambda$35;
+            }
+        }, new View.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda30
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view) {
+                AssistantActivity.onCreate$lambda$36(AssistantActivity.this, view);
+            }
+        }));
+        content.addView(updateCard, UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 12.0f), 0, 0));
         setContentView(scaffold);
         refresh();
     }
@@ -469,6 +527,57 @@ public final class AssistantActivity extends BaseActivity {
         this$0.showKeyDialog();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final String onCreate$lambda$28(AssistantActivity this$0) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        return "V" + UpdateManager.INSTANCE.currentVersion(this$0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void onCreate$lambda$29(AssistantActivity this$0, View it) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        Toast.makeText(this$0, "这是当前安装的版本", 0).show();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final boolean onCreate$lambda$30(AssistantActivity this$0) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        return AppPrefs.INSTANCE.updateAutoCheck(this$0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void onCreate$lambda$31(AssistantActivity this$0, boolean v) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        AppPrefs.INSTANCE.setUpdateAutoCheck(this$0, v);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final String onCreate$lambda$32() {
+        return "从 GitHub Releases 拉取最新版";
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void onCreate$lambda$33(AssistantActivity this$0, View it) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        UpdateManager.INSTANCE.checkAndPrompt(this$0, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final String onCreate$lambda$35(AssistantActivity this$0) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        String sourceSlug = UpdateManager.INSTANCE.sourceSlug(this$0);
+        if (StringsKt.isBlank(sourceSlug)) {
+            sourceSlug = "未设置，点此填写";
+        }
+        return sourceSlug;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void onCreate$lambda$36(AssistantActivity this$0, View it) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        UpdateManager.showSourceDialog$default(UpdateManager.INSTANCE, this$0, null, 2, null);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaofan.bangfan.BaseActivity, android.app.Activity
     public void onResume() {
@@ -623,16 +732,16 @@ public final class AssistantActivity extends BaseActivity {
 
     private final void showPitchDialog() {
         final float[] pitches = {1.2f, 1.5f, 1.75f, 2.0f};
-        new AlertDialog.Builder(this).setTitle("小翻音调").setItems(new String[]{"1.20（偏低）", "1.50（默认·自然）", "1.75（偏亮）", "2.00（精灵儿童音）"}, new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda35
+        new AlertDialog.Builder(this).setTitle("小翻音调").setItems(new String[]{"1.20（偏低）", "1.50（默认·自然）", "1.75（偏亮）", "2.00（精灵儿童音）"}, new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda43
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                AssistantActivity.showPitchDialog$lambda$29(AssistantActivity.this, pitches, dialogInterface, i);
+                AssistantActivity.showPitchDialog$lambda$38(AssistantActivity.this, pitches, dialogInterface, i);
             }
         }).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showPitchDialog$lambda$29(AssistantActivity this$0, float[] pitches, DialogInterface dialogInterface, int which) {
+    public static final void showPitchDialog$lambda$38(AssistantActivity this$0, float[] pitches, DialogInterface dialogInterface, int which) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(pitches, "$pitches");
         AppPrefs.INSTANCE.setSpeakPitch(this$0, pitches[which]);
@@ -648,16 +757,16 @@ public final class AssistantActivity extends BaseActivity {
             String name = p.getName();
             items[i] = name + " — " + p.getDesc();
         }
-        new AlertDialog.Builder(this).setTitle("选择音色包（离线即用）").setSingleChoiceItems(items, AppPrefs.INSTANCE.voicePack(this), new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda37
+        new AlertDialog.Builder(this).setTitle("选择音色包（离线即用）").setSingleChoiceItems(items, AppPrefs.INSTANCE.voicePack(this), new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda44
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i2) {
-                AssistantActivity.showVoicePackDialog$lambda$30(AssistantActivity.this, dialogInterface, i2);
+                AssistantActivity.showVoicePackDialog$lambda$39(AssistantActivity.this, dialogInterface, i2);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showVoicePackDialog$lambda$30(AssistantActivity this$0, DialogInterface dialog, int which) {
+    public static final void showVoicePackDialog$lambda$39(AssistantActivity this$0, DialogInterface dialog, int which) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         VoicePack.INSTANCE.applyPresetToPrefs(this$0, which);
         XiaoFanVoice.INSTANCE.applyVoiceParams(this$0);
@@ -671,25 +780,25 @@ public final class AssistantActivity extends BaseActivity {
         new Thread(new Runnable() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                AssistantActivity.showSystemVoiceDialog$lambda$33(AssistantActivity.this);
+                AssistantActivity.showSystemVoiceDialog$lambda$42(AssistantActivity.this);
             }
         }, "list-voices").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showSystemVoiceDialog$lambda$33(final AssistantActivity this$0) {
+    public static final void showSystemVoiceDialog$lambda$42(final AssistantActivity this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         final List voices = VoicePack.INSTANCE.listSystemVoices(this$0);
-        this$0.runOnUiThread(new Runnable() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda36
+        this$0.runOnUiThread(new Runnable() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda45
             @Override // java.lang.Runnable
             public final void run() {
-                AssistantActivity.showSystemVoiceDialog$lambda$33$lambda$32(voices, this$0);
+                AssistantActivity.showSystemVoiceDialog$lambda$42$lambda$41(voices, this$0);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showSystemVoiceDialog$lambda$33$lambda$32(List voices, final AssistantActivity this$0) {
+    public static final void showSystemVoiceDialog$lambda$42$lambda$41(List voices, final AssistantActivity this$0) {
         Intrinsics.checkNotNullParameter(voices, "$voices");
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         if (voices.isEmpty()) {
@@ -713,13 +822,13 @@ public final class AssistantActivity extends BaseActivity {
         new AlertDialog.Builder(this$0).setTitle("选择系统发音人").setItems(items, new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda33
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i3) {
-                AssistantActivity.showSystemVoiceDialog$lambda$33$lambda$32$lambda$31(AssistantActivity.this, locales, dialogInterface, i3);
+                AssistantActivity.showSystemVoiceDialog$lambda$42$lambda$41$lambda$40(AssistantActivity.this, locales, dialogInterface, i3);
             }
         }).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showSystemVoiceDialog$lambda$33$lambda$32$lambda$31(AssistantActivity this$0, String[] locales, DialogInterface dialogInterface, int which) {
+    public static final void showSystemVoiceDialog$lambda$42$lambda$41$lambda$40(AssistantActivity this$0, String[] locales, DialogInterface dialogInterface, int which) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(locales, "$locales");
         AppPrefs.INSTANCE.setVoiceLocale(this$0, locales[which]);
@@ -735,16 +844,16 @@ public final class AssistantActivity extends BaseActivity {
         input.setText(AppPrefs.INSTANCE.aiEndpointRaw(this));
         input.setSelection(input.getText().length());
         input.setPadding(UiKit.INSTANCE.dp(this, 16.0f), UiKit.INSTANCE.dp(this, 12.0f), UiKit.INSTANCE.dp(this, 16.0f), UiKit.INSTANCE.dp(this, 12.0f));
-        new AlertDialog.Builder(this).setTitle("API 地址（OpenAI 兼容）").setView(input).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda34
+        new AlertDialog.Builder(this).setTitle("API 地址（OpenAI 兼容）").setView(input).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda42
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                AssistantActivity.showEndpointDialog$lambda$34(AssistantActivity.this, input, dialogInterface, i);
+                AssistantActivity.showEndpointDialog$lambda$43(AssistantActivity.this, input, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showEndpointDialog$lambda$34(AssistantActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
+    public static final void showEndpointDialog$lambda$43(AssistantActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(input, "$input");
         AppPrefs.INSTANCE.setAiEndpoint(this$0, StringsKt.trim((CharSequence) input.getText().toString()).toString());
@@ -760,13 +869,13 @@ public final class AssistantActivity extends BaseActivity {
         new AlertDialog.Builder(this).setTitle("API 密钥").setView(input).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda22
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                AssistantActivity.showKeyDialog$lambda$35(AssistantActivity.this, input, dialogInterface, i);
+                AssistantActivity.showKeyDialog$lambda$44(AssistantActivity.this, input, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showKeyDialog$lambda$35(AssistantActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
+    public static final void showKeyDialog$lambda$44(AssistantActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(input, "$input");
         AppPrefs.INSTANCE.setAiApiKey(this$0, StringsKt.trim((CharSequence) input.getText().toString()).toString());
@@ -785,16 +894,16 @@ public final class AssistantActivity extends BaseActivity {
         container.setPadding(UiKit.INSTANCE.dp(this, 20.0f), UiKit.INSTANCE.dp(this, 8.0f), UiKit.INSTANCE.dp(this, 20.0f), 0);
         container.addView(UiKit.INSTANCE.bodyText(this, "填支持音色克隆的 TTS 接口（OpenAI 风格）。\n克隆会 POST 到该地址的 /voices，合成会 POST 到该地址本身。"));
         container.addView(input, UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 12.0f), 0, 0));
-        new AlertDialog.Builder(this).setTitle("音色服务地址").setView(container).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda32
+        new AlertDialog.Builder(this).setTitle("音色服务地址").setView(container).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda41
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                AssistantActivity.showTtsEndpointDialog$lambda$36(AssistantActivity.this, input, dialogInterface, i);
+                AssistantActivity.showTtsEndpointDialog$lambda$45(AssistantActivity.this, input, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showTtsEndpointDialog$lambda$36(AssistantActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
+    public static final void showTtsEndpointDialog$lambda$45(AssistantActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(input, "$input");
         AppPrefs.INSTANCE.setTtsEndpoint(this$0, StringsKt.trim((CharSequence) input.getText().toString()).toString());
@@ -810,13 +919,13 @@ public final class AssistantActivity extends BaseActivity {
         new AlertDialog.Builder(this).setTitle("音色服务密钥").setView(input).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda11
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                AssistantActivity.showTtsKeyDialog$lambda$37(AssistantActivity.this, input, dialogInterface, i);
+                AssistantActivity.showTtsKeyDialog$lambda$46(AssistantActivity.this, input, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showTtsKeyDialog$lambda$37(AssistantActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
+    public static final void showTtsKeyDialog$lambda$46(AssistantActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(input, "$input");
         AppPrefs.INSTANCE.setTtsApiKey(this$0, StringsKt.trim((CharSequence) input.getText().toString()).toString());
@@ -840,8 +949,9 @@ public final class AssistantActivity extends BaseActivity {
         }
     }
 
-    @Override // android.app.Activity
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.xiaofan.bangfan.BaseActivity, android.app.Activity
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Uri uri;
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode != REQ_PICK_AUDIO || resultCode != -1 || data == null || (uri = data.getData()) == null) {
@@ -862,32 +972,32 @@ public final class AssistantActivity extends BaseActivity {
         input.setText("我的声音");
         input.setSelection(input.getText().length());
         input.setPadding(UiKit.INSTANCE.dp(this, 16.0f), UiKit.INSTANCE.dp(this, 12.0f), UiKit.INSTANCE.dp(this, 16.0f), UiKit.INSTANCE.dp(this, 12.0f));
-        new AlertDialog.Builder(this).setTitle("开始克隆").setMessage("已选好参考音频。给这个音色起个名字：").setView(input).setPositiveButton("开始克隆", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda30
+        new AlertDialog.Builder(this).setTitle("开始克隆").setMessage("已选好参考音频。给这个音色起个名字：").setView(input).setPositiveButton("开始克隆", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda39
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                AssistantActivity.startClone$lambda$39(input, this, uri, dialogInterface, i);
+                AssistantActivity.startClone$lambda$48(input, this, uri, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void startClone$lambda$39(EditText input, final AssistantActivity this$0, final Uri uri, DialogInterface dialogInterface, int i) {
+    public static final void startClone$lambda$48(EditText input, final AssistantActivity this$0, final Uri uri, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(input, "$input");
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(uri, "$uri");
         final String name = StringsKt.trim((CharSequence) input.getText().toString()).toString();
         this$0.setCvStatus("正在上传音频并克隆，可能需要十几秒…", false);
         Toast.makeText(this$0, "正在克隆，请不要退出页面", 1).show();
-        new Thread(new Runnable() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda31
+        new Thread(new Runnable() { // from class: com.xiaofan.bangfan.AssistantActivity$$ExternalSyntheticLambda40
             @Override // java.lang.Runnable
             public final void run() {
-                AssistantActivity.startClone$lambda$39$lambda$38(AssistantActivity.this, uri, name);
+                AssistantActivity.startClone$lambda$48$lambda$47(AssistantActivity.this, uri, name);
             }
         }, "voice-clone").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void startClone$lambda$39$lambda$38(AssistantActivity this$0, Uri uri, String name) {
+    public static final void startClone$lambda$48$lambda$47(AssistantActivity this$0, Uri uri, String name) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(uri, "$uri");
         Intrinsics.checkNotNullParameter(name, "$name");

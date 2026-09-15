@@ -103,25 +103,25 @@ public final class Challenge {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "scheme", imports = {}))
     /* renamed from: -deprecated_scheme  reason: not valid java name */
-    public final String m1853deprecated_scheme() {
+    public final String m1858deprecated_scheme() {
         return this.scheme;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "authParams", imports = {}))
     /* renamed from: -deprecated_authParams  reason: not valid java name */
-    public final Map<String, String> m1850deprecated_authParams() {
+    public final Map<String, String> m1855deprecated_authParams() {
         return this.authParams;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "realm", imports = {}))
     /* renamed from: -deprecated_realm  reason: not valid java name */
-    public final String m1852deprecated_realm() {
+    public final String m1857deprecated_realm() {
         return realm();
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "charset", imports = {}))
     /* renamed from: -deprecated_charset  reason: not valid java name */
-    public final Charset m1851deprecated_charset() {
+    public final Charset m1856deprecated_charset() {
         return charset();
     }
 

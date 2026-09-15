@@ -97,7 +97,7 @@ public class VideoSource extends MediaSource {
                 newVideoProcessor.setSink(new VideoSink() { // from class: org.webrtc.VideoSource$$ExternalSyntheticLambda1
                     @Override // org.webrtc.VideoSink
                     public final void onFrame(VideoFrame videoFrame) {
-                        VideoSource.this.m2166lambda$setVideoProcessor$1$orgwebrtcVideoSource(videoFrame);
+                        VideoSource.this.m2171lambda$setVideoProcessor$1$orgwebrtcVideoSource(videoFrame);
                     }
                 });
                 if (this.isCapturerRunning) {
@@ -109,17 +109,17 @@ public class VideoSource extends MediaSource {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$setVideoProcessor$0$org-webrtc-VideoSource  reason: not valid java name */
-    public /* synthetic */ void m2165lambda$setVideoProcessor$0$orgwebrtcVideoSource(VideoFrame frame) {
+    public /* synthetic */ void m2170lambda$setVideoProcessor$0$orgwebrtcVideoSource(VideoFrame frame) {
         this.nativeAndroidVideoTrackSource.onFrameCaptured(frame);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$setVideoProcessor$1$org-webrtc-VideoSource  reason: not valid java name */
-    public /* synthetic */ void m2166lambda$setVideoProcessor$1$orgwebrtcVideoSource(final VideoFrame frame) {
+    public /* synthetic */ void m2171lambda$setVideoProcessor$1$orgwebrtcVideoSource(final VideoFrame frame) {
         runWithReference(new Runnable() { // from class: org.webrtc.VideoSource$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                VideoSource.this.m2165lambda$setVideoProcessor$0$orgwebrtcVideoSource(frame);
+                VideoSource.this.m2170lambda$setVideoProcessor$0$orgwebrtcVideoSource(frame);
             }
         });
     }

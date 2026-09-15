@@ -77,7 +77,7 @@ public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>
                 symbol4 = StateFlowKt.NONE;
                 if (AbstractResolvableFuture$SafeAtomicHelper$$ExternalSyntheticBackportWithForwarding0.m(atomicReferenceFieldUpdater2, this, state, symbol4)) {
                     Result.Companion companion = Result.Companion;
-                    ((CancellableContinuationImpl) state).resumeWith(Result.m256constructorimpl(Unit.INSTANCE));
+                    ((CancellableContinuationImpl) state).resumeWith(Result.m261constructorimpl(Unit.INSTANCE));
                     return;
                 }
             }
@@ -118,7 +118,7 @@ public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>
                 }
             }
             Result.Companion companion = Result.Companion;
-            cont.resumeWith(Result.m256constructorimpl(Unit.INSTANCE));
+            cont.resumeWith(Result.m261constructorimpl(Unit.INSTANCE));
         }
         Object result = cancellable$iv.getResult();
         if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {

@@ -597,10 +597,10 @@ public final class PeerJsClient {
                 Result.Companion companion = Result.Companion;
                 PeerJsClient $this$flushPendingCandidates_u24lambda_u248_u24lambda_u247 = this;
                 PeerConnection peerConnection = $this$flushPendingCandidates_u24lambda_u248_u24lambda_u247.pc;
-                Result.m256constructorimpl(peerConnection != null ? Boolean.valueOf(peerConnection.addIceCandidate(it)) : null);
+                Result.m261constructorimpl(peerConnection != null ? Boolean.valueOf(peerConnection.addIceCandidate(it)) : null);
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                Result.m256constructorimpl(ResultKt.createFailure(th));
+                Result.m261constructorimpl(ResultKt.createFailure(th));
             }
         }
     }

@@ -5045,4 +5045,5 @@
     <public type="style" name="Widget.MaterialComponents.Tooltip" id="0x7f110461" />
     <public type="style" name="Widget.Support.CoordinatorLayout" id="0x7f110462" />
     <public type="xml" name="accessibility_config" id="0x7f130000" />
+    <public type="xml" name="file_paths" id="0x7f130001" />
 </resources>

@@ -11,15 +11,16 @@ import android.opengl.GLException;
 import android.view.Surface;
 import org.webrtc.EglBase14;
 import org.webrtc.EglBase14Impl;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-class EglBase14Impl implements EglBase14 {
+public class EglBase14Impl implements EglBase14 {
     private static final EglConnection EGL_NO_CONNECTION = new EglConnection();
     private static final String TAG = "EglBase14Impl";
     private EglConnection eglConnection;
     private EGLSurface eglSurface = EGL14.EGL_NO_SURFACE;
 
     /* renamed from: -$$Nest$smgetEglDisplay  reason: not valid java name */
-    static /* bridge */ /* synthetic */ EGLDisplay m2077$$Nest$smgetEglDisplay() {
+    static /* bridge */ /* synthetic */ EGLDisplay m2082$$Nest$smgetEglDisplay() {
         return getEglDisplay();
     }
 
@@ -52,7 +53,7 @@ class EglBase14Impl implements EglBase14 {
 
         public EglConnection(EGLContext sharedContext, int[] configAttributes) {
             this.currentSurface = EGL14.EGL_NO_SURFACE;
-            this.eglDisplay = EglBase14Impl.m2077$$Nest$smgetEglDisplay();
+            this.eglDisplay = EglBase14Impl.m2082$$Nest$smgetEglDisplay();
             this.eglConfig = EglBase14Impl.getEglConfig(this.eglDisplay, configAttributes);
             int openGlesVersion = EglBase.getOpenGlesVersionFromConfig(configAttributes);
             Logging.d(EglBase14Impl.TAG, "Using OpenGL ES version " + openGlesVersion);
@@ -60,14 +61,14 @@ class EglBase14Impl implements EglBase14 {
             this.refCountDelegate = new RefCountDelegate(new Runnable() { // from class: org.webrtc.EglBase14Impl$EglConnection$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    EglBase14Impl.EglConnection.this.m2078lambda$new$0$orgwebrtcEglBase14Impl$EglConnection();
+                    EglBase14Impl.EglConnection.this.m2083lambda$new$0$orgwebrtcEglBase14Impl$EglConnection();
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$new$0$org-webrtc-EglBase14Impl$EglConnection  reason: not valid java name */
-        public /* synthetic */ void m2078lambda$new$0$orgwebrtcEglBase14Impl$EglConnection() {
+        public /* synthetic */ void m2083lambda$new$0$orgwebrtcEglBase14Impl$EglConnection() {
             synchronized (EglBase.lock) {
                 EGL14.eglMakeCurrent(this.eglDisplay, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT);
                 EGL14.eglDestroyContext(this.eglDisplay, this.eglContext);

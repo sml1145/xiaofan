@@ -195,7 +195,7 @@ public class EglRenderer implements VideoSink {
             this.eglThread.getHandler().postAtFrontOfQueue(new Runnable() { // from class: org.webrtc.EglRenderer$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
                 public final void run() {
-                    EglRenderer.this.m2088lambda$release$0$orgwebrtcEglRenderer(eglCleanupBarrier);
+                    EglRenderer.this.m2093lambda$release$0$orgwebrtcEglRenderer(eglCleanupBarrier);
                 }
             });
             this.eglThread.release();
@@ -213,7 +213,7 @@ public class EglRenderer implements VideoSink {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$release$0$org-webrtc-EglRenderer  reason: not valid java name */
-    public /* synthetic */ void m2088lambda$release$0$orgwebrtcEglRenderer(CountDownLatch eglCleanupBarrier) {
+    public /* synthetic */ void m2093lambda$release$0$orgwebrtcEglRenderer(CountDownLatch eglCleanupBarrier) {
         synchronized (EglBase.lock) {
             GLES20.glUseProgram(0);
         }
@@ -311,14 +311,14 @@ public class EglRenderer implements VideoSink {
         postToRenderThread(new Runnable() { // from class: org.webrtc.EglRenderer$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable
             public final void run() {
-                EglRenderer.this.m2086lambda$addFrameListener$1$orgwebrtcEglRenderer(drawerParam, listener, scale, applyFpsReduction);
+                EglRenderer.this.m2091lambda$addFrameListener$1$orgwebrtcEglRenderer(drawerParam, listener, scale, applyFpsReduction);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$addFrameListener$1$org-webrtc-EglRenderer  reason: not valid java name */
-    public /* synthetic */ void m2086lambda$addFrameListener$1$orgwebrtcEglRenderer(RendererCommon.GlDrawer drawerParam, FrameListener listener, float scale, boolean applyFpsReduction) {
+    public /* synthetic */ void m2091lambda$addFrameListener$1$orgwebrtcEglRenderer(RendererCommon.GlDrawer drawerParam, FrameListener listener, float scale, boolean applyFpsReduction) {
         RendererCommon.GlDrawer listenerDrawer = drawerParam == null ? this.drawer : drawerParam;
         this.frameListeners.add(new FrameListenerAndParams(listener, scale, listenerDrawer, applyFpsReduction));
     }
@@ -335,7 +335,7 @@ public class EglRenderer implements VideoSink {
             postToRenderThread(new Runnable() { // from class: org.webrtc.EglRenderer$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    EglRenderer.this.m2090lambda$removeFrameListener$2$orgwebrtcEglRenderer(latch, listener);
+                    EglRenderer.this.m2095lambda$removeFrameListener$2$orgwebrtcEglRenderer(latch, listener);
                 }
             });
             ThreadUtils.awaitUninterruptibly(latch);
@@ -344,7 +344,7 @@ public class EglRenderer implements VideoSink {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$removeFrameListener$2$org-webrtc-EglRenderer  reason: not valid java name */
-    public /* synthetic */ void m2090lambda$removeFrameListener$2$orgwebrtcEglRenderer(CountDownLatch latch, FrameListener listener) {
+    public /* synthetic */ void m2095lambda$removeFrameListener$2$orgwebrtcEglRenderer(CountDownLatch latch, FrameListener listener) {
         latch.countDown();
         Iterator<FrameListenerAndParams> iter = this.frameListeners.iterator();
         while (iter.hasNext()) {
@@ -399,7 +399,7 @@ public class EglRenderer implements VideoSink {
                 this.eglThread.getHandler().postAtFrontOfQueue(new Runnable() { // from class: org.webrtc.EglRenderer$$ExternalSyntheticLambda5
                     @Override // java.lang.Runnable
                     public final void run() {
-                        EglRenderer.this.m2089lambda$releaseEglSurface$3$orgwebrtcEglRenderer(completionCallback);
+                        EglRenderer.this.m2094lambda$releaseEglSurface$3$orgwebrtcEglRenderer(completionCallback);
                     }
                 });
                 return;
@@ -410,7 +410,7 @@ public class EglRenderer implements VideoSink {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$releaseEglSurface$3$org-webrtc-EglRenderer  reason: not valid java name */
-    public /* synthetic */ void m2089lambda$releaseEglSurface$3$orgwebrtcEglRenderer(Runnable completionCallback) {
+    public /* synthetic */ void m2094lambda$releaseEglSurface$3$orgwebrtcEglRenderer(Runnable completionCallback) {
         if (this.eglBase != null) {
             this.eglBase.detachCurrent();
             this.eglBase.releaseSurface();
@@ -428,7 +428,7 @@ public class EglRenderer implements VideoSink {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: clearSurfaceOnRenderThread */
-    public void m2087lambda$clearImage$4$orgwebrtcEglRenderer(float r, float g, float b, float a) {
+    public void m2092lambda$clearImage$4$orgwebrtcEglRenderer(float r, float g, float b, float a) {
         if (this.eglBase != null && this.eglBase.hasSurface()) {
             logD("clearSurface");
             this.eglBase.makeCurrent();
@@ -450,7 +450,7 @@ public class EglRenderer implements VideoSink {
             this.eglThread.getHandler().postAtFrontOfQueue(new Runnable() { // from class: org.webrtc.EglRenderer$$ExternalSyntheticLambda6
                 @Override // java.lang.Runnable
                 public final void run() {
-                    EglRenderer.this.m2087lambda$clearImage$4$orgwebrtcEglRenderer(r, g, b, a);
+                    EglRenderer.this.m2092lambda$clearImage$4$orgwebrtcEglRenderer(r, g, b, a);
                 }
             });
         }
@@ -462,7 +462,7 @@ public class EglRenderer implements VideoSink {
                 this.eglThread.scheduleRenderUpdate(new EglThread.RenderUpdate() { // from class: org.webrtc.EglRenderer$$ExternalSyntheticLambda2
                     @Override // org.webrtc.EglThread.RenderUpdate
                     public final void update(boolean z) {
-                        EglRenderer.this.m2091lambda$swapBuffersOnRenderThread$5$orgwebrtcEglRenderer(frame, swapBuffersStartTimeNs, z);
+                        EglRenderer.this.m2096lambda$swapBuffersOnRenderThread$5$orgwebrtcEglRenderer(frame, swapBuffersStartTimeNs, z);
                     }
                 });
             }
@@ -471,7 +471,7 @@ public class EglRenderer implements VideoSink {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$swapBuffersOnRenderThread$5$org-webrtc-EglRenderer  reason: not valid java name */
-    public /* synthetic */ void m2091lambda$swapBuffersOnRenderThread$5$orgwebrtcEglRenderer(VideoFrame frame, long swapBuffersStartTimeNs, boolean runsInline) {
+    public /* synthetic */ void m2096lambda$swapBuffersOnRenderThread$5$orgwebrtcEglRenderer(VideoFrame frame, long swapBuffersStartTimeNs, boolean runsInline) {
         if (!runsInline) {
             if (this.eglBase == null || !this.eglBase.hasSurface()) {
                 return;

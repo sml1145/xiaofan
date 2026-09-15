@@ -11,13 +11,13 @@ public final class ULongArrayKt {
         Intrinsics.checkNotNullParameter(init, "init");
         long[] jArr = new long[size];
         for (int i = 0; i < size; i++) {
-            jArr[i] = init.invoke(Integer.valueOf(i)).m482unboximpl();
+            jArr[i] = init.invoke(Integer.valueOf(i)).m487unboximpl();
         }
-        return ULongArray.m485constructorimpl(jArr);
+        return ULongArray.m490constructorimpl(jArr);
     }
 
     /* renamed from: ulongArrayOf-QwZRm1k  reason: not valid java name */
-    private static final long[] m501ulongArrayOfQwZRm1k(long... elements) {
+    private static final long[] m506ulongArrayOfQwZRm1k(long... elements) {
         Intrinsics.checkNotNullParameter(elements, "elements");
         return elements;
     }

@@ -181,7 +181,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
         if (this.dispatcher.isDispatchNeeded(context)) {
             this._state = state;
             this.resumeMode = 0;
-            this.dispatcher.mo1815dispatch(context, this);
+            this.dispatcher.mo1820dispatch(context, this);
             return;
         }
         if (DebugKt.getASSERTIONS_ENABLED()) {
@@ -218,7 +218,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
     /* JADX WARN: Removed duplicated region for block: B:22:0x00ad  */
     /* JADX WARN: Removed duplicated region for block: B:53:0x0120  */
     /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v4, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r1v5 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -245,7 +245,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
             CancellationException cause = job.getCancellationException();
             cancelCompletedResult$kotlinx_coroutines_core(state, cause);
             Result.Companion companion = Result.Companion;
-            resumeWith(Result.m256constructorimpl(ResultKt.createFailure(cause)));
+            resumeWith(Result.m261constructorimpl(ResultKt.createFailure(cause)));
             return true;
         }
         return false;

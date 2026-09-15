@@ -130,7 +130,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     /* JADX WARN: Removed duplicated region for block: B:152:0x02e1  */
     /* JADX WARN: Removed duplicated region for block: B:153:0x02e3  */
     /* JADX WARN: Type inference failed for: r2v40 */
-    /* JADX WARN: Type inference failed for: r2v41, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r2v41, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r2v58 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

@@ -751,7 +751,7 @@ public class JobSupport implements Job, ChildJob, ParentJob {
             } else if (!(state instanceof Incomplete) || ((Incomplete) state).getList() == null) {
                 return;
             } else {
-                node.mo1814remove();
+                node.mo1819remove();
                 return;
             }
         } while (!AbstractResolvableFuture$SafeAtomicHelper$$ExternalSyntheticBackportWithForwarding0.m(atomicReferenceFieldUpdater, this, state, empty));

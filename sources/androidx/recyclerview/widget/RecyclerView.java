@@ -3249,7 +3249,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Type inference failed for: r2v1 */
-        /* JADX WARN: Type inference failed for: r2v2, types: [boolean, int] */
+        /* JADX WARN: Type inference failed for: r2v2, types: [int, boolean] */
         /* JADX WARN: Type inference failed for: r2v5 */
         @Override // java.lang.Runnable
         public void run() {

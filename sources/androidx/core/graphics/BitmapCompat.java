@@ -23,7 +23,7 @@ public final class BitmapCompat {
         if (androidx.core.graphics.BitmapCompat.Api27Impl.isAlreadyF16AndLinear(r8) == false) goto L97;
      */
     /* JADX WARN: Type inference failed for: r3v14 */
-    /* JADX WARN: Type inference failed for: r3v15, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r3v15, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r3v17 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

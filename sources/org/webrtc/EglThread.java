@@ -162,14 +162,14 @@ public class EglThread implements RenderSynchronizer.Listener {
         this.handler.post(new Runnable() { // from class: org.webrtc.EglThread$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable
             public final void run() {
-                EglThread.this.m2093lambda$onRenderWindowOpen$2$orgwebrtcEglThread();
+                EglThread.this.m2098lambda$onRenderWindowOpen$2$orgwebrtcEglThread();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$onRenderWindowOpen$2$org-webrtc-EglThread  reason: not valid java name */
-    public /* synthetic */ void m2093lambda$onRenderWindowOpen$2$orgwebrtcEglThread() {
+    public /* synthetic */ void m2098lambda$onRenderWindowOpen$2$orgwebrtcEglThread() {
         this.renderWindowOpen = true;
         for (RenderUpdate update : this.pendingRenderUpdates) {
             update.update(false);
@@ -179,7 +179,7 @@ public class EglThread implements RenderSynchronizer.Listener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$onRenderWindowClose$3$org-webrtc-EglThread  reason: not valid java name */
-    public /* synthetic */ void m2092lambda$onRenderWindowClose$3$orgwebrtcEglThread() {
+    public /* synthetic */ void m2097lambda$onRenderWindowClose$3$orgwebrtcEglThread() {
         this.renderWindowOpen = false;
     }
 
@@ -188,7 +188,7 @@ public class EglThread implements RenderSynchronizer.Listener {
         this.handler.post(new Runnable() { // from class: org.webrtc.EglThread$$ExternalSyntheticLambda1
             @Override // java.lang.Runnable
             public final void run() {
-                EglThread.this.m2092lambda$onRenderWindowClose$3$orgwebrtcEglThread();
+                EglThread.this.m2097lambda$onRenderWindowClose$3$orgwebrtcEglThread();
             }
         });
     }

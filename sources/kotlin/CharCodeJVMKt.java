@@ -6,7 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 /* loaded from: classes.dex */
 public final class CharCodeJVMKt {
     /* renamed from: Char-xj2QHRw  reason: not valid java name */
-    private static final char m252Charxj2QHRw(short code) {
+    private static final char m257Charxj2QHRw(short code) {
         return (char) (65535 & code);
     }
 }

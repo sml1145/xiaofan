@@ -7007,6 +7007,7 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class xml {
         public static int accessibility_config = 0x7f130000;
+        public static int file_paths = 0x7f130001;
 
         private xml() {
         }

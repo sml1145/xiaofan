@@ -21,20 +21,20 @@ public final class UArraysKt___UArraysJvmKt$asList$4 extends AbstractList<UShort
     @Override // kotlin.collections.AbstractCollection, java.util.Collection
     public final /* bridge */ boolean contains(Object element) {
         if (element instanceof UShort) {
-            return m776containsxj2QHRw(((UShort) element).m587unboximpl());
+            return m781containsxj2QHRw(((UShort) element).m592unboximpl());
         }
         return false;
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
     public /* bridge */ /* synthetic */ Object get(int index) {
-        return UShort.m531boximpl(m777getMh2AYeg(index));
+        return UShort.m536boximpl(m782getMh2AYeg(index));
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
     public final /* bridge */ int indexOf(Object element) {
         if (element instanceof UShort) {
-            return m778indexOfxj2QHRw(((UShort) element).m587unboximpl());
+            return m783indexOfxj2QHRw(((UShort) element).m592unboximpl());
         }
         return -1;
     }
@@ -42,38 +42,38 @@ public final class UArraysKt___UArraysJvmKt$asList$4 extends AbstractList<UShort
     @Override // kotlin.collections.AbstractList, java.util.List
     public final /* bridge */ int lastIndexOf(Object element) {
         if (element instanceof UShort) {
-            return m779lastIndexOfxj2QHRw(((UShort) element).m587unboximpl());
+            return m784lastIndexOfxj2QHRw(((UShort) element).m592unboximpl());
         }
         return -1;
     }
 
     @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
     public int getSize() {
-        return UShortArray.m596getSizeimpl(this.$this_asList);
+        return UShortArray.m601getSizeimpl(this.$this_asList);
     }
 
     @Override // kotlin.collections.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return UShortArray.m598isEmptyimpl(this.$this_asList);
+        return UShortArray.m603isEmptyimpl(this.$this_asList);
     }
 
     /* renamed from: contains-xj2QHRw  reason: not valid java name */
-    public boolean m776containsxj2QHRw(short element) {
-        return UShortArray.m591containsxj2QHRw(this.$this_asList, element);
+    public boolean m781containsxj2QHRw(short element) {
+        return UShortArray.m596containsxj2QHRw(this.$this_asList, element);
     }
 
     /* renamed from: get-Mh2AYeg  reason: not valid java name */
-    public short m777getMh2AYeg(int index) {
-        return UShortArray.m595getMh2AYeg(this.$this_asList, index);
+    public short m782getMh2AYeg(int index) {
+        return UShortArray.m600getMh2AYeg(this.$this_asList, index);
     }
 
     /* renamed from: indexOf-xj2QHRw  reason: not valid java name */
-    public int m778indexOfxj2QHRw(short element) {
+    public int m783indexOfxj2QHRw(short element) {
         return ArraysKt.indexOf(this.$this_asList, element);
     }
 
     /* renamed from: lastIndexOf-xj2QHRw  reason: not valid java name */
-    public int m779lastIndexOfxj2QHRw(short element) {
+    public int m784lastIndexOfxj2QHRw(short element) {
         return ArraysKt.lastIndexOf(this.$this_asList, element);
     }
 }

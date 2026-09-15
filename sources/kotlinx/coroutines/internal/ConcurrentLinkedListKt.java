@@ -29,7 +29,7 @@ public final class ConcurrentLinkedListKt {
                 ConcurrentLinkedListNode this_$iv = cur;
                 Object it$iv = this_$iv.getNextOrClosed();
                 if (it$iv == CLOSED) {
-                    return SegmentOrClosed.m1818constructorimpl(CLOSED);
+                    return SegmentOrClosed.m1823constructorimpl(CLOSED);
                 }
                 Segment next = (Segment) ((ConcurrentLinkedListNode) it$iv);
                 if (next != null) {
@@ -44,7 +44,7 @@ public final class ConcurrentLinkedListKt {
                     }
                 }
             } else {
-                return SegmentOrClosed.m1818constructorimpl(cur);
+                return SegmentOrClosed.m1823constructorimpl(cur);
             }
         }
     }
@@ -96,10 +96,10 @@ public final class ConcurrentLinkedListKt {
         boolean z3 = false;
         while (true) {
             s = findSegmentInternal(startFrom, id, createNewSegment);
-            if (SegmentOrClosed.m1823isClosedimpl(s)) {
+            if (SegmentOrClosed.m1828isClosedimpl(s)) {
                 break;
             }
-            Segment to$iv = SegmentOrClosed.m1821getSegmentimpl(s);
+            Segment to$iv = SegmentOrClosed.m1826getSegmentimpl(s);
             while (true) {
                 Segment cur$iv = (Segment) atomicfu$handler.get(atomicfu$dispatchReceiver);
                 z = z3;
@@ -143,9 +143,9 @@ public final class ConcurrentLinkedListKt {
             r3 = r20
             r4 = r21
             java.lang.Object r5 = findSegmentInternal(r3, r1, r4)
-            boolean r6 = kotlinx.coroutines.internal.SegmentOrClosed.m1823isClosedimpl(r5)
+            boolean r6 = kotlinx.coroutines.internal.SegmentOrClosed.m1828isClosedimpl(r5)
             if (r6 != 0) goto L5b
-            kotlinx.coroutines.internal.Segment r6 = kotlinx.coroutines.internal.SegmentOrClosed.m1821getSegmentimpl(r5)
+            kotlinx.coroutines.internal.Segment r6 = kotlinx.coroutines.internal.SegmentOrClosed.m1826getSegmentimpl(r5)
             r7 = 0
             r8 = 0
         L18:

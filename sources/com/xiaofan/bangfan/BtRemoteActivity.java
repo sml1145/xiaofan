@@ -414,8 +414,9 @@ public final class BtRemoteActivity extends BaseActivity implements BluetoothRem
         }
     }
 
-    @Override // android.app.Activity
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.xiaofan.bangfan.BaseActivity, android.app.Activity
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQ_BT_ENABLE) {
             if (resultCode == -1) {

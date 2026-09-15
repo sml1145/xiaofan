@@ -66,8 +66,8 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU */
-    public Object mo1759trySendJP2dKIU(E e) {
-        return this.broadcast.mo1759trySendJP2dKIU(e);
+    public Object mo1764trySendJP2dKIU(E e) {
+        return this.broadcast.mo1764trySendJP2dKIU(e);
     }
 
     private ConflatedBroadcastChannel(BroadcastChannelImpl<E> broadcastChannelImpl) {
@@ -80,7 +80,7 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
 
     public ConflatedBroadcastChannel(E e) {
         this();
-        mo1759trySendJP2dKIU(e);
+        mo1764trySendJP2dKIU(e);
     }
 
     public final E getValue() {

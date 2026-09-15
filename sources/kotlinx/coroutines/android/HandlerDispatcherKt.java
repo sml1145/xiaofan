@@ -65,15 +65,15 @@ public final class HandlerDispatcherKt {
     }
 
     static {
-        Object m256constructorimpl;
+        Object m261constructorimpl;
         try {
             Result.Companion companion = Result.Companion;
-            m256constructorimpl = Result.m256constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), null, 2, null));
+            m261constructorimpl = Result.m261constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), null, 2, null));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m256constructorimpl = Result.m256constructorimpl(ResultKt.createFailure(th));
+            m261constructorimpl = Result.m261constructorimpl(ResultKt.createFailure(th));
         }
-        Main = Result.m262isFailureimpl(m256constructorimpl) ? null : m256constructorimpl;
+        Main = Result.m267isFailureimpl(m261constructorimpl) ? null : m261constructorimpl;
     }
 
     public static final Object awaitFrame(Continuation<? super Long> continuation) {
@@ -100,7 +100,7 @@ public final class HandlerDispatcherKt {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             updateChoreographerAndPostFrameCallback(cont);
         } else {
-            Dispatchers.getMain().mo1815dispatch(cont.getContext(), new Runnable() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$awaitFrameSlowPath$lambda$3$$inlined$Runnable$1
+            Dispatchers.getMain().mo1820dispatch(cont.getContext(), new Runnable() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$awaitFrameSlowPath$lambda$3$$inlined$Runnable$1
                 @Override // java.lang.Runnable
                 public final void run() {
                     HandlerDispatcherKt.updateChoreographerAndPostFrameCallback(CancellableContinuation.this);
