@@ -40,23 +40,23 @@ public final class StackTraceRecoveryKt {
         ARTIFICIAL_FRAME = new ArtificialStackFrames().coroutineBoundary();
         try {
             Result.Companion companion = Result.Companion;
-            obj = Result.m262constructorimpl(Class.forName(baseContinuationImplClass).getCanonicalName());
+            obj = Result.m270constructorimpl(Class.forName(baseContinuationImplClass).getCanonicalName());
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            obj = Result.m262constructorimpl(ResultKt.createFailure(th));
+            obj = Result.m270constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m265exceptionOrNullimpl(obj) == null) {
+        if (Result.m273exceptionOrNullimpl(obj) == null) {
             obj4 = obj;
         }
         baseContinuationImplClassName = (String) obj4;
         try {
             Result.Companion companion3 = Result.Companion;
-            obj2 = Result.m262constructorimpl(Class.forName(stackTraceRecoveryClass).getCanonicalName());
+            obj2 = Result.m270constructorimpl(Class.forName(stackTraceRecoveryClass).getCanonicalName());
         } catch (Throwable th2) {
             Result.Companion companion4 = Result.Companion;
-            obj2 = Result.m262constructorimpl(ResultKt.createFailure(th2));
+            obj2 = Result.m270constructorimpl(ResultKt.createFailure(th2));
         }
-        if (Result.m265exceptionOrNullimpl(obj2) == null) {
+        if (Result.m273exceptionOrNullimpl(obj2) == null) {
             obj3 = obj2;
         }
         stackTraceRecoveryClassName = (String) obj3;

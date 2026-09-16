@@ -147,7 +147,7 @@ public class Camera2Session implements CameraSession {
                 Camera2Session.this.surfaceTextureHelper.startListening(new VideoSink() { // from class: org.webrtc.Camera2Session$CaptureSessionCallback$$ExternalSyntheticLambda0
                     @Override // org.webrtc.VideoSink
                     public final void onFrame(VideoFrame videoFrame) {
-                        Camera2Session.CaptureSessionCallback.this.m2036x8bd2b057(videoFrame);
+                        Camera2Session.CaptureSessionCallback.this.m2044x8bd2b057(videoFrame);
                     }
                 });
                 Logging.d(Camera2Session.TAG, "Camera device successfully started.");
@@ -159,7 +159,7 @@ public class Camera2Session implements CameraSession {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$onConfigured$0$org-webrtc-Camera2Session$CaptureSessionCallback  reason: not valid java name */
-        public /* synthetic */ void m2036x8bd2b057(VideoFrame frame) {
+        public /* synthetic */ void m2044x8bd2b057(VideoFrame frame) {
             Camera2Session.this.checkIsOnCameraThread();
             if (Camera2Session.this.state != SessionState.RUNNING) {
                 Logging.d(Camera2Session.TAG, "Texture frame captured but camera is no longer running.");

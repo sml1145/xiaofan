@@ -38,12 +38,12 @@ final class FlowKt__DelayKt$timeoutInternal$1$1$1<T> extends SuspendLambda imple
 
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Boolean> continuation) {
-        return m1804invokeWpGqRn0(((ChannelResult) obj).m1787unboximpl(), continuation);
+        return m1812invokeWpGqRn0(((ChannelResult) obj).m1795unboximpl(), continuation);
     }
 
     /* renamed from: invoke-WpGqRn0  reason: not valid java name */
-    public final Object m1804invokeWpGqRn0(Object obj, Continuation<? super Boolean> continuation) {
-        return ((FlowKt__DelayKt$timeoutInternal$1$1$1) create(ChannelResult.m1775boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object m1812invokeWpGqRn0(Object obj, Continuation<? super Boolean> continuation) {
+        return ((FlowKt__DelayKt$timeoutInternal$1$1$1) create(ChannelResult.m1783boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -57,7 +57,7 @@ final class FlowKt__DelayKt$timeoutInternal$1$1$1<T> extends SuspendLambda imple
         switch (this.label) {
             case 0:
                 ResultKt.throwOnFailure($result);
-                $this$onSuccess_u2dWpGqRn0$iv = ((ChannelResult) this.L$0).m1787unboximpl();
+                $this$onSuccess_u2dWpGqRn0$iv = ((ChannelResult) this.L$0).m1795unboximpl();
                 FlowCollector<T> flowCollector = this.$downStream;
                 if (!($this$onSuccess_u2dWpGqRn0$iv instanceof ChannelResult.Failed)) {
                     this.L$0 = $this$onSuccess_u2dWpGqRn0$iv;
@@ -84,7 +84,7 @@ final class FlowKt__DelayKt$timeoutInternal$1$1$1<T> extends SuspendLambda imple
         }
         Object $this$onClosed_u2dWpGqRn0$iv = $this$onSuccess_u2dWpGqRn0$iv;
         if ($this$onClosed_u2dWpGqRn0$iv instanceof ChannelResult.Closed) {
-            ChannelResult.m1779exceptionOrNullimpl($this$onClosed_u2dWpGqRn0$iv);
+            ChannelResult.m1787exceptionOrNullimpl($this$onClosed_u2dWpGqRn0$iv);
             return Boxing.boxBoolean(false);
         }
         return Boxing.boxBoolean(true);

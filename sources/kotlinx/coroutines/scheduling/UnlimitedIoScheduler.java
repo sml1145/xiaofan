@@ -21,7 +21,7 @@ final class UnlimitedIoScheduler extends CoroutineDispatcher {
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public void mo1821dispatch(CoroutineContext context, Runnable block) {
+    public void mo1829dispatch(CoroutineContext context, Runnable block) {
         DefaultScheduler.INSTANCE.dispatchWithContext$kotlinx_coroutines_core(block, TasksKt.BlockingContext, false);
     }
 

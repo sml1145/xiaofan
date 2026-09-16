@@ -140,7 +140,7 @@ public final class HexExtensionsKt {
             if (RangesKt.intRangeContains((ClosedRange<Integer>) new IntRange(0, Integer.MAX_VALUE), totalLength)) {
                 return (int) totalLength;
             }
-            throw new IllegalArgumentException("The resulting string length is too big: " + ((Object) ULong.m482toStringimpl(ULong.m436constructorimpl(totalLength))));
+            throw new IllegalArgumentException("The resulting string length is too big: " + ((Object) ULong.m490toStringimpl(ULong.m444constructorimpl(totalLength))));
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
     }

@@ -272,10 +272,10 @@ public class SemaphoreImpl implements Semaphore {
         long id$iv2 = enqIdx / i;
         while (true) {
             s$iv = ConcurrentLinkedListKt.findSegmentInternal(curTail, id$iv2, (Function2) createNewSegment);
-            if (SegmentOrClosed.m1829isClosedimpl(s$iv)) {
+            if (SegmentOrClosed.m1837isClosedimpl(s$iv)) {
                 break;
             }
-            Segment to$iv$iv = SegmentOrClosed.m1827getSegmentimpl(s$iv);
+            Segment to$iv$iv = SegmentOrClosed.m1835getSegmentimpl(s$iv);
             int $i$f$moveForward$atomicfu = 0;
             while (true) {
                 Segment cur$iv$iv = (Segment) atomicfu$handler$iv.get(this);
@@ -307,7 +307,7 @@ public class SemaphoreImpl implements Semaphore {
             }
             id$iv2 = id$iv;
         }
-        SemaphoreSegment segment = (SemaphoreSegment) SegmentOrClosed.m1827getSegmentimpl(s$iv);
+        SemaphoreSegment segment = (SemaphoreSegment) SegmentOrClosed.m1835getSegmentimpl(s$iv);
         i2 = SemaphoreKt.SEGMENT_SIZE;
         int i3 = (int) (enqIdx % i2);
         if (!ChannelSegment$$ExternalSyntheticBackportWithForwarding0.m(segment.getAcquirers(), i3, null, waiter)) {
@@ -361,11 +361,11 @@ public class SemaphoreImpl implements Semaphore {
         AtomicReferenceFieldUpdater atomicfu$handler$iv = head$FU;
         while (true) {
             s$iv = ConcurrentLinkedListKt.findSegmentInternal(curHead2, id, (Function2) createNewSegment);
-            if (SegmentOrClosed.m1829isClosedimpl(s$iv)) {
+            if (SegmentOrClosed.m1837isClosedimpl(s$iv)) {
                 deqIdx = deqIdx2;
                 break;
             }
-            Segment to$iv$iv = SegmentOrClosed.m1827getSegmentimpl(s$iv);
+            Segment to$iv$iv = SegmentOrClosed.m1835getSegmentimpl(s$iv);
             int $i$f$moveForward$atomicfu = 0;
             while (true) {
                 Segment cur$iv$iv = (Segment) atomicfu$handler$iv.get(this);
@@ -398,7 +398,7 @@ public class SemaphoreImpl implements Semaphore {
             curHead2 = curHead;
             deqIdx2 = deqIdx;
         }
-        SemaphoreSegment segment = (SemaphoreSegment) SegmentOrClosed.m1827getSegmentimpl(s$iv);
+        SemaphoreSegment segment = (SemaphoreSegment) SegmentOrClosed.m1835getSegmentimpl(s$iv);
         segment.cleanPrev();
         if (segment.id > id) {
             return false;

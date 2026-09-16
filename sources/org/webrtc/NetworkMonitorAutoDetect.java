@@ -371,7 +371,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver implements Netwo
                 manager.requestGroupInfo(channel, new WifiP2pManager.GroupInfoListener() { // from class: org.webrtc.NetworkMonitorAutoDetect$WifiDirectManagerDelegate$$ExternalSyntheticLambda0
                     @Override // android.net.wifi.p2p.WifiP2pManager.GroupInfoListener
                     public final void onGroupInfoAvailable(WifiP2pGroup wifiP2pGroup) {
-                        NetworkMonitorAutoDetect.WifiDirectManagerDelegate.this.m2119x61cecc50(wifiP2pGroup);
+                        NetworkMonitorAutoDetect.WifiDirectManagerDelegate.this.m2127x61cecc50(wifiP2pGroup);
                     }
                 });
             }
@@ -381,7 +381,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver implements Netwo
         public void onReceive(Context context, Intent intent) {
             if ("android.net.wifi.p2p.CONNECTION_STATE_CHANGE".equals(intent.getAction())) {
                 WifiP2pGroup wifiP2pGroup = (WifiP2pGroup) intent.getParcelableExtra("p2pGroupInfo");
-                m2119x61cecc50(wifiP2pGroup);
+                m2127x61cecc50(wifiP2pGroup);
             } else if ("android.net.wifi.p2p.STATE_CHANGED".equals(intent.getAction())) {
                 int state = intent.getIntExtra("wifi_p2p_state", 0);
                 onWifiP2pStateChange(state);
@@ -401,7 +401,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver implements Netwo
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: onWifiP2pGroupChange */
-        public void m2119x61cecc50(WifiP2pGroup wifiP2pGroup) {
+        public void m2127x61cecc50(WifiP2pGroup wifiP2pGroup) {
             if (wifiP2pGroup == null || wifiP2pGroup.getInterface() == null) {
                 return;
             }

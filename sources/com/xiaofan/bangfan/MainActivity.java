@@ -850,9 +850,12 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         String name6 = VideoActivity.class.getName();
         Intrinsics.checkNotNullExpressionValue(name6, "getName(...)");
         page.addView(fullWidthCell("🎬", "视频助刷", "抖音 / 快手自动上滑", name6));
-        String name7 = DataActivity.class.getName();
+        String name7 = GamesHubActivity.class.getName();
         Intrinsics.checkNotNullExpressionValue(name7, "getName(...)");
-        page.addView(fullWidthCell("💾", "数据与存档", "使用统计、导出/恢复全部个性化数据，换机一键恢复", name7));
+        page.addView(fullWidthCell("🎲", "休闲小游戏", "五子棋 / 中国象棋 / 围棋 / 斗地主，支持人机、同屏与安全联机", name7));
+        String name8 = DataActivity.class.getName();
+        Intrinsics.checkNotNullExpressionValue(name8, "getName(...)");
+        page.addView(fullWidthCell("💾", "数据与存档", "使用统计、导出/恢复全部个性化数据，换机一键恢复", name8));
         return page;
     }
 
@@ -924,9 +927,6 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         }));
         brainCard.addView(UiKit.INSTANCE.bodyText(this, "说明：对话/识别模型本身不包含发音人音色，小翻的声音来自手机本地 TTS，离线可用；点上面可挑选本机已装的中文发音人并试听。"), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 2.0f), 0, 0));
         page.addView(brainCard, UiKit.INSTANCE.margin(this, 0, 0, 0, UiKit.INSTANCE.dp(this, 12.0f)));
-        String name = GamesHubActivity.class.getName();
-        Intrinsics.checkNotNullExpressionValue(name, "getName(...)");
-        page.addView(fullWidthCell("🎲", "休闲小游戏", "五子棋 / 中国象棋 / 围棋 / 斗地主，支持人机、同屏与安全联机", name), UiKit.INSTANCE.margin(this, 0, 0, 0, 0));
         refreshPage3Status();
         return page;
     }

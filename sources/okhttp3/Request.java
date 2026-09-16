@@ -100,31 +100,31 @@ public final class Request {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "url", imports = {}))
     /* renamed from: -deprecated_url  reason: not valid java name */
-    public final HttpUrl m1950deprecated_url() {
+    public final HttpUrl m1958deprecated_url() {
         return this.url;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "method", imports = {}))
     /* renamed from: -deprecated_method  reason: not valid java name */
-    public final String m1949deprecated_method() {
+    public final String m1957deprecated_method() {
         return this.method;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "headers", imports = {}))
     /* renamed from: -deprecated_headers  reason: not valid java name */
-    public final Headers m1948deprecated_headers() {
+    public final Headers m1956deprecated_headers() {
         return this.headers;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "body", imports = {}))
     /* renamed from: -deprecated_body  reason: not valid java name */
-    public final RequestBody m1946deprecated_body() {
+    public final RequestBody m1954deprecated_body() {
         return this.body;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "cacheControl", imports = {}))
     /* renamed from: -deprecated_cacheControl  reason: not valid java name */
-    public final CacheControl m1947deprecated_cacheControl() {
+    public final CacheControl m1955deprecated_cacheControl() {
         return cacheControl();
     }
 

@@ -463,10 +463,10 @@ public final class GomokuNet {
             } else {
                 bool = null;
             }
-            Result.m262constructorimpl(bool);
+            Result.m270constructorimpl(bool);
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            Result.m262constructorimpl(ResultKt.createFailure(th));
+            Result.m270constructorimpl(ResultKt.createFailure(th));
         }
     }
 

@@ -268,7 +268,9 @@ public final class XiaoFanVoice {
         if ((str == null || str.length() == 0) || !AppPrefs.INSTANCE.speakOn(context) || AppPrefs.INSTANCE.silent(context)) {
             return;
         }
-        if (!Intrinsics.areEqual(type, "tip") || AppPrefs.INSTANCE.speakTips(context)) {
+        if (VoiceControlService.Companion.isLiveListening()) {
+            Log.i(TAG, "suppress speech while voice-control listening: " + text);
+        } else if (!Intrinsics.areEqual(type, "tip") || AppPrefs.INSTANCE.speakTips(context)) {
             if (!Intrinsics.areEqual(type, XiaoFanBrain.INTENT_TURN) || AppPrefs.INSTANCE.speakTurn(context)) {
                 if (!bypassRepeatGuard && !Intrinsics.areEqual(type, XiaoFanBrain.INTENT_TURN) && isDuplicate(type, text)) {
                     Log.i(TAG, "skip duplicate speech within cooldown: " + text);

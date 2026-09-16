@@ -87,7 +87,7 @@ public final class SelectOldKt {
             return;
         }
         Result.Companion companion = Result.Companion;
-        cancellableContinuation.resumeWith(Result.m262constructorimpl(t));
+        cancellableContinuation.resumeWith(Result.m270constructorimpl(t));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,6 +98,6 @@ public final class SelectOldKt {
             return;
         }
         Result.Companion companion = Result.Companion;
-        cancellableContinuation.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(exception)));
+        cancellableContinuation.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(exception)));
     }
 }

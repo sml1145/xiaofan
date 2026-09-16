@@ -40,19 +40,19 @@ public final class ExceptionsConstructorKt {
 
     /* JADX WARN: Multi-variable type inference failed */
     public static final <E extends Throwable> E tryCopyException(E e) {
-        Object m262constructorimpl;
+        Object m270constructorimpl;
         if (e instanceof CopyableThrowable) {
             try {
                 Result.Companion companion = Result.Companion;
-                m262constructorimpl = Result.m262constructorimpl(((CopyableThrowable) e).createCopy());
+                m270constructorimpl = Result.m270constructorimpl(((CopyableThrowable) e).createCopy());
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m262constructorimpl = Result.m262constructorimpl(ResultKt.createFailure(th));
+                m270constructorimpl = Result.m270constructorimpl(ResultKt.createFailure(th));
             }
-            if (Result.m268isFailureimpl(m262constructorimpl)) {
-                m262constructorimpl = null;
+            if (Result.m276isFailureimpl(m270constructorimpl)) {
+                m270constructorimpl = null;
             }
-            return (E) m262constructorimpl;
+            return (E) m270constructorimpl;
         }
         return (E) ctorCache.get(e.getClass()).invoke(e);
     }
@@ -211,36 +211,36 @@ public final class ExceptionsConstructorKt {
 
             @Override // kotlin.jvm.functions.Function1
             public final Throwable invoke(Throwable e) {
-                Object m262constructorimpl;
+                Object m270constructorimpl;
                 Function1<Throwable, Throwable> function12 = function1;
                 try {
                     Result.Companion companion = Result.Companion;
                     Throwable result = function12.invoke(e);
-                    m262constructorimpl = Result.m262constructorimpl((Intrinsics.areEqual(e.getMessage(), result.getMessage()) || Intrinsics.areEqual(result.getMessage(), e.toString())) ? result : null);
+                    m270constructorimpl = Result.m270constructorimpl((Intrinsics.areEqual(e.getMessage(), result.getMessage()) || Intrinsics.areEqual(result.getMessage(), e.toString())) ? result : null);
                 } catch (Throwable th) {
                     Result.Companion companion2 = Result.Companion;
-                    m262constructorimpl = Result.m262constructorimpl(ResultKt.createFailure(th));
+                    m270constructorimpl = Result.m270constructorimpl(ResultKt.createFailure(th));
                 }
-                return Result.m268isFailureimpl(m262constructorimpl) ? null : m262constructorimpl;
+                return Result.m276isFailureimpl(m270constructorimpl) ? null : m270constructorimpl;
             }
         };
     }
 
     private static final int fieldsCountOrDefault(Class<?> cls, int defaultValue) {
-        Integer m262constructorimpl;
+        Integer m270constructorimpl;
         JvmClassMappingKt.getKotlinClass(cls);
         try {
             Result.Companion companion = Result.Companion;
-            m262constructorimpl = Result.m262constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
+            m270constructorimpl = Result.m270constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m262constructorimpl = Result.m262constructorimpl(ResultKt.createFailure(th));
+            m270constructorimpl = Result.m270constructorimpl(ResultKt.createFailure(th));
         }
         Integer valueOf = Integer.valueOf(defaultValue);
-        if (Result.m268isFailureimpl(m262constructorimpl)) {
-            m262constructorimpl = valueOf;
+        if (Result.m276isFailureimpl(m270constructorimpl)) {
+            m270constructorimpl = valueOf;
         }
-        return ((Number) m262constructorimpl).intValue();
+        return ((Number) m270constructorimpl).intValue();
     }
 
     static /* synthetic */ int fieldsCount$default(Class cls, int i, int i2, Object obj) {

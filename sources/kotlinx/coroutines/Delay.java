@@ -20,7 +20,7 @@ public interface Delay {
     DisposableHandle invokeOnTimeout(long j, Runnable runnable, CoroutineContext coroutineContext);
 
     /* renamed from: scheduleResumeAfterDelay */
-    void mo1822scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation);
+    void mo1830scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation);
 
     /* compiled from: Delay.kt */
     @Metadata(k = 3, mv = {1, 8, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
@@ -34,7 +34,7 @@ public interface Delay {
             CancellableContinuationImpl cancellable$iv = new CancellableContinuationImpl(IntrinsicsKt.intercepted(continuation), 1);
             cancellable$iv.initCancellability();
             CancellableContinuationImpl it = cancellable$iv;
-            $this.mo1822scheduleResumeAfterDelay(time, it);
+            $this.mo1830scheduleResumeAfterDelay(time, it);
             Object result = cancellable$iv.getResult();
             if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 DebugProbesKt.probeCoroutineSuspended(continuation);

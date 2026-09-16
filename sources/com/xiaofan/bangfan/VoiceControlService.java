@@ -7,6 +7,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioRecord;
+import android.media.audiofx.AcousticEchoCanceler;
+import android.media.audiofx.AutomaticGainControl;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -36,7 +38,7 @@ import kotlin.jvm.internal.Ref;
 import kotlin.ranges.RangesKt;
 import kotlin.text.StringsKt;
 /* compiled from: VoiceControlService.kt */
-@Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0010\u0017\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000 )2\u00020\u0001:\u0001)B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\r\u001a\u00020\u000eH\u0002J\u0010\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0011H\u0002J\b\u0010\u0012\u001a\u00020\u000eH\u0002J\b\u0010\u0013\u001a\u00020\bH\u0002J\u0014\u0010\u0014\u001a\u0004\u0018\u00010\u00152\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017H\u0016J\b\u0010\u0018\u001a\u00020\u000eH\u0016J\"\u0010\u0019\u001a\u00020\u001a2\b\u0010\u0016\u001a\u0004\u0018\u00010\u00172\u0006\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u001c\u001a\u00020\u001aH\u0016J\b\u0010\u001d\u001a\u00020\u000eH\u0002J\u0010\u0010\u001e\u001a\u00020\u000e2\u0006\u0010\u001f\u001a\u00020\bH\u0002J\b\u0010 \u001a\u00020\u000eH\u0002J7\u0010!\u001a\u00020\u000e2\u0006\u0010\"\u001a\u00020#2%\b\u0002\u0010$\u001a\u001f\u0012\u0013\u0012\u00110\b¢\u0006\f\b&\u0012\b\b'\u0012\u0004\b\b((\u0012\u0004\u0012\u00020\u000e\u0018\u00010%H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006*"}, d2 = {"Lcom/xiaofan/bangfan/VoiceControlService;", "Landroid/app/Service;", "()V", "asrHandle", "", "io", "Ljava/util/concurrent/ExecutorService;", "live", "", "main", "Landroid/os/Handler;", "micThread", "Ljava/lang/Thread;", "beginLive", "", "dispatch", "cmd", "Lcom/xiaofan/bangfan/ai/VoiceCommandRouter$Command;", "ensureHandleLoadedBlocking", "hasMic", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onDestroy", "onStartCommand", "", "flags", "startId", "runContinuous", "startAsForeground", "listening", "stopEverything", "submitTranscription", "pcm", "", "onResult", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "recognized", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000j\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0010\u0017\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000 ,2\u00020\u0001:\u0001,B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\r\u001a\u00020\u000eH\u0002J\u0010\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0011H\u0002J\b\u0010\u0012\u001a\u00020\u000eH\u0002J\u0010\u0010\u0013\u001a\u00020\u000e2\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\b\u0010\u0016\u001a\u00020\bH\u0002J\u0014\u0010\u0017\u001a\u0004\u0018\u00010\u00182\b\u0010\u0019\u001a\u0004\u0018\u00010\u001aH\u0016J\b\u0010\u001b\u001a\u00020\u000eH\u0016J\"\u0010\u001c\u001a\u00020\u001d2\b\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\u0006\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u001f\u001a\u00020\u001dH\u0016J\b\u0010 \u001a\u00020\u000eH\u0002J\u0010\u0010!\u001a\u00020\u000e2\u0006\u0010\"\u001a\u00020\bH\u0002J\b\u0010#\u001a\u00020\u000eH\u0002J7\u0010$\u001a\u00020\u000e2\u0006\u0010%\u001a\u00020&2%\b\u0002\u0010'\u001a\u001f\u0012\u0013\u0012\u00110\b¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(+\u0012\u0004\u0012\u00020\u000e\u0018\u00010(H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006-"}, d2 = {"Lcom/xiaofan/bangfan/VoiceControlService;", "Landroid/app/Service;", "()V", "asrHandle", "", "io", "Ljava/util/concurrent/ExecutorService;", "live", "", "main", "Landroid/os/Handler;", "micThread", "Ljava/lang/Thread;", "beginLive", "", "dispatch", "cmd", "Lcom/xiaofan/bangfan/ai/VoiceCommandRouter$Command;", "ensureHandleLoadedBlocking", "feedback", "text", "", "hasMic", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onDestroy", "onStartCommand", "", "flags", "startId", "runContinuous", "startAsForeground", "listening", "stopEverything", "submitTranscription", "pcm", "", "onResult", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "recognized", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class VoiceControlService extends Service {
     public static final String ACTION_LIVE_START = "com.xiaofan.bangfan.action.LIVE_START";
@@ -48,11 +50,14 @@ public final class VoiceControlService extends Service {
     private static final double ENERGY_ON = 300.0d;
     private static final int FRAME = 320;
     private static final int MAX_UTT_FRAMES = 600;
-    private static final int MIN_SPEECH_FRAMES = 10;
+    private static final int MIN_LOUD_FRAMES = 3;
+    private static final int MIN_SPEECH_FRAMES = 6;
+    private static final double NOISE_FLOOR_MAX = 220.0d;
     private static final int NOTIF_ID = 2006;
-    private static final int PREROLL_FRAMES = 10;
+    private static final int PREROLL_FRAMES = 15;
     private static final int SAMPLE_RATE = 16000;
     private static final int SIL_TAIL_FRAMES = 25;
+    private static final long TTS_TAIL_GUARD_MS = 350;
     private static volatile boolean alive;
     private static volatile boolean liveNow;
     private static volatile Companion.UiListener uiListener;
@@ -149,7 +154,7 @@ public final class VoiceControlService extends Service {
     }
 
     /* compiled from: VoiceControlService.kt */
-    @Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0086\u0003\u0018\u00002\u00020\u0001:\u0001$B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0006\u0010\u001c\u001a\u00020\u0014J\u0006\u0010\u001d\u001a\u00020\u0014J\u000e\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!J\u000e\u0010\"\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!J\u000e\u0010#\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0018\u0010\u0019\"\u0004\b\u001a\u0010\u001b¨\u0006%"}, d2 = {"Lcom/xiaofan/bangfan/VoiceControlService$Companion;", "", "()V", "ACTION_LIVE_START", "", "ACTION_LIVE_STOP", "ACTION_STOP", "CHANNEL_ID", "ENERGY_OFF", "", "ENERGY_ON", "FRAME", "", "MAX_UTT_FRAMES", "MIN_SPEECH_FRAMES", "NOTIF_ID", "PREROLL_FRAMES", "SAMPLE_RATE", "SIL_TAIL_FRAMES", "alive", "", "liveNow", "uiListener", "Lcom/xiaofan/bangfan/VoiceControlService$Companion$UiListener;", "getUiListener", "()Lcom/xiaofan/bangfan/VoiceControlService$Companion$UiListener;", "setUiListener", "(Lcom/xiaofan/bangfan/VoiceControlService$Companion$UiListener;)V", "isLiveListening", "isRunning", "startLive", "", "ctx", "Landroid/content/Context;", "stop", "stopLive", "UiListener", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+    @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0086\u0003\u0018\u00002\u00020\u0001:\u0001(B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0006\u0010 \u001a\u00020\u0018J\u0006\u0010!\u001a\u00020\u0018J\u000e\u0010\"\u001a\u00020#2\u0006\u0010$\u001a\u00020%J\u000e\u0010&\u001a\u00020#2\u0006\u0010$\u001a\u00020%J\u000e\u0010'\u001a\u00020#2\u0006\u0010$\u001a\u00020%R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\tX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u001a\u001a\u0004\u0018\u00010\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u001d\"\u0004\b\u001e\u0010\u001f¨\u0006)"}, d2 = {"Lcom/xiaofan/bangfan/VoiceControlService$Companion;", "", "()V", "ACTION_LIVE_START", "", "ACTION_LIVE_STOP", "ACTION_STOP", "CHANNEL_ID", "ENERGY_OFF", "", "ENERGY_ON", "FRAME", "", "MAX_UTT_FRAMES", "MIN_LOUD_FRAMES", "MIN_SPEECH_FRAMES", "NOISE_FLOOR_MAX", "NOTIF_ID", "PREROLL_FRAMES", "SAMPLE_RATE", "SIL_TAIL_FRAMES", "TTS_TAIL_GUARD_MS", "", "alive", "", "liveNow", "uiListener", "Lcom/xiaofan/bangfan/VoiceControlService$Companion$UiListener;", "getUiListener", "()Lcom/xiaofan/bangfan/VoiceControlService$Companion$UiListener;", "setUiListener", "(Lcom/xiaofan/bangfan/VoiceControlService$Companion$UiListener;)V", "isLiveListening", "isRunning", "startLive", "", "ctx", "Landroid/content/Context;", "stop", "stopLive", "UiListener", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
     /* loaded from: classes4.dex */
     public static final class Companion {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -349,35 +354,39 @@ public final class VoiceControlService extends Service {
         this$0.stopEverything();
     }
 
-    /* JADX WARN: Type inference failed for: r1v10, types: [T, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v18, types: [T, java.util.ArrayList] */
     private final void runContinuous() {
+        AcousticEchoCanceler aec;
+        AutomaticGainControl agc;
+        AutomaticGainControl agc2;
         Ref.LongRef lastMissTipAt;
-        Ref.IntRef silentFrames;
-        Ref.ObjectRef utter;
-        ArrayDeque preRoll;
+        int n;
+        double rms;
         AudioRecord recorder;
         short[] frame;
-        ArrayDeque preRoll2;
-        Ref.DoubleRef noiseFloor;
-        Ref.IntRef silentFrames2;
         Ref.IntRef speechFrames;
-        boolean z;
         Ref.BooleanRef speaking;
-        Ref.ObjectRef objectRef;
-        ArrayDeque arrayDeque;
-        boolean z2;
+        Ref.ObjectRef utter;
+        Ref.IntRef loudFrames;
+        ArrayDeque preRoll;
+        Ref.DoubleRef noiseFloor;
+        AutomaticGainControl agc3;
+        boolean z;
+        int i;
+        AcousticEchoCanceler aec2;
         Ref.IntRef intRef;
-        final VoiceControlService voiceControlService = this;
         AudioRecord recorder2 = null;
+        AcousticEchoCanceler aec3 = null;
+        AutomaticGainControl agc4 = null;
         try {
             int minBuf = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
             int bufBytes = Math.max(minBuf, 64000);
             AudioRecord recorder3 = new AudioRecord(6, SAMPLE_RATE, 16, 2, bufBytes);
             try {
                 Log.i("VoiceCtrl", "AudioRecord state=" + recorder3.getState() + " minBuf=" + minBuf + " bufBytes=" + bufBytes);
-                try {
-                    if (recorder3.getState() != 1) {
-                        voiceControlService.main.post(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda5
+                if (recorder3.getState() != 1) {
+                    try {
+                        this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda5
                             @Override // java.lang.Runnable
                             public final void run() {
                                 VoiceControlService.runContinuous$lambda$3(VoiceControlService.this);
@@ -392,241 +401,461 @@ public final class VoiceControlService extends Service {
                         } catch (Throwable th2) {
                         }
                         return;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        recorder2 = recorder3;
                     }
-                    recorder3.startRecording();
-                    short[] frame2 = new short[FRAME];
-                    ArrayDeque preRoll3 = new ArrayDeque();
-                    Ref.ObjectRef utter2 = new Ref.ObjectRef();
-                    utter2.element = new ArrayList(96000);
-                    Ref.BooleanRef speaking2 = new Ref.BooleanRef();
-                    Ref.IntRef speechFrames2 = new Ref.IntRef();
-                    Ref.IntRef silentFrames3 = new Ref.IntRef();
-                    Ref.DoubleRef noiseFloor2 = new Ref.DoubleRef();
-                    noiseFloor2.element = 55.0d;
-                    int frameCount = 0;
-                    int nearZeroFrames = 0;
-                    boolean noAudioTipped = false;
-                    Ref.LongRef lastMissTipAt2 = new Ref.LongRef();
-                    while (voiceControlService.live) {
-                        int minBuf2 = minBuf;
-                        int n = recorder3.read(frame2, 0, frame2.length);
-                        if (n > 0) {
-                            int frameCount2 = frameCount + 1;
-                            double sum = 0.0d;
-                            int i = 0;
-                            while (i < n) {
-                                double v = frame2[i];
-                                sum += v * v;
-                                i++;
-                                bufBytes = bufBytes;
-                            }
-                            int bufBytes2 = bufBytes;
-                            double rms = Math.sqrt(sum / n);
-                            if (frameCount2 % 25 == 0) {
-                                utter = utter2;
-                                preRoll = preRoll3;
-                                lastMissTipAt = lastMissTipAt2;
-                                recorder = recorder3;
-                                try {
-                                    silentFrames = silentFrames3;
-                                    Log.i("VoiceCtrl", "rms=" + ((int) rms) + " floor=" + ((int) noiseFloor2.element) + " on=" + ((int) runContinuous$dynOn(noiseFloor2)) + " speaking=" + speaking2.element);
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    recorder2 = recorder;
-                                    try {
-                                        Log.e("VoiceCtrl", "continuous loop error", th);
-                                        try {
-                                            this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda7
-                                                @Override // java.lang.Runnable
-                                                public final void run() {
-                                                    VoiceControlService.runContinuous$lambda$5(VoiceControlService.this);
-                                                }
-                                            });
-                                            if (recorder2 != null) {
-                                                try {
-                                                    recorder2.stop();
-                                                } catch (Throwable th4) {
-                                                }
-                                            }
-                                            if (recorder2 != null) {
-                                                try {
-                                                    recorder2.release();
-                                                } catch (Throwable th5) {
-                                                }
-                                            }
-                                            return;
-                                        } catch (Throwable th6) {
-                                            th = th6;
-                                            Throwable th7 = th;
-                                            if (recorder2 != null) {
-                                                try {
-                                                    recorder2.stop();
-                                                } catch (Throwable th8) {
-                                                }
-                                            }
-                                            if (recorder2 != null) {
-                                                try {
-                                                    recorder2.release();
-                                                } catch (Throwable th9) {
-                                                }
-                                            }
-                                            throw th7;
-                                        }
-                                    } catch (Throwable th10) {
-                                        th = th10;
-                                    }
-                                }
-                            } else {
-                                lastMissTipAt = lastMissTipAt2;
-                                silentFrames = silentFrames3;
-                                utter = utter2;
-                                preRoll = preRoll3;
-                                recorder = recorder3;
-                            }
-                            int nearZeroFrames2 = rms < 6.0d ? nearZeroFrames + 1 : 0;
-                            if (!noAudioTipped && nearZeroFrames2 > 150) {
-                                voiceControlService.main.post(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda6
-                                    @Override // java.lang.Runnable
-                                    public final void run() {
-                                        VoiceControlService.runContinuous$lambda$4(VoiceControlService.this);
-                                    }
-                                });
-                                noAudioTipped = true;
-                            }
-                            short[] copy = Arrays.copyOf(frame2, n);
-                            Intrinsics.checkNotNullExpressionValue(copy, "copyOf(...)");
-                            if (speaking2.element) {
-                                Ref.ObjectRef utter3 = utter;
-                                Ref.IntRef silentFrames4 = silentFrames;
-                                frame = frame2;
-                                ArrayDeque preRoll4 = preRoll;
-                                ((ArrayList) utter3.element).addAll(ArraysKt.toList(copy));
-                                if (rms < runContinuous$dynOff(noiseFloor2)) {
-                                    silentFrames4.element++;
-                                    if (silentFrames4.element >= 25) {
-                                        noiseFloor = noiseFloor2;
-                                        silentFrames2 = silentFrames4;
-                                        preRoll2 = preRoll4;
-                                        speechFrames = speechFrames2;
-                                        lastMissTipAt2 = lastMissTipAt;
-                                        runContinuous$endUtterance(speechFrames2, utter3, this, lastMissTipAt2, speaking2, silentFrames2);
-                                    } else {
-                                        preRoll2 = preRoll4;
-                                        noiseFloor = noiseFloor2;
-                                        silentFrames2 = silentFrames4;
-                                        speechFrames = speechFrames2;
-                                        lastMissTipAt2 = lastMissTipAt;
-                                    }
-                                    z = true;
-                                } else {
-                                    preRoll2 = preRoll4;
-                                    noiseFloor = noiseFloor2;
-                                    silentFrames2 = silentFrames4;
-                                    speechFrames = speechFrames2;
-                                    lastMissTipAt2 = lastMissTipAt;
-                                    silentFrames2.element = 0;
-                                    z = true;
-                                    speechFrames.element++;
-                                }
-                                if (speechFrames.element + silentFrames2.element >= MAX_UTT_FRAMES) {
-                                    speaking = speaking2;
-                                    objectRef = utter3;
-                                    arrayDeque = preRoll2;
-                                    intRef = silentFrames2;
-                                    z2 = z;
-                                    runContinuous$endUtterance(speechFrames, utter3, this, lastMissTipAt2, speaking, silentFrames2);
-                                } else {
-                                    speaking = speaking2;
-                                    objectRef = utter3;
-                                    arrayDeque = preRoll2;
-                                    z2 = z;
-                                    intRef = silentFrames2;
-                                }
-                            } else if (rms >= runContinuous$dynOn(noiseFloor2)) {
-                                speaking2.element = true;
-                                speechFrames2.element = 1;
-                                Ref.IntRef silentFrames5 = silentFrames;
-                                silentFrames5.element = 0;
-                                Iterator it = preRoll.iterator();
-                                while (it.hasNext()) {
-                                    short[] pr = (short[]) it.next();
-                                    Ref.ObjectRef utter4 = utter;
-                                    ((ArrayList) utter4.element).addAll(ArraysKt.toList(pr));
-                                    frame2 = frame2;
-                                    utter = utter4;
-                                }
-                                Ref.ObjectRef utter5 = utter;
-                                frame = frame2;
-                                ((ArrayList) utter5.element).addAll(ArraysKt.toList(copy));
-                                noiseFloor = noiseFloor2;
-                                speechFrames = speechFrames2;
-                                speaking = speaking2;
-                                objectRef = utter5;
-                                arrayDeque = preRoll;
-                                z2 = true;
-                                intRef = silentFrames5;
-                                lastMissTipAt2 = lastMissTipAt;
-                            } else {
-                                Ref.ObjectRef utter6 = utter;
-                                Ref.IntRef silentFrames6 = silentFrames;
-                                frame = frame2;
-                                noiseFloor2.element = (noiseFloor2.element * 0.92d) + (0.08d * rms);
-                                if (noiseFloor2.element < 12.0d) {
-                                    noiseFloor2.element = 12.0d;
-                                }
-                                ArrayDeque preRoll5 = preRoll;
-                                preRoll5.addLast(copy);
-                                while (preRoll5.size() > 10) {
-                                    preRoll5.removeFirst();
-                                }
-                                arrayDeque = preRoll5;
-                                noiseFloor = noiseFloor2;
-                                intRef = silentFrames6;
-                                speechFrames = speechFrames2;
-                                speaking = speaking2;
-                                objectRef = utter6;
-                                lastMissTipAt2 = lastMissTipAt;
-                                z2 = true;
-                            }
-                            speechFrames2 = speechFrames;
-                            speaking2 = speaking;
-                            noiseFloor2 = noiseFloor;
-                            nearZeroFrames = nearZeroFrames2;
-                            utter2 = objectRef;
-                            minBuf = minBuf2;
-                            frameCount = frameCount2;
-                            preRoll3 = arrayDeque;
-                            bufBytes = bufBytes2;
-                            silentFrames3 = intRef;
-                            frame2 = frame;
-                            recorder3 = recorder;
-                            voiceControlService = this;
+                } else {
+                    int sid = recorder3.getAudioSessionId();
+                    if (AcousticEchoCanceler.isAvailable()) {
+                        AcousticEchoCanceler it = AcousticEchoCanceler.create(sid);
+                        if (it != null) {
+                            it.setEnabled(true);
                         } else {
-                            noiseFloor2 = noiseFloor2;
-                            minBuf = minBuf2;
-                            frame2 = frame2;
-                            voiceControlService = this;
+                            it = null;
+                        }
+                        aec3 = it;
+                        Log.i("VoiceCtrl", "AEC enabled=" + (aec3 != null ? Boolean.valueOf(aec3.getEnabled()) : null));
+                        aec = aec3;
+                    } else {
+                        aec = null;
+                    }
+                    try {
+                        if (AutomaticGainControl.isAvailable()) {
+                            AutomaticGainControl it2 = AutomaticGainControl.create(sid);
+                            if (it2 != null) {
+                                it2.setEnabled(true);
+                            } else {
+                                it2 = null;
+                            }
+                            agc4 = it2;
+                            Log.i("VoiceCtrl", "AGC enabled=" + (agc4 != null ? Boolean.valueOf(agc4.getEnabled()) : null));
+                            agc = agc4;
+                        } else {
+                            agc = null;
+                        }
+                    } catch (Throwable th4) {
+                        try {
+                            Log.w("VoiceCtrl", "AGC unavailable", th4);
+                            agc = agc4;
+                        } catch (Throwable th5) {
+                            th = th5;
+                            aec3 = aec;
+                            recorder2 = recorder3;
                         }
                     }
-                    AudioRecord recorder4 = recorder3;
                     try {
-                        recorder4.stop();
-                    } catch (Throwable th11) {
+                        recorder3.startRecording();
+                        short[] frame2 = new short[FRAME];
+                        ArrayDeque preRoll2 = new ArrayDeque();
+                        Ref.ObjectRef utter2 = new Ref.ObjectRef();
+                        utter2.element = new ArrayList(96000);
+                        Ref.BooleanRef speaking2 = new Ref.BooleanRef();
+                        Ref.IntRef speechFrames2 = new Ref.IntRef();
+                        Ref.IntRef loudFrames2 = new Ref.IntRef();
+                        Ref.IntRef silentFrames = new Ref.IntRef();
+                        long ttsGuardUntil = 0;
+                        AudioRecord recorder4 = recorder3;
+                        Ref.DoubleRef noiseFloor2 = new Ref.DoubleRef();
+                        try {
+                            noiseFloor2.element = 55.0d;
+                            int frameCount = 0;
+                            int nearZeroFrames = 0;
+                            boolean noAudioTipped = false;
+                            Ref.IntRef silentFrames2 = silentFrames;
+                            Ref.LongRef lastMissTipAt2 = new Ref.LongRef();
+                            while (true) {
+                                agc2 = agc;
+                                try {
+                                    if (!this.live) {
+                                        break;
+                                    }
+                                    int bufBytes2 = bufBytes;
+                                    AudioRecord recorder5 = recorder4;
+                                    AcousticEchoCanceler aec4 = aec;
+                                    try {
+                                        int n2 = recorder5.read(frame2, 0, frame2.length);
+                                        if (n2 > 0) {
+                                            int frameCount2 = frameCount + 1;
+                                            double sum = 0.0d;
+                                            int i2 = 0;
+                                            while (i2 < n2) {
+                                                try {
+                                                    double v = frame2[i2];
+                                                    sum += v * v;
+                                                    i2++;
+                                                    nearZeroFrames = nearZeroFrames;
+                                                } catch (Throwable th6) {
+                                                    th = th6;
+                                                    recorder2 = recorder5;
+                                                    aec3 = aec4;
+                                                    agc4 = agc2;
+                                                }
+                                            }
+                                            int nearZeroFrames2 = nearZeroFrames;
+                                            double rms2 = Math.sqrt(sum / n2);
+                                            if (frameCount2 % 25 == 0) {
+                                                n = n2;
+                                                rms = rms2;
+                                                try {
+                                                    recorder = recorder5;
+                                                    try {
+                                                        lastMissTipAt = lastMissTipAt2;
+                                                        Log.i("VoiceCtrl", "rms=" + ((int) rms2) + " floor=" + ((int) noiseFloor2.element) + " on=" + ((int) runContinuous$dynOn(noiseFloor2)) + " speaking=" + speaking2.element);
+                                                    } catch (Throwable th7) {
+                                                        th = th7;
+                                                        aec3 = aec4;
+                                                        agc4 = agc2;
+                                                        recorder2 = recorder;
+                                                    }
+                                                } catch (Throwable th8) {
+                                                    th = th8;
+                                                    aec3 = aec4;
+                                                    agc4 = agc2;
+                                                    recorder2 = recorder5;
+                                                }
+                                            } else {
+                                                lastMissTipAt = lastMissTipAt2;
+                                                n = n2;
+                                                rms = rms2;
+                                                recorder = recorder5;
+                                            }
+                                            try {
+                                                long nowUp = SystemClock.uptimeMillis();
+                                                if (XiaoFanVoice.INSTANCE.isSpeakingNow()) {
+                                                    ttsGuardUntil = nowUp + TTS_TAIL_GUARD_MS;
+                                                }
+                                                if (nowUp < ttsGuardUntil) {
+                                                    if (speaking2.element) {
+                                                        runContinuous$resetUtter(utter2, speaking2, speechFrames2, loudFrames2, silentFrames2);
+                                                    }
+                                                    preRoll2.clear();
+                                                    aec = aec4;
+                                                    agc = agc2;
+                                                    bufBytes = bufBytes2;
+                                                    frameCount = frameCount2;
+                                                    nearZeroFrames = nearZeroFrames2;
+                                                    recorder4 = recorder;
+                                                    lastMissTipAt2 = lastMissTipAt;
+                                                } else {
+                                                    int nearZeroFrames3 = rms < 6.0d ? nearZeroFrames2 + 1 : 0;
+                                                    if (!noAudioTipped && nearZeroFrames3 > 150) {
+                                                        this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda6
+                                                            @Override // java.lang.Runnable
+                                                            public final void run() {
+                                                                VoiceControlService.runContinuous$lambda$6(VoiceControlService.this);
+                                                            }
+                                                        });
+                                                        noAudioTipped = true;
+                                                    }
+                                                    short[] copy = Arrays.copyOf(frame2, n);
+                                                    Intrinsics.checkNotNullExpressionValue(copy, "copyOf(...)");
+                                                    if (speaking2.element) {
+                                                        frame = frame2;
+                                                        Ref.IntRef loudFrames3 = loudFrames2;
+                                                        ((ArrayList) utter2.element).addAll(ArraysKt.toList(copy));
+                                                        speechFrames2.element++;
+                                                        if (rms < runContinuous$dynOff(noiseFloor2)) {
+                                                            try {
+                                                                silentFrames2.element++;
+                                                                if (silentFrames2.element >= 25) {
+                                                                    loudFrames = loudFrames3;
+                                                                    speechFrames = speechFrames2;
+                                                                    speaking = speaking2;
+                                                                    utter = utter2;
+                                                                    preRoll = preRoll2;
+                                                                    noiseFloor = noiseFloor2;
+                                                                    agc3 = agc2;
+                                                                    lastMissTipAt2 = lastMissTipAt;
+                                                                    try {
+                                                                        runContinuous$endUtterance(speechFrames2, loudFrames, utter2, this, lastMissTipAt2, speaking, silentFrames2);
+                                                                    } catch (Throwable th9) {
+                                                                        th = th9;
+                                                                        agc4 = agc3;
+                                                                        aec3 = aec4;
+                                                                        recorder2 = recorder;
+                                                                    }
+                                                                } else {
+                                                                    speechFrames = speechFrames2;
+                                                                    speaking = speaking2;
+                                                                    utter = utter2;
+                                                                    loudFrames = loudFrames3;
+                                                                    preRoll = preRoll2;
+                                                                    lastMissTipAt2 = lastMissTipAt;
+                                                                    noiseFloor = noiseFloor2;
+                                                                    agc3 = agc2;
+                                                                }
+                                                                z = true;
+                                                            } catch (Throwable th10) {
+                                                                th = th10;
+                                                                agc4 = agc2;
+                                                                aec3 = aec4;
+                                                                recorder2 = recorder;
+                                                            }
+                                                        } else {
+                                                            speechFrames = speechFrames2;
+                                                            speaking = speaking2;
+                                                            utter = utter2;
+                                                            loudFrames = loudFrames3;
+                                                            preRoll = preRoll2;
+                                                            lastMissTipAt2 = lastMissTipAt;
+                                                            noiseFloor = noiseFloor2;
+                                                            agc3 = agc2;
+                                                            try {
+                                                                silentFrames2.element = 0;
+                                                                z = true;
+                                                                loudFrames.element++;
+                                                            } catch (Throwable th11) {
+                                                                th = th11;
+                                                                aec3 = aec4;
+                                                                agc4 = agc3;
+                                                                recorder2 = recorder;
+                                                            }
+                                                        }
+                                                        if (speechFrames.element >= MAX_UTT_FRAMES) {
+                                                            aec2 = aec4;
+                                                            speechFrames2 = speechFrames;
+                                                            recorder4 = recorder;
+                                                            i = nearZeroFrames3;
+                                                            intRef = silentFrames2;
+                                                            try {
+                                                                runContinuous$endUtterance(speechFrames, loudFrames, utter, this, lastMissTipAt2, speaking, silentFrames2);
+                                                            } catch (Throwable th12) {
+                                                                th = th12;
+                                                                aec3 = aec2;
+                                                                agc4 = agc3;
+                                                                recorder2 = recorder4;
+                                                            }
+                                                        } else {
+                                                            speechFrames2 = speechFrames;
+                                                            i = nearZeroFrames3;
+                                                            aec2 = aec4;
+                                                            recorder4 = recorder;
+                                                            intRef = silentFrames2;
+                                                        }
+                                                    } else if (rms >= runContinuous$dynOn(noiseFloor2)) {
+                                                        speaking2.element = true;
+                                                        speechFrames2.element = 1;
+                                                        loudFrames2.element = 1;
+                                                        silentFrames2.element = 0;
+                                                        Iterator it3 = preRoll2.iterator();
+                                                        while (it3.hasNext()) {
+                                                            short[] pr = (short[]) it3.next();
+                                                            ((ArrayList) utter2.element).addAll(ArraysKt.toList(pr));
+                                                            frame2 = frame2;
+                                                        }
+                                                        frame = frame2;
+                                                        ((ArrayList) utter2.element).addAll(ArraysKt.toList(copy));
+                                                        loudFrames = loudFrames2;
+                                                        speaking = speaking2;
+                                                        utter = utter2;
+                                                        preRoll = preRoll2;
+                                                        i = nearZeroFrames3;
+                                                        aec2 = aec4;
+                                                        recorder4 = recorder;
+                                                        lastMissTipAt2 = lastMissTipAt;
+                                                        intRef = silentFrames2;
+                                                        noiseFloor = noiseFloor2;
+                                                        agc3 = agc2;
+                                                    } else {
+                                                        frame = frame2;
+                                                        Ref.IntRef loudFrames4 = loudFrames2;
+                                                        noiseFloor2.element = RangesKt.coerceIn((noiseFloor2.element * 0.92d) + (0.08d * rms), 12.0d, (double) NOISE_FLOOR_MAX);
+                                                        preRoll2.addLast(copy);
+                                                        while (preRoll2.size() > 15) {
+                                                            preRoll2.removeFirst();
+                                                        }
+                                                        speaking = speaking2;
+                                                        utter = utter2;
+                                                        loudFrames = loudFrames4;
+                                                        preRoll = preRoll2;
+                                                        i = nearZeroFrames3;
+                                                        aec2 = aec4;
+                                                        recorder4 = recorder;
+                                                        lastMissTipAt2 = lastMissTipAt;
+                                                        intRef = silentFrames2;
+                                                        noiseFloor = noiseFloor2;
+                                                        agc3 = agc2;
+                                                    }
+                                                    aec = aec2;
+                                                    agc = agc3;
+                                                    noiseFloor2 = noiseFloor;
+                                                    bufBytes = bufBytes2;
+                                                    frameCount = frameCount2;
+                                                    nearZeroFrames = i;
+                                                    silentFrames2 = intRef;
+                                                    speaking2 = speaking;
+                                                    utter2 = utter;
+                                                    preRoll2 = preRoll;
+                                                    loudFrames2 = loudFrames;
+                                                    frame2 = frame;
+                                                }
+                                            } catch (Throwable th13) {
+                                                th = th13;
+                                                aec3 = aec4;
+                                                agc4 = agc2;
+                                                recorder2 = recorder;
+                                            }
+                                        } else {
+                                            recorder4 = recorder5;
+                                            aec = aec4;
+                                            agc = agc2;
+                                            noiseFloor2 = noiseFloor2;
+                                            bufBytes = bufBytes2;
+                                            speaking2 = speaking2;
+                                            utter2 = utter2;
+                                            loudFrames2 = loudFrames2;
+                                            frame2 = frame2;
+                                        }
+                                    } catch (Throwable th14) {
+                                        th = th14;
+                                        aec3 = aec4;
+                                        agc4 = agc2;
+                                        recorder2 = recorder5;
+                                    }
+                                } catch (Throwable th15) {
+                                    th = th15;
+                                    aec3 = aec;
+                                    agc4 = agc2;
+                                    recorder2 = recorder4;
+                                }
+                            }
+                            AcousticEchoCanceler aec5 = aec;
+                            if (aec5 != null) {
+                                try {
+                                    aec5.setEnabled(false);
+                                } catch (Throwable th16) {
+                                }
+                            }
+                            if (aec5 != null) {
+                                try {
+                                    aec5.release();
+                                } catch (Throwable th17) {
+                                }
+                            }
+                            if (agc2 != null) {
+                                try {
+                                    agc2.setEnabled(false);
+                                } catch (Throwable th18) {
+                                }
+                            }
+                            if (agc2 != null) {
+                                try {
+                                    agc2.release();
+                                } catch (Throwable th19) {
+                                }
+                            }
+                            try {
+                                recorder4.stop();
+                            } catch (Throwable th20) {
+                            }
+                            try {
+                                recorder4.release();
+                            } catch (Throwable th21) {
+                            }
+                            return;
+                        } catch (Throwable th22) {
+                            th = th22;
+                            aec3 = aec;
+                            agc4 = agc;
+                            recorder2 = recorder4;
+                        }
+                    } catch (Throwable th23) {
+                        th = th23;
+                        aec3 = aec;
+                        agc4 = agc;
+                        recorder2 = recorder3;
                     }
-                    try {
-                        recorder4.release();
-                    } catch (Throwable th12) {
-                    }
-                } catch (Throwable th13) {
-                    th = th13;
-                    recorder2 = recorder3;
                 }
-            } catch (Throwable th14) {
-                th = th14;
+            } catch (Throwable th24) {
+                th = th24;
                 recorder2 = recorder3;
             }
-        } catch (Throwable th15) {
-            th = th15;
+        } catch (Throwable th25) {
+            th = th25;
+        }
+        try {
+            Log.e("VoiceCtrl", "continuous loop error", th);
+            this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda7
+                @Override // java.lang.Runnable
+                public final void run() {
+                    VoiceControlService.runContinuous$lambda$7(VoiceControlService.this);
+                }
+            });
+            if (aec3 != null) {
+                try {
+                    aec3.setEnabled(false);
+                } catch (Throwable th26) {
+                }
+            }
+            if (aec3 != null) {
+                try {
+                    aec3.release();
+                } catch (Throwable th27) {
+                }
+            }
+            if (agc4 != null) {
+                try {
+                    agc4.setEnabled(false);
+                } catch (Throwable th28) {
+                }
+            }
+            if (agc4 != null) {
+                try {
+                    agc4.release();
+                } catch (Throwable th29) {
+                }
+            }
+            if (recorder2 != null) {
+                try {
+                    recorder2.stop();
+                } catch (Throwable th30) {
+                }
+            }
+            if (recorder2 != null) {
+                try {
+                    recorder2.release();
+                } catch (Throwable th31) {
+                }
+            }
+        } catch (Throwable th32) {
+            if (aec3 != null) {
+                try {
+                    aec3.setEnabled(false);
+                } catch (Throwable th33) {
+                }
+            }
+            if (aec3 != null) {
+                try {
+                    aec3.release();
+                } catch (Throwable th34) {
+                }
+            }
+            if (agc4 != null) {
+                try {
+                    agc4.setEnabled(false);
+                } catch (Throwable th35) {
+                }
+            }
+            if (agc4 != null) {
+                try {
+                    agc4.release();
+                } catch (Throwable th36) {
+                }
+            }
+            if (recorder2 != null) {
+                try {
+                    recorder2.stop();
+                } catch (Throwable th37) {
+                }
+            }
+            if (recorder2 != null) {
+                try {
+                    recorder2.release();
+                } catch (Throwable th38) {
+                }
+            }
+            throw th32;
         }
     }
 
@@ -641,23 +870,24 @@ public final class VoiceControlService extends Service {
     }
 
     private static final double runContinuous$dynOn(Ref.DoubleRef noiseFloor) {
-        return RangesKt.coerceIn((noiseFloor.element * 2.4d) + 55.0d, 110.0d, 1200.0d);
+        return RangesKt.coerceIn((noiseFloor.element * 1.9d) + 45.0d, 75.0d, 750.0d);
     }
 
     private static final double runContinuous$dynOff(Ref.DoubleRef noiseFloor) {
-        return RangesKt.coerceIn((noiseFloor.element * 1.7d) + 30.0d, 80.0d, 1000.0d);
+        return RangesKt.coerceIn((noiseFloor.element * 1.3d) + 28.0d, 55.0d, 620.0d);
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.ArrayList] */
-    private static final void runContinuous$resetUtter(Ref.ObjectRef<ArrayList<Short>> objectRef, Ref.BooleanRef speaking, Ref.IntRef speechFrames, Ref.IntRef silentFrames) {
+    private static final void runContinuous$resetUtter(Ref.ObjectRef<ArrayList<Short>> objectRef, Ref.BooleanRef speaking, Ref.IntRef speechFrames, Ref.IntRef loudFrames, Ref.IntRef silentFrames) {
         objectRef.element = new ArrayList(96000);
         speaking.element = false;
         speechFrames.element = 0;
+        loudFrames.element = 0;
         silentFrames.element = 0;
     }
 
-    private static final void runContinuous$endUtterance(Ref.IntRef speechFrames, Ref.ObjectRef<ArrayList<Short>> objectRef, VoiceControlService this$0, final Ref.LongRef lastMissTipAt, Ref.BooleanRef speaking, Ref.IntRef silentFrames) {
-        if (speechFrames.element >= 10 && objectRef.element.size() >= 1280) {
+    private static final void runContinuous$endUtterance(Ref.IntRef speechFrames, Ref.IntRef loudFrames, Ref.ObjectRef<ArrayList<Short>> objectRef, VoiceControlService this$0, final Ref.LongRef lastMissTipAt, Ref.BooleanRef speaking, Ref.IntRef silentFrames) {
+        if (speechFrames.element >= 6 && loudFrames.element >= 3 && objectRef.element.size() >= 1280) {
             short[] pcm = new short[objectRef.element.size()];
             int size = objectRef.element.size();
             for (int i = 0; i < size; i++) {
@@ -693,11 +923,11 @@ public final class VoiceControlService extends Service {
                 }
             });
         }
-        runContinuous$resetUtter(objectRef, speaking, speechFrames, silentFrames);
+        runContinuous$resetUtter(objectRef, speaking, speechFrames, loudFrames, silentFrames);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void runContinuous$lambda$4(VoiceControlService this$0) {
+    public static final void runContinuous$lambda$6(VoiceControlService this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         XiaoFanVoice xiaoFanVoice = XiaoFanVoice.INSTANCE;
         Context applicationContext = this$0.getApplicationContext();
@@ -710,7 +940,7 @@ public final class VoiceControlService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void runContinuous$lambda$5(VoiceControlService this$0) {
+    public static final void runContinuous$lambda$7(VoiceControlService this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         XiaoFanVoice xiaoFanVoice = XiaoFanVoice.INSTANCE;
         Context applicationContext = this$0.getApplicationContext();
@@ -732,7 +962,7 @@ public final class VoiceControlService extends Service {
             this.io.execute(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda4
                 @Override // java.lang.Runnable
                 public final void run() {
-                    VoiceControlService.submitTranscription$lambda$7(h, pcm, this, function1);
+                    VoiceControlService.submitTranscription$lambda$9(h, pcm, this, function1);
                 }
             });
         } else if (function1 != null) {
@@ -741,7 +971,7 @@ public final class VoiceControlService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void submitTranscription$lambda$7(long $h, short[] pcm, final VoiceControlService this$0, final Function1 $onResult) {
+    public static final void submitTranscription$lambda$9(long $h, short[] pcm, final VoiceControlService this$0, final Function1 $onResult) {
         final String text;
         Intrinsics.checkNotNullParameter(pcm, "$pcm");
         Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -755,13 +985,13 @@ public final class VoiceControlService extends Service {
         this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda2
             @Override // java.lang.Runnable
             public final void run() {
-                VoiceControlService.submitTranscription$lambda$7$lambda$6(text, $onResult, this$0);
+                VoiceControlService.submitTranscription$lambda$9$lambda$8(text, $onResult, this$0);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void submitTranscription$lambda$7$lambda$6(String $text, Function1 $onResult, VoiceControlService this$0) {
+    public static final void submitTranscription$lambda$9$lambda$8(String $text, Function1 $onResult, VoiceControlService this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         String t = $text != null ? StringsKt.trim((CharSequence) $text).toString() : null;
         Log.i("VoiceCtrl", "asr text='" + t + "'");
@@ -769,29 +999,33 @@ public final class VoiceControlService extends Service {
         if (str == null || StringsKt.isBlank(str)) {
             if ($onResult != null) {
                 $onResult.invoke(false);
+            }
+        } else if (XiaoFanVoice.INSTANCE.isEchoOfSpeech(t)) {
+            Log.i("VoiceCtrl", "drop self-echo: " + t);
+            if ($onResult != null) {
+                $onResult.invoke(false);
+            }
+        } else {
+            VoiceCommandRouter.Command cmd = VoiceCommandRouter.INSTANCE.route(t);
+            Companion.UiListener uiListener2 = uiListener;
+            if (uiListener2 != null) {
+                uiListener2.onHeard(t, cmd);
+            }
+            if (cmd != VoiceCommandRouter.Command.NONE) {
+                this$0.dispatch(cmd);
+                if ($onResult != null) {
+                    $onResult.invoke(true);
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        VoiceCommandRouter.Command cmd = VoiceCommandRouter.INSTANCE.route(t);
-        Companion.UiListener uiListener2 = uiListener;
-        if (uiListener2 != null) {
-            uiListener2.onHeard(t, cmd);
-        }
-        if (cmd != VoiceCommandRouter.Command.NONE) {
-            this$0.dispatch(cmd);
+            FloatBallService companion = FloatBallService.Companion.getInstance();
+            if (companion != null) {
+                companion.showTip("听到“" + t + "”，还不会这个口令");
+            }
             if ($onResult != null) {
                 $onResult.invoke(true);
-                return;
             }
-            return;
-        }
-        FloatBallService companion = FloatBallService.Companion.getInstance();
-        if (companion != null) {
-            companion.showTip("听到“" + t + "”，还不会这个口令");
-        }
-        if ($onResult != null) {
-            $onResult.invoke(true);
         }
     }
 
@@ -838,29 +1072,27 @@ public final class VoiceControlService extends Service {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void feedback(String text) {
+        FloatBallService companion = FloatBallService.Companion.getInstance();
+        if (companion != null) {
+            companion.showTip(text);
+        }
+    }
+
     private final void dispatch(VoiceCommandRouter.Command cmd) {
-        final Context ctx = getApplicationContext();
+        Context ctx = getApplicationContext();
         switch (WhenMappings.$EnumSwitchMapping$0[cmd.ordinal()]) {
             case 1:
                 TurnManager turnManager = TurnManager.INSTANCE;
                 Intrinsics.checkNotNull(ctx);
-                if (turnManager.requestTurn(ctx, "离线声控-下一页")) {
-                    XiaoFanVoice.INSTANCE.tip(ctx, "好，下一页");
-                    return;
-                } else {
-                    XiaoFanVoice.INSTANCE.tip(ctx, "翻页没成功，检查无障碍服务哦");
-                    return;
-                }
+                feedback(turnManager.requestTurn(ctx, "离线声控-下一页") ? "好，下一页" : "翻页没成功，检查无障碍");
+                return;
             case 2:
                 TurnManager turnManager2 = TurnManager.INSTANCE;
                 Intrinsics.checkNotNull(ctx);
-                if (turnManager2.requestPrev(ctx, "离线声控-上一页")) {
-                    XiaoFanVoice.INSTANCE.tip(ctx, "好，回到上一页");
-                    return;
-                } else {
-                    XiaoFanVoice.INSTANCE.tip(ctx, "回退没成功，检查无障碍服务哦");
-                    return;
-                }
+                feedback(turnManager2.requestPrev(ctx, "离线声控-上一页") ? "好，回到上一页" : "回退没成功，检查无障碍");
+                return;
             case 3:
                 TurnManager turnManager3 = TurnManager.INSTANCE;
                 Intrinsics.checkNotNull(ctx);
@@ -869,7 +1101,7 @@ public final class VoiceControlService extends Service {
                 if (companion != null) {
                     companion.syncEngines();
                 }
-                XiaoFanVoice.INSTANCE.tip(ctx, "好的，继续自动翻页");
+                feedback("好的，继续自动翻页");
                 return;
             case 4:
                 TurnManager turnManager4 = TurnManager.INSTANCE;
@@ -879,7 +1111,7 @@ public final class VoiceControlService extends Service {
                 if (companion2 != null) {
                     companion2.syncEngines();
                 }
-                XiaoFanVoice.INSTANCE.tip(ctx, "已暂停自动翻页");
+                feedback("已暂停自动翻页");
                 return;
             case 5:
                 AppPrefs appPrefs = AppPrefs.INSTANCE;
@@ -892,7 +1124,7 @@ public final class VoiceControlService extends Service {
                     AppPrefs.INSTANCE.setTurnFactor(ctx, nf);
                 }
                 TurnManager.INSTANCE.notifyTimedTurnChanged(AppPrefs.INSTANCE.autoTurn(ctx), AppPrefs.INSTANCE.turnIntervalMs(ctx));
-                XiaoFanVoice.INSTANCE.tip(ctx, "好的，翻快一点");
+                feedback("好的，翻快一点");
                 return;
             case 6:
                 AppPrefs appPrefs2 = AppPrefs.INSTANCE;
@@ -905,19 +1137,15 @@ public final class VoiceControlService extends Service {
                     AppPrefs.INSTANCE.setTurnFactor(ctx, nf2);
                 }
                 TurnManager.INSTANCE.notifyTimedTurnChanged(AppPrefs.INSTANCE.autoTurn(ctx), AppPrefs.INSTANCE.turnIntervalMs(ctx));
-                XiaoFanVoice.INSTANCE.tip(ctx, "好的，翻慢一点");
+                feedback("好的，翻慢一点");
                 return;
             case 7:
                 startService(new Intent(ctx, FloatBallService.class).setAction(FloatBallService.ACTION_START));
-                XiaoFanVoice xiaoFanVoice = XiaoFanVoice.INSTANCE;
-                Intrinsics.checkNotNull(ctx);
-                xiaoFanVoice.tip(ctx, "悬浮球打开啦");
+                feedback("悬浮球打开啦");
                 return;
             case 8:
                 startService(new Intent(ctx, FloatBallService.class).setAction(FloatBallService.ACTION_STOP));
-                XiaoFanVoice xiaoFanVoice2 = XiaoFanVoice.INSTANCE;
-                Intrinsics.checkNotNull(ctx);
-                xiaoFanVoice2.tip(ctx, "悬浮球收起啦");
+                feedback("悬浮球收起啦");
                 return;
             case 9:
                 AppPrefs appPrefs3 = AppPrefs.INSTANCE;
@@ -927,7 +1155,7 @@ public final class VoiceControlService extends Service {
                 if (companion3 != null) {
                     companion3.syncEngines();
                 }
-                XiaoFanVoice.INSTANCE.tip(ctx, "开始帮你刷视频");
+                feedback("开始帮你刷视频");
                 return;
             case 10:
                 AppPrefs appPrefs4 = AppPrefs.INSTANCE;
@@ -937,12 +1165,10 @@ public final class VoiceControlService extends Service {
                 if (companion4 != null) {
                     companion4.syncEngines();
                 }
-                XiaoFanVoice.INSTANCE.tip(ctx, "已暂停刷视频");
+                feedback("已暂停刷视频");
                 return;
             case 11:
-                XiaoFanVoice xiaoFanVoice3 = XiaoFanVoice.INSTANCE;
-                Intrinsics.checkNotNull(ctx);
-                xiaoFanVoice3.tip(ctx, XiaoFanBrain.INSTANCE.speakTimeNow());
+                feedback(XiaoFanBrain.INSTANCE.speakTimeNow());
                 return;
             case 12:
                 XiaoFanBrain.Intent it = XiaoFanBrain.INSTANCE.parse("天气");
@@ -957,17 +1183,12 @@ public final class VoiceControlService extends Service {
                     @Override // com.xiaofan.bangfan.XiaoFanBrain.AnswerCallback
                     public void onSpeak(String text) {
                         Intrinsics.checkNotNullParameter(text, "text");
-                        XiaoFanVoice xiaoFanVoice4 = XiaoFanVoice.INSTANCE;
-                        Context ctx2 = ctx;
-                        Intrinsics.checkNotNullExpressionValue(ctx2, "$ctx");
-                        xiaoFanVoice4.tip(ctx2, text);
+                        VoiceControlService.this.feedback(text);
                     }
                 });
                 return;
             case 13:
-                XiaoFanVoice xiaoFanVoice4 = XiaoFanVoice.INSTANCE;
-                Intrinsics.checkNotNull(ctx);
-                xiaoFanVoice4.tip(ctx, "好的");
+                feedback("好的");
                 return;
             case 14:
                 TurnManager turnManager5 = TurnManager.INSTANCE;
@@ -977,7 +1198,7 @@ public final class VoiceControlService extends Service {
                 if (companion5 != null) {
                     companion5.syncEngines();
                 }
-                XiaoFanVoice.INSTANCE.tip(ctx, "好的，已取消");
+                feedback("好的，已取消");
                 return;
             default:
                 return;
@@ -1009,7 +1230,7 @@ public final class VoiceControlService extends Service {
             this.io.execute(new Runnable() { // from class: com.xiaofan.bangfan.VoiceControlService$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    VoiceControlService.stopEverything$lambda$8(h);
+                    VoiceControlService.stopEverything$lambda$10(h);
                 }
             });
         }
@@ -1021,7 +1242,7 @@ public final class VoiceControlService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void stopEverything$lambda$8(long $h) {
+    public static final void stopEverything$lambda$10(long $h) {
         try {
             NativeAsr.INSTANCE.nativeUnload($h);
         } catch (Throwable th) {

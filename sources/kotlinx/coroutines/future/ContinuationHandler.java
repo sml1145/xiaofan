@@ -34,7 +34,7 @@ final class ContinuationHandler<T> implements BiFunction<T, Throwable, Unit> {
         }
         if (exception == null) {
             Result.Companion companion = Result.Companion;
-            cont.resumeWith(Result.m262constructorimpl(t));
+            cont.resumeWith(Result.m270constructorimpl(t));
             return;
         }
         CompletionException completionException = exception instanceof CompletionException ? (CompletionException) exception : null;
@@ -42,6 +42,6 @@ final class ContinuationHandler<T> implements BiFunction<T, Throwable, Unit> {
             th = exception;
         }
         Result.Companion companion2 = Result.Companion;
-        cont.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(th)));
+        cont.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(th)));
     }
 }

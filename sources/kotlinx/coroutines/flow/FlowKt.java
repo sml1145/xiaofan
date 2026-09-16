@@ -108,8 +108,8 @@ public final class FlowKt {
     }
 
     /* renamed from: catch  reason: not valid java name */
-    public static final <T> Flow<T> m1794catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
-        return FlowKt__ErrorsKt.m1805catch(flow, function3);
+    public static final <T> Flow<T> m1802catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+        return FlowKt__ErrorsKt.m1813catch(flow, function3);
     }
 
     public static final <T> Object catchImpl(Flow<? extends T> flow, FlowCollector<? super T> flowCollector, Continuation<? super Throwable> continuation) {
@@ -233,8 +233,8 @@ public final class FlowKt {
     }
 
     /* renamed from: debounce-HG0u8IE  reason: not valid java name */
-    public static final <T> Flow<T> m1795debounceHG0u8IE(Flow<? extends T> flow, long timeout) {
-        return FlowKt__DelayKt.m1798debounceHG0u8IE(flow, timeout);
+    public static final <T> Flow<T> m1803debounceHG0u8IE(Flow<? extends T> flow, long timeout) {
+        return FlowKt__DelayKt.m1806debounceHG0u8IE(flow, timeout);
     }
 
     public static final <T> Flow<T> debounceDuration(Flow<? extends T> flow, Function1<? super T, Duration> function1) {
@@ -534,8 +534,8 @@ public final class FlowKt {
     }
 
     /* renamed from: sample-HG0u8IE  reason: not valid java name */
-    public static final <T> Flow<T> m1796sampleHG0u8IE(Flow<? extends T> flow, long period) {
-        return FlowKt__DelayKt.m1799sampleHG0u8IE(flow, period);
+    public static final <T> Flow<T> m1804sampleHG0u8IE(Flow<? extends T> flow, long period) {
+        return FlowKt__DelayKt.m1807sampleHG0u8IE(flow, period);
     }
 
     public static final <T, R> Flow<R> scan(Flow<? extends T> flow, R r, Function3<? super R, ? super T, ? super Continuation<? super R>, ? extends Object> function3) {
@@ -621,8 +621,8 @@ public final class FlowKt {
     }
 
     /* renamed from: timeout-HG0u8IE  reason: not valid java name */
-    public static final <T> Flow<T> m1797timeoutHG0u8IE(Flow<? extends T> flow, long timeout) {
-        return FlowKt__DelayKt.m1800timeoutHG0u8IE(flow, timeout);
+    public static final <T> Flow<T> m1805timeoutHG0u8IE(Flow<? extends T> flow, long timeout) {
+        return FlowKt__DelayKt.m1808timeoutHG0u8IE(flow, timeout);
     }
 
     public static final <T, C extends Collection<? super T>> Object toCollection(Flow<? extends T> flow, C c, Continuation<? super C> continuation) {

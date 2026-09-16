@@ -149,8 +149,8 @@ public class BufferedChannel<E> implements Channel<E> {
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     /* renamed from: receiveCatching-JP2dKIU  reason: not valid java name */
-    public Object mo1769receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation) {
-        return m1767receiveCatchingJP2dKIU$suspendImpl(this, continuation);
+    public Object mo1777receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation) {
+        return m1775receiveCatchingJP2dKIU$suspendImpl(this, continuation);
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
@@ -346,7 +346,7 @@ public class BufferedChannel<E> implements Channel<E> {
             } else {
                 undeliveredElementException = it;
             }
-            $this$resumeWithStackTrace$iv.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(undeliveredElementException)));
+            $this$resumeWithStackTrace$iv.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(undeliveredElementException)));
         } else {
             CancellableContinuationImpl $this$resumeWithStackTrace$iv2 = continuation2;
             Throwable exception$iv = getSendException();
@@ -356,7 +356,7 @@ public class BufferedChannel<E> implements Channel<E> {
             } else {
                 th = exception$iv;
             }
-            $this$resumeWithStackTrace$iv2.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(th)));
+            $this$resumeWithStackTrace$iv2.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(th)));
         }
         Object result = cancellable$iv.getResult();
         if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
@@ -379,11 +379,11 @@ public class BufferedChannel<E> implements Channel<E> {
                             case 0:
                                 channelSegment.cleanPrev();
                                 Result.Companion companion = Result.Companion;
-                                cancellable$iv.resumeWith(Result.m262constructorimpl(Unit.INSTANCE));
+                                cancellable$iv.resumeWith(Result.m270constructorimpl(Unit.INSTANCE));
                                 break;
                             case 1:
                                 Result.Companion companion2 = Result.Companion;
-                                cancellable$iv.resumeWith(Result.m262constructorimpl(Unit.INSTANCE));
+                                cancellable$iv.resumeWith(Result.m270constructorimpl(Unit.INSTANCE));
                                 break;
                             case 2:
                                 prepareSenderForSuspension(cancellable$iv, channelSegment, index);
@@ -430,11 +430,11 @@ public class BufferedChannel<E> implements Channel<E> {
                                             case 0:
                                                 segment$iv$iv5.cleanPrev();
                                                 Result.Companion companion3 = Result.Companion;
-                                                cancellable$iv.resumeWith(Result.m262constructorimpl(Unit.INSTANCE));
+                                                cancellable$iv.resumeWith(Result.m270constructorimpl(Unit.INSTANCE));
                                                 break;
                                             case 1:
                                                 Result.Companion companion4 = Result.Companion;
-                                                cancellable$iv.resumeWith(Result.m262constructorimpl(Unit.INSTANCE));
+                                                cancellable$iv.resumeWith(Result.m270constructorimpl(Unit.INSTANCE));
                                                 break;
                                             case 2:
                                                 if (!closed$iv$iv) {
@@ -507,18 +507,18 @@ public class BufferedChannel<E> implements Channel<E> {
             exception$iv = StackTraceRecoveryKt.recoverFromStackFrame(exception$iv, (CoroutineStackFrame) cancellableContinuation);
         }
         Result.Companion companion = Result.Companion;
-        cancellableContinuation2.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(exception$iv)));
+        cancellableContinuation2.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(exception$iv)));
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU */
-    public Object mo1765trySendJP2dKIU(E e) {
+    public Object mo1773trySendJP2dKIU(E e) {
         Object waiter$iv;
         ChannelSegment segment$iv;
         ChannelSegment segment$iv2;
         if (shouldSendSuspend(sendersAndCloseStatus$FU.get(this))) {
-            return ChannelResult.Companion.m1789failurePtdJZtk();
+            return ChannelResult.Companion.m1797failurePtdJZtk();
         }
         waiter$iv = BufferedChannelKt.INTERRUPTED_SEND;
         int $i$f$sendImpl = 0;
@@ -534,7 +534,7 @@ public class BufferedChannel<E> implements Channel<E> {
                 if (segment$iv4 != null) {
                     segment$iv = segment$iv4;
                 } else if (closed$iv) {
-                    return ChannelResult.Companion.m1788closedJP2dKIU(getSendException());
+                    return ChannelResult.Companion.m1796closedJP2dKIU(getSendException());
                 }
             } else {
                 segment$iv = segment$iv3;
@@ -544,13 +544,13 @@ public class BufferedChannel<E> implements Channel<E> {
             switch (updateCellSend(segment$iv, i$iv, e, $this$sendersCounter$iv$iv, waiter$iv, closed$iv)) {
                 case 0:
                     segment$iv5.cleanPrev();
-                    return ChannelResult.Companion.m1790successJP2dKIU(Unit.INSTANCE);
+                    return ChannelResult.Companion.m1798successJP2dKIU(Unit.INSTANCE);
                 case 1:
-                    return ChannelResult.Companion.m1790successJP2dKIU(Unit.INSTANCE);
+                    return ChannelResult.Companion.m1798successJP2dKIU(Unit.INSTANCE);
                 case 2:
                     if (closed$iv) {
                         segment$iv5.onSlotCleaned();
-                        return ChannelResult.Companion.m1788closedJP2dKIU(getSendException());
+                        return ChannelResult.Companion.m1796closedJP2dKIU(getSendException());
                     }
                     Waiter waiter = waiter$iv instanceof Waiter ? (Waiter) waiter$iv : null;
                     if (waiter != null) {
@@ -561,14 +561,14 @@ public class BufferedChannel<E> implements Channel<E> {
                     }
                     ChannelSegment segm = segment$iv2;
                     segm.onSlotCleaned();
-                    return ChannelResult.Companion.m1789failurePtdJZtk();
+                    return ChannelResult.Companion.m1797failurePtdJZtk();
                 case 3:
                     throw new IllegalStateException("unexpected".toString());
                 case 4:
                     if ($this$sendersCounter$iv$iv < getReceiversCounter$kotlinx_coroutines_core()) {
                         segment$iv5.cleanPrev();
                     }
-                    return ChannelResult.Companion.m1788closedJP2dKIU(getSendException());
+                    return ChannelResult.Companion.m1796closedJP2dKIU(getSendException());
                 case 5:
                     segment$iv5.cleanPrev();
                     break;
@@ -604,7 +604,7 @@ public class BufferedChannel<E> implements Channel<E> {
                     segment$iv = segment$iv3;
                 } else if (closed$iv) {
                     Result.Companion companion = Result.Companion;
-                    cont.resumeWith(Result.m262constructorimpl(Boxing.boxBoolean(false)));
+                    cont.resumeWith(Result.m270constructorimpl(Boxing.boxBoolean(false)));
                 } else {
                     cancellable$iv2 = cancellable$iv;
                 }
@@ -617,17 +617,17 @@ public class BufferedChannel<E> implements Channel<E> {
                 case 0:
                     segment$iv.cleanPrev();
                     Result.Companion companion2 = Result.Companion;
-                    cont.resumeWith(Result.m262constructorimpl(Boxing.boxBoolean(true)));
+                    cont.resumeWith(Result.m270constructorimpl(Boxing.boxBoolean(true)));
                     break;
                 case 1:
                     Result.Companion companion3 = Result.Companion;
-                    cont.resumeWith(Result.m262constructorimpl(Boxing.boxBoolean(true)));
+                    cont.resumeWith(Result.m270constructorimpl(Boxing.boxBoolean(true)));
                     break;
                 case 2:
                     if (closed$iv) {
                         segment$iv.onSlotCleaned();
                         Result.Companion companion4 = Result.Companion;
-                        cont.resumeWith(Result.m262constructorimpl(Boxing.boxBoolean(false)));
+                        cont.resumeWith(Result.m270constructorimpl(Boxing.boxBoolean(false)));
                         break;
                     } else {
                         SendBroadcast sendBroadcast = waiter$iv2 instanceof Waiter ? (Waiter) waiter$iv2 : null;
@@ -643,7 +643,7 @@ public class BufferedChannel<E> implements Channel<E> {
                         segment$iv.cleanPrev();
                     }
                     Result.Companion companion5 = Result.Companion;
-                    cont.resumeWith(Result.m262constructorimpl(Boxing.boxBoolean(false)));
+                    cont.resumeWith(Result.m270constructorimpl(Boxing.boxBoolean(false)));
                     break;
                 case 5:
                     segment$iv.cleanPrev();
@@ -1037,9 +1037,9 @@ public class BufferedChannel<E> implements Channel<E> {
             Intrinsics.checkNotNull($this$tryResumeReceiver, "null cannot be cast to non-null type kotlinx.coroutines.channels.ReceiveCatching<E of kotlinx.coroutines.channels.BufferedChannel>");
             ReceiveCatching receiveCatching = (ReceiveCatching) $this$tryResumeReceiver;
             CancellableContinuationImpl<ChannelResult<? extends E>> cancellableContinuationImpl = ((ReceiveCatching) $this$tryResumeReceiver).cont;
-            ChannelResult m1775boximpl = ChannelResult.m1775boximpl(ChannelResult.Companion.m1790successJP2dKIU(e));
+            ChannelResult m1783boximpl = ChannelResult.m1783boximpl(ChannelResult.Companion.m1798successJP2dKIU(e));
             Function1<E, Unit> function1 = this.onUndeliveredElement;
-            tryResume02 = BufferedChannelKt.tryResume0(cancellableContinuationImpl, m1775boximpl, function1 != null ? OnUndeliveredElementKt.bindCancellationFun(function1, e, ((ReceiveCatching) $this$tryResumeReceiver).cont.getContext()) : null);
+            tryResume02 = BufferedChannelKt.tryResume0(cancellableContinuationImpl, m1783boximpl, function1 != null ? OnUndeliveredElementKt.bindCancellationFun(function1, e, ((ReceiveCatching) $this$tryResumeReceiver).cont.getContext()) : null);
             return tryResume02;
         } else if ($this$tryResumeReceiver instanceof BufferedChannelIterator) {
             Intrinsics.checkNotNull($this$tryResumeReceiver, "null cannot be cast to non-null type kotlinx.coroutines.channels.BufferedChannel.BufferedChannelIterator<E of kotlinx.coroutines.channels.BufferedChannel>");
@@ -1224,7 +1224,7 @@ public class BufferedChannel<E> implements Channel<E> {
     /* JADX INFO: Access modifiers changed from: private */
     public final void onClosedReceiveOnNoWaiterSuspend(CancellableContinuation<? super E> cancellableContinuation) {
         Result.Companion companion = Result.Companion;
-        cancellableContinuation.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(getReceiveException())));
+        cancellableContinuation.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(getReceiveException())));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1237,12 +1237,12 @@ public class BufferedChannel<E> implements Channel<E> {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public static /* synthetic */ <E> java.lang.Object m1767receiveCatchingJP2dKIU$suspendImpl(kotlinx.coroutines.channels.BufferedChannel<E> r17, kotlin.coroutines.Continuation<? super kotlinx.coroutines.channels.ChannelResult<? extends E>> r18) {
+    public static /* synthetic */ <E> java.lang.Object m1775receiveCatchingJP2dKIU$suspendImpl(kotlinx.coroutines.channels.BufferedChannel<E> r17, kotlin.coroutines.Continuation<? super kotlinx.coroutines.channels.ChannelResult<? extends E>> r18) {
         /*
             Method dump skipped, instructions count: 240
             To view this dump add '--comments-level debug' option
         */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.BufferedChannel.m1767receiveCatchingJP2dKIU$suspendImpl(kotlinx.coroutines.channels.BufferedChannel, kotlin.coroutines.Continuation):java.lang.Object");
+        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.BufferedChannel.m1775receiveCatchingJP2dKIU$suspendImpl(kotlinx.coroutines.channels.BufferedChannel, kotlin.coroutines.Continuation):java.lang.Object");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1255,24 +1255,24 @@ public class BufferedChannel<E> implements Channel<E> {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    public final java.lang.Object m1768receiveCatchingOnNoWaiterSuspendGKJJFZk(kotlinx.coroutines.channels.ChannelSegment<E> r28, int r29, long r30, kotlin.coroutines.Continuation<? super kotlinx.coroutines.channels.ChannelResult<? extends E>> r32) {
+    public final java.lang.Object m1776receiveCatchingOnNoWaiterSuspendGKJJFZk(kotlinx.coroutines.channels.ChannelSegment<E> r28, int r29, long r30, kotlin.coroutines.Continuation<? super kotlinx.coroutines.channels.ChannelResult<? extends E>> r32) {
         /*
             Method dump skipped, instructions count: 444
             To view this dump add '--comments-level debug' option
         */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.BufferedChannel.m1768receiveCatchingOnNoWaiterSuspendGKJJFZk(kotlinx.coroutines.channels.ChannelSegment, int, long, kotlin.coroutines.Continuation):java.lang.Object");
+        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.BufferedChannel.m1776receiveCatchingOnNoWaiterSuspendGKJJFZk(kotlinx.coroutines.channels.ChannelSegment, int, long, kotlin.coroutines.Continuation):java.lang.Object");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void onClosedReceiveCatchingOnNoWaiterSuspend(CancellableContinuation<? super ChannelResult<? extends E>> cancellableContinuation) {
         Result.Companion companion = Result.Companion;
-        cancellableContinuation.resumeWith(Result.m262constructorimpl(ChannelResult.m1775boximpl(ChannelResult.Companion.m1788closedJP2dKIU(getCloseCause()))));
+        cancellableContinuation.resumeWith(Result.m270constructorimpl(ChannelResult.m1783boximpl(ChannelResult.Companion.m1796closedJP2dKIU(getCloseCause()))));
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     /* renamed from: tryReceive-PtdJZtk  reason: not valid java name */
-    public Object mo1770tryReceivePtdJZtk() {
+    public Object mo1778tryReceivePtdJZtk() {
         Object waiter$iv;
         ChannelSegment segment$iv;
         Symbol symbol;
@@ -1281,11 +1281,11 @@ public class BufferedChannel<E> implements Channel<E> {
         long r = receivers$FU.get(this);
         long sendersAndCloseStatusCur = sendersAndCloseStatus$FU.get(this);
         if (isClosedForReceive0(sendersAndCloseStatusCur)) {
-            return ChannelResult.Companion.m1788closedJP2dKIU(getCloseCause());
+            return ChannelResult.Companion.m1796closedJP2dKIU(getCloseCause());
         }
         long $this$sendersCounter$iv = sendersAndCloseStatusCur & 1152921504606846975L;
         if (r >= $this$sendersCounter$iv) {
-            return ChannelResult.Companion.m1789failurePtdJZtk();
+            return ChannelResult.Companion.m1797failurePtdJZtk();
         }
         waiter$iv = BufferedChannelKt.INTERRUPTED_RCV;
         ChannelSegment segment$iv2 = (ChannelSegment) receiveSegment$FU.get(this);
@@ -1315,7 +1315,7 @@ public class BufferedChannel<E> implements Channel<E> {
                         throw new IllegalStateException("unexpected".toString());
                     }
                     segment$iv4.cleanPrev();
-                    return ChannelResult.Companion.m1790successJP2dKIU(updCellResult$iv);
+                    return ChannelResult.Companion.m1798successJP2dKIU(updCellResult$iv);
                 }
                 if (r$iv < getSendersCounter$kotlinx_coroutines_core()) {
                     segment$iv4.cleanPrev();
@@ -1329,10 +1329,10 @@ public class BufferedChannel<E> implements Channel<E> {
                 }
                 waitExpandBufferCompletion$kotlinx_coroutines_core(r$iv);
                 segment$iv4.onSlotCleaned();
-                return ChannelResult.Companion.m1789failurePtdJZtk();
+                return ChannelResult.Companion.m1797failurePtdJZtk();
             }
         }
-        return ChannelResult.Companion.m1788closedJP2dKIU(getCloseCause());
+        return ChannelResult.Companion.m1796closedJP2dKIU(getCloseCause());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -2097,7 +2097,7 @@ public class BufferedChannel<E> implements Channel<E> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final Object processResultSelectReceiveCatching(Object ignoredParam, Object selectResult) {
-        return ChannelResult.m1775boximpl(selectResult == BufferedChannelKt.getCHANNEL_CLOSED() ? ChannelResult.Companion.m1788closedJP2dKIU(getCloseCause()) : ChannelResult.Companion.m1790successJP2dKIU(selectResult));
+        return ChannelResult.m1783boximpl(selectResult == BufferedChannelKt.getCHANNEL_CLOSED() ? ChannelResult.Companion.m1796closedJP2dKIU(getCloseCause()) : ChannelResult.Companion.m1798successJP2dKIU(selectResult));
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
@@ -2318,7 +2318,7 @@ public class BufferedChannel<E> implements Channel<E> {
             Throwable cause = BufferedChannel.this.getCloseCause();
             if (cause == null) {
                 Result.Companion companion = Result.Companion;
-                cont.resumeWith(Result.m262constructorimpl(false));
+                cont.resumeWith(Result.m270constructorimpl(false));
                 return;
             }
             CancellableContinuationImpl cancellableContinuationImpl = cont;
@@ -2328,7 +2328,7 @@ public class BufferedChannel<E> implements Channel<E> {
                 th = cause;
             }
             Result.Companion companion2 = Result.Companion;
-            cancellableContinuationImpl.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(th)));
+            cancellableContinuationImpl.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(th)));
         }
 
         @Override // kotlinx.coroutines.channels.ChannelIterator
@@ -2369,7 +2369,7 @@ public class BufferedChannel<E> implements Channel<E> {
             Throwable cause = BufferedChannel.this.getCloseCause();
             if (cause == null) {
                 Result.Companion companion = Result.Companion;
-                cont.resumeWith(Result.m262constructorimpl(false));
+                cont.resumeWith(Result.m270constructorimpl(false));
                 return;
             }
             CancellableContinuationImpl cancellableContinuationImpl = cont;
@@ -2379,7 +2379,7 @@ public class BufferedChannel<E> implements Channel<E> {
                 th = cause;
             }
             Result.Companion companion2 = Result.Companion;
-            cancellableContinuationImpl.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(th)));
+            cancellableContinuationImpl.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(th)));
         }
     }
 
@@ -2659,7 +2659,7 @@ public class BufferedChannel<E> implements Channel<E> {
 
     private final void cancelSuspendedReceiveRequests(ChannelSegment<E> channelSegment, long sendersCounter) {
         Symbol symbol;
-        Object suspendedReceivers = InlineList.m1812constructorimpl$default(null, 1, null);
+        Object suspendedReceivers = InlineList.m1820constructorimpl$default(null, 1, null);
         loop0: for (ChannelSegment segment = channelSegment; segment != null; segment = (ChannelSegment) segment.getPrev()) {
             for (int index = BufferedChannelKt.SEGMENT_SIZE - 1; -1 < index; index--) {
                 if ((segment.id * BufferedChannelKt.SEGMENT_SIZE) + index < sendersCounter) {
@@ -2672,14 +2672,14 @@ public class BufferedChannel<E> implements Channel<E> {
                         if (state != symbol) {
                             if (state instanceof WaiterEB) {
                                 if (segment.casState$kotlinx_coroutines_core(index, state, BufferedChannelKt.getCHANNEL_CLOSED())) {
-                                    suspendedReceivers = InlineList.m1817plusFjFbRPM(suspendedReceivers, ((WaiterEB) state).waiter);
+                                    suspendedReceivers = InlineList.m1825plusFjFbRPM(suspendedReceivers, ((WaiterEB) state).waiter);
                                     segment.onCancelledRequest(index, true);
                                     break;
                                 }
                             } else if (!(state instanceof Waiter)) {
                                 break;
                             } else if (segment.casState$kotlinx_coroutines_core(index, state, BufferedChannelKt.getCHANNEL_CLOSED())) {
-                                suspendedReceivers = InlineList.m1817plusFjFbRPM(suspendedReceivers, state);
+                                suspendedReceivers = InlineList.m1825plusFjFbRPM(suspendedReceivers, state);
                                 segment.onCancelledRequest(index, true);
                                 break;
                             }
@@ -2731,16 +2731,16 @@ public class BufferedChannel<E> implements Channel<E> {
                     return;
                 }
                 Result.Companion companion = Result.Companion;
-                ((ReceiveCatching) $this$resumeWaiterOnClosedChannel).cont.resumeWith(Result.m262constructorimpl(ChannelResult.m1775boximpl(ChannelResult.Companion.m1788closedJP2dKIU(getCloseCause()))));
+                ((ReceiveCatching) $this$resumeWaiterOnClosedChannel).cont.resumeWith(Result.m270constructorimpl(ChannelResult.m1783boximpl(ChannelResult.Companion.m1796closedJP2dKIU(getCloseCause()))));
                 return;
             }
             Continuation continuation = (Continuation) $this$resumeWaiterOnClosedChannel;
             Result.Companion companion2 = Result.Companion;
-            continuation.resumeWith(Result.m262constructorimpl(ResultKt.createFailure(receiver ? getReceiveException() : getSendException())));
+            continuation.resumeWith(Result.m270constructorimpl(ResultKt.createFailure(receiver ? getReceiveException() : getSendException())));
             return;
         }
         Result.Companion companion3 = Result.Companion;
-        ((SendBroadcast) $this$resumeWaiterOnClosedChannel).getCont().resumeWith(Result.m262constructorimpl(false));
+        ((SendBroadcast) $this$resumeWaiterOnClosedChannel).getCont().resumeWith(Result.m270constructorimpl(false));
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
@@ -2868,10 +2868,10 @@ public class BufferedChannel<E> implements Channel<E> {
         boolean z3 = false;
         while (true) {
             s$iv = ConcurrentLinkedListKt.findSegmentInternal(channelSegment, id, createNewSegment$iv2);
-            if (SegmentOrClosed.m1829isClosedimpl(s$iv)) {
+            if (SegmentOrClosed.m1837isClosedimpl(s$iv)) {
                 break;
             }
-            Segment to$iv$iv = SegmentOrClosed.m1827getSegmentimpl(s$iv);
+            Segment to$iv$iv = SegmentOrClosed.m1835getSegmentimpl(s$iv);
             while (true) {
                 Segment cur$iv$iv = (Segment) atomicfu$handler$iv.get(this);
                 createNewSegment$iv = createNewSegment$iv2;
@@ -2901,7 +2901,7 @@ public class BufferedChannel<E> implements Channel<E> {
             createNewSegment$iv2 = createNewSegment$iv;
             z3 = z;
         }
-        if (SegmentOrClosed.m1829isClosedimpl(s$iv)) {
+        if (SegmentOrClosed.m1837isClosedimpl(s$iv)) {
             completeCloseOrCancel();
             if (channelSegment.id * BufferedChannelKt.SEGMENT_SIZE < getReceiversCounter$kotlinx_coroutines_core()) {
                 channelSegment.cleanPrev();
@@ -2909,7 +2909,7 @@ public class BufferedChannel<E> implements Channel<E> {
             }
             return null;
         }
-        ChannelSegment segment = (ChannelSegment) SegmentOrClosed.m1827getSegmentimpl(s$iv);
+        ChannelSegment segment = (ChannelSegment) SegmentOrClosed.m1835getSegmentimpl(s$iv);
         if (segment.id > id) {
             updateSendersCounterIfLower(segment.id * BufferedChannelKt.SEGMENT_SIZE);
             if (segment.id * BufferedChannelKt.SEGMENT_SIZE < getReceiversCounter$kotlinx_coroutines_core()) {
@@ -2937,10 +2937,10 @@ public class BufferedChannel<E> implements Channel<E> {
         boolean z3 = false;
         while (true) {
             s$iv = ConcurrentLinkedListKt.findSegmentInternal(channelSegment, id, createNewSegment$iv2);
-            if (SegmentOrClosed.m1829isClosedimpl(s$iv)) {
+            if (SegmentOrClosed.m1837isClosedimpl(s$iv)) {
                 break;
             }
-            Segment to$iv$iv = SegmentOrClosed.m1827getSegmentimpl(s$iv);
+            Segment to$iv$iv = SegmentOrClosed.m1835getSegmentimpl(s$iv);
             while (true) {
                 Segment cur$iv$iv = (Segment) atomicfu$handler$iv.get(this);
                 createNewSegment$iv = createNewSegment$iv2;
@@ -2971,14 +2971,14 @@ public class BufferedChannel<E> implements Channel<E> {
             z3 = z;
         }
         Object it = s$iv;
-        if (SegmentOrClosed.m1829isClosedimpl(it)) {
+        if (SegmentOrClosed.m1837isClosedimpl(it)) {
             completeCloseOrCancel();
             if (channelSegment.id * BufferedChannelKt.SEGMENT_SIZE < getSendersCounter$kotlinx_coroutines_core()) {
                 channelSegment.cleanPrev();
             }
             return null;
         }
-        ChannelSegment segment = (ChannelSegment) SegmentOrClosed.m1827getSegmentimpl(it);
+        ChannelSegment segment = (ChannelSegment) SegmentOrClosed.m1835getSegmentimpl(it);
         if (!isRendezvousOrUnlimited() && id <= getBufferEndCounter() / BufferedChannelKt.SEGMENT_SIZE) {
             AtomicReferenceFieldUpdater atomicfu$handler$iv2 = bufferEndSegment$FU;
             while (true) {
@@ -3020,10 +3020,10 @@ public class BufferedChannel<E> implements Channel<E> {
         Function2 createNewSegment$iv = (Function2) BufferedChannelKt.createSegmentFunction();
         do {
             s$iv = ConcurrentLinkedListKt.findSegmentInternal(channelSegment, id, createNewSegment$iv);
-            if (SegmentOrClosed.m1829isClosedimpl(s$iv)) {
+            if (SegmentOrClosed.m1837isClosedimpl(s$iv)) {
                 break;
             }
-            Segment to$iv$iv = SegmentOrClosed.m1827getSegmentimpl(s$iv);
+            Segment to$iv$iv = SegmentOrClosed.m1835getSegmentimpl(s$iv);
             int $i$f$moveForward$atomicfu = 0;
             while (true) {
                 Segment cur$iv$iv = (Segment) atomicfu$handler$iv.get(this);
@@ -3050,13 +3050,13 @@ public class BufferedChannel<E> implements Channel<E> {
                 }
             }
         } while (!z);
-        if (SegmentOrClosed.m1829isClosedimpl(s$iv)) {
+        if (SegmentOrClosed.m1837isClosedimpl(s$iv)) {
             completeCloseOrCancel();
             moveSegmentBufferEndToSpecifiedOrLast(id, channelSegment);
             incCompletedExpandBufferAttempts$default(this, 0L, 1, null);
             return null;
         }
-        ChannelSegment segment = (ChannelSegment) SegmentOrClosed.m1827getSegmentimpl(s$iv);
+        ChannelSegment segment = (ChannelSegment) SegmentOrClosed.m1835getSegmentimpl(s$iv);
         if (segment.id > id) {
             if (bufferEnd$FU.compareAndSet(this, currentBufferEndCounter + 1, segment.id * BufferedChannelKt.SEGMENT_SIZE)) {
                 incCompletedExpandBufferAttempts((segment.id * BufferedChannelKt.SEGMENT_SIZE) - currentBufferEndCounter);

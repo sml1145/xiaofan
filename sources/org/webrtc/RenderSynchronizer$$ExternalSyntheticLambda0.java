@@ -12,6 +12,6 @@ public final /* synthetic */ class RenderSynchronizer$$ExternalSyntheticLambda0 
 
     @Override // android.view.Choreographer.FrameCallback
     public final void doFrame(long j) {
-        RenderSynchronizer.m2122$r8$lambda$tSUKYocQHVwvhOQSxVOe3G39rE(this.f$0, j);
+        RenderSynchronizer.m2130$r8$lambda$tSUKYocQHVwvhOQSxVOe3G39rE(this.f$0, j);
     }
 }

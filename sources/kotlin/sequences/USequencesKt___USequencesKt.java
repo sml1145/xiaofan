@@ -15,8 +15,8 @@ class USequencesKt___USequencesKt {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         int sum = 0;
         for (UInt uInt : sequence) {
-            int element = uInt.m409unboximpl();
-            sum = UInt.m357constructorimpl(sum + element);
+            int element = uInt.m417unboximpl();
+            sum = UInt.m365constructorimpl(sum + element);
         }
         return sum;
     }
@@ -25,8 +25,8 @@ class USequencesKt___USequencesKt {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         long sum = 0;
         for (ULong uLong : sequence) {
-            long element = uLong.m488unboximpl();
-            sum = ULong.m436constructorimpl(sum + element);
+            long element = uLong.m496unboximpl();
+            sum = ULong.m444constructorimpl(sum + element);
         }
         return sum;
     }
@@ -35,8 +35,8 @@ class USequencesKt___USequencesKt {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         int sum = 0;
         for (UByte uByte : sequence) {
-            byte element = uByte.m330unboximpl();
-            sum = UInt.m357constructorimpl(UInt.m357constructorimpl(element & UByte.MAX_VALUE) + sum);
+            byte element = uByte.m338unboximpl();
+            sum = UInt.m365constructorimpl(UInt.m365constructorimpl(element & UByte.MAX_VALUE) + sum);
         }
         return sum;
     }
@@ -45,8 +45,8 @@ class USequencesKt___USequencesKt {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         int sum = 0;
         for (UShort uShort : sequence) {
-            short element = uShort.m593unboximpl();
-            sum = UInt.m357constructorimpl(UInt.m357constructorimpl(65535 & element) + sum);
+            short element = uShort.m601unboximpl();
+            sum = UInt.m365constructorimpl(UInt.m365constructorimpl(65535 & element) + sum);
         }
         return sum;
     }

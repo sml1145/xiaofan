@@ -22,7 +22,7 @@ final class AndroidXContinuationConsumer<T> extends AtomicBoolean implements Con
         if (compareAndSet(false, true)) {
             Continuation<T> continuation = this.continuation;
             Result.Companion companion = Result.Companion;
-            continuation.resumeWith(Result.m262constructorimpl(t));
+            continuation.resumeWith(Result.m270constructorimpl(t));
         }
     }
 

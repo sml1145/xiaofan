@@ -65,7 +65,7 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
         this.refCountDelegate = new RefCountDelegate(new Runnable() { // from class: org.webrtc.TextureBufferImpl$$ExternalSyntheticLambda1
             @Override // java.lang.Runnable
             public final void run() {
-                TextureBufferImpl.this.m2158lambda$new$0$orgwebrtcTextureBufferImpl(refCountMonitor);
+                TextureBufferImpl.this.m2166lambda$new$0$orgwebrtcTextureBufferImpl(refCountMonitor);
             }
         });
         this.refCountMonitor = refCountMonitor;
@@ -73,7 +73,7 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$new$0$org-webrtc-TextureBufferImpl  reason: not valid java name */
-    public /* synthetic */ void m2158lambda$new$0$orgwebrtcTextureBufferImpl(RefCountMonitor refCountMonitor) {
+    public /* synthetic */ void m2166lambda$new$0$orgwebrtcTextureBufferImpl(RefCountMonitor refCountMonitor) {
         refCountMonitor.onDestroy(this);
     }
 
@@ -107,14 +107,14 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
         return (VideoFrame.I420Buffer) ThreadUtils.invokeAtFrontUninterruptibly(this.toI420Handler, new Callable() { // from class: org.webrtc.TextureBufferImpl$$ExternalSyntheticLambda0
             @Override // java.util.concurrent.Callable
             public final Object call() {
-                return TextureBufferImpl.this.m2159lambda$toI420$1$orgwebrtcTextureBufferImpl();
+                return TextureBufferImpl.this.m2167lambda$toI420$1$orgwebrtcTextureBufferImpl();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$toI420$1$org-webrtc-TextureBufferImpl  reason: not valid java name */
-    public /* synthetic */ VideoFrame.I420Buffer m2159lambda$toI420$1$orgwebrtcTextureBufferImpl() throws Exception {
+    public /* synthetic */ VideoFrame.I420Buffer m2167lambda$toI420$1$orgwebrtcTextureBufferImpl() throws Exception {
         return this.yuvConverter.convert(this);
     }
 

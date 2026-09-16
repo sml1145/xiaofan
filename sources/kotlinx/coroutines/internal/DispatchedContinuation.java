@@ -181,7 +181,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
         if (this.dispatcher.isDispatchNeeded(context)) {
             this._state = state;
             this.resumeMode = 0;
-            this.dispatcher.mo1821dispatch(context, this);
+            this.dispatcher.mo1829dispatch(context, this);
             return;
         }
         if (DebugKt.getASSERTIONS_ENABLED()) {
@@ -245,7 +245,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
             CancellationException cause = job.getCancellationException();
             cancelCompletedResult$kotlinx_coroutines_core(state, cause);
             Result.Companion companion = Result.Companion;
-            resumeWith(Result.m262constructorimpl(ResultKt.createFailure(cause)));
+            resumeWith(Result.m270constructorimpl(ResultKt.createFailure(cause)));
             return true;
         }
         return false;
