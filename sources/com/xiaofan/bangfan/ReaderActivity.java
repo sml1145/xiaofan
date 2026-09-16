@@ -179,7 +179,7 @@ public final class ReaderActivity extends BaseActivity {
             }
         }));
         content.addView(smartCard, UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 12.0f), 0, 0));
-        content.addView(UiKit.INSTANCE.bodyText(this, "离线声控已移到主界面第三页。小翻已内置番茄小说、七猫、起点读书、QQ 阅读、微信读书、掌阅等主流阅读 APP 的识别，也会记住你用过的其它阅读 APP，无需手动配置即可自动翻页。"), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 12.0f), 0, 0));
+        content.addView(UiKit.INSTANCE.bodyText(this, "离线声控在第二页“声控与大脑”模块里。小翻已内置番茄小说、七猫、起点读书、QQ 阅读、微信读书、掌阅等主流阅读 APP 的识别，也会记住你用过的其它阅读 APP，无需手动配置即可自动翻页。"), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 12.0f), 0, 0));
         setContentView(scaffold);
         refresh();
     }

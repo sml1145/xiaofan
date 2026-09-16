@@ -91,8 +91,8 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     /* renamed from: receiveCatching-JP2dKIU */
-    public Object mo1774receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation) {
-        Object obj = this._channel.mo1774receiveCatchingJP2dKIU(continuation);
+    public Object mo1780receiveCatchingJP2dKIU(Continuation<? super ChannelResult<? extends E>> continuation) {
+        Object obj = this._channel.mo1780receiveCatchingJP2dKIU(continuation);
         IntrinsicsKt.getCOROUTINE_SUSPENDED();
         return obj;
     }
@@ -110,14 +110,14 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel
     /* renamed from: tryReceive-PtdJZtk */
-    public Object mo1775tryReceivePtdJZtk() {
-        return this._channel.mo1775tryReceivePtdJZtk();
+    public Object mo1781tryReceivePtdJZtk() {
+        return this._channel.mo1781tryReceivePtdJZtk();
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU */
-    public Object mo1770trySendJP2dKIU(E e) {
-        return this._channel.mo1770trySendJP2dKIU(e);
+    public Object mo1776trySendJP2dKIU(E e) {
+        return this._channel.mo1776trySendJP2dKIU(e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -6,18 +6,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 /* loaded from: classes.dex */
 public final class UShortKt {
     private static final short toUShort(byte $this$toUShort) {
-        return UShort.m548constructorimpl($this$toUShort);
+        return UShort.m554constructorimpl($this$toUShort);
     }
 
     private static final short toUShort(short $this$toUShort) {
-        return UShort.m548constructorimpl($this$toUShort);
+        return UShort.m554constructorimpl($this$toUShort);
     }
 
     private static final short toUShort(int $this$toUShort) {
-        return UShort.m548constructorimpl((short) $this$toUShort);
+        return UShort.m554constructorimpl((short) $this$toUShort);
     }
 
     private static final short toUShort(long $this$toUShort) {
-        return UShort.m548constructorimpl((short) $this$toUShort);
+        return UShort.m554constructorimpl((short) $this$toUShort);
     }
 }

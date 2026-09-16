@@ -2218,13 +2218,13 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to operator function", replaceWith = @ReplaceWith(expression = "this[index]", imports = {}))
     /* renamed from: -deprecated_getByte  reason: not valid java name */
-    public final byte m1975deprecated_getByte(long index) {
+    public final byte m1981deprecated_getByte(long index) {
         return getByte(index);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "size", imports = {}))
     /* renamed from: -deprecated_size  reason: not valid java name */
-    public final long m1976deprecated_size() {
+    public final long m1982deprecated_size() {
         return this.size;
     }
 

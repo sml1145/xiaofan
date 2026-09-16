@@ -269,7 +269,9 @@ public final class OfflineBrain {
             if (!OfflineModels.INSTANCE.isReady(app, OfflineModels.Kind.LLM)) {
                 download(app, OfflineModels.Kind.LLM);
             }
-            if (OfflineModels.INSTANCE.isReady(app, OfflineModels.Kind.ASR)) {
+            if (!OfflineModels.INSTANCE.isReady(app, OfflineModels.Kind.ASR)) {
+                download(app, OfflineModels.Kind.ASR);
+            } else {
                 emit(OfflineModels.Kind.ASR, Phase.READY, 100);
             }
         }

@@ -21,14 +21,17 @@ import androidx.core.content.FileProvider;
 import com.xiaofan.bangfan.NetState;
 import com.xiaofan.bangfan.UpdateManager;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import kotlin.Metadata;
 import kotlin.Unit;
+import kotlin.collections.CollectionsKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt;
 import kotlinx.coroutines.DebugKt;
 /* compiled from: UpdateManager.kt */
-@Metadata(d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\bÆ\u0002\u0018\u00002\u00020\u0001:\u00012B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0013\u001a\u00020\f2\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\u0016\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\fJ\u000e\u0010\u001b\u001a\u00020\n2\u0006\u0010\u0014\u001a\u00020\u0015J\u0018\u0010\u001c\u001a\u00020\u00172\u0006\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u001d\u001a\u00020\u0011H\u0002J:\u0010\u001e\u001a\u00020\u00172\u0006\u0010\u001f\u001a\u00020\n2\u0006\u0010 \u001a\u00020\u00112\u0006\u0010!\u001a\u00020\u00062\u0018\u0010\"\u001a\u0014\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00170#H\u0002J\u0012\u0010$\u001a\u0004\u0018\u00010%2\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\u0018\u0010&\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001d\u001a\u00020\u0011H\u0002J\u000e\u0010'\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019J\u000e\u0010(\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019J \u0010)\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0010\b\u0002\u0010*\u001a\n\u0012\u0004\u0012\u00020\u0017\u0018\u00010+J(\u0010,\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010-\u001a\u00020%2\u0006\u0010.\u001a\u00020\n2\u0006\u0010/\u001a\u00020\fH\u0002J\u000e\u00100\u001a\u00020\n2\u0006\u0010\u0014\u001a\u00020\u0015J\u0018\u00101\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010-\u001a\u00020%H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00063"}, d2 = {"Lcom/xiaofan/bangfan/UpdateManager;", "", "()V", "CONNECT_TIMEOUT", "", "MIN_AUTO_INTERVAL_MS", "", "READ_TIMEOUT", "REQ_UNKNOWN_INSTALL", "TAG", "", "checking", "", "lastAutoAt", "main", "Landroid/os/Handler;", "pendingInstall", "Ljava/io/File;", "updateDialogShowing", "canInstall", "ctx", "Landroid/content/Context;", "checkAndPrompt", "", "activity", "Landroid/app/Activity;", "silent", "currentVersion", "doInstall", "file", "downloadFile", "urlStr", "target", "expectedSize", "onProgress", "Lkotlin/Function2;", "fetchLatest", "Lcom/xiaofan/bangfan/UpdateManager$Release;", "installOrRequestPermission", "onEnterApp", "resumePendingInstall", "showSourceDialog", "onSaved", "Lkotlin/Function0;", "showUpdateDialog", "rel", "cur", DebugKt.DEBUG_PROPERTY_VALUE_AUTO, "sourceSlug", "startDownload", "Release", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\bÆ\u0002\u0018\u00002\u00020\u0001:\u00018B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0016\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\n0\u00112\u0006\u0010\u0016\u001a\u00020\nH\u0002J\u0010\u0010\u0017\u001a\u00020\f2\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J\u0016\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\fJ\u000e\u0010\u001f\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\u0019J\u0018\u0010 \u001a\u00020\u001b2\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010!\u001a\u00020\u0013H\u0002JN\u0010\"\u001a\u00020\u001b2\u0006\u0010#\u001a\u00020\n2\u0006\u0010$\u001a\u00020\u00132\u0006\u0010%\u001a\u00020\u00062\u0012\u0010&\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u001b0'2\u0018\u0010(\u001a\u0014\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u001b0)H\u0002J\u0012\u0010*\u001a\u0004\u0018\u00010+2\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J\u0018\u0010,\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010!\u001a\u00020\u0013H\u0002J\u000e\u0010-\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001dJ\u000e\u0010.\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001dJ \u0010/\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001d2\u0010\b\u0002\u00100\u001a\n\u0012\u0004\u0012\u00020\u001b\u0018\u000101J(\u00102\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u00103\u001a\u00020+2\u0006\u00104\u001a\u00020\n2\u0006\u00105\u001a\u00020\fH\u0002J\u000e\u00106\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\u0019J\u0018\u00107\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u00103\u001a\u00020+H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\n0\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00069"}, d2 = {"Lcom/xiaofan/bangfan/UpdateManager;", "", "()V", "CONNECT_TIMEOUT", "", "MIN_AUTO_INTERVAL_MS", "", "READ_TIMEOUT", "REQ_UNKNOWN_INSTALL", "TAG", "", "checking", "", "lastAutoAt", "main", "Landroid/os/Handler;", "mirrorPrefixes", "", "pendingInstall", "Ljava/io/File;", "updateDialogShowing", "buildCandidates", "assetUrl", "canInstall", "ctx", "Landroid/content/Context;", "checkAndPrompt", "", "activity", "Landroid/app/Activity;", "silent", "currentVersion", "doInstall", "file", "downloadFile", "urlStr", "target", "expectedSize", "onStatus", "Lkotlin/Function1;", "onProgress", "Lkotlin/Function2;", "fetchLatest", "Lcom/xiaofan/bangfan/UpdateManager$Release;", "installOrRequestPermission", "onEnterApp", "resumePendingInstall", "showSourceDialog", "onSaved", "Lkotlin/Function0;", "showUpdateDialog", "rel", "cur", DebugKt.DEBUG_PROPERTY_VALUE_AUTO, "sourceSlug", "startDownload", "Release", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class UpdateManager {
     private static final int CONNECT_TIMEOUT = 12000;
@@ -42,6 +45,7 @@ public final class UpdateManager {
     private static volatile boolean updateDialogShowing;
     public static final UpdateManager INSTANCE = new UpdateManager();
     private static final Handler main = new Handler(Looper.getMainLooper());
+    private static final List<String> mirrorPrefixes = CollectionsKt.listOf((Object[]) new String[]{"https://gh-proxy.com/", "https://ghfast.top/", "https://ghproxy.net/", "https://mirror.ghproxy.com/", "https://gh.llkk.cc/", "https://github.moeyy.xyz/"});
 
     private UpdateManager() {
     }
@@ -218,7 +222,7 @@ public final class UpdateManager {
         if (StringsKt.isBlank(slug)) {
             if (!silent) {
                 final AlertDialog d = new AlertDialog.Builder(activity).setTitle("还没设置更新源").setMessage("应用内更新从 GitHub Releases 拉取，请先填写你的 GitHub 仓库（格式：用户名/仓库名），并把每个版本的 APK 传到该仓库的 Releases。").setPositiveButton("去设置", (DialogInterface.OnClickListener) null).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
-                d.getButton(-1).setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda7
+                d.getButton(-1).setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda5
                     @Override // android.view.View.OnClickListener
                     public final void onClick(View view) {
                         UpdateManager.checkAndPrompt$lambda$1$lambda$0(d, activity, view);
@@ -233,7 +237,7 @@ public final class UpdateManager {
             Toast.makeText(activity, "正在检查更新…", 0).show();
         }
         final String cur = currentVersion(activity);
-        new Thread(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda8
+        new Thread(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda6
             @Override // java.lang.Runnable
             public final void run() {
                 UpdateManager.checkAndPrompt$lambda$4(activity, silent, cur);
@@ -414,17 +418,17 @@ public final class UpdateManager {
         new Thread(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                UpdateManager.startDownload$lambda$20(activity, rel, $this$startDownload_u24lambda_u2414, $this$startDownload_u24lambda_u2415, dialog);
+                UpdateManager.startDownload$lambda$20(activity, rel, $this$startDownload_u24lambda_u2415, $this$startDownload_u24lambda_u2414, dialog);
             }
         }, "xf-update-download").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void startDownload$lambda$20(final Activity activity, final Release rel, ProgressBar bar, TextView pct, final AlertDialog $dialog) {
+    public static final void startDownload$lambda$20(final Activity activity, final Release rel, TextView pct, ProgressBar bar, final AlertDialog $dialog) {
         Intrinsics.checkNotNullParameter(activity, "$activity");
         Intrinsics.checkNotNullParameter(rel, "$rel");
-        Intrinsics.checkNotNullParameter(bar, "$bar");
         Intrinsics.checkNotNullParameter(pct, "$pct");
+        Intrinsics.checkNotNullParameter(bar, "$bar");
         try {
             File dir = activity.getExternalFilesDir("updates");
             if (dir == null) {
@@ -434,8 +438,8 @@ public final class UpdateManager {
                 dir.mkdirs();
             }
             final File target = new File(dir, "xiaofan_v" + rel.getVersion() + ".apk");
-            INSTANCE.downloadFile(rel.getApkUrl(), target, rel.getSize(), new UpdateManager$startDownload$2$1(bar, pct));
-            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda5
+            INSTANCE.downloadFile(rel.getApkUrl(), target, rel.getSize(), new UpdateManager$startDownload$2$1(pct), new UpdateManager$startDownload$2$2(bar, pct));
+            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda7
                 @Override // java.lang.Runnable
                 public final void run() {
                     UpdateManager.startDownload$lambda$20$lambda$17($dialog, target, activity);
@@ -443,7 +447,7 @@ public final class UpdateManager {
             });
         } catch (Throwable th) {
             Log.w(TAG, "download failed", th);
-            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda6
+            main.post(new Runnable() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda8
                 @Override // java.lang.Runnable
                 public final void run() {
                     UpdateManager.startDownload$lambda$20$lambda$19($dialog, activity, th, rel);
@@ -478,7 +482,7 @@ public final class UpdateManager {
         if (message == null) {
             message = "网络中断";
         }
-        title.setMessage(message + "\n已支持断点续传，可换网络后点重试继续下载。").setPositiveButton("重试", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda4
+        title.setMessage(message + "\n已自动尝试官方直连与多个国内加速节点并支持断点续传，可换 WiFi/移动数据后点重试继续下载。").setPositiveButton("重试", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.UpdateManager$$ExternalSyntheticLambda4
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
                 UpdateManager.startDownload$lambda$20$lambda$19$lambda$18(activity, rel, dialogInterface, i);
@@ -493,332 +497,648 @@ public final class UpdateManager {
         INSTANCE.startDownload(activity, rel);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:101:0x0237, code lost:
-        if (r0.renameTo(r33) != false) goto L142;
+    private final List<String> buildCandidates(String assetUrl) {
+        ArrayList out = new ArrayList();
+        for (String p : mirrorPrefixes) {
+            out.add(p + assetUrl);
+        }
+        out.add(assetUrl);
+        return out;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x028e, code lost:
+        if (r8 <= 0) goto L309;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:102:0x0239, code lost:
-        r24 = r27;
-        r25 = r9;
-        r26 = r29;
-        kotlin.io.FilesKt.copyTo$default(r0, r33, true, 0, 4, null);
-        r0.delete();
+    /* JADX WARN: Code restructure failed: missing block: B:101:0x0290, code lost:
+        r5.delete();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:104:0x0254, code lost:
-        r25 = r9;
-        r24 = r27;
-        r26 = r29;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:106:0x025b, code lost:
-        r0.disconnect();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:111:0x026e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x0294, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:112:0x026f, code lost:
-        r4 = r0;
+    /* JADX WARN: Code restructure failed: missing block: B:104:0x0295, code lost:
+        r6 = r0;
+        r7 = r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x0277, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:114:0x0278, code lost:
-        r5 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:115:0x0280, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0281, code lost:
-        r5 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:117:0x0288, code lost:
-        throw r5;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:118:0x0289, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:120:0x028b, code lost:
-        kotlin.io.CloseableKt.closeFinally(r4, r5);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:121:0x028e, code lost:
-        throw r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:122:0x028f, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:123:0x0290, code lost:
-        r4 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:124:0x0292, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:125:0x0293, code lost:
-        r4 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x029b, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x029c, code lost:
-        r4 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02a5, code lost:
-        throw r4;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:129:0x02a6, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:131:0x02a8, code lost:
-        kotlin.io.CloseableKt.closeFinally(r13, r4);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:132:0x02ab, code lost:
-        throw r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:134:0x02ca, code lost:
-        throw new java.lang.RuntimeException("下载返回 " + r4);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:135:0x02cb, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x02cc, code lost:
-        r1 = r0;
-        r4 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:137:0x02d0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x02a8, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:138:0x02d1, code lost:
-        r4 = r0;
+    /* JADX WARN: Code restructure failed: missing block: B:106:0x02a9, code lost:
+        r8 = r4;
+        r20 = r5;
+        r1 = r18;
+        r4 = r10;
+        r7 = r0;
+        r2 = 1;
+        r21 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:142:0x02d8, code lost:
-        r1 = r0;
-        r3 = r1;
+    /* JADX WARN: Code restructure failed: missing block: B:109:0x02bf, code lost:
+        r14 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:143:0x02da, code lost:
-        android.util.Log.w(com.xiaofan.bangfan.UpdateManager.TAG, "download attempt " + r10 + " failed: " + r1.getMessage());
+    /* JADX WARN: Code restructure failed: missing block: B:110:0x02c1, code lost:
+        r0.element = kotlin.ranges.RangesKt.coerceAtLeast(r0.getContentLengthLong(), 0L);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:144:0x0304, code lost:
-        if (r0.exists() != false) goto L172;
+    /* JADX WARN: Code restructure failed: missing block: B:111:0x02c7, code lost:
+        r11 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:147:0x0310, code lost:
-        r0 = r1.getMessage();
+    /* JADX WARN: Code restructure failed: missing block: B:113:0x02cb, code lost:
+        if (r1 <= r14) goto L145;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:148:0x0314, code lost:
-        if (r0 != null) goto L176;
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x02cd, code lost:
+        r0.element = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:149:0x0316, code lost:
-        r8 = false;
+    /* JADX WARN: Code restructure failed: missing block: B:115:0x02cf, code lost:
+        r7 = new kotlin.jvm.internal.Ref.LongRef();
+        r7.element = r11;
+        r7 = new kotlin.jvm.internal.Ref.LongRef();
+        r11 = r32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:150:0x0324, code lost:
-        if (kotlin.text.StringsKt.contains$default((java.lang.CharSequence) r0, (java.lang.CharSequence) "416", false, 2, (java.lang.Object) null) == true) goto L178;
+    /* JADX WARN: Code restructure failed: missing block: B:116:0x02e3, code lost:
+        if (r11 != 206) goto L289;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:151:0x0326, code lost:
-        r12 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:152:0x0328, code lost:
-        r8 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:153:0x0329, code lost:
-        r12 = r8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:154:0x032a, code lost:
-        if (r12 != false) goto L180;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:155:0x032c, code lost:
-        r0.delete();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:157:0x0333, code lost:
-        java.lang.Thread.sleep(r10 * 800);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:158:0x0336, code lost:
-        if (r4 != null) goto L187;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:159:0x0338, code lost:
-        r4.disconnect();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:162:0x033d, code lost:
-        r10 = r10 + 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:165:0x0347, code lost:
-        throw r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dc, code lost:
-        throw new java.lang.RuntimeException("下载重定向异常");
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e0, code lost:
-        r4 = r0.getResponseCode();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e7, code lost:
-        if (200 > r4) goto L166;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00e9, code lost:
-        if (r4 >= 300) goto L166;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00eb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:117:0x02e5, code lost:
         r0 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00ed, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:118:0x02e7, code lost:
         r0 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x00ee, code lost:
-        if (r0 == false) goto L164;
+    /* JADX WARN: Code restructure failed: missing block: B:119:0x02e8, code lost:
+        r7 = new java.io.FileOutputStream(r5, r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00f6, code lost:
-        if (r4 != 206) goto L160;
+    /* JADX WARN: Code restructure failed: missing block: B:120:0x02ed, code lost:
+        r12 = r7;
+        r10 = r0.getInputStream();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00f8, code lost:
-        r4 = r8;
-        r19 = kotlin.ranges.RangesKt.coerceAtLeast(r0.getContentLengthLong(), 0L) + r8;
+    /* JADX WARN: Code restructure failed: missing block: B:121:0x02fa, code lost:
+        r0 = r10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0107, code lost:
-        if (r8 <= 0) goto L163;
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x0303, code lost:
+        r8 = new byte[65536];
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0109, code lost:
-        r0.delete();
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x0305, code lost:
+        r9 = r0.read(r8);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x010c, code lost:
-        r4 = 0;
-        r19 = kotlin.ranges.RangesKt.coerceAtLeast(r0.getContentLengthLong(), 0L);
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x030a, code lost:
+        if (r9 <= 0) goto L204;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0118, code lost:
-        r0 = new kotlin.jvm.internal.Ref.LongRef();
-        r0.element = r4;
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x030c, code lost:
+        r39 = r11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0124, code lost:
-        if (r4 != 206) goto L159;
+    /* JADX WARN: Code restructure failed: missing block: B:127:0x030f, code lost:
+        r12.write(r8, 0, r9);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0126, code lost:
-        r13 = true;
+    /* JADX WARN: Code restructure failed: missing block: B:128:0x0312, code lost:
+        r25 = r12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0128, code lost:
-        r13 = false;
+    /* JADX WARN: Code restructure failed: missing block: B:130:0x0316, code lost:
+        r40 = r4;
+        r41 = r5;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x0129, code lost:
-        r13 = new java.io.FileOutputStream(r0, r13);
+    /* JADX WARN: Code restructure failed: missing block: B:131:0x031c, code lost:
+        r7.element += r9;
+        r4 = java.lang.System.currentTimeMillis();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x012f, code lost:
-        r0 = r13;
+    /* JADX WARN: Code restructure failed: missing block: B:132:0x032a, code lost:
+        if ((r4 - r7.element) <= 150) goto L169;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x013b, code lost:
-        r4 = r0.getInputStream();
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x032c, code lost:
+        r12 = r8;
+        r50.invoke(java.lang.Long.valueOf(r7.element), java.lang.Long.valueOf(r0.element));
+        r7.element = r4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x013e, code lost:
-        r0 = r4;
-        r5 = new byte[65536];
-        r24 = 0;
+    /* JADX WARN: Code restructure failed: missing block: B:134:0x0340, code lost:
+        r8 = r12;
+        r12 = r25;
+        r11 = r39;
+        r4 = r40;
+        r5 = r41;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x014a, code lost:
-        r26 = r0.read(r5);
+    /* JADX WARN: Code restructure failed: missing block: B:135:0x034a, code lost:
+        r12 = r25;
+        r11 = r39;
+        r4 = r40;
+        r5 = r41;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x014f, code lost:
-        r26 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x0155, code lost:
-        if (r26 <= 0) goto L113;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x0157, code lost:
-        r27 = r6;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x015a, code lost:
-        r0.write(r5, 0, r26);
-        r28 = r5;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0161, code lost:
-        r29 = r8;
-        r9 = r7;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x0166, code lost:
-        r0.element += r26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x0172, code lost:
-        if ((java.lang.System.currentTimeMillis() - r24) <= 150) goto L75;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x0180, code lost:
-        r36.invoke(java.lang.Long.valueOf(r0.element), java.lang.Long.valueOf(r19));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x0187, code lost:
-        r24 = java.lang.System.currentTimeMillis();
-        r7 = r9;
-        r0 = r26;
-        r6 = r27;
-        r5 = r28;
-        r8 = r29;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:74:0x0193, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x0195, code lost:
-        r7 = r9;
-        r0 = r26;
-        r6 = r27;
-        r5 = r28;
-        r8 = r29;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:77:0x01a1, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x01a4, code lost:
-        r5 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x01ad, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:136:0x0356, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x01ae, code lost:
-        r5 = r0;
+    /* JADX WARN: Code restructure failed: missing block: B:137:0x0357, code lost:
+        r9 = r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x01bc, code lost:
-        r27 = r6;
-        r29 = r8;
-        r9 = r7;
+    /* JADX WARN: Code restructure failed: missing block: B:138:0x036f, code lost:
+        r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x01c5, code lost:
-        r0.flush();
+    /* JADX WARN: Code restructure failed: missing block: B:139:0x0370, code lost:
+        r9 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:140:0x038c, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:141:0x038d, code lost:
+        r9 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:142:0x03ab, code lost:
+        r40 = r4;
+        r41 = r5;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:143:0x03b6, code lost:
+        r12.flush();
         r0 = kotlin.Unit.INSTANCE;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:85:0x01cc, code lost:
-        kotlin.io.CloseableKt.closeFinally(r4, null);
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x03bd, code lost:
+        kotlin.io.CloseableKt.closeFinally(r10, null);
         r0 = kotlin.Unit.INSTANCE;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:86:0x01d2, code lost:
-        kotlin.io.CloseableKt.closeFinally(r13, null);
-        r36.invoke(java.lang.Long.valueOf(r0.element), java.lang.Long.valueOf(r19));
+    /* JADX WARN: Code restructure failed: missing block: B:146:0x03c3, code lost:
+        kotlin.io.CloseableKt.closeFinally(r7, null);
+        r50.invoke(java.lang.Long.valueOf(r7.element), java.lang.Long.valueOf(r0.element));
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x01e6, code lost:
-        if (r34 <= 0) goto L143;
+    /* JADX WARN: Code restructure failed: missing block: B:147:0x03d9, code lost:
+        if (r1 <= 0) goto L269;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:88:0x01e8, code lost:
-        r6 = r34;
+    /* JADX WARN: Code restructure failed: missing block: B:148:0x03db, code lost:
+        r7 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:89:0x01eb, code lost:
-        r6 = r19;
+    /* JADX WARN: Code restructure failed: missing block: B:149:0x03dd, code lost:
+        r7 = r0.element;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:90:0x01ed, code lost:
-        r13 = r6;
+    /* JADX WARN: Code restructure failed: missing block: B:150:0x03df, code lost:
+        r11 = r7;
+        r21 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:91:0x01f0, code lost:
-        if (r13 <= 0) goto L130;
+    /* JADX WARN: Code restructure failed: missing block: B:151:0x03e4, code lost:
+        if (r11 <= 0) goto L218;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:93:0x01f8, code lost:
-        if (r0.length() != r13) goto L128;
+    /* JADX WARN: Code restructure failed: missing block: B:153:0x03ec, code lost:
+        if (r41.length() != r11) goto L261;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:96:0x0227, code lost:
-        throw new java.lang.RuntimeException("下载不完整（" + r0.length() + "/" + r13 + " 字节），将续传重试");
+    /* JADX WARN: Code restructure failed: missing block: B:156:0x041b, code lost:
+        throw new java.lang.RuntimeException("下载不完整（" + r41.length() + "/" + r11 + " 字节），将换节点续传");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:98:0x022c, code lost:
-        if (r33.exists() == false) goto L133;
+    /* JADX WARN: Code restructure failed: missing block: B:157:0x041c, code lost:
+        r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:99:0x022e, code lost:
-        r33.delete();
+    /* JADX WARN: Code restructure failed: missing block: B:158:0x041d, code lost:
+        r6 = r0;
+        r7 = r0;
      */
-    /* JADX WARN: Removed duplicated region for block: B:155:0x032c A[Catch: all -> 0x02d3, TRY_LEAVE, TryCatch #15 {all -> 0x02d3, blocks: (B:6:0x002f, B:8:0x0035, B:11:0x0041, B:13:0x007a, B:14:0x0098, B:21:0x00ac, B:26:0x00b8, B:28:0x00bd, B:36:0x00cc, B:37:0x00d5, B:38:0x00dc, B:143:0x02da, B:145:0x0306, B:147:0x0310, B:149:0x0316, B:155:0x032c, B:157:0x0333, B:165:0x0347), top: B:185:0x002f, inners: #3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:191:0x034a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:159:0x0430, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:160:0x0431, code lost:
+        r1 = r18;
+        r4 = r10;
+        r7 = r0;
+        r8 = r40;
+        r20 = r41;
+        r2 = 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:162:0x0444, code lost:
+        if (r46.exists() == false) goto L222;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:163:0x0446, code lost:
+        r46.delete();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:166:0x0451, code lost:
+        if (r41.renameTo(r46) != false) goto L247;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:167:0x0453, code lost:
+        r36 = r8;
+        r35 = r20;
+        r4 = r10;
+        r20 = r41;
+        r38 = r11;
+        r2 = 1;
+        r1 = r18;
+        r18 = r29;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:168:0x0473, code lost:
+        kotlin.io.FilesKt.copyTo$default(r41, r46, true, 0, 4, null);
+        r20.delete();
+        r1 = r1;
+        r20 = r20;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:170:0x047a, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:171:0x047b, code lost:
+        r7 = r0;
+        r8 = r40;
+        r1 = r1;
+        r2 = r2;
+        r20 = r20;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:172:0x0481, code lost:
+        r1 = r18;
+        r35 = r20;
+        r4 = r10;
+        r18 = r29;
+        r36 = r8;
+        r2 = 1;
+        r20 = r41;
+        r38 = r11;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:175:0x04b5, code lost:
+        android.util.Log.i(r40, "download ok via " + r4 + " size=" + r46.length());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:176:0x04b9, code lost:
+        r0.disconnect();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:181:0x04ce, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:182:0x04cf, code lost:
+        r8 = r40;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:183:0x04d3, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:184:0x04d4, code lost:
+        r6 = r0;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:185:0x04e5, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:186:0x04e6, code lost:
+        r20 = r41;
+        r1 = r18;
+        r4 = r10;
+        r8 = r40;
+        r2 = 1;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:187:0x04f3, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:188:0x04f4, code lost:
+        r1 = r18;
+        r4 = r10;
+        r8 = r40;
+        r20 = r41;
+        r2 = 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:189:0x0500, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:190:0x0501, code lost:
+        r6 = r0;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:191:0x0514, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:192:0x0515, code lost:
+        r1 = r18;
+        r4 = r10;
+        r8 = r40;
+        r20 = r41;
+        r2 = 1;
+        r21 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:193:0x0522, code lost:
+        r7 = r0;
+        r1 = r1;
+        r2 = r2;
+        r8 = r8;
+        r20 = r20;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:194:0x0526, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:195:0x0527, code lost:
+        r9 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:196:0x053f, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:197:0x0540, code lost:
+        r9 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:198:0x0557, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:199:0x0558, code lost:
+        r9 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:200:0x0570, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:201:0x0571, code lost:
+        r9 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:202:0x0588, code lost:
+        throw r9;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:203:0x0589, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:205:0x058b, code lost:
+        kotlin.io.CloseableKt.closeFinally(r10, r9);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:206:0x058e, code lost:
+        throw r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:207:0x058f, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:208:0x0590, code lost:
+        r9 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:209:0x0592, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:210:0x0593, code lost:
+        r9 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:211:0x05a8, code lost:
+        throw r9;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:212:0x05a9, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:214:0x05ab, code lost:
+        kotlin.io.CloseableKt.closeFinally(r7, r9);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:215:0x05ae, code lost:
+        throw r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:216:0x05af, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:217:0x05b0, code lost:
+        r8 = r4;
+        r20 = r5;
+        r21 = 0;
+        r1 = r18;
+        r4 = r10;
+        r2 = 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:218:0x05bb, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:219:0x05bc, code lost:
+        r6 = r0;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:220:0x05cf, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:221:0x05d0, code lost:
+        r8 = r4;
+        r20 = r5;
+        r1 = r18;
+        r4 = r10;
+        r2 = 1;
+        r21 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:222:0x05da, code lost:
+        r7 = r0;
+        r1 = r1;
+        r2 = r2;
+        r8 = r8;
+        r20 = r20;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:224:0x0610, code lost:
+        throw new java.lang.RuntimeException(r10 + " 返回了网页而非安装包");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:226:0x0647, code lost:
+        throw new java.lang.RuntimeException(r10 + " 返回 " + r7);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:227:0x0648, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:228:0x0649, code lost:
+        r6 = r0;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:229:0x0654, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:230:0x0655, code lost:
+        r7 = r0;
+        r1 = r1;
+        r2 = r2;
+        r8 = r8;
+        r20 = r20;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:231:0x0659, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:232:0x065a, code lost:
+        r6 = r0;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:233:0x066d, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:234:0x066e, code lost:
+        r8 = r4;
+        r20 = r5;
+        r33 = r14;
+        r34 = r15;
+        r1 = r18;
+        r4 = r10;
+        r2 = true;
+        r21 = 0;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:258:0x0778, code lost:
+        if (r20.length() > r21) goto L94;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:259:0x077a, code lost:
+        r0 = r6.getMessage();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:260:0x077e, code lost:
+        if (r0 != null) goto L96;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:261:0x0780, code lost:
+        r12 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:262:0x078d, code lost:
+        if (kotlin.text.StringsKt.contains$default((java.lang.CharSequence) r0, (java.lang.CharSequence) "416", false, 2, (java.lang.Object) null) == r2) goto L98;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:263:0x078f, code lost:
+        r11 = r2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:264:0x0791, code lost:
+        r12 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:265:0x0792, code lost:
+        r11 = r12;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:266:0x0793, code lost:
+        if (r11 != false) goto L100;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:267:0x0795, code lost:
+        r20.delete();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:269:0x0799, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:270:0x079a, code lost:
+        r6 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:274:0x07a9, code lost:
+        r7.disconnect();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:281:0x07c2, code lost:
+        throw r14;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x01d3, code lost:
+        r7 = r0.getResponseCode();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x01da, code lost:
+        if (200 > r7) goto L334;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x01dc, code lost:
+        if (r7 >= 300) goto L334;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x01de, code lost:
+        r0 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x01e0, code lost:
+        r0 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:74:0x01e1, code lost:
+        if (r0 == false) goto L328;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x01e3, code lost:
+        r0 = r0.getContentType();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x01e7, code lost:
+        if (r0 == null) goto L127;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x01e9, code lost:
+        r0 = r0.toLowerCase(java.util.Locale.ROOT);
+        kotlin.jvm.internal.Intrinsics.checkNotNullExpressionValue(r0, "toLowerCase(...)");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x01f5, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x01f6, code lost:
+        r6 = r0;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x0205, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0206, code lost:
+        r8 = r4;
+        r20 = r5;
+        r33 = r14;
+        r34 = r15;
+        r1 = r18;
+        r4 = r10;
+        r7 = r0;
+        r2 = 1;
+        r21 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x021a, code lost:
+        r0 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x021b, code lost:
+        if (r0 != null) goto L130;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x021d, code lost:
+        r0 = "";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x021f, code lost:
+        r28 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0221, code lost:
+        r20 = r10;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x0232, code lost:
+        if (kotlin.text.StringsKt.contains$default((java.lang.CharSequence) r28, (java.lang.CharSequence) "text/html", false, 2, (java.lang.Object) null) != false) goto L318;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x0234, code lost:
+        r0 = new kotlin.jvm.internal.Ref.LongRef();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:90:0x023e, code lost:
+        if (r7 != 206) goto L306;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x0240, code lost:
+        r32 = r7;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x0248, code lost:
+        r33 = r14;
+        r34 = r15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:94:0x024e, code lost:
+        r0.element = kotlin.ranges.RangesKt.coerceAtLeast(r0.getContentLengthLong(), 0L) + r8;
+        r11 = r8;
+        r14 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x025b, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x025c, code lost:
+        r6 = r0;
+        r7 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x026f, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:98:0x0270, code lost:
+        r33 = r14;
+        r34 = r15;
+        r8 = r4;
+        r20 = r5;
+        r1 = r18;
+        r4 = r10;
+        r7 = r0;
+        r2 = 1;
+        r21 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x0284, code lost:
+        r32 = r7;
+        r33 = r14;
+        r34 = r15;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:267:0x0795 A[Catch: all -> 0x0799, TRY_LEAVE, TryCatch #53 {all -> 0x0799, blocks: (B:257:0x0772, B:259:0x077a, B:261:0x0780, B:267:0x0795), top: B:349:0x0772 }] */
+    /* JADX WARN: Removed duplicated region for block: B:279:0x07b3 A[LOOP:0: B:3:0x0033->B:279:0x07b3, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:302:0x07a9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:329:0x07d9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:349:0x0772 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:378:0x07bf A[SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r1v21 */
+    /* JADX WARN: Type inference failed for: r1v44 */
+    /* JADX WARN: Type inference failed for: r1v58 */
+    /* JADX WARN: Type inference failed for: r20v20 */
+    /* JADX WARN: Type inference failed for: r20v44 */
+    /* JADX WARN: Type inference failed for: r20v59 */
+    /* JADX WARN: Type inference failed for: r2v11 */
+    /* JADX WARN: Type inference failed for: r2v12 */
+    /* JADX WARN: Type inference failed for: r2v15 */
+    /* JADX WARN: Type inference failed for: r2v17 */
+    /* JADX WARN: Type inference failed for: r2v19 */
+    /* JADX WARN: Type inference failed for: r2v21 */
+    /* JADX WARN: Type inference failed for: r2v23 */
+    /* JADX WARN: Type inference failed for: r2v28 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v43 */
+    /* JADX WARN: Type inference failed for: r2v46 */
+    /* JADX WARN: Type inference failed for: r2v55 */
+    /* JADX WARN: Type inference failed for: r2v57 */
+    /* JADX WARN: Type inference failed for: r2v58 */
+    /* JADX WARN: Type inference failed for: r2v59 */
+    /* JADX WARN: Type inference failed for: r2v60 */
+    /* JADX WARN: Type inference failed for: r2v61 */
+    /* JADX WARN: Type inference failed for: r2v62 */
+    /* JADX WARN: Type inference failed for: r8v15 */
+    /* JADX WARN: Type inference failed for: r8v35 */
+    /* JADX WARN: Type inference failed for: r8v7, types: [long] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    private final void downloadFile(java.lang.String r32, java.io.File r33, long r34, kotlin.jvm.functions.Function2<? super java.lang.Long, ? super java.lang.Long, kotlin.Unit> r36) {
+    private final void downloadFile(java.lang.String r45, java.io.File r46, long r47, kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit> r49, kotlin.jvm.functions.Function2<? super java.lang.Long, ? super java.lang.Long, kotlin.Unit> r50) {
         /*
-            Method dump skipped, instructions count: 864
+            Method dump skipped, instructions count: 2015
             To view this dump add '--comments-level debug' option
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.xiaofan.bangfan.UpdateManager.downloadFile(java.lang.String, java.io.File, long, kotlin.jvm.functions.Function2):void");
+        throw new UnsupportedOperationException("Method not decompiled: com.xiaofan.bangfan.UpdateManager.downloadFile(java.lang.String, java.io.File, long, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function2):void");
     }
 
     private final boolean canInstall(Context ctx) {

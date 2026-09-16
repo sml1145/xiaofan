@@ -15,22 +15,22 @@ public final class ChannelResult<T> {
     private final Object holder;
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ ChannelResult m1780boximpl(Object obj) {
+    public static final /* synthetic */ ChannelResult m1786boximpl(Object obj) {
         return new ChannelResult(obj);
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static <T> Object m1781constructorimpl(Object obj) {
+    public static <T> Object m1787constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m1782equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof ChannelResult) && Intrinsics.areEqual(obj, ((ChannelResult) obj2).m1792unboximpl());
+    public static boolean m1788equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof ChannelResult) && Intrinsics.areEqual(obj, ((ChannelResult) obj2).m1798unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m1783equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m1789equalsimpl0(Object obj, Object obj2) {
         return Intrinsics.areEqual(obj, obj2);
     }
 
@@ -38,7 +38,7 @@ public final class ChannelResult<T> {
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m1787hashCodeimpl(Object obj) {
+    public static int m1793hashCodeimpl(Object obj) {
         if (obj == null) {
             return 0;
         }
@@ -46,15 +46,15 @@ public final class ChannelResult<T> {
     }
 
     public boolean equals(Object obj) {
-        return m1782equalsimpl(this.holder, obj);
+        return m1788equalsimpl(this.holder, obj);
     }
 
     public int hashCode() {
-        return m1787hashCodeimpl(this.holder);
+        return m1793hashCodeimpl(this.holder);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m1792unboximpl() {
+    public final /* synthetic */ Object m1798unboximpl() {
         return this.holder;
     }
 
@@ -63,23 +63,23 @@ public final class ChannelResult<T> {
     }
 
     /* renamed from: isSuccess-impl  reason: not valid java name */
-    public static final boolean m1790isSuccessimpl(Object arg0) {
+    public static final boolean m1796isSuccessimpl(Object arg0) {
         return !(arg0 instanceof Failed);
     }
 
     /* renamed from: isFailure-impl  reason: not valid java name */
-    public static final boolean m1789isFailureimpl(Object arg0) {
+    public static final boolean m1795isFailureimpl(Object arg0) {
         return arg0 instanceof Failed;
     }
 
     /* renamed from: isClosed-impl  reason: not valid java name */
-    public static final boolean m1788isClosedimpl(Object arg0) {
+    public static final boolean m1794isClosedimpl(Object arg0) {
         return arg0 instanceof Closed;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: getOrNull-impl  reason: not valid java name */
-    public static final T m1785getOrNullimpl(Object arg0) {
+    public static final T m1791getOrNullimpl(Object arg0) {
         if (arg0 instanceof Failed) {
             return null;
         }
@@ -88,7 +88,7 @@ public final class ChannelResult<T> {
 
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: getOrThrow-impl  reason: not valid java name */
-    public static final T m1786getOrThrowimpl(Object arg0) {
+    public static final T m1792getOrThrowimpl(Object arg0) {
         if (arg0 instanceof Failed) {
             if (!(arg0 instanceof Closed) || ((Closed) arg0).cause == null) {
                 throw new IllegalStateException(("Trying to call 'getOrThrow' on a failed channel result: " + arg0).toString());
@@ -99,7 +99,7 @@ public final class ChannelResult<T> {
     }
 
     /* renamed from: exceptionOrNull-impl  reason: not valid java name */
-    public static final Throwable m1784exceptionOrNullimpl(Object arg0) {
+    public static final Throwable m1790exceptionOrNullimpl(Object arg0) {
         Closed closed = arg0 instanceof Closed ? (Closed) arg0 : null;
         if (closed != null) {
             return closed.cause;
@@ -156,27 +156,27 @@ public final class ChannelResult<T> {
         }
 
         /* renamed from: success-JP2dKIU  reason: not valid java name */
-        public final <E> Object m1795successJP2dKIU(E e) {
-            return ChannelResult.m1781constructorimpl(e);
+        public final <E> Object m1801successJP2dKIU(E e) {
+            return ChannelResult.m1787constructorimpl(e);
         }
 
         /* renamed from: failure-PtdJZtk  reason: not valid java name */
-        public final <E> Object m1794failurePtdJZtk() {
-            return ChannelResult.m1781constructorimpl(ChannelResult.failed);
+        public final <E> Object m1800failurePtdJZtk() {
+            return ChannelResult.m1787constructorimpl(ChannelResult.failed);
         }
 
         /* renamed from: closed-JP2dKIU  reason: not valid java name */
-        public final <E> Object m1793closedJP2dKIU(Throwable cause) {
-            return ChannelResult.m1781constructorimpl(new Closed(cause));
+        public final <E> Object m1799closedJP2dKIU(Throwable cause) {
+            return ChannelResult.m1787constructorimpl(new Closed(cause));
         }
     }
 
     public String toString() {
-        return m1791toStringimpl(this.holder);
+        return m1797toStringimpl(this.holder);
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m1791toStringimpl(Object arg0) {
+    public static String m1797toStringimpl(Object arg0) {
         return arg0 instanceof Closed ? ((Closed) arg0).toString() : "Value(" + arg0 + ')';
     }
 }

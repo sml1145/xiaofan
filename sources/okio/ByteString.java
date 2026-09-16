@@ -566,13 +566,13 @@ public class ByteString implements Serializable, Comparable<ByteString> {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to operator function", replaceWith = @ReplaceWith(expression = "this[index]", imports = {}))
     /* renamed from: -deprecated_getByte  reason: not valid java name */
-    public final byte m1978deprecated_getByte(int index) {
+    public final byte m1984deprecated_getByte(int index) {
         return getByte(index);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "size", imports = {}))
     /* renamed from: -deprecated_size  reason: not valid java name */
-    public final int m1979deprecated_size() {
+    public final int m1985deprecated_size() {
         return size();
     }
 
@@ -691,21 +691,21 @@ public class ByteString implements Serializable, Comparable<ByteString> {
 
         @Deprecated(level = DeprecationLevel.ERROR, message = "moved to extension function", replaceWith = @ReplaceWith(expression = "string.decodeBase64()", imports = {"okio.ByteString.Companion.decodeBase64"}))
         /* renamed from: -deprecated_decodeBase64  reason: not valid java name */
-        public final ByteString m1980deprecated_decodeBase64(String string) {
+        public final ByteString m1986deprecated_decodeBase64(String string) {
             Intrinsics.checkNotNullParameter(string, "string");
             return decodeBase64(string);
         }
 
         @Deprecated(level = DeprecationLevel.ERROR, message = "moved to extension function", replaceWith = @ReplaceWith(expression = "string.decodeHex()", imports = {"okio.ByteString.Companion.decodeHex"}))
         /* renamed from: -deprecated_decodeHex  reason: not valid java name */
-        public final ByteString m1981deprecated_decodeHex(String string) {
+        public final ByteString m1987deprecated_decodeHex(String string) {
             Intrinsics.checkNotNullParameter(string, "string");
             return decodeHex(string);
         }
 
         @Deprecated(level = DeprecationLevel.ERROR, message = "moved to extension function", replaceWith = @ReplaceWith(expression = "string.encode(charset)", imports = {"okio.ByteString.Companion.encode"}))
         /* renamed from: -deprecated_encodeString  reason: not valid java name */
-        public final ByteString m1982deprecated_encodeString(String string, Charset charset) {
+        public final ByteString m1988deprecated_encodeString(String string, Charset charset) {
             Intrinsics.checkNotNullParameter(string, "string");
             Intrinsics.checkNotNullParameter(charset, "charset");
             return encodeString(string, charset);
@@ -713,28 +713,28 @@ public class ByteString implements Serializable, Comparable<ByteString> {
 
         @Deprecated(level = DeprecationLevel.ERROR, message = "moved to extension function", replaceWith = @ReplaceWith(expression = "string.encodeUtf8()", imports = {"okio.ByteString.Companion.encodeUtf8"}))
         /* renamed from: -deprecated_encodeUtf8  reason: not valid java name */
-        public final ByteString m1983deprecated_encodeUtf8(String string) {
+        public final ByteString m1989deprecated_encodeUtf8(String string) {
             Intrinsics.checkNotNullParameter(string, "string");
             return encodeUtf8(string);
         }
 
         @Deprecated(level = DeprecationLevel.ERROR, message = "moved to extension function", replaceWith = @ReplaceWith(expression = "buffer.toByteString()", imports = {"okio.ByteString.Companion.toByteString"}))
         /* renamed from: -deprecated_of  reason: not valid java name */
-        public final ByteString m1984deprecated_of(ByteBuffer buffer) {
+        public final ByteString m1990deprecated_of(ByteBuffer buffer) {
             Intrinsics.checkNotNullParameter(buffer, "buffer");
             return of(buffer);
         }
 
         @Deprecated(level = DeprecationLevel.ERROR, message = "moved to extension function", replaceWith = @ReplaceWith(expression = "array.toByteString(offset, byteCount)", imports = {"okio.ByteString.Companion.toByteString"}))
         /* renamed from: -deprecated_of  reason: not valid java name */
-        public final ByteString m1985deprecated_of(byte[] array, int offset, int byteCount) {
+        public final ByteString m1991deprecated_of(byte[] array, int offset, int byteCount) {
             Intrinsics.checkNotNullParameter(array, "array");
             return of(array, offset, byteCount);
         }
 
         @Deprecated(level = DeprecationLevel.ERROR, message = "moved to extension function", replaceWith = @ReplaceWith(expression = "inputstream.readByteString(byteCount)", imports = {"okio.ByteString.Companion.readByteString"}))
         /* renamed from: -deprecated_read  reason: not valid java name */
-        public final ByteString m1986deprecated_read(InputStream inputstream, int byteCount) {
+        public final ByteString m1992deprecated_read(InputStream inputstream, int byteCount) {
             Intrinsics.checkNotNullParameter(inputstream, "inputstream");
             return read(inputstream, byteCount);
         }

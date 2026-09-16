@@ -60,7 +60,7 @@ public class MediaStreamTrack {
         if (trackKind.equals(AUDIO_TRACK_KIND)) {
             return new AudioTrack(nativeTrack);
         }
-        if (trackKind.equals(VIDEO_TRACK_KIND)) {
+        if (trackKind.equals("video")) {
             return new VideoTrack(nativeTrack);
         }
         return null;

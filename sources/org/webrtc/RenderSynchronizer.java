@@ -37,14 +37,14 @@ public final class RenderSynchronizer {
         this.mainThreadHandler.post(new Runnable() { // from class: org.webrtc.RenderSynchronizer$$ExternalSyntheticLambda2
             @Override // java.lang.Runnable
             public final void run() {
-                RenderSynchronizer.this.m2128lambda$new$0$orgwebrtcRenderSynchronizer();
+                RenderSynchronizer.this.m2134lambda$new$0$orgwebrtcRenderSynchronizer();
             }
         });
         Logging.d(TAG, "Created");
     }
 
     /* renamed from: lambda$new$0$org-webrtc-RenderSynchronizer */
-    public /* synthetic */ void m2128lambda$new$0$orgwebrtcRenderSynchronizer() {
+    public /* synthetic */ void m2134lambda$new$0$orgwebrtcRenderSynchronizer() {
         this.choreographer = Choreographer.getInstance();
     }
 
@@ -61,7 +61,7 @@ public final class RenderSynchronizer {
                 this.mainThreadHandler.post(new Runnable() { // from class: org.webrtc.RenderSynchronizer$$ExternalSyntheticLambda1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        RenderSynchronizer.this.m2129lambda$registerListener$1$orgwebrtcRenderSynchronizer();
+                        RenderSynchronizer.this.m2135lambda$registerListener$1$orgwebrtcRenderSynchronizer();
                     }
                 });
             }
@@ -69,7 +69,7 @@ public final class RenderSynchronizer {
     }
 
     /* renamed from: lambda$registerListener$1$org-webrtc-RenderSynchronizer */
-    public /* synthetic */ void m2129lambda$registerListener$1$orgwebrtcRenderSynchronizer() {
+    public /* synthetic */ void m2135lambda$registerListener$1$orgwebrtcRenderSynchronizer() {
         this.choreographer.postFrameCallback(new RenderSynchronizer$$ExternalSyntheticLambda0(this));
     }
 

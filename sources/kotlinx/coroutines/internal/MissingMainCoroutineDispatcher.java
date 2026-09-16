@@ -34,7 +34,7 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
 
     @Override // kotlinx.coroutines.Delay
     /* renamed from: scheduleResumeAfterDelay  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ void mo1827scheduleResumeAfterDelay(long timeMillis, CancellableContinuation continuation) {
+    public /* bridge */ /* synthetic */ void mo1833scheduleResumeAfterDelay(long timeMillis, CancellableContinuation continuation) {
         scheduleResumeAfterDelay(timeMillis, (CancellableContinuation<? super Unit>) continuation);
     }
 
@@ -68,7 +68,7 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public Void mo1826dispatch(CoroutineContext context, Runnable block) {
+    public Void mo1832dispatch(CoroutineContext context, Runnable block) {
         missing();
         throw new KotlinNothingValueException();
     }

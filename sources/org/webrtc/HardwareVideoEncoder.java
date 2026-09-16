@@ -497,7 +497,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                 releaseCallback = new Runnable() { // from class: org.webrtc.HardwareVideoEncoder$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        HardwareVideoEncoder.this.m2107lambda$deliverEncodedImage$0$orgwebrtcHardwareVideoEncoder(index);
+                        HardwareVideoEncoder.this.m2113lambda$deliverEncodedImage$0$orgwebrtcHardwareVideoEncoder(index);
                     }
                 };
             }
@@ -516,7 +516,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$deliverEncodedImage$0$org-webrtc-HardwareVideoEncoder  reason: not valid java name */
-    public /* synthetic */ void m2107lambda$deliverEncodedImage$0$orgwebrtcHardwareVideoEncoder(int index) {
+    public /* synthetic */ void m2113lambda$deliverEncodedImage$0$orgwebrtcHardwareVideoEncoder(int index) {
         try {
             this.codec.releaseOutputBuffer(index, false);
         } catch (Exception e) {

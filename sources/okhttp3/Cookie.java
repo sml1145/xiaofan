@@ -133,55 +133,55 @@ public final class Cookie {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "name", imports = {}))
     /* renamed from: -deprecated_name  reason: not valid java name */
-    public final String m1873deprecated_name() {
+    public final String m1879deprecated_name() {
         return this.name;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "value", imports = {}))
     /* renamed from: -deprecated_value  reason: not valid java name */
-    public final String m1877deprecated_value() {
+    public final String m1883deprecated_value() {
         return this.value;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "persistent", imports = {}))
     /* renamed from: -deprecated_persistent  reason: not valid java name */
-    public final boolean m1875deprecated_persistent() {
+    public final boolean m1881deprecated_persistent() {
         return this.persistent;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "expiresAt", imports = {}))
     /* renamed from: -deprecated_expiresAt  reason: not valid java name */
-    public final long m1870deprecated_expiresAt() {
+    public final long m1876deprecated_expiresAt() {
         return this.expiresAt;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "hostOnly", imports = {}))
     /* renamed from: -deprecated_hostOnly  reason: not valid java name */
-    public final boolean m1871deprecated_hostOnly() {
+    public final boolean m1877deprecated_hostOnly() {
         return this.hostOnly;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "domain", imports = {}))
     /* renamed from: -deprecated_domain  reason: not valid java name */
-    public final String m1869deprecated_domain() {
+    public final String m1875deprecated_domain() {
         return this.domain;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "path", imports = {}))
     /* renamed from: -deprecated_path  reason: not valid java name */
-    public final String m1874deprecated_path() {
+    public final String m1880deprecated_path() {
         return this.path;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "httpOnly", imports = {}))
     /* renamed from: -deprecated_httpOnly  reason: not valid java name */
-    public final boolean m1872deprecated_httpOnly() {
+    public final boolean m1878deprecated_httpOnly() {
         return this.httpOnly;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "secure", imports = {}))
     /* renamed from: -deprecated_secure  reason: not valid java name */
-    public final boolean m1876deprecated_secure() {
+    public final boolean m1882deprecated_secure() {
         return this.secure;
     }
 

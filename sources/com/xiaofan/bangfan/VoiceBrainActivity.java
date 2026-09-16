@@ -90,7 +90,7 @@ public final class VoiceBrainActivity extends BaseActivity {
             }
         }), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 4.0f), 0, 0));
         voiceCard.addView(UiKit.INSTANCE.divider(this));
-        voiceCard.addView(UiKit.INSTANCE.bodyText(this, "使用方法：先开启本开关并下载识别模型 → 显示悬浮球 → 长按悬浮球，小翻亮起并一直开着麦克风聆听，你说一句它识别执行一句；再次长按悬浮球即关闭聆听。\n可识别口令：\n· 翻页：下一页 / 上一页 / 翻页\n· 自动翻书：开始自动翻页 / 继续翻页 / 暂停翻书 / 暂停\n· 节奏：快一点 / 慢一点\n· 悬浮球：打开悬浮球 / 关闭悬浮球\n· 其它：现在几点 / 天气 / 好的 / 取消"), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 2.0f), 0, 0));
+        voiceCard.addView(UiKit.INSTANCE.bodyText(this, "使用方法：先开启本开关并下载识别模型 → 显示悬浮球 → 长按悬浮球，小翻亮起并一直开着麦克风聆听，你说一句它识别执行一句；再次长按悬浮球即关闭聆听。\n可识别口令：\n· 翻页：下一页 / 上一页 / 翻页\n· 自动翻书：开始自动翻页 / 继续翻页 / 暂停翻书 / 暂停\n· 节奏：快一点 / 慢一点\n· 视频：快进（在播放视频时说“快进”，画面右侧双击快进）\n· 悬浮球：打开悬浮球 / 关闭悬浮球\n· 其它：现在几点 / 天气 / 好的 / 取消"), UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 2.0f), 0, 0));
         content.addView(voiceCard, UiKit.INSTANCE.margin(this, 0, 0, 0, UiKit.INSTANCE.dp(this, 12.0f)));
         LinearLayout brainCard = UiKit.INSTANCE.card(this);
         brainCard.addView(UiKit.INSTANCE.cardTitle(this, "离线大脑与声控（完全本地推理）"));

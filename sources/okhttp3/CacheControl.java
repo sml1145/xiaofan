@@ -106,61 +106,61 @@ public final class CacheControl {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "noCache", imports = {}))
     /* renamed from: -deprecated_noCache  reason: not valid java name */
-    public final boolean m1856deprecated_noCache() {
+    public final boolean m1862deprecated_noCache() {
         return this.noCache;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "noStore", imports = {}))
     /* renamed from: -deprecated_noStore  reason: not valid java name */
-    public final boolean m1857deprecated_noStore() {
+    public final boolean m1863deprecated_noStore() {
         return this.noStore;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "maxAgeSeconds", imports = {}))
     /* renamed from: -deprecated_maxAgeSeconds  reason: not valid java name */
-    public final int m1852deprecated_maxAgeSeconds() {
+    public final int m1858deprecated_maxAgeSeconds() {
         return this.maxAgeSeconds;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "sMaxAgeSeconds", imports = {}))
     /* renamed from: -deprecated_sMaxAgeSeconds  reason: not valid java name */
-    public final int m1860deprecated_sMaxAgeSeconds() {
+    public final int m1866deprecated_sMaxAgeSeconds() {
         return this.sMaxAgeSeconds;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "mustRevalidate", imports = {}))
     /* renamed from: -deprecated_mustRevalidate  reason: not valid java name */
-    public final boolean m1855deprecated_mustRevalidate() {
+    public final boolean m1861deprecated_mustRevalidate() {
         return this.mustRevalidate;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "maxStaleSeconds", imports = {}))
     /* renamed from: -deprecated_maxStaleSeconds  reason: not valid java name */
-    public final int m1853deprecated_maxStaleSeconds() {
+    public final int m1859deprecated_maxStaleSeconds() {
         return this.maxStaleSeconds;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "minFreshSeconds", imports = {}))
     /* renamed from: -deprecated_minFreshSeconds  reason: not valid java name */
-    public final int m1854deprecated_minFreshSeconds() {
+    public final int m1860deprecated_minFreshSeconds() {
         return this.minFreshSeconds;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "onlyIfCached", imports = {}))
     /* renamed from: -deprecated_onlyIfCached  reason: not valid java name */
-    public final boolean m1859deprecated_onlyIfCached() {
+    public final boolean m1865deprecated_onlyIfCached() {
         return this.onlyIfCached;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "noTransform", imports = {}))
     /* renamed from: -deprecated_noTransform  reason: not valid java name */
-    public final boolean m1858deprecated_noTransform() {
+    public final boolean m1864deprecated_noTransform() {
         return this.noTransform;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "immutable", imports = {}))
     /* renamed from: -deprecated_immutable  reason: not valid java name */
-    public final boolean m1851deprecated_immutable() {
+    public final boolean m1857deprecated_immutable() {
         return this.immutable;
     }
 

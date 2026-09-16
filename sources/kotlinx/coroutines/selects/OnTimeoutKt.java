@@ -15,7 +15,7 @@ public final class OnTimeoutKt {
     }
 
     /* renamed from: onTimeout-8Mi8wO0  reason: not valid java name */
-    public static final <R> void m1838onTimeout8Mi8wO0(SelectBuilder<? super R> selectBuilder, long timeout, Function1<? super Continuation<? super R>, ? extends Object> function1) {
-        onTimeout(selectBuilder, DelayKt.m1758toDelayMillisLRDsOJo(timeout), function1);
+    public static final <R> void m1844onTimeout8Mi8wO0(SelectBuilder<? super R> selectBuilder, long timeout, Function1<? super Continuation<? super R>, ? extends Object> function1) {
+        onTimeout(selectBuilder, DelayKt.m1764toDelayMillisLRDsOJo(timeout), function1);
     }
 }

@@ -100,32 +100,36 @@ public final class VoiceControlService extends Service {
             } catch (NoSuchFieldError e6) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.BALL_SHOW.ordinal()] = 7;
+                iArr[VoiceCommandRouter.Command.FAST_FORWARD.ordinal()] = 7;
             } catch (NoSuchFieldError e7) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.BALL_HIDE.ordinal()] = 8;
+                iArr[VoiceCommandRouter.Command.BALL_SHOW.ordinal()] = 8;
             } catch (NoSuchFieldError e8) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.TELL_TIME.ordinal()] = 9;
+                iArr[VoiceCommandRouter.Command.BALL_HIDE.ordinal()] = 9;
             } catch (NoSuchFieldError e9) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.WEATHER.ordinal()] = 10;
+                iArr[VoiceCommandRouter.Command.TELL_TIME.ordinal()] = 10;
             } catch (NoSuchFieldError e10) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.CONFIRM.ordinal()] = 11;
+                iArr[VoiceCommandRouter.Command.WEATHER.ordinal()] = 11;
             } catch (NoSuchFieldError e11) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.CANCEL.ordinal()] = 12;
+                iArr[VoiceCommandRouter.Command.CONFIRM.ordinal()] = 12;
             } catch (NoSuchFieldError e12) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.NONE.ordinal()] = 13;
+                iArr[VoiceCommandRouter.Command.CANCEL.ordinal()] = 13;
             } catch (NoSuchFieldError e13) {
+            }
+            try {
+                iArr[VoiceCommandRouter.Command.NONE.ordinal()] = 14;
+            } catch (NoSuchFieldError e14) {
             }
             $EnumSwitchMapping$0 = iArr;
         }
@@ -277,13 +281,13 @@ public final class VoiceControlService extends Service {
             XiaoFanVoice xiaoFanVoice = XiaoFanVoice.INSTANCE;
             Context applicationContext = getApplicationContext();
             Intrinsics.checkNotNullExpressionValue(applicationContext, "getApplicationContext(...)");
-            xiaoFanVoice.tip(applicationContext, "还没有麦克风权限，到第三页开启离线声控时授权一下");
+            xiaoFanVoice.tip(applicationContext, "还没有麦克风权限，到第二页“声控与大脑”开启离线声控时授权一下");
             stopSelf();
         } else if (!asrOk) {
             XiaoFanVoice xiaoFanVoice2 = XiaoFanVoice.INSTANCE;
             Context applicationContext2 = getApplicationContext();
             Intrinsics.checkNotNullExpressionValue(applicationContext2, "getApplicationContext(...)");
-            xiaoFanVoice2.tip(applicationContext2, "声控识别模型还没下好，先到第三页下载离线模型");
+            xiaoFanVoice2.tip(applicationContext2, "声控识别模型还没下好，先到第二页“声控与大脑”下载离线模型");
             stopSelf();
         } else {
             alive = true;
@@ -1048,7 +1052,7 @@ public final class VoiceControlService extends Service {
             nm.createNotificationChannel(ch);
         }
         Notification.Builder builder = Build.VERSION.SDK_INT >= 26 ? new Notification.Builder(this, CHANNEL_ID) : new Notification.Builder(this);
-        Notification notif = builder.setContentTitle(listening ? "小翻正在持续聆听…" : "小翻离线声控就绪").setContentText(listening ? "长按悬浮球可关闭聆听；可说下一页/上一页/暂停/继续" : "长按悬浮球开始说话").setSmallIcon(17301668).setOngoing(true).build();
+        Notification notif = builder.setContentTitle(listening ? "小翻正在持续聆听…" : "小翻离线声控就绪").setContentText(listening ? "长按悬浮球可关闭聆听；可说下一页/上一页/暂停/继续/快进" : "长按悬浮球开始说话").setSmallIcon(17301668).setOngoing(true).build();
         Intrinsics.checkNotNullExpressionValue(notif, "build(...)");
         try {
             if (Build.VERSION.SDK_INT >= 29) {
@@ -1132,17 +1136,22 @@ public final class VoiceControlService extends Service {
                 feedback("好的，翻慢一点");
                 return;
             case 7:
+                TurnManager turnManager5 = TurnManager.INSTANCE;
+                Intrinsics.checkNotNull(ctx);
+                feedback(turnManager5.requestFastForward(ctx, "离线声控-视频快进") ? "好，视频快进" : "快进没成功，请先打开视频并开启无障碍");
+                return;
+            case 8:
                 startService(new Intent(ctx, FloatBallService.class).setAction(FloatBallService.ACTION_START));
                 feedback("悬浮球打开啦");
                 return;
-            case 8:
+            case 9:
                 startService(new Intent(ctx, FloatBallService.class).setAction(FloatBallService.ACTION_STOP));
                 feedback("悬浮球收起啦");
                 return;
-            case 9:
+            case 10:
                 feedback(XiaoFanBrain.INSTANCE.speakTimeNow());
                 return;
-            case 10:
+            case 11:
                 XiaoFanBrain.Intent it = XiaoFanBrain.INSTANCE.parse("天气");
                 XiaoFanBrain xiaoFanBrain = XiaoFanBrain.INSTANCE;
                 Intrinsics.checkNotNull(ctx);
@@ -1159,13 +1168,13 @@ public final class VoiceControlService extends Service {
                     }
                 });
                 return;
-            case 11:
+            case 12:
                 feedback("好的");
                 return;
-            case 12:
-                TurnManager turnManager5 = TurnManager.INSTANCE;
+            case 13:
+                TurnManager turnManager6 = TurnManager.INSTANCE;
                 Intrinsics.checkNotNull(ctx);
-                turnManager5.setAutoTurn(ctx, false);
+                turnManager6.setAutoTurn(ctx, false);
                 FloatBallService companion3 = FloatBallService.Companion.getInstance();
                 if (companion3 != null) {
                     companion3.syncEngines();

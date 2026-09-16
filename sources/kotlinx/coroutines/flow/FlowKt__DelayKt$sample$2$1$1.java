@@ -42,12 +42,12 @@ final class FlowKt__DelayKt$sample$2$1$1 extends SuspendLambda implements Functi
 
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(ChannelResult<? extends Object> channelResult, Continuation<? super Unit> continuation) {
-        return m1808invokeWpGqRn0(channelResult.m1792unboximpl(), continuation);
+        return m1814invokeWpGqRn0(channelResult.m1798unboximpl(), continuation);
     }
 
     /* renamed from: invoke-WpGqRn0  reason: not valid java name */
-    public final Object m1808invokeWpGqRn0(Object obj, Continuation<? super Unit> continuation) {
-        return ((FlowKt__DelayKt$sample$2$1$1) create(ChannelResult.m1780boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object m1814invokeWpGqRn0(Object obj, Continuation<? super Unit> continuation) {
+        return ((FlowKt__DelayKt$sample$2$1$1) create(ChannelResult.m1786boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.Object] */
@@ -58,15 +58,15 @@ final class FlowKt__DelayKt$sample$2$1$1 extends SuspendLambda implements Functi
         switch (this.label) {
             case 0:
                 ResultKt.throwOnFailure(obj);
-                ?? m1792unboximpl = ((ChannelResult) this.L$0).m1792unboximpl();
+                ?? m1798unboximpl = ((ChannelResult) this.L$0).m1798unboximpl();
                 Ref.ObjectRef<Object> objectRef = this.$lastValue;
-                if (!(m1792unboximpl instanceof ChannelResult.Failed)) {
-                    objectRef.element = m1792unboximpl;
+                if (!(m1798unboximpl instanceof ChannelResult.Failed)) {
+                    objectRef.element = m1798unboximpl;
                 }
                 ReceiveChannel<Unit> receiveChannel = this.$ticker;
                 Ref.ObjectRef<Object> objectRef2 = this.$lastValue;
-                if (m1792unboximpl instanceof ChannelResult.Failed) {
-                    Throwable it = ChannelResult.m1784exceptionOrNullimpl(m1792unboximpl);
+                if (m1798unboximpl instanceof ChannelResult.Failed) {
+                    Throwable it = ChannelResult.m1790exceptionOrNullimpl(m1798unboximpl);
                     if (it != null) {
                         throw it;
                     }

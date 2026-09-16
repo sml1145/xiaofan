@@ -21,7 +21,7 @@ public final class VoiceCommandRouter {
     }
 
     /* compiled from: VoiceCommandRouter.kt */
-    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0011\b\u0086\u0081\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\u0007j\u0002\b\bj\u0002\b\tj\u0002\b\nj\u0002\b\u000bj\u0002\b\fj\u0002\b\rj\u0002\b\u000ej\u0002\b\u000fj\u0002\b\u0010j\u0002\b\u0011j\u0002\b\u0012j\u0002\b\u0013¨\u0006\u0014"}, d2 = {"Lcom/xiaofan/bangfan/ai/VoiceCommandRouter$Command;", "", "label", "", "(Ljava/lang/String;ILjava/lang/String;)V", "getLabel", "()Ljava/lang/String;", "NEXT_PAGE", "PREV_PAGE", "AUTO_START", "PAUSE", "FASTER", "SLOWER", "BALL_SHOW", "BALL_HIDE", "TELL_TIME", "WEATHER", "CONFIRM", "CANCEL", "NONE", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0012\b\u0086\u0081\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\u0007j\u0002\b\bj\u0002\b\tj\u0002\b\nj\u0002\b\u000bj\u0002\b\fj\u0002\b\rj\u0002\b\u000ej\u0002\b\u000fj\u0002\b\u0010j\u0002\b\u0011j\u0002\b\u0012j\u0002\b\u0013j\u0002\b\u0014¨\u0006\u0015"}, d2 = {"Lcom/xiaofan/bangfan/ai/VoiceCommandRouter$Command;", "", "label", "", "(Ljava/lang/String;ILjava/lang/String;)V", "getLabel", "()Ljava/lang/String;", "NEXT_PAGE", "PREV_PAGE", "AUTO_START", "PAUSE", "FASTER", "SLOWER", "FAST_FORWARD", "BALL_SHOW", "BALL_HIDE", "TELL_TIME", "WEATHER", "CONFIRM", "CANCEL", "NONE", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
     /* loaded from: classes3.dex */
     public enum Command {
         NEXT_PAGE("下一页"),
@@ -30,6 +30,7 @@ public final class VoiceCommandRouter {
         PAUSE("暂停"),
         FASTER("加快"),
         SLOWER("减慢"),
+        FAST_FORWARD("视频快进"),
         BALL_SHOW("打开悬浮球"),
         BALL_HIDE("关闭悬浮球"),
         TELL_TIME("报时"),
@@ -102,24 +103,18 @@ public final class VoiceCommandRouter {
         if (has(s, "自动翻页", "开始翻页", "继续翻", "继续", "开始自动", "继续自动")) {
             return Command.AUTO_START;
         }
+        if (has(s, "快进", "快进视频", "视频快进", "往前快进")) {
+            return Command.FAST_FORWARD;
+        }
         if (has(s, "快一点", "快点", "加速", "快些", "再快")) {
             return Command.FASTER;
         }
         if (has(s, "慢一点", "慢点", "减速", "慢些", "再慢")) {
             return Command.SLOWER;
         }
-        if (has(s, "下一页", "下页", "往后翻", "向后翻", "翻下一页", "下一张", "往后")) {
-            return Command.NEXT_PAGE;
-        }
-        if (has(s, "上一页", "上页", "往前翻", "向前翻", "翻上一页", "上一张", "往前", "回退", "退回")) {
-            return Command.PREV_PAGE;
-        }
-        if (has(s, "翻页", "翻一", "翻書", "翻书")) {
-            return Command.NEXT_PAGE;
-        }
         if (has(s, "暂停", "停下", "停止", "先别翻", "别翻了", "停一下") || StringsKt.endsWith$default(s, "停", false, 2, (Object) null)) {
             return Command.PAUSE;
         }
-        return has(s, "几点", "报时", "现在时间", "什么时间", "多少点") ? Command.TELL_TIME : has(s, "天气", "气温", "温度") ? Command.WEATHER : has(s, "确认", "确定", "好的", "没问题", "可以") ? Command.CONFIRM : has(s, "取消", "算了", "不用了") ? Command.CANCEL : Command.NONE;
+        return has(s, "下一页", "下页", "往后翻", "向后翻", "翻下一页", "下一张", "往后") ? Command.NEXT_PAGE : has(s, "上一页", "上页", "往前翻", "向前翻", "翻上一页", "上一张", "往前", "回退", "退回") ? Command.PREV_PAGE : has(s, "翻页", "翻一", "翻書", "翻书") ? Command.NEXT_PAGE : has(s, "几点", "报时", "现在时间", "什么时间", "多少点") ? Command.TELL_TIME : has(s, "天气", "气温", "温度") ? Command.WEATHER : has(s, "确认", "确定", "好的", "没问题", "可以") ? Command.CONFIRM : has(s, "取消", "算了", "不用了") ? Command.CANCEL : Command.NONE;
     }
 }

@@ -198,14 +198,14 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
         postOrRun(new Runnable() { // from class: org.webrtc.SurfaceViewRenderer$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                SurfaceViewRenderer.this.m2161lambda$onFrameResolutionChanged$0$orgwebrtcSurfaceViewRenderer(rotatedWidth, rotatedHeight);
+                SurfaceViewRenderer.this.m2167lambda$onFrameResolutionChanged$0$orgwebrtcSurfaceViewRenderer(rotatedWidth, rotatedHeight);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$onFrameResolutionChanged$0$org-webrtc-SurfaceViewRenderer  reason: not valid java name */
-    public /* synthetic */ void m2161lambda$onFrameResolutionChanged$0$orgwebrtcSurfaceViewRenderer(int rotatedWidth, int rotatedHeight) {
+    public /* synthetic */ void m2167lambda$onFrameResolutionChanged$0$orgwebrtcSurfaceViewRenderer(int rotatedWidth, int rotatedHeight) {
         this.rotatedFrameWidth = rotatedWidth;
         this.rotatedFrameHeight = rotatedHeight;
         updateSurfaceSize();

@@ -28,9 +28,10 @@ import kotlin.Pair;
 import kotlin.TuplesKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.ranges.RangesKt;
 import kotlin.text.StringsKt;
 /* compiled from: PageTurnAccessibilityService.kt */
-@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0011\n\u0002\b\u0006\u0018\u0000 Q2\u00020\u0001:\u0001QB\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\u0019\u001a\u00020\u001aJ\u0016\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001dJ\b\u0010\u001f\u001a\u0004\u0018\u00010\fJ\u0010\u0010 \u001a\u00020\u00042\u0006\u0010!\u001a\u00020\u0006H\u0002J \u0010\"\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\f2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u0004H\u0002J\u0006\u0010&\u001a\u00020\u0006J\u0006\u0010'\u001a\u00020\u0006J\u0006\u0010(\u001a\u00020\u0006J\n\u0010)\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010*\u001a\u00020\u001a2\u0006\u0010+\u001a\u00020,H\u0002J\u0006\u0010-\u001a\u00020\u0004J\u0006\u0010.\u001a\u00020\u0004J\u0012\u0010/\u001a\u00020\u00042\b\u00100\u001a\u0004\u0018\u00010\fH\u0002J\u0012\u00101\u001a\u00020\u00042\b\u00100\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u00102\u001a\u00020\u0004J\u0012\u00103\u001a\u00020\u001a2\b\u00104\u001a\u0004\u0018\u000105H\u0016J\b\u00106\u001a\u00020\u001aH\u0016J\b\u00107\u001a\u00020\u001aH\u0016J\u0012\u00108\u001a\u00020\u00042\b\u00104\u001a\u0004\u0018\u000109H\u0014J\b\u0010:\u001a\u00020\u001aH\u0014J\u0012\u0010;\u001a\u00020\u00042\b\u0010<\u001a\u0004\u0018\u00010=H\u0016J\u000e\u0010>\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\u000e\u0010?\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\u000e\u0010@\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\n\u0010A\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010B\u001a\u00020\u001a2\u0006\u0010C\u001a\u00020\u0004H\u0002J\b\u0010D\u001a\u00020\u001aH\u0002J\b\u0010E\u001a\u00020\u001aH\u0002J\b\u0010F\u001a\u00020\u001aH\u0002J\u0006\u0010G\u001a\u00020\u001aJ\b\u0010H\u001a\u00020\u001aH\u0002J\u0010\u0010I\u001a\u00020\u00042\u0006\u0010$\u001a\u00020\u0004H\u0002J\u001f\u0010J\u001a\u00020\u00042\u0012\u0010K\u001a\n\u0012\u0006\b\u0001\u0012\u00020\f0L\"\u00020\f¢\u0006\u0002\u0010MJ\u0018\u0010N\u001a\u00020\u001a2\u0006\u0010O\u001a\u00020\u00062\u0006\u0010P\u001a\u00020\u0004H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006R"}, d2 = {"Lcom/xiaofan/bangfan/PageTurnAccessibilityService;", "Landroid/accessibilityservice/AccessibilityService;", "()V", "adPageActive", "", "adRemainingSeconds", "", "adTickTask", "Ljava/lang/Runnable;", "adWatchDeadline", "", "basePkg", "", "busy", "foregroundPkg", "lastTurnAt", "lastVolDownAt", "lastVolUpAt", "main", "Landroid/os/Handler;", "normalCharsBase", "normalSamples", "pollTask", "screenH", "screenW", "analyzeNow", "", "clickAt", "x", "", "y", "currentForegroundPackage", "debounceVolumeKey", "keyCode", "doTurn", "reason", "prev", "timed", "getAdRemainingSeconds", "getScreenHeight", "getScreenWidth", "getTopActivityPackage", "handleAdPage", "result", "Lcom/xiaofan/bangfan/AdDetector$Result;", "isAdPageActive", "isCurrentPageBookEnd", "isNoisePackage", "pkg", "isNonReaderPackage", "isReaderAppInForeground", "onAccessibilityEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/accessibility/AccessibilityEvent;", "onDestroy", "onInterrupt", "onKeyEvent", "Landroid/view/KeyEvent;", "onServiceConnected", "onUnbind", "intent", "Landroid/content/Intent;", "performPageTurn", "performPrevPage", "performTimedPageTurn", "resolveForegroundPackage", "setAdPageActive", "active", "startAdTick", "startPolling", "stopAdTickOnly", "stopAdWatching", "stopPolling", "swipePage", "toggleReaderOption", "texts", "", "([Ljava/lang/String;)Z", "updateBaseline", "chars", "speedUp", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0010\u0011\n\u0002\b\u0006\u0018\u0000 Y2\u00020\u0001:\u0001YB\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\u001c\u001a\u00020\u001dJ\u0016\u0010\u001e\u001a\u00020\u00042\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020 J\b\u0010\"\u001a\u0004\u0018\u00010\fJ\u0010\u0010#\u001a\u00020\u00042\u0006\u0010$\u001a\u00020\u0006H\u0002J \u0010%\u001a\u00020\u001d2\u0006\u0010&\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\f2\u0006\u0010(\u001a\u00020\u0004H\u0002J \u0010)\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\f2\u0006\u0010*\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0004H\u0002J\u0006\u0010,\u001a\u00020\u0006J\u0006\u0010-\u001a\u00020\u0006J\u0006\u0010.\u001a\u00020\u0006J\n\u0010/\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u00100\u001a\u00020\u001d2\u0006\u00101\u001a\u000202H\u0002J\u0006\u00103\u001a\u00020\u0004J\u0006\u00104\u001a\u00020\u0004J\u0012\u00105\u001a\u00020\u00042\b\u00106\u001a\u0004\u0018\u00010\fH\u0002J\u0012\u00107\u001a\u00020\u00042\b\u00106\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u00108\u001a\u00020\u0004J\u0012\u00109\u001a\u00020\u001d2\b\u0010:\u001a\u0004\u0018\u00010;H\u0016J\b\u0010<\u001a\u00020\u001dH\u0016J\b\u0010=\u001a\u00020\u001dH\u0016J\u0012\u0010>\u001a\u00020\u00042\b\u0010:\u001a\u0004\u0018\u00010?H\u0014J\b\u0010@\u001a\u00020\u001dH\u0014J\u0012\u0010A\u001a\u00020\u00042\b\u0010B\u001a\u0004\u0018\u00010CH\u0016J\u000e\u0010D\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\u000e\u0010E\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\u000e\u0010F\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\u000e\u0010G\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\u0016\u0010H\u001a\u00020\u00042\u0006\u0010&\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\n\u0010I\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010J\u001a\u00020\u001d2\u0006\u0010K\u001a\u00020\u0004H\u0002J\b\u0010L\u001a\u00020\u001dH\u0002J\b\u0010M\u001a\u00020\u001dH\u0002J\b\u0010N\u001a\u00020\u001dH\u0002J\u0006\u0010O\u001a\u00020\u001dJ\b\u0010P\u001a\u00020\u001dH\u0002J\u0010\u0010Q\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\u0004H\u0002J\u001f\u0010R\u001a\u00020\u00042\u0012\u0010S\u001a\n\u0012\u0006\b\u0001\u0012\u00020\f0T\"\u00020\f¢\u0006\u0002\u0010UJ\u0018\u0010V\u001a\u00020\u001d2\u0006\u0010W\u001a\u00020\u00062\u0006\u0010X\u001a\u00020\u0004H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006Z"}, d2 = {"Lcom/xiaofan/bangfan/PageTurnAccessibilityService;", "Landroid/accessibilityservice/AccessibilityService;", "()V", "adPageActive", "", "adRemainingSeconds", "", "adTickTask", "Ljava/lang/Runnable;", "adWatchDeadline", "", "basePkg", "", "busy", "foregroundPkg", "lastTurnAt", "lastVerticalAt", "lastVolDownAt", "lastVolUpAt", "main", "Landroid/os/Handler;", "maxVerticalQueued", "normalCharsBase", "normalSamples", "pollTask", "screenH", "screenW", "verticalQueued", "analyzeNow", "", "clickAt", "x", "", "y", "currentForegroundPackage", "debounceVolumeKey", "keyCode", "dispatchVerticalSwipe", "up", "reason", "retry", "doTurn", "prev", "timed", "getAdRemainingSeconds", "getScreenHeight", "getScreenWidth", "getTopActivityPackage", "handleAdPage", "result", "Lcom/xiaofan/bangfan/AdDetector$Result;", "isAdPageActive", "isCurrentPageBookEnd", "isNoisePackage", "pkg", "isNonReaderPackage", "isReaderAppInForeground", "onAccessibilityEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/accessibility/AccessibilityEvent;", "onDestroy", "onInterrupt", "onKeyEvent", "Landroid/view/KeyEvent;", "onServiceConnected", "onUnbind", "intent", "Landroid/content/Intent;", "performFastForward", "performPageTurn", "performPrevPage", "performTimedPageTurn", "performVerticalSwipe", "resolveForegroundPackage", "setAdPageActive", "active", "startAdTick", "startPolling", "stopAdTickOnly", "stopAdWatching", "stopPolling", "swipePage", "toggleReaderOption", "texts", "", "([Ljava/lang/String;)Z", "updateBaseline", "chars", "speedUp", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class PageTurnAccessibilityService extends AccessibilityService {
     public static final Companion Companion = new Companion(null);
@@ -43,6 +44,7 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     private volatile long adWatchDeadline;
     private volatile boolean busy;
     private volatile long lastTurnAt;
+    private volatile long lastVerticalAt;
     private long lastVolDownAt;
     private long lastVolUpAt;
     private int normalCharsBase;
@@ -50,10 +52,12 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     private Runnable pollTask;
     private int screenH;
     private int screenW;
+    private int verticalQueued;
     private final Handler main = new Handler(Looper.getMainLooper());
     private volatile int adRemainingSeconds = -1;
     private volatile String foregroundPkg = "";
     private String basePkg = "";
+    private final int maxVerticalQueued = 8;
 
     /* compiled from: PageTurnAccessibilityService.kt */
     @Metadata(k = 3, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
@@ -464,6 +468,100 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
         path.moveTo(fromX, y);
         path.lineTo(toX, y);
         return dispatchGesture(new GestureDescription.Builder().addStroke(new GestureDescription.StrokeDescription(path, 0L, 260L)).build(), null, this.main);
+    }
+
+    public final boolean performVerticalSwipe(final boolean up, final String reason) {
+        Intrinsics.checkNotNullParameter(reason, "reason");
+        if (this.screenW <= 0 || this.screenH <= 0) {
+            DisplayMetrics dm = getResources().getDisplayMetrics();
+            this.screenW = dm.widthPixels;
+            this.screenH = dm.heightPixels;
+        }
+        if (this.verticalQueued >= this.maxVerticalQueued) {
+            Log.w(TAG, "vertical swipe queue full, drop " + reason);
+            return false;
+        }
+        this.verticalQueued++;
+        long wait = RangesKt.coerceAtLeast((this.lastVerticalAt + 210) - SystemClock.uptimeMillis(), 0L);
+        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda0
+            @Override // java.lang.Runnable
+            public final void run() {
+                PageTurnAccessibilityService.performVerticalSwipe$lambda$5(PageTurnAccessibilityService.this, up, reason);
+            }
+        }, wait);
+        return true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void performVerticalSwipe$lambda$5(PageTurnAccessibilityService this$0, boolean $up, String reason) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        Intrinsics.checkNotNullParameter(reason, "$reason");
+        this$0.verticalQueued--;
+        this$0.lastVerticalAt = SystemClock.uptimeMillis();
+        this$0.dispatchVerticalSwipe($up, reason, true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void dispatchVerticalSwipe(final boolean up, final String reason, boolean retry) {
+        boolean dispatched;
+        float x = this.screenW * 0.5f;
+        float f = this.screenH;
+        Pair pair = up ? TuplesKt.to(Float.valueOf(f * 0.8f), Float.valueOf(this.screenH * 0.26f)) : TuplesKt.to(Float.valueOf(f * 0.26f), Float.valueOf(this.screenH * 0.8f));
+        float fromY = ((Number) pair.component1()).floatValue();
+        float toY = ((Number) pair.component2()).floatValue();
+        Path path = new Path();
+        path.moveTo(x, fromY);
+        path.lineTo(x, toY);
+        GestureDescription gesture = new GestureDescription.Builder().addStroke(new GestureDescription.StrokeDescription(path, 0L, 210L)).build();
+        PageTurnAccessibilityService$dispatchVerticalSwipe$cb$1 cb = new PageTurnAccessibilityService$dispatchVerticalSwipe$cb$1(up, reason, retry, this);
+        try {
+            dispatched = dispatchGesture(gesture, cb, this.main);
+        } catch (Throwable th) {
+            Log.w(TAG, "vertical swipe dispatch threw", th);
+            dispatched = false;
+        }
+        if (dispatched || !retry) {
+            return;
+        }
+        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda2
+            @Override // java.lang.Runnable
+            public final void run() {
+                PageTurnAccessibilityService.dispatchVerticalSwipe$lambda$6(PageTurnAccessibilityService.this, up, reason);
+            }
+        }, 90L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void dispatchVerticalSwipe$lambda$6(PageTurnAccessibilityService this$0, boolean $up, String reason) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        Intrinsics.checkNotNullParameter(reason, "$reason");
+        this$0.dispatchVerticalSwipe($up, reason, false);
+    }
+
+    public final boolean performFastForward(String reason) {
+        Intrinsics.checkNotNullParameter(reason, "reason");
+        if (this.screenW <= 0 || this.screenH <= 0) {
+            DisplayMetrics dm = getResources().getDisplayMetrics();
+            this.screenW = dm.widthPixels;
+            this.screenH = dm.heightPixels;
+        }
+        final float x = this.screenW * 0.74f;
+        final float y = this.screenH * 0.5f;
+        boolean first = clickAt(x, y);
+        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda1
+            @Override // java.lang.Runnable
+            public final void run() {
+                PageTurnAccessibilityService.performFastForward$lambda$7(PageTurnAccessibilityService.this, x, y);
+            }
+        }, 110L);
+        Log.i(TAG, "fast-forward double tap reason=" + reason + " scheduled=" + first);
+        return first;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void performFastForward$lambda$7(PageTurnAccessibilityService this$0, float $x, float $y) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        this$0.clickAt($x, $y);
     }
 
     public final boolean clickAt(float x, float y) {
