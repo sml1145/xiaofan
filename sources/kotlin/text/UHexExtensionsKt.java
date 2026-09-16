@@ -13,14 +13,14 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes.dex */
 public final class UHexExtensionsKt {
     /* renamed from: toHexString-zHuV2wU  reason: not valid java name */
-    private static final String m1580toHexStringzHuV2wU(byte[] toHexString, HexFormat format) {
+    private static final String m1577toHexStringzHuV2wU(byte[] toHexString, HexFormat format) {
         Intrinsics.checkNotNullParameter(toHexString, "$this$toHexString");
         Intrinsics.checkNotNullParameter(format, "format");
         return HexExtensionsKt.toHexString(toHexString, format);
     }
 
     /* renamed from: toHexString-zHuV2wU$default  reason: not valid java name */
-    static /* synthetic */ String m1581toHexStringzHuV2wU$default(byte[] toHexString, HexFormat format, int i, Object obj) {
+    static /* synthetic */ String m1578toHexStringzHuV2wU$default(byte[] toHexString, HexFormat format, int i, Object obj) {
         if ((i & 1) != 0) {
             format = HexFormat.Companion.getDefault();
         }
@@ -30,12 +30,12 @@ public final class UHexExtensionsKt {
     }
 
     /* renamed from: toHexString-lZCiFrA$default  reason: not valid java name */
-    static /* synthetic */ String m1577toHexStringlZCiFrA$default(byte[] toHexString, int startIndex, int endIndex, HexFormat format, int i, Object obj) {
+    static /* synthetic */ String m1574toHexStringlZCiFrA$default(byte[] toHexString, int startIndex, int endIndex, HexFormat format, int i, Object obj) {
         if ((i & 1) != 0) {
             startIndex = 0;
         }
         if ((i & 2) != 0) {
-            endIndex = UByteArray.m347getSizeimpl(toHexString);
+            endIndex = UByteArray.m344getSizeimpl(toHexString);
         }
         if ((i & 4) != 0) {
             format = HexFormat.Companion.getDefault();
@@ -46,7 +46,7 @@ public final class UHexExtensionsKt {
     }
 
     /* renamed from: toHexString-lZCiFrA  reason: not valid java name */
-    private static final String m1576toHexStringlZCiFrA(byte[] toHexString, int startIndex, int endIndex, HexFormat format) {
+    private static final String m1573toHexStringlZCiFrA(byte[] toHexString, int startIndex, int endIndex, HexFormat format) {
         Intrinsics.checkNotNullParameter(toHexString, "$this$toHexString");
         Intrinsics.checkNotNullParameter(format, "format");
         return HexExtensionsKt.toHexString(toHexString, startIndex, endIndex, format);
@@ -58,23 +58,23 @@ public final class UHexExtensionsKt {
         }
         Intrinsics.checkNotNullParameter($this$hexToUByteArray_u24default, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return UByteArray.m341constructorimpl(HexExtensionsKt.hexToByteArray($this$hexToUByteArray_u24default, format));
+        return UByteArray.m338constructorimpl(HexExtensionsKt.hexToByteArray($this$hexToUByteArray_u24default, format));
     }
 
     private static final byte[] hexToUByteArray(String $this$hexToUByteArray, HexFormat format) {
         Intrinsics.checkNotNullParameter($this$hexToUByteArray, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return UByteArray.m341constructorimpl(HexExtensionsKt.hexToByteArray($this$hexToUByteArray, format));
+        return UByteArray.m338constructorimpl(HexExtensionsKt.hexToByteArray($this$hexToUByteArray, format));
     }
 
     /* renamed from: toHexString-ZQbaR00  reason: not valid java name */
-    private static final String m1574toHexStringZQbaR00(byte $this$toHexString_u2dZQbaR00, HexFormat format) {
+    private static final String m1571toHexStringZQbaR00(byte $this$toHexString_u2dZQbaR00, HexFormat format) {
         Intrinsics.checkNotNullParameter(format, "format");
         return HexExtensionsKt.toHexString($this$toHexString_u2dZQbaR00, format);
     }
 
     /* renamed from: toHexString-ZQbaR00$default  reason: not valid java name */
-    static /* synthetic */ String m1575toHexStringZQbaR00$default(byte $this$toHexString_u2dZQbaR00_u24default, HexFormat format, int i, Object obj) {
+    static /* synthetic */ String m1572toHexStringZQbaR00$default(byte $this$toHexString_u2dZQbaR00_u24default, HexFormat format, int i, Object obj) {
         if ((i & 1) != 0) {
             format = HexFormat.Companion.getDefault();
         }
@@ -85,7 +85,7 @@ public final class UHexExtensionsKt {
     private static final byte hexToUByte(String $this$hexToUByte, HexFormat format) {
         Intrinsics.checkNotNullParameter($this$hexToUByte, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return UByte.m288constructorimpl(HexExtensionsKt.hexToByte($this$hexToUByte, format));
+        return UByte.m285constructorimpl(HexExtensionsKt.hexToByte($this$hexToUByte, format));
     }
 
     static /* synthetic */ byte hexToUByte$default(String $this$hexToUByte_u24default, HexFormat format, int i, Object obj) {
@@ -94,17 +94,17 @@ public final class UHexExtensionsKt {
         }
         Intrinsics.checkNotNullParameter($this$hexToUByte_u24default, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return UByte.m288constructorimpl(HexExtensionsKt.hexToByte($this$hexToUByte_u24default, format));
+        return UByte.m285constructorimpl(HexExtensionsKt.hexToByte($this$hexToUByte_u24default, format));
     }
 
     /* renamed from: toHexString-r3ox_E0  reason: not valid java name */
-    private static final String m1578toHexStringr3ox_E0(short $this$toHexString_u2dr3ox_E0, HexFormat format) {
+    private static final String m1575toHexStringr3ox_E0(short $this$toHexString_u2dr3ox_E0, HexFormat format) {
         Intrinsics.checkNotNullParameter(format, "format");
         return HexExtensionsKt.toHexString($this$toHexString_u2dr3ox_E0, format);
     }
 
     /* renamed from: toHexString-r3ox_E0$default  reason: not valid java name */
-    static /* synthetic */ String m1579toHexStringr3ox_E0$default(short $this$toHexString_u2dr3ox_E0_u24default, HexFormat format, int i, Object obj) {
+    static /* synthetic */ String m1576toHexStringr3ox_E0$default(short $this$toHexString_u2dr3ox_E0_u24default, HexFormat format, int i, Object obj) {
         if ((i & 1) != 0) {
             format = HexFormat.Companion.getDefault();
         }
@@ -115,7 +115,7 @@ public final class UHexExtensionsKt {
     private static final short hexToUShort(String $this$hexToUShort, HexFormat format) {
         Intrinsics.checkNotNullParameter($this$hexToUShort, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return UShort.m551constructorimpl(HexExtensionsKt.hexToShort($this$hexToUShort, format));
+        return UShort.m548constructorimpl(HexExtensionsKt.hexToShort($this$hexToUShort, format));
     }
 
     static /* synthetic */ short hexToUShort$default(String $this$hexToUShort_u24default, HexFormat format, int i, Object obj) {
@@ -124,17 +124,17 @@ public final class UHexExtensionsKt {
         }
         Intrinsics.checkNotNullParameter($this$hexToUShort_u24default, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return UShort.m551constructorimpl(HexExtensionsKt.hexToShort($this$hexToUShort_u24default, format));
+        return UShort.m548constructorimpl(HexExtensionsKt.hexToShort($this$hexToUShort_u24default, format));
     }
 
     /* renamed from: toHexString-8M7LxHw  reason: not valid java name */
-    private static final String m1570toHexString8M7LxHw(int $this$toHexString_u2d8M7LxHw, HexFormat format) {
+    private static final String m1567toHexString8M7LxHw(int $this$toHexString_u2d8M7LxHw, HexFormat format) {
         Intrinsics.checkNotNullParameter(format, "format");
         return HexExtensionsKt.toHexString($this$toHexString_u2d8M7LxHw, format);
     }
 
     /* renamed from: toHexString-8M7LxHw$default  reason: not valid java name */
-    static /* synthetic */ String m1571toHexString8M7LxHw$default(int $this$toHexString_u2d8M7LxHw_u24default, HexFormat format, int i, Object obj) {
+    static /* synthetic */ String m1568toHexString8M7LxHw$default(int $this$toHexString_u2d8M7LxHw_u24default, HexFormat format, int i, Object obj) {
         if ((i & 1) != 0) {
             format = HexFormat.Companion.getDefault();
         }
@@ -145,7 +145,7 @@ public final class UHexExtensionsKt {
     private static final int hexToUInt(String $this$hexToUInt, HexFormat format) {
         Intrinsics.checkNotNullParameter($this$hexToUInt, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return UInt.m365constructorimpl(HexExtensionsKt.hexToInt($this$hexToUInt, format));
+        return UInt.m362constructorimpl(HexExtensionsKt.hexToInt($this$hexToUInt, format));
     }
 
     static /* synthetic */ int hexToUInt$default(String $this$hexToUInt_u24default, HexFormat format, int i, Object obj) {
@@ -154,17 +154,17 @@ public final class UHexExtensionsKt {
         }
         Intrinsics.checkNotNullParameter($this$hexToUInt_u24default, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return UInt.m365constructorimpl(HexExtensionsKt.hexToInt($this$hexToUInt_u24default, format));
+        return UInt.m362constructorimpl(HexExtensionsKt.hexToInt($this$hexToUInt_u24default, format));
     }
 
     /* renamed from: toHexString-8UJCm-I  reason: not valid java name */
-    private static final String m1572toHexString8UJCmI(long $this$toHexString_u2d8UJCm_u2dI, HexFormat format) {
+    private static final String m1569toHexString8UJCmI(long $this$toHexString_u2d8UJCm_u2dI, HexFormat format) {
         Intrinsics.checkNotNullParameter(format, "format");
         return HexExtensionsKt.toHexString($this$toHexString_u2d8UJCm_u2dI, format);
     }
 
     /* renamed from: toHexString-8UJCm-I$default  reason: not valid java name */
-    static /* synthetic */ String m1573toHexString8UJCmI$default(long $this$toHexString_u2d8UJCm_u2dI_u24default, HexFormat format, int i, Object obj) {
+    static /* synthetic */ String m1570toHexString8UJCmI$default(long $this$toHexString_u2d8UJCm_u2dI_u24default, HexFormat format, int i, Object obj) {
         if ((i & 1) != 0) {
             format = HexFormat.Companion.getDefault();
         }
@@ -175,7 +175,7 @@ public final class UHexExtensionsKt {
     private static final long hexToULong(String $this$hexToULong, HexFormat format) {
         Intrinsics.checkNotNullParameter($this$hexToULong, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return ULong.m444constructorimpl(HexExtensionsKt.hexToLong($this$hexToULong, format));
+        return ULong.m441constructorimpl(HexExtensionsKt.hexToLong($this$hexToULong, format));
     }
 
     static /* synthetic */ long hexToULong$default(String $this$hexToULong_u24default, HexFormat format, int i, Object obj) {
@@ -184,6 +184,6 @@ public final class UHexExtensionsKt {
         }
         Intrinsics.checkNotNullParameter($this$hexToULong_u24default, "<this>");
         Intrinsics.checkNotNullParameter(format, "format");
-        return ULong.m444constructorimpl(HexExtensionsKt.hexToLong($this$hexToULong_u24default, format));
+        return ULong.m441constructorimpl(HexExtensionsKt.hexToLong($this$hexToULong_u24default, format));
     }
 }

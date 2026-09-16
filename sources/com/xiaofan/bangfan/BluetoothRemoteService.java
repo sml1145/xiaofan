@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
@@ -37,7 +38,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt;
 import kotlin.text.StringsKt;
 /* compiled from: BluetoothRemoteService.kt */
-@Metadata(d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0005\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0018\u0018\u0000 N2\u00020\u0001:\u0006MNOPQRB\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u001b\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u001aH\u0002J\b\u0010\u001e\u001a\u00020\u001cH\u0002J\b\u0010\u001f\u001a\u00020\u0012H\u0002J\b\u0010 \u001a\u00020\u001cH\u0002J\b\u0010!\u001a\u00020\u001cH\u0002J\b\u0010\"\u001a\u00020\u001cH\u0002J\b\u0010#\u001a\u00020\u001cH\u0002J\u0010\u0010$\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u001aH\u0002J\b\u0010%\u001a\u00020\u001cH\u0002J\u0010\u0010&\u001a\u00020\u00122\u0006\u0010'\u001a\u00020\u0012H\u0002J\b\u0010(\u001a\u00020\u0012H\u0002J\u0018\u0010)\u001a\u00020*2\u0006\u0010+\u001a\u00020,2\u0006\u0010-\u001a\u00020\u0012H\u0002J\u0012\u0010.\u001a\u00020\u001a2\b\u0010/\u001a\u0004\u0018\u00010\u001aH\u0002J\u0014\u00100\u001a\u0004\u0018\u0001012\b\u00102\u001a\u0004\u0018\u000103H\u0016J\b\u00104\u001a\u00020\u001cH\u0016J\b\u00105\u001a\u00020\u001cH\u0016J\u0010\u00106\u001a\u00020\u001c2\u0006\u00107\u001a\u000208H\u0002J\u001a\u00109\u001a\u00020\u001c2\u0006\u0010+\u001a\u00020,2\b\u0010:\u001a\u0004\u0018\u00010;H\u0002J\"\u0010<\u001a\u00020\f2\b\u00102\u001a\u0004\u0018\u0001032\u0006\u0010=\u001a\u00020\f2\u0006\u0010>\u001a\u00020\fH\u0016J\b\u0010?\u001a\u00020\u0010H\u0002J\u0014\u0010@\u001a\u0004\u0018\u00010\u001a2\b\u0010A\u001a\u0004\u0018\u00010;H\u0002J\u0010\u0010B\u001a\u00020\u001c2\u0006\u0010C\u001a\u00020\u0010H\u0002J\b\u0010D\u001a\u00020\u001cH\u0002J\u001a\u0010E\u001a\u00020\u001c2\u0006\u0010F\u001a\u00020\f2\b\u0010:\u001a\u0004\u0018\u00010\u001aH\u0002J\u001a\u0010G\u001a\u00020\u001c2\u0006\u0010F\u001a\u00020\f2\b\u0010:\u001a\u0004\u0018\u00010\u001aH\u0002J\b\u0010H\u001a\u00020\u001cH\u0002J\u0010\u0010I\u001a\u00020\u00122\u0006\u0010J\u001a\u00020\u001aH\u0002J\u0010\u0010K\u001a\u00020\u001c2\u0006\u0010L\u001a\u00020\u0012H\u0002R\u0014\u0010\u0003\u001a\b\u0018\u00010\u0004R\u00020\u0000X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0007\u001a\b\u0018\u00010\bR\u00020\u0000X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\t\u001a\b\u0018\u00010\nR\u00020\u0000X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006S"}, d2 = {"Lcom/xiaofan/bangfan/BluetoothRemoteService;", "Landroid/app/Service;", "()V", "acceptThread", "Lcom/xiaofan/bangfan/BluetoothRemoteService$AcceptThread;", "adapter", "Landroid/bluetooth/BluetoothAdapter;", "connectThread", "Lcom/xiaofan/bangfan/BluetoothRemoteService$ConnectThread;", "connectedThread", "Lcom/xiaofan/bangfan/BluetoothRemoteService$ConnectedThread;", "dialAttempts", "", "dialRunnable", "Ljava/lang/Runnable;", "lastVolAt", "", "lastVolIsUp", "", "main", "Landroid/os/Handler;", "nodeId", "rng", "Ljava/util/Random;", "suppressDial", "targetMac", "", "attemptConnect", "", "mac", "becomeListenerOnly", "btReady", "closeAllThreads", "connectionLost", "createChannel", "doListenOnly", "doPair", "ensureDialing", "handleVolume", "isUp", "hasConnectPerm", "negotiate", "Lcom/xiaofan/bangfan/BluetoothRemoteService$Nego;", "socket", "Landroid/bluetooth/BluetoothSocket;", "outbound", "norm", "m", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onCreate", "onDestroy", "onIncoming", "b", "", "onSocketConnected", "peer", "Landroid/bluetooth/BluetoothDevice;", "onStartCommand", "flags", "startId", "resolveNodeId", "safeName", "d", "scheduleDial", "delayMs", "scheduleDialRetry", "setState", "s", "startAsForeground", "stopEverything", "toast", "t", "vibrate", "short", "AcceptThread", "Companion", "ConnectThread", "ConnectedThread", "Listener", "Nego", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000\u0090\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0005\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0019\u0018\u0000 S2\u00020\u0001:\u0006RSTUVWB\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\u001e\u001a\u00020\u001fH\u0002J\u0010\u0010 \u001a\u00020\u001f2\u0006\u0010!\u001a\u00020\u001dH\u0002J\b\u0010\"\u001a\u00020\u001fH\u0002J\b\u0010#\u001a\u00020\u0012H\u0002J\b\u0010$\u001a\u00020\u001fH\u0002J\b\u0010%\u001a\u00020\u001fH\u0002J\b\u0010&\u001a\u00020\u001fH\u0002J\b\u0010'\u001a\u00020\u001fH\u0002J\u0010\u0010(\u001a\u00020\u001f2\u0006\u0010!\u001a\u00020\u001dH\u0002J\b\u0010)\u001a\u00020\u001fH\u0002J\u0010\u0010*\u001a\u00020\u00122\u0006\u0010+\u001a\u00020\u0012H\u0002J\b\u0010,\u001a\u00020\u0012H\u0002J\u0018\u0010-\u001a\u00020.2\u0006\u0010/\u001a\u0002002\u0006\u00101\u001a\u00020\u0012H\u0002J\u0012\u00102\u001a\u00020\u001d2\b\u00103\u001a\u0004\u0018\u00010\u001dH\u0002J\u0014\u00104\u001a\u0004\u0018\u0001052\b\u00106\u001a\u0004\u0018\u000107H\u0016J\b\u00108\u001a\u00020\u001fH\u0016J\b\u00109\u001a\u00020\u001fH\u0016J\u0010\u0010:\u001a\u00020\u001f2\u0006\u0010;\u001a\u00020<H\u0002J\u001a\u0010=\u001a\u00020\u001f2\u0006\u0010/\u001a\u0002002\b\u0010>\u001a\u0004\u0018\u00010?H\u0002J\"\u0010@\u001a\u00020\f2\b\u00106\u001a\u0004\u0018\u0001072\u0006\u0010A\u001a\u00020\f2\u0006\u0010B\u001a\u00020\fH\u0016J\b\u0010C\u001a\u00020\u001fH\u0002J\b\u0010D\u001a\u00020\u0010H\u0002J\u0014\u0010E\u001a\u0004\u0018\u00010\u001d2\b\u0010F\u001a\u0004\u0018\u00010?H\u0002J\u0010\u0010G\u001a\u00020\u001f2\u0006\u0010H\u001a\u00020\u0010H\u0002J\b\u0010I\u001a\u00020\u001fH\u0002J\u001a\u0010J\u001a\u00020\u001f2\u0006\u0010K\u001a\u00020\f2\b\u0010>\u001a\u0004\u0018\u00010\u001dH\u0002J\u001a\u0010L\u001a\u00020\u001f2\u0006\u0010K\u001a\u00020\f2\b\u0010>\u001a\u0004\u0018\u00010\u001dH\u0002J\b\u0010M\u001a\u00020\u001fH\u0002J\u0010\u0010N\u001a\u00020\u00122\u0006\u0010O\u001a\u00020\u001dH\u0002J\u0010\u0010P\u001a\u00020\u001f2\u0006\u0010Q\u001a\u00020\u0012H\u0002R\u0014\u0010\u0003\u001a\b\u0018\u00010\u0004R\u00020\u0000X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0007\u001a\b\u0018\u00010\bR\u00020\u0000X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\t\u001a\b\u0018\u00010\nR\u00020\u0000X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0013\u001a\b\u0018\u00010\u0014R\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u001dX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006X"}, d2 = {"Lcom/xiaofan/bangfan/BluetoothRemoteService;", "Landroid/app/Service;", "()V", "acceptThread", "Lcom/xiaofan/bangfan/BluetoothRemoteService$AcceptThread;", "adapter", "Landroid/bluetooth/BluetoothAdapter;", "connectThread", "Lcom/xiaofan/bangfan/BluetoothRemoteService$ConnectThread;", "connectedThread", "Lcom/xiaofan/bangfan/BluetoothRemoteService$ConnectedThread;", "dialAttempts", "", "dialRunnable", "Ljava/lang/Runnable;", "lastVolAt", "", "lastVolIsUp", "", "linkWakeLock", "Landroid/os/PowerManager$WakeLock;", "Landroid/os/PowerManager;", "main", "Landroid/os/Handler;", "nodeId", "rng", "Ljava/util/Random;", "suppressDial", "targetMac", "", "acquireLinkWakeLock", "", "attemptConnect", "mac", "becomeListenerOnly", "btReady", "closeAllThreads", "connectionLost", "createChannel", "doListenOnly", "doPair", "ensureDialing", "handleVolume", "isUp", "hasConnectPerm", "negotiate", "Lcom/xiaofan/bangfan/BluetoothRemoteService$Nego;", "socket", "Landroid/bluetooth/BluetoothSocket;", "outbound", "norm", "m", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onCreate", "onDestroy", "onIncoming", "b", "", "onSocketConnected", "peer", "Landroid/bluetooth/BluetoothDevice;", "onStartCommand", "flags", "startId", "releaseLinkWakeLock", "resolveNodeId", "safeName", "d", "scheduleDial", "delayMs", "scheduleDialRetry", "setState", "s", "startAsForeground", "stopEverything", "toast", "t", "vibrate", "short", "AcceptThread", "Companion", "ConnectThread", "ConnectedThread", "Listener", "Nego", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class BluetoothRemoteService extends Service {
     public static final String ACTION_CONNECT = "com.xiaofan.bangfan.action.BT_CONNECT";
@@ -54,6 +55,7 @@ public final class BluetoothRemoteService extends Service {
     private static final byte HELLO_MAGIC = -91;
     private static final long HELLO_TIMEOUT_MS = 2000;
     private static final int MAX_DIAL_ATTEMPTS = 14;
+    private static final long MAX_LINK_WAKE_MS = 86400000;
     private static final int NOTIF_ID = 2007;
     private static final String SPP_NAME = "XiaoFanRemote";
     private static final UUID SPP_UUID;
@@ -73,6 +75,7 @@ public final class BluetoothRemoteService extends Service {
     private volatile int dialAttempts;
     private volatile long lastVolAt;
     private volatile boolean lastVolIsUp;
+    private PowerManager.WakeLock linkWakeLock;
     private volatile long nodeId;
     private volatile boolean suppressDial;
     private volatile String targetMac;
@@ -109,7 +112,7 @@ public final class BluetoothRemoteService extends Service {
     }
 
     /* compiled from: BluetoothRemoteService.kt */
-    @Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0005\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\f\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010%\u001a\u00020&2\u0006\u0010'\u001a\u00020(J\u0006\u0010)\u001a\u00020*J\u000e\u0010+\u001a\u00020*2\u0006\u0010,\u001a\u00020*J\u0016\u0010-\u001a\u00020&2\u0006\u0010'\u001a\u00020(2\u0006\u0010.\u001a\u00020\u0004J\b\u0010/\u001a\u0004\u0018\u00010\u0004J\u0010\u00100\u001a\u00020&2\b\u00101\u001a\u0004\u0018\u00010\"J\u000e\u00102\u001a\u00020&2\u0006\u0010'\u001a\u00020(J\u0006\u00103\u001a\u00020\u000fJ\u000e\u00104\u001a\u00020&2\u0006\u0010'\u001a\u00020(J\u0006\u00105\u001a\u00020*R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u000fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u000fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0011\u0010\u0016\u001a\u00020\u0017¢\u0006\b\n\u0000\u001a\u0004\b\u0018\u0010\u0019R\u000e\u0010\u001a\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010\u001f\u001a\u0004\u0018\u00010 X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010!\u001a\u0004\u0018\u00010\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00066"}, d2 = {"Lcom/xiaofan/bangfan/BluetoothRemoteService$Companion;", "", "()V", "ACTION_CONNECT", "", "ACTION_DISCONNECT", "ACTION_LISTEN", "ACTION_PAIR", "ACTION_STOP", "CHANNEL_ID", "DIAL_BASE_MS", "", "DIAL_JITTER_MS", "EXTRA_MAC", "HELLO_LEN", "", "HELLO_MAGIC", "", "HELLO_TIMEOUT_MS", "MAX_DIAL_ATTEMPTS", "NOTIF_ID", "SPP_NAME", "SPP_UUID", "Ljava/util/UUID;", "getSPP_UUID", "()Ljava/util/UUID;", "STATE_CONNECTED", "STATE_CONNECTING", "STATE_IDLE", "STATE_LISTENING", "VOL_DEBOUNCE_MS", "instance", "Lcom/xiaofan/bangfan/BluetoothRemoteService;", "listener", "Lcom/xiaofan/bangfan/BluetoothRemoteService$Listener;", "peerName", "state", "disconnect", "", "ctx", "Landroid/content/Context;", "isConnected", "", "onVolumeKey", "isUp", "pair", "mac", "peerNow", "setListener", "l", "startListen", "stateNow", "stop", "volumeRemoteActive", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+    @Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0005\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\f\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010&\u001a\u00020'2\u0006\u0010(\u001a\u00020)J\u0006\u0010*\u001a\u00020+J\u000e\u0010,\u001a\u00020+2\u0006\u0010-\u001a\u00020+J\u0016\u0010.\u001a\u00020'2\u0006\u0010(\u001a\u00020)2\u0006\u0010/\u001a\u00020\u0004J\b\u00100\u001a\u0004\u0018\u00010\u0004J\u0010\u00101\u001a\u00020'2\b\u00102\u001a\u0004\u0018\u00010#J\u000e\u00103\u001a\u00020'2\u0006\u0010(\u001a\u00020)J\u0006\u00104\u001a\u00020\u000fJ\u000e\u00105\u001a\u00020'2\u0006\u0010(\u001a\u00020)J\u0006\u00106\u001a\u00020+R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u000fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u000fX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0011\u0010\u0017\u001a\u00020\u0018¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u001aR\u000e\u0010\u001b\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020\u000bX\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010!X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\"\u001a\u0004\u0018\u00010#X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010$\u001a\u0004\u0018\u00010\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00067"}, d2 = {"Lcom/xiaofan/bangfan/BluetoothRemoteService$Companion;", "", "()V", "ACTION_CONNECT", "", "ACTION_DISCONNECT", "ACTION_LISTEN", "ACTION_PAIR", "ACTION_STOP", "CHANNEL_ID", "DIAL_BASE_MS", "", "DIAL_JITTER_MS", "EXTRA_MAC", "HELLO_LEN", "", "HELLO_MAGIC", "", "HELLO_TIMEOUT_MS", "MAX_DIAL_ATTEMPTS", "MAX_LINK_WAKE_MS", "NOTIF_ID", "SPP_NAME", "SPP_UUID", "Ljava/util/UUID;", "getSPP_UUID", "()Ljava/util/UUID;", "STATE_CONNECTED", "STATE_CONNECTING", "STATE_IDLE", "STATE_LISTENING", "VOL_DEBOUNCE_MS", "instance", "Lcom/xiaofan/bangfan/BluetoothRemoteService;", "listener", "Lcom/xiaofan/bangfan/BluetoothRemoteService$Listener;", "peerName", "state", "disconnect", "", "ctx", "Landroid/content/Context;", "isConnected", "", "onVolumeKey", "isUp", "pair", "mac", "peerNow", "setListener", "l", "startListen", "stateNow", "stop", "volumeRemoteActive", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
     /* loaded from: classes4.dex */
     public static final class Companion {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -606,6 +609,7 @@ public final class BluetoothRemoteService extends Service {
         this.connectThread = null;
         AppPrefs.INSTANCE.setBtLastPeer(this, peer != null ? peer.getAddress() : null);
         setState(3, safeName(peer));
+        acquireLinkWakeLock();
         this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.BluetoothRemoteService$$ExternalSyntheticLambda7
             @Override // java.lang.Runnable
             public final void run() {
@@ -636,6 +640,7 @@ public final class BluetoothRemoteService extends Service {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.toast("蓝牙连接已断开");
         this$0.vibrate(false);
+        this$0.releaseLinkWakeLock();
         this$0.closeAllThreads();
         String mac = this$0.targetMac;
         if (mac == null) {
@@ -681,6 +686,7 @@ public final class BluetoothRemoteService extends Service {
     private final void stopEverything() {
         this.main.removeCallbacks(this.dialRunnable);
         closeAllThreads();
+        releaseLinkWakeLock();
         this.targetMac = null;
         setState(0, null);
         try {
@@ -694,6 +700,7 @@ public final class BluetoothRemoteService extends Service {
     public void onDestroy() {
         this.main.removeCallbacks(this.dialRunnable);
         closeAllThreads();
+        releaseLinkWakeLock();
         state = 0;
         instance = null;
         super.onDestroy();
@@ -719,6 +726,50 @@ public final class BluetoothRemoteService extends Service {
         return str;
     }
 
+    private final void acquireLinkWakeLock() {
+        PowerManager.WakeLock wakeLock;
+        PowerManager.WakeLock $this$acquireLinkWakeLock_u24lambda_u2410;
+        try {
+            boolean z = true;
+            if (this.linkWakeLock == null) {
+                Object systemService = getSystemService("power");
+                PowerManager.WakeLock $this$acquireLinkWakeLock_u24lambda_u24102 = null;
+                PowerManager pm = systemService instanceof PowerManager ? (PowerManager) systemService : null;
+                if (pm != null && ($this$acquireLinkWakeLock_u24lambda_u2410 = pm.newWakeLock(1, "xiaofan:bt-remote")) != null) {
+                    $this$acquireLinkWakeLock_u24lambda_u2410.setReferenceCounted(false);
+                    $this$acquireLinkWakeLock_u24lambda_u24102 = $this$acquireLinkWakeLock_u24lambda_u2410;
+                }
+                this.linkWakeLock = $this$acquireLinkWakeLock_u24lambda_u24102;
+            }
+            PowerManager.WakeLock wakeLock2 = this.linkWakeLock;
+            if (wakeLock2 == null || !wakeLock2.isHeld()) {
+                z = false;
+            }
+            if (!z && (wakeLock = this.linkWakeLock) != null) {
+                wakeLock.acquire(MAX_LINK_WAKE_MS);
+            }
+            Log.i("BtRemote", "link wakelock acquired");
+        } catch (Throwable th) {
+            Log.w("BtRemote", "acquire wakelock failed", th);
+        }
+    }
+
+    private final void releaseLinkWakeLock() {
+        PowerManager.WakeLock wakeLock;
+        try {
+            PowerManager.WakeLock wakeLock2 = this.linkWakeLock;
+            boolean z = false;
+            if (wakeLock2 != null && wakeLock2.isHeld()) {
+                z = true;
+            }
+            if (!z || (wakeLock = this.linkWakeLock) == null) {
+                return;
+            }
+            wakeLock.release();
+        } catch (Throwable th) {
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public final boolean handleVolume(boolean isUp) {
         if (AppPrefs.INSTANCE.btVolumeRemote(this) && state == 3) {
@@ -726,6 +777,7 @@ public final class BluetoothRemoteService extends Service {
             if (isUp != this.lastVolIsUp || now - this.lastVolAt >= VOL_DEBOUNCE_MS) {
                 this.lastVolAt = now;
                 this.lastVolIsUp = isUp;
+                acquireLinkWakeLock();
                 byte cmd = isUp ? (byte) 2 : (byte) 1;
                 ConnectedThread connectedThread = this.connectedThread;
                 boolean ok = connectedThread != null ? connectedThread.write(new byte[]{cmd}) : false;
@@ -754,7 +806,7 @@ public final class BluetoothRemoteService extends Service {
                     this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.BluetoothRemoteService$$ExternalSyntheticLambda10
                         @Override // java.lang.Runnable
                         public final void run() {
-                            BluetoothRemoteService.onIncoming$lambda$11(BluetoothRemoteService.this);
+                            BluetoothRemoteService.onIncoming$lambda$12(BluetoothRemoteService.this);
                         }
                     });
                     return;
@@ -764,14 +816,14 @@ public final class BluetoothRemoteService extends Service {
             this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.BluetoothRemoteService$$ExternalSyntheticLambda9
                 @Override // java.lang.Runnable
                 public final void run() {
-                    BluetoothRemoteService.onIncoming$lambda$10(BluetoothRemoteService.this);
+                    BluetoothRemoteService.onIncoming$lambda$11(BluetoothRemoteService.this);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void onIncoming$lambda$10(BluetoothRemoteService this$0) {
+    public static final void onIncoming$lambda$11(BluetoothRemoteService this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         boolean ok = TurnManager.INSTANCE.requestTurn(this$0, "蓝牙遥控-下一页");
         if (AppPrefs.INSTANCE.btRecvTip(this$0)) {
@@ -780,7 +832,7 @@ public final class BluetoothRemoteService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void onIncoming$lambda$11(BluetoothRemoteService this$0) {
+    public static final void onIncoming$lambda$12(BluetoothRemoteService this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         boolean ok = TurnManager.INSTANCE.requestPrev(this$0, "蓝牙遥控-上一页");
         if (AppPrefs.INSTANCE.btRecvTip(this$0)) {
@@ -1338,13 +1390,13 @@ public final class BluetoothRemoteService extends Service {
         this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.BluetoothRemoteService$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable
             public final void run() {
-                BluetoothRemoteService.setState$lambda$14(BluetoothRemoteService.Listener.this, s, peer);
+                BluetoothRemoteService.setState$lambda$15(BluetoothRemoteService.Listener.this, s, peer);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void setState$lambda$14(Listener $l, int $s, String $peer) {
+    public static final void setState$lambda$15(Listener $l, int $s, String $peer) {
         if ($l != null) {
             $l.onBtState($s, $peer);
         }
@@ -1420,13 +1472,13 @@ public final class BluetoothRemoteService extends Service {
         return this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.BluetoothRemoteService$$ExternalSyntheticLambda6
             @Override // java.lang.Runnable
             public final void run() {
-                BluetoothRemoteService.toast$lambda$15(BluetoothRemoteService.this, t);
+                BluetoothRemoteService.toast$lambda$16(BluetoothRemoteService.this, t);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void toast$lambda$15(BluetoothRemoteService this$0, String t) {
+    public static final void toast$lambda$16(BluetoothRemoteService this$0, String t) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(t, "$t");
         Toast.makeText(this$0.getApplicationContext(), t, 0).show();

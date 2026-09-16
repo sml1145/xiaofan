@@ -8,14 +8,14 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes.dex */
 class PreconditionsKt__AssertionsJVMKt {
     /* renamed from: assert  reason: not valid java name */
-    private static final void m267assert(boolean value) {
+    private static final void m264assert(boolean value) {
         if (!value) {
             throw new AssertionError("Assertion failed");
         }
     }
 
     /* renamed from: assert  reason: not valid java name */
-    private static final void m268assert(boolean value, Function0<? extends Object> lazyMessage) {
+    private static final void m265assert(boolean value, Function0<? extends Object> lazyMessage) {
         Intrinsics.checkNotNullParameter(lazyMessage, "lazyMessage");
         if (!value) {
             Object message = lazyMessage.invoke();

@@ -7,38 +7,38 @@ import kotlin.Metadata;
 /* loaded from: classes.dex */
 public interface TimeMark {
     /* renamed from: elapsedNow-UwyO8pc */
-    long mo1586elapsedNowUwyO8pc();
+    long mo1583elapsedNowUwyO8pc();
 
     boolean hasNotPassedNow();
 
     boolean hasPassedNow();
 
     /* renamed from: minus-LRDsOJo */
-    TimeMark mo1587minusLRDsOJo(long j);
+    TimeMark mo1584minusLRDsOJo(long j);
 
     /* renamed from: plus-LRDsOJo */
-    TimeMark mo1589plusLRDsOJo(long j);
+    TimeMark mo1586plusLRDsOJo(long j);
 
     /* compiled from: TimeSource.kt */
     @Metadata(k = 3, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
     /* loaded from: classes.dex */
     public static final class DefaultImpls {
         /* renamed from: plus-LRDsOJo  reason: not valid java name */
-        public static TimeMark m1734plusLRDsOJo(TimeMark $this, long duration) {
+        public static TimeMark m1731plusLRDsOJo(TimeMark $this, long duration) {
             return new AdjustedTimeMark($this, duration, null);
         }
 
         /* renamed from: minus-LRDsOJo  reason: not valid java name */
-        public static TimeMark m1733minusLRDsOJo(TimeMark $this, long duration) {
-            return $this.mo1589plusLRDsOJo(Duration.m1649unaryMinusUwyO8pc(duration));
+        public static TimeMark m1730minusLRDsOJo(TimeMark $this, long duration) {
+            return $this.mo1586plusLRDsOJo(Duration.m1646unaryMinusUwyO8pc(duration));
         }
 
         public static boolean hasPassedNow(TimeMark $this) {
-            return !Duration.m1629isNegativeimpl($this.mo1586elapsedNowUwyO8pc());
+            return !Duration.m1626isNegativeimpl($this.mo1583elapsedNowUwyO8pc());
         }
 
         public static boolean hasNotPassedNow(TimeMark $this) {
-            return Duration.m1629isNegativeimpl($this.mo1586elapsedNowUwyO8pc());
+            return Duration.m1626isNegativeimpl($this.mo1583elapsedNowUwyO8pc());
         }
     }
 }

@@ -466,10 +466,10 @@ public final class GameNet {
             } else {
                 bool = null;
             }
-            Result.m270constructorimpl(bool);
+            Result.m267constructorimpl(bool);
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            Result.m270constructorimpl(ResultKt.createFailure(th));
+            Result.m267constructorimpl(ResultKt.createFailure(th));
         }
     }
 

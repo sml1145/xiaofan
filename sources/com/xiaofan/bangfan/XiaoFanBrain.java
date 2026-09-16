@@ -592,7 +592,7 @@ public final class XiaoFanBrain {
                 conn.setRequestProperty("Authorization", "Bearer " + apiKey);
             }
             JSONObject userMsg = new JSONObject().put(AppPrefs.KEY_ROLE, "user").put("content", question);
-            JSONObject sysMsg = new JSONObject().put(AppPrefs.KEY_ROLE, "system").put("content", "你叫小翻，是用户手机里一个贴心、机灵的中文阅读陪伴助手，性格像一位温柔又活泼的小伙伴。你能陪用户聊天、解答常识与学习问题、给建议、讲故事、做简单计算与文字润色；你也知道自己还能帮用户自动翻页、报时间、查天气、定闹钟、刷视频。要求：1）一律用简体中文口语回答，亲切自然，像在跟人说话；2）回答简短清楚，一般不超过80个字，适合语音播报，不要用Markdown、标题符号或代码块；3）不确定的事不要编造，可如实说明并给出稳妥建议；4）不讨论敏感、违法内容，必要时礼貌带过；5）直接给出回答本身，不要复述用户问题，不要自称AI大模型。");
+            JSONObject sysMsg = new JSONObject().put(AppPrefs.KEY_ROLE, "system").put("content", "你叫小翻，是用户手机里一个贴心、机灵的中文阅读陪伴助手，性格像一位温柔又活泼的小伙伴。你能陪用户聊天、解答常识与学习问题、给建议、讲故事、做简单计算与文字润色；你也知道自己还能帮用户自动翻页、报时间、查天气、定闹钟。要求：1）一律用简体中文口语回答，亲切自然，像在跟人说话；2）回答简短清楚，一般不超过80个字，适合语音播报，不要用Markdown、标题符号或代码块；3）不确定的事不要编造，可如实说明并给出稳妥建议；4）不讨论敏感、违法内容，必要时礼貌带过；5）直接给出回答本身，不要复述用户问题，不要自称AI大模型。");
             JSONArray messages = new JSONArray().put(sysMsg).put(userMsg);
             JSONObject body = new JSONObject().put("model", DebugKt.DEBUG_PROPERTY_VALUE_AUTO).put("messages", messages).put("max_tokens", 320).put("temperature", 0.7d).put("stream", false);
             OutputStream out = conn.getOutputStream();

@@ -32,17 +32,17 @@ public interface TimeSource {
 
         @Override // kotlin.time.TimeSource.WithComparableMarks, kotlin.time.TimeSource
         public /* bridge */ /* synthetic */ ComparableTimeMark markNow() {
-            return ValueTimeMark.m1736boximpl(m1735markNowz9LOYto());
+            return ValueTimeMark.m1733boximpl(m1732markNowz9LOYto());
         }
 
         @Override // kotlin.time.TimeSource
         public /* bridge */ /* synthetic */ TimeMark markNow() {
-            return ValueTimeMark.m1736boximpl(m1735markNowz9LOYto());
+            return ValueTimeMark.m1733boximpl(m1732markNowz9LOYto());
         }
 
         /* renamed from: markNow-z9LOYto  reason: not valid java name */
-        public long m1735markNowz9LOYto() {
-            return MonotonicTimeSource.INSTANCE.m1730markNowz9LOYto();
+        public long m1732markNowz9LOYto() {
+            return MonotonicTimeSource.INSTANCE.m1727markNowz9LOYto();
         }
 
         public String toString() {
@@ -57,51 +57,51 @@ public interface TimeSource {
             private final long reading;
 
             /* renamed from: box-impl  reason: not valid java name */
-            public static final /* synthetic */ ValueTimeMark m1736boximpl(long j) {
+            public static final /* synthetic */ ValueTimeMark m1733boximpl(long j) {
                 return new ValueTimeMark(j);
             }
 
             /* renamed from: constructor-impl  reason: not valid java name */
-            public static long m1739constructorimpl(long j) {
+            public static long m1736constructorimpl(long j) {
                 return j;
             }
 
             /* renamed from: equals-impl  reason: not valid java name */
-            public static boolean m1741equalsimpl(long j, Object obj) {
-                return (obj instanceof ValueTimeMark) && j == ((ValueTimeMark) obj).m1753unboximpl();
+            public static boolean m1738equalsimpl(long j, Object obj) {
+                return (obj instanceof ValueTimeMark) && j == ((ValueTimeMark) obj).m1750unboximpl();
             }
 
             /* renamed from: equals-impl0  reason: not valid java name */
-            public static final boolean m1742equalsimpl0(long j, long j2) {
+            public static final boolean m1739equalsimpl0(long j, long j2) {
                 return j == j2;
             }
 
             /* renamed from: hashCode-impl  reason: not valid java name */
-            public static int m1745hashCodeimpl(long j) {
+            public static int m1742hashCodeimpl(long j) {
                 return Long.hashCode(j);
             }
 
             /* renamed from: toString-impl  reason: not valid java name */
-            public static String m1750toStringimpl(long j) {
+            public static String m1747toStringimpl(long j) {
                 return "ValueTimeMark(reading=" + j + ')';
             }
 
             @Override // kotlin.time.ComparableTimeMark
             public boolean equals(Object obj) {
-                return m1741equalsimpl(this.reading, obj);
+                return m1738equalsimpl(this.reading, obj);
             }
 
             @Override // kotlin.time.ComparableTimeMark
             public int hashCode() {
-                return m1745hashCodeimpl(this.reading);
+                return m1742hashCodeimpl(this.reading);
             }
 
             public String toString() {
-                return m1750toStringimpl(this.reading);
+                return m1747toStringimpl(this.reading);
             }
 
             /* renamed from: unbox-impl  reason: not valid java name */
-            public final /* synthetic */ long m1753unboximpl() {
+            public final /* synthetic */ long m1750unboximpl() {
                 return this.reading;
             }
 
@@ -112,26 +112,26 @@ public interface TimeSource {
 
             @Override // kotlin.time.ComparableTimeMark, kotlin.time.TimeMark
             /* renamed from: minus-LRDsOJo */
-            public /* bridge */ /* synthetic */ ComparableTimeMark mo1587minusLRDsOJo(long duration) {
-                return m1736boximpl(m1751minusLRDsOJo(duration));
+            public /* bridge */ /* synthetic */ ComparableTimeMark mo1584minusLRDsOJo(long duration) {
+                return m1733boximpl(m1748minusLRDsOJo(duration));
             }
 
             @Override // kotlin.time.TimeMark
             /* renamed from: minus-LRDsOJo */
-            public /* bridge */ /* synthetic */ TimeMark mo1587minusLRDsOJo(long duration) {
-                return m1736boximpl(m1751minusLRDsOJo(duration));
+            public /* bridge */ /* synthetic */ TimeMark mo1584minusLRDsOJo(long duration) {
+                return m1733boximpl(m1748minusLRDsOJo(duration));
             }
 
             @Override // kotlin.time.ComparableTimeMark, kotlin.time.TimeMark
             /* renamed from: plus-LRDsOJo */
-            public /* bridge */ /* synthetic */ ComparableTimeMark mo1589plusLRDsOJo(long duration) {
-                return m1736boximpl(m1752plusLRDsOJo(duration));
+            public /* bridge */ /* synthetic */ ComparableTimeMark mo1586plusLRDsOJo(long duration) {
+                return m1733boximpl(m1749plusLRDsOJo(duration));
             }
 
             @Override // kotlin.time.TimeMark
             /* renamed from: plus-LRDsOJo */
-            public /* bridge */ /* synthetic */ TimeMark mo1589plusLRDsOJo(long duration) {
-                return m1736boximpl(m1752plusLRDsOJo(duration));
+            public /* bridge */ /* synthetic */ TimeMark mo1586plusLRDsOJo(long duration) {
+                return m1733boximpl(m1749plusLRDsOJo(duration));
             }
 
             private /* synthetic */ ValueTimeMark(long reading) {
@@ -139,86 +139,86 @@ public interface TimeSource {
             }
 
             /* renamed from: compareTo-impl  reason: not valid java name */
-            public static int m1738compareToimpl(long arg0, ComparableTimeMark other) {
+            public static int m1735compareToimpl(long arg0, ComparableTimeMark other) {
                 Intrinsics.checkNotNullParameter(other, "other");
-                return m1736boximpl(arg0).compareTo(other);
+                return m1733boximpl(arg0).compareTo(other);
             }
 
             /* renamed from: elapsedNow-UwyO8pc  reason: not valid java name */
-            public static long m1740elapsedNowUwyO8pc(long arg0) {
-                return MonotonicTimeSource.INSTANCE.m1729elapsedFrom6eNON_k(arg0);
+            public static long m1737elapsedNowUwyO8pc(long arg0) {
+                return MonotonicTimeSource.INSTANCE.m1726elapsedFrom6eNON_k(arg0);
             }
 
             @Override // kotlin.time.TimeMark
             /* renamed from: elapsedNow-UwyO8pc */
-            public long mo1586elapsedNowUwyO8pc() {
-                return m1740elapsedNowUwyO8pc(this.reading);
+            public long mo1583elapsedNowUwyO8pc() {
+                return m1737elapsedNowUwyO8pc(this.reading);
             }
 
             /* renamed from: plus-LRDsOJo  reason: not valid java name */
-            public static long m1749plusLRDsOJo(long arg0, long duration) {
-                return MonotonicTimeSource.INSTANCE.m1727adjustReading6QKq23U(arg0, duration);
+            public static long m1746plusLRDsOJo(long arg0, long duration) {
+                return MonotonicTimeSource.INSTANCE.m1724adjustReading6QKq23U(arg0, duration);
             }
 
             /* renamed from: plus-LRDsOJo  reason: not valid java name */
-            public long m1752plusLRDsOJo(long duration) {
-                return m1749plusLRDsOJo(this.reading, duration);
+            public long m1749plusLRDsOJo(long duration) {
+                return m1746plusLRDsOJo(this.reading, duration);
             }
 
             /* renamed from: minus-LRDsOJo  reason: not valid java name */
-            public static long m1747minusLRDsOJo(long arg0, long duration) {
-                return MonotonicTimeSource.INSTANCE.m1727adjustReading6QKq23U(arg0, Duration.m1649unaryMinusUwyO8pc(duration));
+            public static long m1744minusLRDsOJo(long arg0, long duration) {
+                return MonotonicTimeSource.INSTANCE.m1724adjustReading6QKq23U(arg0, Duration.m1646unaryMinusUwyO8pc(duration));
             }
 
             /* renamed from: minus-LRDsOJo  reason: not valid java name */
-            public long m1751minusLRDsOJo(long duration) {
-                return m1747minusLRDsOJo(this.reading, duration);
+            public long m1748minusLRDsOJo(long duration) {
+                return m1744minusLRDsOJo(this.reading, duration);
             }
 
             /* renamed from: hasPassedNow-impl  reason: not valid java name */
-            public static boolean m1744hasPassedNowimpl(long arg0) {
-                return !Duration.m1629isNegativeimpl(m1740elapsedNowUwyO8pc(arg0));
+            public static boolean m1741hasPassedNowimpl(long arg0) {
+                return !Duration.m1626isNegativeimpl(m1737elapsedNowUwyO8pc(arg0));
             }
 
             @Override // kotlin.time.TimeMark
             public boolean hasPassedNow() {
-                return m1744hasPassedNowimpl(this.reading);
+                return m1741hasPassedNowimpl(this.reading);
             }
 
             /* renamed from: hasNotPassedNow-impl  reason: not valid java name */
-            public static boolean m1743hasNotPassedNowimpl(long arg0) {
-                return Duration.m1629isNegativeimpl(m1740elapsedNowUwyO8pc(arg0));
+            public static boolean m1740hasNotPassedNowimpl(long arg0) {
+                return Duration.m1626isNegativeimpl(m1737elapsedNowUwyO8pc(arg0));
             }
 
             @Override // kotlin.time.TimeMark
             public boolean hasNotPassedNow() {
-                return m1743hasNotPassedNowimpl(this.reading);
+                return m1740hasNotPassedNowimpl(this.reading);
             }
 
             @Override // kotlin.time.ComparableTimeMark
             /* renamed from: minus-UwyO8pc */
-            public long mo1588minusUwyO8pc(ComparableTimeMark other) {
+            public long mo1585minusUwyO8pc(ComparableTimeMark other) {
                 Intrinsics.checkNotNullParameter(other, "other");
-                return m1748minusUwyO8pc(this.reading, other);
+                return m1745minusUwyO8pc(this.reading, other);
             }
 
             /* renamed from: minus-UwyO8pc  reason: not valid java name */
-            public static long m1748minusUwyO8pc(long arg0, ComparableTimeMark other) {
+            public static long m1745minusUwyO8pc(long arg0, ComparableTimeMark other) {
                 Intrinsics.checkNotNullParameter(other, "other");
                 if (!(other instanceof ValueTimeMark)) {
-                    throw new IllegalArgumentException("Subtracting or comparing time marks from different time sources is not possible: " + ((Object) m1750toStringimpl(arg0)) + " and " + other);
+                    throw new IllegalArgumentException("Subtracting or comparing time marks from different time sources is not possible: " + ((Object) m1747toStringimpl(arg0)) + " and " + other);
                 }
-                return m1746minus6eNON_k(arg0, ((ValueTimeMark) other).m1753unboximpl());
+                return m1743minus6eNON_k(arg0, ((ValueTimeMark) other).m1750unboximpl());
             }
 
             /* renamed from: minus-6eNON_k  reason: not valid java name */
-            public static final long m1746minus6eNON_k(long arg0, long other) {
-                return MonotonicTimeSource.INSTANCE.m1728differenceBetweenfRLX17w(arg0, other);
+            public static final long m1743minus6eNON_k(long arg0, long other) {
+                return MonotonicTimeSource.INSTANCE.m1725differenceBetweenfRLX17w(arg0, other);
             }
 
             /* renamed from: compareTo-6eNON_k  reason: not valid java name */
-            public static final int m1737compareTo6eNON_k(long arg0, long other) {
-                return Duration.m1595compareToLRDsOJo(m1746minus6eNON_k(arg0, other), Duration.Companion.m1699getZEROUwyO8pc());
+            public static final int m1734compareTo6eNON_k(long arg0, long other) {
+                return Duration.m1592compareToLRDsOJo(m1743minus6eNON_k(arg0, other), Duration.Companion.m1696getZEROUwyO8pc());
             }
         }
     }

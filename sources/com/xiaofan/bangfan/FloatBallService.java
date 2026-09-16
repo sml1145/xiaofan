@@ -32,7 +32,6 @@ import androidx.core.view.accessibility.AccessibilityEventCompat;
 import com.xiaofan.bangfan.PresenceDetector;
 import com.xiaofan.bangfan.TimedTurnEngine;
 import com.xiaofan.bangfan.TurnManager;
-import com.xiaofan.bangfan.VideoSwipeEngine;
 import java.util.Arrays;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -40,7 +39,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 import kotlinx.coroutines.DebugKt;
 /* compiled from: FloatBallService.kt */
-@Metadata(d1 = {"\u0000º\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0015\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b.*\u0004\u000f&.7\u0018\u0000 \u0091\u00012\u00020\u00012\u00020\u0002:\u0002\u0091\u0001B\u0005¢\u0006\u0002\u0010\u0003J\u0010\u0010=\u001a\u00020>2\u0006\u0010?\u001a\u00020\u0005H\u0002J\b\u0010@\u001a\u00020>H\u0002J\b\u0010A\u001a\u00020BH\u0002J\b\u0010C\u001a\u00020>H\u0002J\u0010\u0010D\u001a\u00020$2\u0006\u0010E\u001a\u00020$H\u0002J\u0010\u0010F\u001a\u00020$2\u0006\u0010G\u001a\u00020$H\u0002J\b\u0010H\u001a\u00020\rH\u0002J\b\u0010I\u001a\u00020$H\u0002J\b\u0010J\u001a\u00020>H\u0002J\u000e\u0010K\u001a\u00020$2\u0006\u0010L\u001a\u00020\rJ\b\u0010M\u001a\u00020>H\u0002J\b\u0010N\u001a\u00020>H\u0002J\b\u0010O\u001a\u00020>H\u0002J\u0006\u0010P\u001a\u00020>J\b\u0010Q\u001a\u00020>H\u0002J\b\u0010R\u001a\u00020\u0005H\u0002J\u0006\u0010S\u001a\u00020\u0012J\u0010\u0010T\u001a\u00020>2\u0006\u0010U\u001a\u00020$H\u0016J\u0010\u0010V\u001a\u00020>2\u0006\u0010W\u001a\u00020XH\u0016J\u000e\u0010Y\u001a\u00020>2\u0006\u0010Z\u001a\u00020\u0005J\u0010\u0010[\u001a\u00020>2\u0006\u0010\\\u001a\u00020\u0005H\u0016J\b\u0010]\u001a\u00020>H\u0002J\u0014\u0010^\u001a\u0004\u0018\u00010_2\b\u0010`\u001a\u0004\u0018\u00010aH\u0016J\u0010\u0010b\u001a\u00020>2\u0006\u0010c\u001a\u00020dH\u0016J\b\u0010e\u001a\u00020>H\u0016J\b\u0010f\u001a\u00020>H\u0016J\u0006\u0010g\u001a\u00020>J\u0010\u0010h\u001a\u00020>2\u0006\u0010?\u001a\u00020\u0005H\u0016J\u0018\u0010i\u001a\u00020>2\u0006\u0010j\u001a\u00020X2\u0006\u0010k\u001a\u00020XH\u0016J\u0010\u0010l\u001a\u00020>2\u0006\u0010m\u001a\u00020\u0005H\u0016J\u0006\u0010n\u001a\u00020>J\"\u0010o\u001a\u00020$2\b\u0010`\u001a\u0004\u0018\u00010a2\u0006\u0010p\u001a\u00020$2\u0006\u0010q\u001a\u00020$H\u0016J\u0018\u0010r\u001a\u00020>2\u0006\u0010s\u001a\u00020\u00052\u0006\u0010t\u001a\u00020\u0012H\u0016J\u0010\u0010u\u001a\u00020>2\u0006\u0010W\u001a\u00020XH\u0016J\u0010\u0010v\u001a\u00020>2\u0006\u0010W\u001a\u00020XH\u0016J\b\u0010w\u001a\u00020>H\u0002J\u0006\u0010x\u001a\u00020>J\u0006\u0010y\u001a\u00020>J\b\u0010z\u001a\u00020>H\u0002J\b\u0010{\u001a\u00020>H\u0002J\b\u0010|\u001a\u00020>H\u0002J\b\u0010}\u001a\u00020>H\u0002J\b\u0010~\u001a\u00020>H\u0002J\u000e\u0010\u007f\u001a\u00020>2\u0006\u0010\\\u001a\u00020\u0005J\u0012\u0010\u0080\u0001\u001a\u00020>2\t\u0010\u0081\u0001\u001a\u0004\u0018\u00010XJ\t\u0010\u0082\u0001\u001a\u00020>H\u0002J\t\u0010\u0083\u0001\u001a\u00020>H\u0002J\t\u0010\u0084\u0001\u001a\u00020>H\u0002J\u0007\u0010\u0085\u0001\u001a\u00020>J\t\u0010\u0086\u0001\u001a\u00020>H\u0002J\t\u0010\u0087\u0001\u001a\u00020>H\u0002J\u0007\u0010\u0088\u0001\u001a\u00020>J\t\u0010\u0089\u0001\u001a\u00020>H\u0002J\u0007\u0010\u008a\u0001\u001a\u00020>J\u0012\u0010\u008b\u0001\u001a\u00020>2\u0007\u0010\u0081\u0001\u001a\u00020XH\u0002J\t\u0010\u008c\u0001\u001a\u00020>H\u0002J\t\u0010\u008d\u0001\u001a\u00020>H\u0002J\t\u0010\u008e\u0001\u001a\u00020>H\u0002J\u0012\u0010\u008f\u0001\u001a\u00020>2\u0007\u0010\u0090\u0001\u001a\u00020\u0005H\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0010R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\u0019\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u001aR\u000e\u0010\u001b\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001f\u001a\u0004\u0018\u00010 X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u00020&X\u0082\u0004¢\u0006\u0004\n\u0002\u0010'R\u0010\u0010(\u001a\u0004\u0018\u00010)X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010*\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020$X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010-\u001a\u00020.X\u0082\u0004¢\u0006\u0004\n\u0002\u0010/R\u0010\u00100\u001a\u0004\u0018\u000101X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00102\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00103\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00104\u001a\u000205X\u0082.¢\u0006\u0002\n\u0000R\u0010\u00106\u001a\u000207X\u0082\u0004¢\u0006\u0004\n\u0002\u00108R\u0010\u00109\u001a\u0004\u0018\u00010:X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010;\u001a\u00020<X\u0082.¢\u0006\u0002\n\u0000¨\u0006\u0092\u0001"}, d2 = {"Lcom/xiaofan/bangfan/FloatBallService;", "Landroid/app/Service;", "Lcom/xiaofan/bangfan/TurnManager$Listener;", "()V", "attached", "", "ballAvatar", "Landroid/widget/ImageView;", "ballLabel", "Landroid/widget/TextView;", "ballRoot", "Landroid/view/View;", "ballSizePx", "", "ballTouchListener", "com/xiaofan/bangfan/FloatBallService$ballTouchListener$1", "Lcom/xiaofan/bangfan/FloatBallService$ballTouchListener$1;", "companionLastTick", "", "companionTask", "Ljava/lang/Runnable;", "dragging", "hidden", "hideTask", "isFaded", "lastAnnouncedPresence", "Ljava/lang/Boolean;", "lastPresenceAnnounceAt", "listenGlow", "listenPulse", "Landroid/animation/ValueAnimator;", "lp", "Landroid/view/WindowManager$LayoutParams;", "main", "Landroid/os/Handler;", "peekPx", "", "presenceCallback", "com/xiaofan/bangfan/FloatBallService$presenceCallback$1", "Lcom/xiaofan/bangfan/FloatBallService$presenceCallback$1;", "presenceDetector", "Lcom/xiaofan/bangfan/PresenceDetector;", "progressRing", "screenH", "screenW", "timedCallback", "com/xiaofan/bangfan/FloatBallService$timedCallback$1", "Lcom/xiaofan/bangfan/FloatBallService$timedCallback$1;", "timedEngine", "Lcom/xiaofan/bangfan/TimedTurnEngine;", "tipHideTask", "toastView", "vibrator", "Landroid/os/Vibrator;", "videoCallback", "com/xiaofan/bangfan/FloatBallService$videoCallback$1", "Lcom/xiaofan/bangfan/FloatBallService$videoCallback$1;", "videoEngine", "Lcom/xiaofan/bangfan/VideoSwipeEngine;", "wm", "Landroid/view/WindowManager;", "announcePresence", "", "present", "applyLp", "buildNotification", "Landroid/app/Notification;", "cancelAutoHide", "clampX", "x", "clampY", "y", "computeBallSize", "computeFgsType", "createChannel", "dp", "value", "ensureBall", "fadeBall", "flashBall", "flushCompanionNow", "hideToEdge", "isNearEdge", "liveCompanionSeconds", "onAdCountdown", "seconds", "onAdDetected", "reason", "", "onAdPageChanged", "ad", "onAutoTurnChanged", DebugKt.DEBUG_PROPERTY_VALUE_ON, "onBallShortTap", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreate", "onDestroy", "onPermissionGranted", "onPresenceChanged", "onProgress", "book", "chapter", "onServiceReady", "ready", "onSpeedResultChanged", "onStartCommand", "flags", "startId", "onTimedTurnChanged", "running", "interval", "onTurnFailed", "onTurned", "openMainActivity", "refreshForegroundServiceType", "refreshFromPrefs", "releaseAllEngines", "removeBall", "restoreFromEdge", "saveBallPosition", "scheduleAutoHide", "setListeningGlow", "showTip", "text", "snapToEdge", "startCompanionTimer", "startForegroundWithType", "startPresenceDetection", "startReaderEngines", "stopCompanionTimer", "stopPresenceDetection", "stopReaderEngines", "syncEngines", "toast", "toggleAutoTurn", "unfadeBall", "updateLabel", "vibrate", "short", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000¯\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0015\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b.*\u0003\u000f&.\u0018\u0000 \u008c\u00012\u00020\u00012\u00020\u0002:\u0002\u008c\u0001B\u0005¢\u0006\u0002\u0010\u0003J\u0010\u00108\u001a\u0002092\u0006\u0010:\u001a\u00020\u0005H\u0002J\b\u0010;\u001a\u000209H\u0002J\b\u0010<\u001a\u00020=H\u0002J\b\u0010>\u001a\u000209H\u0002J\u0010\u0010?\u001a\u00020$2\u0006\u0010@\u001a\u00020$H\u0002J\u0010\u0010A\u001a\u00020$2\u0006\u0010B\u001a\u00020$H\u0002J\b\u0010C\u001a\u00020\rH\u0002J\b\u0010D\u001a\u00020$H\u0002J\b\u0010E\u001a\u000209H\u0002J\u000e\u0010F\u001a\u00020$2\u0006\u0010G\u001a\u00020\rJ\b\u0010H\u001a\u000209H\u0002J\b\u0010I\u001a\u000209H\u0002J\b\u0010J\u001a\u000209H\u0002J\u0006\u0010K\u001a\u000209J\b\u0010L\u001a\u000209H\u0002J\b\u0010M\u001a\u00020\u0005H\u0002J\u0006\u0010N\u001a\u00020\u0012J\u0010\u0010O\u001a\u0002092\u0006\u0010P\u001a\u00020$H\u0016J\u0010\u0010Q\u001a\u0002092\u0006\u0010R\u001a\u00020SH\u0016J\u000e\u0010T\u001a\u0002092\u0006\u0010U\u001a\u00020\u0005J\u0010\u0010V\u001a\u0002092\u0006\u0010W\u001a\u00020\u0005H\u0016J\b\u0010X\u001a\u000209H\u0002J\u0014\u0010Y\u001a\u0004\u0018\u00010Z2\b\u0010[\u001a\u0004\u0018\u00010\\H\u0016J\u0010\u0010]\u001a\u0002092\u0006\u0010^\u001a\u00020_H\u0016J\b\u0010`\u001a\u000209H\u0016J\b\u0010a\u001a\u000209H\u0016J\u0006\u0010b\u001a\u000209J\u0010\u0010c\u001a\u0002092\u0006\u0010:\u001a\u00020\u0005H\u0016J\u0018\u0010d\u001a\u0002092\u0006\u0010e\u001a\u00020S2\u0006\u0010f\u001a\u00020SH\u0016J\u0010\u0010g\u001a\u0002092\u0006\u0010h\u001a\u00020\u0005H\u0016J\u0006\u0010i\u001a\u000209J\"\u0010j\u001a\u00020$2\b\u0010[\u001a\u0004\u0018\u00010\\2\u0006\u0010k\u001a\u00020$2\u0006\u0010l\u001a\u00020$H\u0016J\u0018\u0010m\u001a\u0002092\u0006\u0010n\u001a\u00020\u00052\u0006\u0010o\u001a\u00020\u0012H\u0016J\u0010\u0010p\u001a\u0002092\u0006\u0010R\u001a\u00020SH\u0016J\u0010\u0010q\u001a\u0002092\u0006\u0010R\u001a\u00020SH\u0016J\b\u0010r\u001a\u000209H\u0002J\u0006\u0010s\u001a\u000209J\u0006\u0010t\u001a\u000209J\b\u0010u\u001a\u000209H\u0002J\b\u0010v\u001a\u000209H\u0002J\b\u0010w\u001a\u000209H\u0002J\b\u0010x\u001a\u000209H\u0002J\b\u0010y\u001a\u000209H\u0002J\u000e\u0010z\u001a\u0002092\u0006\u0010W\u001a\u00020\u0005J\u0010\u0010{\u001a\u0002092\b\u0010|\u001a\u0004\u0018\u00010SJ\b\u0010}\u001a\u000209H\u0002J\b\u0010~\u001a\u000209H\u0002J\b\u0010\u007f\u001a\u000209H\u0002J\u0007\u0010\u0080\u0001\u001a\u000209J\t\u0010\u0081\u0001\u001a\u000209H\u0002J\t\u0010\u0082\u0001\u001a\u000209H\u0002J\u0007\u0010\u0083\u0001\u001a\u000209J\t\u0010\u0084\u0001\u001a\u000209H\u0002J\u0007\u0010\u0085\u0001\u001a\u000209J\u0011\u0010\u0086\u0001\u001a\u0002092\u0006\u0010|\u001a\u00020SH\u0002J\t\u0010\u0087\u0001\u001a\u000209H\u0002J\t\u0010\u0088\u0001\u001a\u000209H\u0002J\t\u0010\u0089\u0001\u001a\u000209H\u0002J\u0012\u0010\u008a\u0001\u001a\u0002092\u0007\u0010\u008b\u0001\u001a\u00020\u0005H\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0010R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\u0019\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u001aR\u000e\u0010\u001b\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001f\u001a\u0004\u0018\u00010 X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u00020&X\u0082\u0004¢\u0006\u0004\n\u0002\u0010'R\u0010\u0010(\u001a\u0004\u0018\u00010)X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010*\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020$X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010-\u001a\u00020.X\u0082\u0004¢\u0006\u0004\n\u0002\u0010/R\u0010\u00100\u001a\u0004\u0018\u000101X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00102\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00103\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00104\u001a\u000205X\u0082.¢\u0006\u0002\n\u0000R\u000e\u00106\u001a\u000207X\u0082.¢\u0006\u0002\n\u0000¨\u0006\u008d\u0001"}, d2 = {"Lcom/xiaofan/bangfan/FloatBallService;", "Landroid/app/Service;", "Lcom/xiaofan/bangfan/TurnManager$Listener;", "()V", "attached", "", "ballAvatar", "Landroid/widget/ImageView;", "ballLabel", "Landroid/widget/TextView;", "ballRoot", "Landroid/view/View;", "ballSizePx", "", "ballTouchListener", "com/xiaofan/bangfan/FloatBallService$ballTouchListener$1", "Lcom/xiaofan/bangfan/FloatBallService$ballTouchListener$1;", "companionLastTick", "", "companionTask", "Ljava/lang/Runnable;", "dragging", "hidden", "hideTask", "isFaded", "lastAnnouncedPresence", "Ljava/lang/Boolean;", "lastPresenceAnnounceAt", "listenGlow", "listenPulse", "Landroid/animation/ValueAnimator;", "lp", "Landroid/view/WindowManager$LayoutParams;", "main", "Landroid/os/Handler;", "peekPx", "", "presenceCallback", "com/xiaofan/bangfan/FloatBallService$presenceCallback$1", "Lcom/xiaofan/bangfan/FloatBallService$presenceCallback$1;", "presenceDetector", "Lcom/xiaofan/bangfan/PresenceDetector;", "progressRing", "screenH", "screenW", "timedCallback", "com/xiaofan/bangfan/FloatBallService$timedCallback$1", "Lcom/xiaofan/bangfan/FloatBallService$timedCallback$1;", "timedEngine", "Lcom/xiaofan/bangfan/TimedTurnEngine;", "tipHideTask", "toastView", "vibrator", "Landroid/os/Vibrator;", "wm", "Landroid/view/WindowManager;", "announcePresence", "", "present", "applyLp", "buildNotification", "Landroid/app/Notification;", "cancelAutoHide", "clampX", "x", "clampY", "y", "computeBallSize", "computeFgsType", "createChannel", "dp", "value", "ensureBall", "fadeBall", "flashBall", "flushCompanionNow", "hideToEdge", "isNearEdge", "liveCompanionSeconds", "onAdCountdown", "seconds", "onAdDetected", "reason", "", "onAdPageChanged", "ad", "onAutoTurnChanged", DebugKt.DEBUG_PROPERTY_VALUE_ON, "onBallShortTap", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreate", "onDestroy", "onPermissionGranted", "onPresenceChanged", "onProgress", "book", "chapter", "onServiceReady", "ready", "onSpeedResultChanged", "onStartCommand", "flags", "startId", "onTimedTurnChanged", "running", "interval", "onTurnFailed", "onTurned", "openMainActivity", "refreshForegroundServiceType", "refreshFromPrefs", "releaseAllEngines", "removeBall", "restoreFromEdge", "saveBallPosition", "scheduleAutoHide", "setListeningGlow", "showTip", "text", "snapToEdge", "startCompanionTimer", "startForegroundWithType", "startPresenceDetection", "startReaderEngines", "stopCompanionTimer", "stopPresenceDetection", "stopReaderEngines", "syncEngines", "toast", "toggleAutoTurn", "unfadeBall", "updateLabel", "vibrate", "short", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class FloatBallService extends Service implements TurnManager.Listener {
     public static final String ACTION_START = "com.xiaofan.bangfan.action.START_BALL";
@@ -79,7 +78,6 @@ public final class FloatBallService extends Service implements TurnManager.Liste
     private Runnable tipHideTask;
     private TextView toastView;
     private Vibrator vibrator;
-    private VideoSwipeEngine videoEngine;
     private WindowManager wm;
     private final Handler main = new Handler(Looper.getMainLooper());
     private final FloatBallService$ballTouchListener$1 ballTouchListener = new FloatBallService$ballTouchListener$1(this);
@@ -123,62 +121,6 @@ public final class FloatBallService extends Service implements TurnManager.Liste
                 return;
             }
             view.setVisibility(0);
-        }
-    };
-    private final FloatBallService$videoCallback$1 videoCallback = new VideoSwipeEngine.Callback() { // from class: com.xiaofan.bangfan.FloatBallService$videoCallback$1
-        @Override // com.xiaofan.bangfan.VideoSwipeEngine.Callback
-        public void onSwiped(String reason, String source) {
-            Intrinsics.checkNotNullParameter(reason, "reason");
-            Intrinsics.checkNotNullParameter(source, "source");
-            FloatBallService.this.updateLabel();
-            switch (source.hashCode()) {
-                case -1972524267:
-                    if (source.equals("voice_go")) {
-                        FloatBallService.this.showTip("继续自动刷视频");
-                        XiaoFanVoice.INSTANCE.tip(FloatBallService.this, "好嘞，继续刷");
-                        return;
-                    }
-                    return;
-                case -1804913497:
-                    if (source.equals("voice_go_failed")) {
-                        FloatBallService.this.showTip("没滑成功：请确认当前在抖音/快手等视频 APP");
-                        return;
-                    }
-                    return;
-                case -1515402284:
-                    if (source.equals("voice_back")) {
-                        FloatBallService.this.showTip("已回到上一个视频并暂停");
-                        XiaoFanVoice.INSTANCE.tip(FloatBallService.this, "回去了，先停一下");
-                        return;
-                    }
-                    return;
-                case -1514877201:
-                    if (source.equals("voice_stop")) {
-                        FloatBallService.this.showTip("已暂停自动刷视频");
-                        XiaoFanVoice.INSTANCE.tip(FloatBallService.this, "好，我先停下");
-                        return;
-                    }
-                    return;
-                case -890728696:
-                    if (source.equals("voice_back_failed")) {
-                        FloatBallService.this.showTip("回退没成功：请确认当前在视频 APP");
-                        return;
-                    }
-                    return;
-                case 3005871:
-                    if (source.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
-                        FloatBallService.this.vibrate(true);
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
-
-        @Override // com.xiaofan.bangfan.VideoSwipeEngine.Callback
-        public void onStateChanged(boolean running, boolean paused) {
-            FloatBallService.this.updateLabel();
         }
     };
     private final FloatBallService$presenceCallback$1 presenceCallback = new PresenceDetector.Callback() { // from class: com.xiaofan.bangfan.FloatBallService$presenceCallback$1
@@ -777,26 +719,6 @@ public final class FloatBallService extends Service implements TurnManager.Liste
         } else {
             stopReaderEngines();
         }
-        if (AppPrefs.INSTANCE.autoSwipeOn(this)) {
-            if (this.videoEngine == null) {
-                this.videoEngine = new VideoSwipeEngine(this);
-                VideoSwipeEngine videoSwipeEngine = this.videoEngine;
-                Intrinsics.checkNotNull(videoSwipeEngine);
-                videoSwipeEngine.setCallback(this.videoCallback);
-            }
-            VideoSwipeEngine videoSwipeEngine2 = this.videoEngine;
-            Intrinsics.checkNotNull(videoSwipeEngine2);
-            if (!videoSwipeEngine2.isRunning()) {
-                VideoSwipeEngine videoSwipeEngine3 = this.videoEngine;
-                Intrinsics.checkNotNull(videoSwipeEngine3);
-                videoSwipeEngine3.start();
-            }
-        } else {
-            VideoSwipeEngine videoSwipeEngine4 = this.videoEngine;
-            if (videoSwipeEngine4 != null) {
-                videoSwipeEngine4.stop();
-            }
-        }
         updateLabel();
     }
 
@@ -917,11 +839,6 @@ public final class FloatBallService extends Service implements TurnManager.Liste
         }
         this.presenceDetector = null;
         this.timedEngine = null;
-        VideoSwipeEngine videoSwipeEngine = this.videoEngine;
-        if (videoSwipeEngine != null) {
-            videoSwipeEngine.stop();
-        }
-        this.videoEngine = null;
     }
 
     public final void onSpeedResultChanged() {

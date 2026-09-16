@@ -108,32 +108,24 @@ public final class VoiceControlService extends Service {
             } catch (NoSuchFieldError e8) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.VIDEO_START.ordinal()] = 9;
+                iArr[VoiceCommandRouter.Command.TELL_TIME.ordinal()] = 9;
             } catch (NoSuchFieldError e9) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.VIDEO_PAUSE.ordinal()] = 10;
+                iArr[VoiceCommandRouter.Command.WEATHER.ordinal()] = 10;
             } catch (NoSuchFieldError e10) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.TELL_TIME.ordinal()] = 11;
+                iArr[VoiceCommandRouter.Command.CONFIRM.ordinal()] = 11;
             } catch (NoSuchFieldError e11) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.WEATHER.ordinal()] = 12;
+                iArr[VoiceCommandRouter.Command.CANCEL.ordinal()] = 12;
             } catch (NoSuchFieldError e12) {
             }
             try {
-                iArr[VoiceCommandRouter.Command.CONFIRM.ordinal()] = 13;
+                iArr[VoiceCommandRouter.Command.NONE.ordinal()] = 13;
             } catch (NoSuchFieldError e13) {
-            }
-            try {
-                iArr[VoiceCommandRouter.Command.CANCEL.ordinal()] = 14;
-            } catch (NoSuchFieldError e14) {
-            }
-            try {
-                iArr[VoiceCommandRouter.Command.NONE.ordinal()] = 15;
-            } catch (NoSuchFieldError e15) {
             }
             $EnumSwitchMapping$0 = iArr;
         }
@@ -1148,29 +1140,9 @@ public final class VoiceControlService extends Service {
                 feedback("悬浮球收起啦");
                 return;
             case 9:
-                AppPrefs appPrefs3 = AppPrefs.INSTANCE;
-                Intrinsics.checkNotNull(ctx);
-                appPrefs3.setAutoSwipeOn(ctx, true);
-                FloatBallService companion3 = FloatBallService.Companion.getInstance();
-                if (companion3 != null) {
-                    companion3.syncEngines();
-                }
-                feedback("开始帮你刷视频");
-                return;
-            case 10:
-                AppPrefs appPrefs4 = AppPrefs.INSTANCE;
-                Intrinsics.checkNotNull(ctx);
-                appPrefs4.setAutoSwipeOn(ctx, false);
-                FloatBallService companion4 = FloatBallService.Companion.getInstance();
-                if (companion4 != null) {
-                    companion4.syncEngines();
-                }
-                feedback("已暂停刷视频");
-                return;
-            case 11:
                 feedback(XiaoFanBrain.INSTANCE.speakTimeNow());
                 return;
-            case 12:
+            case 10:
                 XiaoFanBrain.Intent it = XiaoFanBrain.INSTANCE.parse("天气");
                 XiaoFanBrain xiaoFanBrain = XiaoFanBrain.INSTANCE;
                 Intrinsics.checkNotNull(ctx);
@@ -1187,16 +1159,16 @@ public final class VoiceControlService extends Service {
                     }
                 });
                 return;
-            case 13:
+            case 11:
                 feedback("好的");
                 return;
-            case 14:
+            case 12:
                 TurnManager turnManager5 = TurnManager.INSTANCE;
                 Intrinsics.checkNotNull(ctx);
                 turnManager5.setAutoTurn(ctx, false);
-                FloatBallService companion5 = FloatBallService.Companion.getInstance();
-                if (companion5 != null) {
-                    companion5.syncEngines();
+                FloatBallService companion3 = FloatBallService.Companion.getInstance();
+                if (companion3 != null) {
+                    companion3.syncEngines();
                 }
                 feedback("好的，已取消");
                 return;

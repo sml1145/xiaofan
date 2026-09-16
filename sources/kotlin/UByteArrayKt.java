@@ -11,13 +11,13 @@ public final class UByteArrayKt {
         Intrinsics.checkNotNullParameter(init, "init");
         byte[] bArr = new byte[size];
         for (int i = 0; i < size; i++) {
-            bArr[i] = init.invoke(Integer.valueOf(i)).m338unboximpl();
+            bArr[i] = init.invoke(Integer.valueOf(i)).m335unboximpl();
         }
-        return UByteArray.m341constructorimpl(bArr);
+        return UByteArray.m338constructorimpl(bArr);
     }
 
     /* renamed from: ubyteArrayOf-GBYM_sE  reason: not valid java name */
-    private static final byte[] m357ubyteArrayOfGBYM_sE(byte... elements) {
+    private static final byte[] m354ubyteArrayOfGBYM_sE(byte... elements) {
         Intrinsics.checkNotNullParameter(elements, "elements");
         return elements;
     }

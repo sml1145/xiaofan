@@ -412,7 +412,7 @@ public class WebRtcAudioRecord {
         Callable<String> callable = new Callable() { // from class: org.webrtc.audio.WebRtcAudioRecord$$ExternalSyntheticLambda0
             @Override // java.util.concurrent.Callable
             public final Object call() {
-                return WebRtcAudioRecord.this.m2193xd3061741(audioRecord);
+                return WebRtcAudioRecord.this.m2190xd3061741(audioRecord);
             }
         };
         if (this.future != null && !this.future.isDone()) {
@@ -423,7 +423,7 @@ public class WebRtcAudioRecord {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$scheduleLogRecordingConfigurationsTask$0$org-webrtc-audio-WebRtcAudioRecord  reason: not valid java name */
-    public /* synthetic */ String m2193xd3061741(AudioRecord audioRecord) throws Exception {
+    public /* synthetic */ String m2190xd3061741(AudioRecord audioRecord) throws Exception {
         if (this.audioRecord == audioRecord) {
             logRecordingConfigurations(audioRecord, true);
             return "Scheduled task is done";

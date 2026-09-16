@@ -161,6 +161,10 @@ public final class ProduceKt {
         return produce($this$produce, context, capacity, BufferOverflow.SUSPEND, CoroutineStart.DEFAULT, null, function2);
     }
 
+    public static /* synthetic */ ReceiveChannel produce$default(CoroutineScope coroutineScope, CoroutineContext coroutineContext, int i, CoroutineStart coroutineStart, Function1 function1, Function2 function2, int i2, Object obj) {
+        return produce(coroutineScope, (i2 & 1) != 0 ? EmptyCoroutineContext.INSTANCE : coroutineContext, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? CoroutineStart.DEFAULT : coroutineStart, (i2 & 8) != 0 ? null : function1, function2);
+    }
+
     public static final <E> ReceiveChannel<E> produce(CoroutineScope $this$produce, CoroutineContext context, int capacity, CoroutineStart start, Function1<? super Throwable, Unit> function1, Function2<? super ProducerScope<? super E>, ? super Continuation<? super Unit>, ? extends Object> function2) {
         return produce($this$produce, context, capacity, BufferOverflow.SUSPEND, start, function1, function2);
     }

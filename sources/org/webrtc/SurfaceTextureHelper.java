@@ -121,7 +121,7 @@ public class SurfaceTextureHelper {
             this.surfaceTexture.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener() { // from class: org.webrtc.SurfaceTextureHelper$$ExternalSyntheticLambda5
                 @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
                 public final void onFrameAvailable(SurfaceTexture surfaceTexture) {
-                    SurfaceTextureHelper.this.m2159lambda$new$0$orgwebrtcSurfaceTextureHelper(surfaceTexture);
+                    SurfaceTextureHelper.this.m2156lambda$new$0$orgwebrtcSurfaceTextureHelper(surfaceTexture);
                 }
             }, handler);
         } catch (RuntimeException e) {
@@ -133,7 +133,7 @@ public class SurfaceTextureHelper {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$new$0$org-webrtc-SurfaceTextureHelper  reason: not valid java name */
-    public /* synthetic */ void m2159lambda$new$0$orgwebrtcSurfaceTextureHelper(SurfaceTexture st) {
+    public /* synthetic */ void m2156lambda$new$0$orgwebrtcSurfaceTextureHelper(SurfaceTexture st) {
         if (this.hasPendingTexture) {
             Logging.d(TAG, "A frame is already pending, dropping frame.");
         }
@@ -155,14 +155,14 @@ public class SurfaceTextureHelper {
         ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: org.webrtc.SurfaceTextureHelper$$ExternalSyntheticLambda3
             @Override // java.lang.Runnable
             public final void run() {
-                SurfaceTextureHelper.this.m2163lambda$stopListening$1$orgwebrtcSurfaceTextureHelper();
+                SurfaceTextureHelper.this.m2160lambda$stopListening$1$orgwebrtcSurfaceTextureHelper();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$stopListening$1$org-webrtc-SurfaceTextureHelper  reason: not valid java name */
-    public /* synthetic */ void m2163lambda$stopListening$1$orgwebrtcSurfaceTextureHelper() {
+    public /* synthetic */ void m2160lambda$stopListening$1$orgwebrtcSurfaceTextureHelper() {
         this.listener = null;
         this.pendingListener = null;
     }
@@ -178,14 +178,14 @@ public class SurfaceTextureHelper {
         this.handler.post(new Runnable() { // from class: org.webrtc.SurfaceTextureHelper$$ExternalSyntheticLambda2
             @Override // java.lang.Runnable
             public final void run() {
-                SurfaceTextureHelper.this.m2162lambda$setTextureSize$2$orgwebrtcSurfaceTextureHelper(textureWidth, textureHeight);
+                SurfaceTextureHelper.this.m2159lambda$setTextureSize$2$orgwebrtcSurfaceTextureHelper(textureWidth, textureHeight);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$setTextureSize$2$org-webrtc-SurfaceTextureHelper  reason: not valid java name */
-    public /* synthetic */ void m2162lambda$setTextureSize$2$orgwebrtcSurfaceTextureHelper(int textureWidth, int textureHeight) {
+    public /* synthetic */ void m2159lambda$setTextureSize$2$orgwebrtcSurfaceTextureHelper(int textureWidth, int textureHeight) {
         this.textureWidth = textureWidth;
         this.textureHeight = textureHeight;
         tryDeliverTextureFrame();
@@ -195,21 +195,21 @@ public class SurfaceTextureHelper {
         this.handler.post(new Runnable() { // from class: org.webrtc.SurfaceTextureHelper$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                SurfaceTextureHelper.this.m2158lambda$forceFrame$3$orgwebrtcSurfaceTextureHelper();
+                SurfaceTextureHelper.this.m2155lambda$forceFrame$3$orgwebrtcSurfaceTextureHelper();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$forceFrame$3$org-webrtc-SurfaceTextureHelper  reason: not valid java name */
-    public /* synthetic */ void m2158lambda$forceFrame$3$orgwebrtcSurfaceTextureHelper() {
+    public /* synthetic */ void m2155lambda$forceFrame$3$orgwebrtcSurfaceTextureHelper() {
         this.hasPendingTexture = true;
         tryDeliverTextureFrame();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$setFrameRotation$4$org-webrtc-SurfaceTextureHelper  reason: not valid java name */
-    public /* synthetic */ void m2161lambda$setFrameRotation$4$orgwebrtcSurfaceTextureHelper(int rotation) {
+    public /* synthetic */ void m2158lambda$setFrameRotation$4$orgwebrtcSurfaceTextureHelper(int rotation) {
         this.frameRotation = rotation;
     }
 
@@ -217,7 +217,7 @@ public class SurfaceTextureHelper {
         this.handler.post(new Runnable() { // from class: org.webrtc.SurfaceTextureHelper$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable
             public final void run() {
-                SurfaceTextureHelper.this.m2161lambda$setFrameRotation$4$orgwebrtcSurfaceTextureHelper(rotation);
+                SurfaceTextureHelper.this.m2158lambda$setFrameRotation$4$orgwebrtcSurfaceTextureHelper(rotation);
             }
         });
     }
@@ -235,14 +235,14 @@ public class SurfaceTextureHelper {
         this.handler.post(new Runnable() { // from class: org.webrtc.SurfaceTextureHelper$$ExternalSyntheticLambda6
             @Override // java.lang.Runnable
             public final void run() {
-                SurfaceTextureHelper.this.m2160lambda$returnTextureFrame$5$orgwebrtcSurfaceTextureHelper();
+                SurfaceTextureHelper.this.m2157lambda$returnTextureFrame$5$orgwebrtcSurfaceTextureHelper();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$returnTextureFrame$5$org-webrtc-SurfaceTextureHelper  reason: not valid java name */
-    public /* synthetic */ void m2160lambda$returnTextureFrame$5$orgwebrtcSurfaceTextureHelper() {
+    public /* synthetic */ void m2157lambda$returnTextureFrame$5$orgwebrtcSurfaceTextureHelper() {
         this.isTextureInUse = false;
         if (this.isQuitting) {
             release();
@@ -260,14 +260,14 @@ public class SurfaceTextureHelper {
         ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: org.webrtc.SurfaceTextureHelper$$ExternalSyntheticLambda1
             @Override // java.lang.Runnable
             public final void run() {
-                SurfaceTextureHelper.this.m2157lambda$dispose$6$orgwebrtcSurfaceTextureHelper();
+                SurfaceTextureHelper.this.m2154lambda$dispose$6$orgwebrtcSurfaceTextureHelper();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$dispose$6$org-webrtc-SurfaceTextureHelper  reason: not valid java name */
-    public /* synthetic */ void m2157lambda$dispose$6$orgwebrtcSurfaceTextureHelper() {
+    public /* synthetic */ void m2154lambda$dispose$6$orgwebrtcSurfaceTextureHelper() {
         this.isQuitting = true;
         if (!this.isTextureInUse) {
             release();

@@ -118,7 +118,7 @@ public abstract class FileSystem {
     }
 
     /* renamed from: -write$default  reason: not valid java name */
-    public static /* synthetic */ Object m1990write$default(FileSystem $this, Path file, boolean mustCreate, Function1 writerAction, int i, Object obj) throws IOException {
+    public static /* synthetic */ Object m1987write$default(FileSystem $this, Path file, boolean mustCreate, Function1 writerAction, int i, Object obj) throws IOException {
         if (obj == null) {
             if ((i & 2) != 0) {
                 mustCreate = false;
@@ -290,7 +290,7 @@ public abstract class FileSystem {
     }
 
     /* renamed from: -read  reason: not valid java name */
-    public final <T> T m1991read(Path file, Function1<? super BufferedSource, ? extends T> readerAction) throws IOException {
+    public final <T> T m1988read(Path file, Function1<? super BufferedSource, ? extends T> readerAction) throws IOException {
         Intrinsics.checkNotNullParameter(file, "file");
         Intrinsics.checkNotNullParameter(readerAction, "readerAction");
         Closeable $this$use$iv = Okio.buffer(source(file));
@@ -328,7 +328,7 @@ public abstract class FileSystem {
     }
 
     /* renamed from: -write  reason: not valid java name */
-    public final <T> T m1992write(Path file, boolean mustCreate, Function1<? super BufferedSink, ? extends T> writerAction) throws IOException {
+    public final <T> T m1989write(Path file, boolean mustCreate, Function1<? super BufferedSink, ? extends T> writerAction) throws IOException {
         Intrinsics.checkNotNullParameter(file, "file");
         Intrinsics.checkNotNullParameter(writerAction, "writerAction");
         Closeable $this$use$iv = Okio.buffer(sink(file, mustCreate));

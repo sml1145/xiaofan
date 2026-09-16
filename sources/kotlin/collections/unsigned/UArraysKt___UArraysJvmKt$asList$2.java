@@ -21,20 +21,20 @@ public final class UArraysKt___UArraysJvmKt$asList$2 extends AbstractList<ULong>
     @Override // kotlin.collections.AbstractCollection, java.util.Collection
     public final /* bridge */ boolean contains(Object element) {
         if (element instanceof ULong) {
-            return m782containsVKZWuLQ(((ULong) element).m496unboximpl());
+            return m779containsVKZWuLQ(((ULong) element).m493unboximpl());
         }
         return false;
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
     public /* bridge */ /* synthetic */ Object get(int index) {
-        return ULong.m438boximpl(m783getsVKNKU(index));
+        return ULong.m435boximpl(m780getsVKNKU(index));
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
     public final /* bridge */ int indexOf(Object element) {
         if (element instanceof ULong) {
-            return m784indexOfVKZWuLQ(((ULong) element).m496unboximpl());
+            return m781indexOfVKZWuLQ(((ULong) element).m493unboximpl());
         }
         return -1;
     }
@@ -42,38 +42,38 @@ public final class UArraysKt___UArraysJvmKt$asList$2 extends AbstractList<ULong>
     @Override // kotlin.collections.AbstractList, java.util.List
     public final /* bridge */ int lastIndexOf(Object element) {
         if (element instanceof ULong) {
-            return m785lastIndexOfVKZWuLQ(((ULong) element).m496unboximpl());
+            return m782lastIndexOfVKZWuLQ(((ULong) element).m493unboximpl());
         }
         return -1;
     }
 
     @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
     public int getSize() {
-        return ULongArray.m505getSizeimpl(this.$this_asList);
+        return ULongArray.m502getSizeimpl(this.$this_asList);
     }
 
     @Override // kotlin.collections.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return ULongArray.m507isEmptyimpl(this.$this_asList);
+        return ULongArray.m504isEmptyimpl(this.$this_asList);
     }
 
     /* renamed from: contains-VKZWuLQ  reason: not valid java name */
-    public boolean m782containsVKZWuLQ(long element) {
-        return ULongArray.m500containsVKZWuLQ(this.$this_asList, element);
+    public boolean m779containsVKZWuLQ(long element) {
+        return ULongArray.m497containsVKZWuLQ(this.$this_asList, element);
     }
 
     /* renamed from: get-s-VKNKU  reason: not valid java name */
-    public long m783getsVKNKU(int index) {
-        return ULongArray.m504getsVKNKU(this.$this_asList, index);
+    public long m780getsVKNKU(int index) {
+        return ULongArray.m501getsVKNKU(this.$this_asList, index);
     }
 
     /* renamed from: indexOf-VKZWuLQ  reason: not valid java name */
-    public int m784indexOfVKZWuLQ(long element) {
+    public int m781indexOfVKZWuLQ(long element) {
         return ArraysKt.indexOf(this.$this_asList, element);
     }
 
     /* renamed from: lastIndexOf-VKZWuLQ  reason: not valid java name */
-    public int m785lastIndexOfVKZWuLQ(long element) {
+    public int m782lastIndexOfVKZWuLQ(long element) {
         return ArraysKt.lastIndexOf(this.$this_asList, element);
     }
 }

@@ -21,7 +21,7 @@ public final class VoiceCommandRouter {
     }
 
     /* compiled from: VoiceCommandRouter.kt */
-    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0013\b\u0086\u0081\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\u0007j\u0002\b\bj\u0002\b\tj\u0002\b\nj\u0002\b\u000bj\u0002\b\fj\u0002\b\rj\u0002\b\u000ej\u0002\b\u000fj\u0002\b\u0010j\u0002\b\u0011j\u0002\b\u0012j\u0002\b\u0013j\u0002\b\u0014j\u0002\b\u0015¨\u0006\u0016"}, d2 = {"Lcom/xiaofan/bangfan/ai/VoiceCommandRouter$Command;", "", "label", "", "(Ljava/lang/String;ILjava/lang/String;)V", "getLabel", "()Ljava/lang/String;", "NEXT_PAGE", "PREV_PAGE", "AUTO_START", "PAUSE", "FASTER", "SLOWER", "BALL_SHOW", "BALL_HIDE", "VIDEO_START", "VIDEO_PAUSE", "TELL_TIME", "WEATHER", "CONFIRM", "CANCEL", "NONE", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0011\b\u0086\u0081\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\u0007j\u0002\b\bj\u0002\b\tj\u0002\b\nj\u0002\b\u000bj\u0002\b\fj\u0002\b\rj\u0002\b\u000ej\u0002\b\u000fj\u0002\b\u0010j\u0002\b\u0011j\u0002\b\u0012j\u0002\b\u0013¨\u0006\u0014"}, d2 = {"Lcom/xiaofan/bangfan/ai/VoiceCommandRouter$Command;", "", "label", "", "(Ljava/lang/String;ILjava/lang/String;)V", "getLabel", "()Ljava/lang/String;", "NEXT_PAGE", "PREV_PAGE", "AUTO_START", "PAUSE", "FASTER", "SLOWER", "BALL_SHOW", "BALL_HIDE", "TELL_TIME", "WEATHER", "CONFIRM", "CANCEL", "NONE", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
     /* loaded from: classes3.dex */
     public enum Command {
         NEXT_PAGE("下一页"),
@@ -32,8 +32,6 @@ public final class VoiceCommandRouter {
         SLOWER("减慢"),
         BALL_SHOW("打开悬浮球"),
         BALL_HIDE("关闭悬浮球"),
-        VIDEO_START("开始刷视频"),
-        VIDEO_PAUSE("暂停刷视频"),
         TELL_TIME("报时"),
         WEATHER("天气"),
         CONFIRM("确认"),
@@ -94,12 +92,6 @@ public final class VoiceCommandRouter {
         String s = normalize(raw);
         if (s.length() == 0) {
             return Command.NONE;
-        }
-        if (has(s, "刷视频", "刷短", "视频") && has(s, "开始", "继续", "启动")) {
-            return Command.VIDEO_START;
-        }
-        if (has(s, "刷视频", "刷短", "视频") && has(s, "暂停", "停", "停止")) {
-            return Command.VIDEO_PAUSE;
         }
         if (has(s, "悬浮球", "悬浮", "浮球", "球") && has(s, "打开", "显示", "开启", "调出")) {
             return Command.BALL_SHOW;

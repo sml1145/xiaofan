@@ -6,8 +6,10 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -29,7 +31,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* compiled from: BtRemoteActivity.kt */
-@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0015\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000 32\u00020\u00012\u00020\u0002:\u00013B\u0005¢\u0006\u0002\u0010\u0003J\n\u0010\r\u001a\u0004\u0018\u00010\u000eH\u0002J\u0013\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u00110\u0010H\u0002¢\u0006\u0002\u0010\u0012J\u0016\u0010\u0013\u001a\u00020\t2\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\t0\bH\u0002J\u0016\u0010\u0015\u001a\u00020\t2\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\t0\bH\u0002J\b\u0010\u0016\u001a\u00020\u0017H\u0002J\"\u0010\u0018\u001a\u00020\t2\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001dH\u0014J\u001a\u0010\u001e\u001a\u00020\t2\u0006\u0010\u001f\u001a\u00020\u001a2\b\u0010 \u001a\u0004\u0018\u00010\u0011H\u0016J\u0012\u0010!\u001a\u00020\t2\b\u0010\"\u001a\u0004\u0018\u00010#H\u0014J\b\u0010$\u001a\u00020\tH\u0014J-\u0010%\u001a\u00020\t2\u0006\u0010\u0019\u001a\u00020\u001a2\u000e\u0010&\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00110\u00102\u0006\u0010'\u001a\u00020(H\u0016¢\u0006\u0002\u0010)J\b\u0010*\u001a\u00020\tH\u0014J\b\u0010+\u001a\u00020\tH\u0002J\u001a\u0010,\u001a\u00020\t2\u0006\u0010\u001f\u001a\u00020\u001a2\b\u0010-\u001a\u0004\u0018\u00010\u0011H\u0002J\u0010\u0010.\u001a\u00020\t2\u0006\u0010/\u001a\u000200H\u0002J\u0010\u00101\u001a\u00020\t2\u0006\u00102\u001a\u00020\u0011H\u0002R\u0010\u0010\u0004\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\t\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00064"}, d2 = {"Lcom/xiaofan/bangfan/BtRemoteActivity;", "Lcom/xiaofan/bangfan/BaseActivity;", "Lcom/xiaofan/bangfan/BluetoothRemoteService$Listener;", "()V", "disconnectBtn", "Landroid/widget/TextView;", "pairBtn", "pendingAfterEnable", "Lkotlin/Function0;", "", "scaffold", "Landroid/widget/ScrollView;", "statusLine", "adapter", "Landroid/bluetooth/BluetoothAdapter;", "btPerms", "", "", "()[Ljava/lang/String;", "ensureBtThen", "action", "ensurePermsThen", "hasBtPerms", "", "onActivityResult", "requestCode", "", "resultCode", "data", "Landroid/content/Intent;", "onBtState", "state", "peerName", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "onPause", "onRequestPermissionsResult", "permissions", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onResume", "pickAndPair", "render", "peer", "startPair", "dev", "Landroid/bluetooth/BluetoothDevice;", "toast", "t", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0015\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000 42\u00020\u00012\u00020\u0002:\u00014B\u0005¢\u0006\u0002\u0010\u0003J\n\u0010\r\u001a\u0004\u0018\u00010\u000eH\u0002J\u0013\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u00110\u0010H\u0002¢\u0006\u0002\u0010\u0012J\u0016\u0010\u0013\u001a\u00020\t2\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\t0\bH\u0002J\u0016\u0010\u0015\u001a\u00020\t2\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\t0\bH\u0002J\b\u0010\u0016\u001a\u00020\u0017H\u0002J\"\u0010\u0018\u001a\u00020\t2\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001dH\u0014J\u001a\u0010\u001e\u001a\u00020\t2\u0006\u0010\u001f\u001a\u00020\u001a2\b\u0010 \u001a\u0004\u0018\u00010\u0011H\u0016J\u0012\u0010!\u001a\u00020\t2\b\u0010\"\u001a\u0004\u0018\u00010#H\u0014J\b\u0010$\u001a\u00020\tH\u0014J-\u0010%\u001a\u00020\t2\u0006\u0010\u0019\u001a\u00020\u001a2\u000e\u0010&\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00110\u00102\u0006\u0010'\u001a\u00020(H\u0016¢\u0006\u0002\u0010)J\b\u0010*\u001a\u00020\tH\u0014J\b\u0010+\u001a\u00020\tH\u0002J\u001a\u0010,\u001a\u00020\t2\u0006\u0010\u001f\u001a\u00020\u001a2\b\u0010-\u001a\u0004\u0018\u00010\u0011H\u0002J\b\u0010.\u001a\u00020\tH\u0002J\u0010\u0010/\u001a\u00020\t2\u0006\u00100\u001a\u000201H\u0002J\u0010\u00102\u001a\u00020\t2\u0006\u00103\u001a\u00020\u0011H\u0002R\u0010\u0010\u0004\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\t\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00065"}, d2 = {"Lcom/xiaofan/bangfan/BtRemoteActivity;", "Lcom/xiaofan/bangfan/BaseActivity;", "Lcom/xiaofan/bangfan/BluetoothRemoteService$Listener;", "()V", "disconnectBtn", "Landroid/widget/TextView;", "pairBtn", "pendingAfterEnable", "Lkotlin/Function0;", "", "scaffold", "Landroid/widget/ScrollView;", "statusLine", "adapter", "Landroid/bluetooth/BluetoothAdapter;", "btPerms", "", "", "()[Ljava/lang/String;", "ensureBtThen", "action", "ensurePermsThen", "hasBtPerms", "", "onActivityResult", "requestCode", "", "resultCode", "data", "Landroid/content/Intent;", "onBtState", "state", "peerName", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "onPause", "onRequestPermissionsResult", "permissions", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onResume", "pickAndPair", "render", "peer", "requestIgnoreBatteryOnce", "startPair", "dev", "Landroid/bluetooth/BluetoothDevice;", "toast", "t", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class BtRemoteActivity extends BaseActivity implements BluetoothRemoteService.Listener {
     public static final Companion Companion = new Companion(null);
@@ -518,9 +520,28 @@ public final class BtRemoteActivity extends BaseActivity implements BluetoothRem
 
     private final void startPair(BluetoothDevice dev) {
         AppPrefs.INSTANCE.setBtLastPeer(this, dev.getAddress());
+        requestIgnoreBatteryOnce();
         String address = dev.getAddress();
         Intrinsics.checkNotNullExpressionValue(address, "getAddress(...)");
         BluetoothRemoteService.Companion.pair(this, address);
+    }
+
+    private final void requestIgnoreBatteryOnce() {
+        try {
+            if (AppPrefs.INSTANCE.btBatteryHintShown(this)) {
+                return;
+            }
+            AppPrefs.INSTANCE.setBtBatteryHintShown(this, true);
+            Object systemService = getSystemService("power");
+            PowerManager pm = systemService instanceof PowerManager ? (PowerManager) systemService : null;
+            if (pm == null || pm.isIgnoringBatteryOptimizations(getPackageName())) {
+                return;
+            }
+            Intent intent = new Intent("android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS");
+            intent.setData(Uri.parse("package:" + getPackageName()));
+            startActivity(intent);
+        } catch (Throwable th) {
+        }
     }
 
     private final void toast(String t) {

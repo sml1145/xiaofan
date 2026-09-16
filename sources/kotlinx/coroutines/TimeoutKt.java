@@ -25,8 +25,8 @@ public final class TimeoutKt {
     }
 
     /* renamed from: withTimeout-KLykuaI  reason: not valid java name */
-    public static final <T> Object m1769withTimeoutKLykuaI(long timeout, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeout(DelayKt.m1761toDelayMillisLRDsOJo(timeout), function2, continuation);
+    public static final <T> Object m1766withTimeoutKLykuaI(long timeout, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeout(DelayKt.m1758toDelayMillisLRDsOJo(timeout), function2, continuation);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0026  */
@@ -133,8 +133,8 @@ public final class TimeoutKt {
     }
 
     /* renamed from: withTimeoutOrNull-KLykuaI  reason: not valid java name */
-    public static final <T> Object m1770withTimeoutOrNullKLykuaI(long timeout, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeoutOrNull(DelayKt.m1761toDelayMillisLRDsOJo(timeout), function2, continuation);
+    public static final <T> Object m1767withTimeoutOrNullKLykuaI(long timeout, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeoutOrNull(DelayKt.m1758toDelayMillisLRDsOJo(timeout), function2, continuation);
     }
 
     private static final <U, T extends U> Object setupTimeout(TimeoutCoroutine<U, ? super T> timeoutCoroutine, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2) {
@@ -165,7 +165,7 @@ public final class TimeoutKt {
             kotlin.time.Duration$Companion r1 = kotlin.time.Duration.Companion
             kotlin.time.DurationUnit r1 = kotlin.time.DurationUnit.MILLISECONDS
             long r1 = kotlin.time.DurationKt.toDuration(r3, r1)
-            java.lang.String r0 = r0.m1762timeoutMessageLRDsOJo(r1)
+            java.lang.String r0 = r0.m1759timeoutMessageLRDsOJo(r1)
             if (r0 != 0) goto L32
         L19:
             java.lang.StringBuilder r0 = new java.lang.StringBuilder

@@ -3,9 +3,8 @@ package androidx.core.location;
 import android.location.GnssStatus;
 import android.os.Build;
 import androidx.core.util.Preconditions;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class GnssStatusWrapper extends GnssStatusCompat {
+class GnssStatusWrapper extends GnssStatusCompat {
     private final GnssStatus mWrapped;
 
     /* JADX INFO: Access modifiers changed from: package-private */

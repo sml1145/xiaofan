@@ -30,7 +30,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt;
 /* compiled from: PageTurnAccessibilityService.kt */
-@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0010\u0011\n\u0002\b\u0006\u0018\u0000 S2\u00020\u0001:\u0001SB\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\u0019\u001a\u00020\u001aJ\u0016\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001dJ\b\u0010\u001f\u001a\u0004\u0018\u00010\fJ\u0010\u0010 \u001a\u00020\u00042\u0006\u0010!\u001a\u00020\u0006H\u0002J \u0010\"\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\f2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u0004H\u0002J\u0006\u0010&\u001a\u00020\u0006J\u0006\u0010'\u001a\u00020\u0006J\u0006\u0010(\u001a\u00020\u0006J\n\u0010)\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010*\u001a\u00020\u001a2\u0006\u0010+\u001a\u00020,H\u0002J\u0006\u0010-\u001a\u00020\u0004J\u0006\u0010.\u001a\u00020\u0004J\u0012\u0010/\u001a\u00020\u00042\b\u00100\u001a\u0004\u0018\u00010\fH\u0002J\u0012\u00101\u001a\u00020\u00042\b\u00100\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u00102\u001a\u00020\u0004J\u0006\u00103\u001a\u00020\u0004J\u0012\u00104\u001a\u00020\u001a2\b\u00105\u001a\u0004\u0018\u000106H\u0016J\b\u00107\u001a\u00020\u001aH\u0016J\b\u00108\u001a\u00020\u001aH\u0016J\u0012\u00109\u001a\u00020\u00042\b\u00105\u001a\u0004\u0018\u00010:H\u0014J\b\u0010;\u001a\u00020\u001aH\u0014J\u0012\u0010<\u001a\u00020\u00042\b\u0010=\u001a\u0004\u0018\u00010>H\u0016J\u000e\u0010?\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\u000e\u0010@\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\u000e\u0010A\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\n\u0010B\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010C\u001a\u00020\u001a2\u0006\u0010D\u001a\u00020\u0004H\u0002J\b\u0010E\u001a\u00020\u001aH\u0002J\b\u0010F\u001a\u00020\u001aH\u0002J\b\u0010G\u001a\u00020\u001aH\u0002J\u0006\u0010H\u001a\u00020\u001aJ\b\u0010I\u001a\u00020\u001aH\u0002J\u0010\u0010J\u001a\u00020\u00042\u0006\u0010$\u001a\u00020\u0004H\u0002J\u0010\u0010K\u001a\u00020\u00042\u0006\u0010$\u001a\u00020\u0004H\u0002J\u001f\u0010L\u001a\u00020\u00042\u0012\u0010M\u001a\n\u0012\u0006\b\u0001\u0012\u00020\f0N\"\u00020\f¢\u0006\u0002\u0010OJ\u0018\u0010P\u001a\u00020\u001a2\u0006\u0010Q\u001a\u00020\u00062\u0006\u0010R\u001a\u00020\u0004H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006T"}, d2 = {"Lcom/xiaofan/bangfan/PageTurnAccessibilityService;", "Landroid/accessibilityservice/AccessibilityService;", "()V", "adPageActive", "", "adRemainingSeconds", "", "adTickTask", "Ljava/lang/Runnable;", "adWatchDeadline", "", "basePkg", "", "busy", "foregroundPkg", "lastTurnAt", "lastVolDownAt", "lastVolUpAt", "main", "Landroid/os/Handler;", "normalCharsBase", "normalSamples", "pollTask", "screenH", "screenW", "analyzeNow", "", "clickAt", "x", "", "y", "currentForegroundPackage", "debounceVolumeKey", "keyCode", "doTurn", "reason", "prev", "timed", "getAdRemainingSeconds", "getScreenHeight", "getScreenWidth", "getTopActivityPackage", "handleAdPage", "result", "Lcom/xiaofan/bangfan/AdDetector$Result;", "isAdPageActive", "isCurrentPageBookEnd", "isNoisePackage", "pkg", "isNonReaderPackage", "isReaderAppInForeground", "isVideoAppInForeground", "onAccessibilityEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/accessibility/AccessibilityEvent;", "onDestroy", "onInterrupt", "onKeyEvent", "Landroid/view/KeyEvent;", "onServiceConnected", "onUnbind", "intent", "Landroid/content/Intent;", "performPageTurn", "performPrevPage", "performTimedPageTurn", "resolveForegroundPackage", "setAdPageActive", "active", "startAdTick", "startPolling", "stopAdTickOnly", "stopAdWatching", "stopPolling", "swipePage", "swipeVertical", "toggleReaderOption", "texts", "", "([Ljava/lang/String;)Z", "updateBaseline", "chars", "speedUp", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0011\n\u0002\b\u0006\u0018\u0000 Q2\u00020\u0001:\u0001QB\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\u0019\u001a\u00020\u001aJ\u0016\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001dJ\b\u0010\u001f\u001a\u0004\u0018\u00010\fJ\u0010\u0010 \u001a\u00020\u00042\u0006\u0010!\u001a\u00020\u0006H\u0002J \u0010\"\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\f2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u0004H\u0002J\u0006\u0010&\u001a\u00020\u0006J\u0006\u0010'\u001a\u00020\u0006J\u0006\u0010(\u001a\u00020\u0006J\n\u0010)\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010*\u001a\u00020\u001a2\u0006\u0010+\u001a\u00020,H\u0002J\u0006\u0010-\u001a\u00020\u0004J\u0006\u0010.\u001a\u00020\u0004J\u0012\u0010/\u001a\u00020\u00042\b\u00100\u001a\u0004\u0018\u00010\fH\u0002J\u0012\u00101\u001a\u00020\u00042\b\u00100\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u00102\u001a\u00020\u0004J\u0012\u00103\u001a\u00020\u001a2\b\u00104\u001a\u0004\u0018\u000105H\u0016J\b\u00106\u001a\u00020\u001aH\u0016J\b\u00107\u001a\u00020\u001aH\u0016J\u0012\u00108\u001a\u00020\u00042\b\u00104\u001a\u0004\u0018\u000109H\u0014J\b\u0010:\u001a\u00020\u001aH\u0014J\u0012\u0010;\u001a\u00020\u00042\b\u0010<\u001a\u0004\u0018\u00010=H\u0016J\u000e\u0010>\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\u000e\u0010?\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\u000e\u0010@\u001a\u00020\u00042\u0006\u0010#\u001a\u00020\fJ\n\u0010A\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010B\u001a\u00020\u001a2\u0006\u0010C\u001a\u00020\u0004H\u0002J\b\u0010D\u001a\u00020\u001aH\u0002J\b\u0010E\u001a\u00020\u001aH\u0002J\b\u0010F\u001a\u00020\u001aH\u0002J\u0006\u0010G\u001a\u00020\u001aJ\b\u0010H\u001a\u00020\u001aH\u0002J\u0010\u0010I\u001a\u00020\u00042\u0006\u0010$\u001a\u00020\u0004H\u0002J\u001f\u0010J\u001a\u00020\u00042\u0012\u0010K\u001a\n\u0012\u0006\b\u0001\u0012\u00020\f0L\"\u00020\f¢\u0006\u0002\u0010MJ\u0018\u0010N\u001a\u00020\u001a2\u0006\u0010O\u001a\u00020\u00062\u0006\u0010P\u001a\u00020\u0004H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006R"}, d2 = {"Lcom/xiaofan/bangfan/PageTurnAccessibilityService;", "Landroid/accessibilityservice/AccessibilityService;", "()V", "adPageActive", "", "adRemainingSeconds", "", "adTickTask", "Ljava/lang/Runnable;", "adWatchDeadline", "", "basePkg", "", "busy", "foregroundPkg", "lastTurnAt", "lastVolDownAt", "lastVolUpAt", "main", "Landroid/os/Handler;", "normalCharsBase", "normalSamples", "pollTask", "screenH", "screenW", "analyzeNow", "", "clickAt", "x", "", "y", "currentForegroundPackage", "debounceVolumeKey", "keyCode", "doTurn", "reason", "prev", "timed", "getAdRemainingSeconds", "getScreenHeight", "getScreenWidth", "getTopActivityPackage", "handleAdPage", "result", "Lcom/xiaofan/bangfan/AdDetector$Result;", "isAdPageActive", "isCurrentPageBookEnd", "isNoisePackage", "pkg", "isNonReaderPackage", "isReaderAppInForeground", "onAccessibilityEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/accessibility/AccessibilityEvent;", "onDestroy", "onInterrupt", "onKeyEvent", "Landroid/view/KeyEvent;", "onServiceConnected", "onUnbind", "intent", "Landroid/content/Intent;", "performPageTurn", "performPrevPage", "performTimedPageTurn", "resolveForegroundPackage", "setAdPageActive", "active", "startAdTick", "startPolling", "stopAdTickOnly", "stopAdWatching", "stopPolling", "swipePage", "toggleReaderOption", "texts", "", "([Ljava/lang/String;)Z", "updateBaseline", "chars", "speedUp", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class PageTurnAccessibilityService extends AccessibilityService {
     public static final Companion Companion = new Companion(null);
@@ -424,7 +424,6 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     }
 
     private final boolean doTurn(String reason, boolean prev, boolean timed) {
-        boolean ok;
         if (this.busy) {
             return false;
         }
@@ -434,27 +433,16 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
                 this.screenW = dm.widthPixels;
                 this.screenH = dm.heightPixels;
             }
-            int i = 1;
             this.busy = true;
             String mode = AppPrefs.INSTANCE.turnMode(this);
             String pkg = resolveForegroundPackage();
-            boolean isVideo = pkg != null && AppKnowledge.INSTANCE.classify(this, pkg) == 2;
-            if (isVideo) {
-                ok = swipeVertical(prev);
-            } else {
-                ok = Intrinsics.areEqual(mode, "click") ? clickAt((int) (this.screenW * 0.8f), (int) (this.screenH * 0.55f)) : swipePage(prev);
-            }
+            boolean ok = Intrinsics.areEqual(mode, "click") ? clickAt((int) (this.screenW * 0.8f), (int) (this.screenH * 0.55f)) : swipePage(prev);
             if (ok) {
                 this.lastTurnAt = System.currentTimeMillis();
                 BookStore.INSTANCE.bumpTurnOnLatest(this);
                 String str = pkg;
                 if (!(str == null || str.length() == 0) && !Intrinsics.areEqual(getPackageName(), pkg)) {
-                    AppKnowledge appKnowledge = AppKnowledge.INSTANCE;
-                    PageTurnAccessibilityService pageTurnAccessibilityService = this;
-                    if (isVideo) {
-                        i = 2;
-                    }
-                    appKnowledge.remember(pageTurnAccessibilityService, pkg, i);
+                    AppKnowledge.INSTANCE.remember(this, pkg, 1);
                 }
                 TurnManager.INSTANCE.notifyTurned(this, reason);
             } else {
@@ -464,30 +452,6 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
             return ok;
         }
         return false;
-    }
-
-    private final boolean swipeVertical(boolean prev) {
-        Float valueOf;
-        float f;
-        float f2;
-        float x = this.screenW * 0.5f;
-        float f3 = this.screenH;
-        if (prev) {
-            valueOf = Float.valueOf(f3 * 0.3f);
-            f = this.screenH;
-            f2 = 0.85f;
-        } else {
-            valueOf = Float.valueOf(f3 * 0.8f);
-            f = this.screenH;
-            f2 = 0.2f;
-        }
-        Pair pair = TuplesKt.to(valueOf, Float.valueOf(f * f2));
-        float fromY = ((Number) pair.component1()).floatValue();
-        float toY = ((Number) pair.component2()).floatValue();
-        Path path = new Path();
-        path.moveTo(x, fromY);
-        path.lineTo(x, toY);
-        return dispatchGesture(new GestureDescription.Builder().addStroke(new GestureDescription.StrokeDescription(path, 0L, 320L)).build(), null, this.main);
     }
 
     private final boolean swipePage(boolean prev) {
@@ -567,12 +531,7 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
             return false;
         }
         int classify = AppKnowledge.INSTANCE.classify(this, pkg);
-        return classify == 1 || classify == 2 || !isNonReaderPackage(pkg);
-    }
-
-    public final boolean isVideoAppInForeground() {
-        String pkg = resolveForegroundPackage();
-        return pkg != null && AppKnowledge.INSTANCE.classify(this, pkg) == 2;
+        return classify == 1 || !isNonReaderPackage(pkg);
     }
 
     public final String currentForegroundPackage() {

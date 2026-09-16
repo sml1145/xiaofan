@@ -11,11 +11,11 @@ final class ClassValueCtorCache extends CtorCache {
     public static final ClassValueCtorCache INSTANCE = new ClassValueCtorCache();
     private static final ClassValueCtorCache$cache$1 cache = new ClassValue<Function1<? super Throwable, ? extends Throwable>>() { // from class: kotlinx.coroutines.internal.ClassValueCtorCache$cache$1
         public /* bridge */ /* synthetic */ Object computeValue(Class p0) {
-            return m1817computeValue((Class<?>) p0);
+            return m1814computeValue((Class<?>) p0);
         }
 
         /* renamed from: computeValue  reason: collision with other method in class */
-        protected Function1<Throwable, Throwable> m1817computeValue(Class<?> cls) {
+        protected Function1<Throwable, Throwable> m1814computeValue(Class<?> cls) {
             Intrinsics.checkNotNull(cls, "null cannot be cast to non-null type java.lang.Class<out kotlin.Throwable>");
             return ExceptionsConstructorKt.access$createConstructor(cls);
         }

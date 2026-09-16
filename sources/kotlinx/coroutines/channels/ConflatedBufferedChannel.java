@@ -54,9 +54,9 @@ public class ConflatedBufferedChannel<E> extends BufferedChannel<E> {
 
     static /* synthetic */ <E> Object send$suspendImpl(ConflatedBufferedChannel<E> conflatedBufferedChannel, E e, Continuation<? super Unit> continuation) {
         UndeliveredElementException it;
-        Object $this$onClosed_u2dWpGqRn0$iv = conflatedBufferedChannel.m1801trySendImplMj0NB7M(e, true);
+        Object $this$onClosed_u2dWpGqRn0$iv = conflatedBufferedChannel.m1798trySendImplMj0NB7M(e, true);
         if ($this$onClosed_u2dWpGqRn0$iv instanceof ChannelResult.Closed) {
-            ChannelResult.m1787exceptionOrNullimpl($this$onClosed_u2dWpGqRn0$iv);
+            ChannelResult.m1784exceptionOrNullimpl($this$onClosed_u2dWpGqRn0$iv);
             Function1<E, Unit> function1 = conflatedBufferedChannel.onUndeliveredElement;
             if (function1 != null && (it = OnUndeliveredElementKt.callUndeliveredElementCatchingException$default(function1, e, null, 2, null)) != null) {
                 ExceptionsKt.addSuppressed(it, conflatedBufferedChannel.getSendException());
@@ -68,7 +68,7 @@ public class ConflatedBufferedChannel<E> extends BufferedChannel<E> {
     }
 
     static /* synthetic */ <E> Object sendBroadcast$suspendImpl(ConflatedBufferedChannel<E> conflatedBufferedChannel, E e, Continuation<? super Boolean> continuation) {
-        Object $this$onSuccess_u2dWpGqRn0$iv = conflatedBufferedChannel.m1801trySendImplMj0NB7M(e, true);
+        Object $this$onSuccess_u2dWpGqRn0$iv = conflatedBufferedChannel.m1798trySendImplMj0NB7M(e, true);
         if (!($this$onSuccess_u2dWpGqRn0$iv instanceof ChannelResult.Failed)) {
             Unit unit = (Unit) $this$onSuccess_u2dWpGqRn0$iv;
             return Boxing.boxBoolean(true);
@@ -78,58 +78,58 @@ public class ConflatedBufferedChannel<E> extends BufferedChannel<E> {
 
     @Override // kotlinx.coroutines.channels.BufferedChannel, kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU */
-    public Object mo1773trySendJP2dKIU(E e) {
-        return m1801trySendImplMj0NB7M(e, false);
+    public Object mo1770trySendJP2dKIU(E e) {
+        return m1798trySendImplMj0NB7M(e, false);
     }
 
     /* renamed from: trySendImpl-Mj0NB7M  reason: not valid java name */
-    private final Object m1801trySendImplMj0NB7M(E e, boolean isSendOp) {
-        return this.onBufferOverflow == BufferOverflow.DROP_LATEST ? m1799trySendDropLatestMj0NB7M(e, isSendOp) : m1800trySendDropOldestJP2dKIU(e);
+    private final Object m1798trySendImplMj0NB7M(E e, boolean isSendOp) {
+        return this.onBufferOverflow == BufferOverflow.DROP_LATEST ? m1796trySendDropLatestMj0NB7M(e, isSendOp) : m1797trySendDropOldestJP2dKIU(e);
     }
 
     /* renamed from: trySendDropLatest-Mj0NB7M  reason: not valid java name */
-    private final Object m1799trySendDropLatestMj0NB7M(E e, boolean isSendOp) {
+    private final Object m1796trySendDropLatestMj0NB7M(E e, boolean isSendOp) {
         Function1<E, Unit> function1;
         UndeliveredElementException it;
-        Object result = super.mo1773trySendJP2dKIU(e);
-        if (ChannelResult.m1793isSuccessimpl(result) || ChannelResult.m1791isClosedimpl(result)) {
+        Object result = super.mo1770trySendJP2dKIU(e);
+        if (ChannelResult.m1790isSuccessimpl(result) || ChannelResult.m1788isClosedimpl(result)) {
             return result;
         }
         if (isSendOp && (function1 = this.onUndeliveredElement) != null && (it = OnUndeliveredElementKt.callUndeliveredElementCatchingException$default(function1, e, null, 2, null)) != null) {
             throw it;
         }
-        return ChannelResult.Companion.m1798successJP2dKIU(Unit.INSTANCE);
+        return ChannelResult.Companion.m1795successJP2dKIU(Unit.INSTANCE);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0099, code lost:
-        return kotlinx.coroutines.channels.ChannelResult.Companion.m1796closedJP2dKIU(getSendException());
+        return kotlinx.coroutines.channels.ChannelResult.Companion.m1793closedJP2dKIU(getSendException());
      */
     /* renamed from: trySendDropOldest-JP2dKIU  reason: not valid java name */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct add '--show-bad-code' argument
     */
-    private final java.lang.Object m1800trySendDropOldestJP2dKIU(E r21) {
+    private final java.lang.Object m1797trySendDropOldestJP2dKIU(E r21) {
         /*
             Method dump skipped, instructions count: 260
             To view this dump add '--comments-level debug' option
         */
-        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.ConflatedBufferedChannel.m1800trySendDropOldestJP2dKIU(java.lang.Object):java.lang.Object");
+        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.channels.ConflatedBufferedChannel.m1797trySendDropOldestJP2dKIU(java.lang.Object):java.lang.Object");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlinx.coroutines.channels.BufferedChannel
     public void registerSelectForSend(SelectInstance<?> selectInstance, Object element) {
-        Object it = mo1773trySendJP2dKIU(element);
+        Object it = mo1770trySendJP2dKIU(element);
         if (!(it instanceof ChannelResult.Failed)) {
             Unit unit = (Unit) it;
             selectInstance.selectInRegistrationPhase(Unit.INSTANCE);
         } else if (!(it instanceof ChannelResult.Closed)) {
             throw new IllegalStateException("unreachable".toString());
         } else {
-            ChannelResult.m1787exceptionOrNullimpl(it);
+            ChannelResult.m1784exceptionOrNullimpl(it);
             selectInstance.selectInRegistrationPhase(BufferedChannelKt.getCHANNEL_CLOSED());
         }
     }

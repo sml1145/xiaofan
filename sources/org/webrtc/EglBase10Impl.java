@@ -24,7 +24,7 @@ public class EglBase10Impl implements EglBase10 {
     private EGLSurface eglSurface = EGL10.EGL_NO_SURFACE;
 
     /* renamed from: -$$Nest$smnativeGetCurrentNativeEGLContext  reason: not valid java name */
-    static /* bridge */ /* synthetic */ long m2087$$Nest$smnativeGetCurrentNativeEGLContext() {
+    static /* bridge */ /* synthetic */ long m2084$$Nest$smnativeGetCurrentNativeEGLContext() {
         return nativeGetCurrentNativeEGLContext();
     }
 
@@ -59,7 +59,7 @@ public class EglBase10Impl implements EglBase10 {
                         throw new GLException(this.egl.eglGetError(), "Failed to make temporary EGL surface active: " + this.egl.eglGetError());
                     }
                 }
-                return EglBase10Impl.m2087$$Nest$smnativeGetCurrentNativeEGLContext();
+                return EglBase10Impl.m2084$$Nest$smnativeGetCurrentNativeEGLContext();
             } finally {
                 if (0 != 0) {
                     this.egl.eglMakeCurrent(currentDisplay, previousDrawSurface, previousReadSurface, previousContext);
@@ -95,14 +95,14 @@ public class EglBase10Impl implements EglBase10 {
             this.refCountDelegate = new RefCountDelegate(new Runnable() { // from class: org.webrtc.EglBase10Impl$EglConnection$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    EglBase10Impl.EglConnection.this.m2088lambda$new$0$orgwebrtcEglBase10Impl$EglConnection();
+                    EglBase10Impl.EglConnection.this.m2085lambda$new$0$orgwebrtcEglBase10Impl$EglConnection();
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$new$0$org-webrtc-EglBase10Impl$EglConnection  reason: not valid java name */
-        public /* synthetic */ void m2088lambda$new$0$orgwebrtcEglBase10Impl$EglConnection() {
+        public /* synthetic */ void m2085lambda$new$0$orgwebrtcEglBase10Impl$EglConnection() {
             synchronized (EglBase.lock) {
                 this.egl.eglMakeCurrent(this.eglDisplay, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
             }
