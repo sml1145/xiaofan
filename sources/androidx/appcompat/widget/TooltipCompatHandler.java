@@ -129,7 +129,7 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
         } else if ((ViewCompat.getWindowSystemUiVisibility(this.mAnchor) & 1) == 1) {
             timeout = HOVER_HIDE_TIMEOUT_SHORT_MS - ViewConfiguration.getLongPressTimeout();
         } else {
-            timeout = HOVER_HIDE_TIMEOUT_MS - ViewConfiguration.getLongPressTimeout();
+            timeout = 15000 - ViewConfiguration.getLongPressTimeout();
         }
         this.mAnchor.removeCallbacks(this.mHideRunnable);
         this.mAnchor.postDelayed(this.mHideRunnable, timeout);

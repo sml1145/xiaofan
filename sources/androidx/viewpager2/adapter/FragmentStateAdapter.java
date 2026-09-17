@@ -363,7 +363,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                 }
             }
         });
-        handler.postDelayed(runnable, GRACE_WINDOW_TIME_MS);
+        handler.postDelayed(runnable, 10000L);
     }
 
     private static String createKey(String prefix, long id) {

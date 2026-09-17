@@ -120,7 +120,7 @@ public class CameraEnumerationAndroid {
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // org.webrtc.CameraEnumerationAndroid.ClosestComparator
             public int diff(CaptureFormat.FramerateRange range) {
-                int minFpsError = progressivePenalty(range.min, MIN_FPS_THRESHOLD, 1, 4);
+                int minFpsError = progressivePenalty(range.min, 8000, 1, 4);
                 int maxFpsError = progressivePenalty(Math.abs((requestedFps * 1000) - range.max), MAX_FPS_DIFF_THRESHOLD, 1, 3);
                 return minFpsError + maxFpsError;
             }

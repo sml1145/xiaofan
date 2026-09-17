@@ -153,7 +153,7 @@ public final class MascotView extends View {
         this.crownPaint = new Paint(1);
         this.targetScale = 1.0f;
         this.tiltMatrix = new Matrix();
-        this.SCENE_TICK_MS = 10000L;
+        this.SCENE_TICK_MS = UpdateDownloadCore.STALL_WINDOW_MS;
         this.idleBreath = 1.0f;
         setLayerType(2, null);
         int bodyRes = context.getResources().getIdentifier("mascot_body", "drawable", context.getPackageName());

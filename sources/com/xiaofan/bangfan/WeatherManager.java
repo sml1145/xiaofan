@@ -805,8 +805,8 @@ public final class WeatherManager {
             URLConnection openConnection = new URL(urlStr).openConnection();
             Intrinsics.checkNotNull(openConnection, "null cannot be cast to non-null type java.net.HttpURLConnection");
             HttpURLConnection conn2 = (HttpURLConnection) openConnection;
-            conn2.setConnectTimeout(8000);
-            conn2.setReadTimeout(8000);
+            conn2.setConnectTimeout(UpdateDownloadCore.PROBE_READ_MS);
+            conn2.setReadTimeout(UpdateDownloadCore.PROBE_READ_MS);
             conn2.setRequestProperty("User-Agent", "xiaofan-bangfan/2.0");
             if (conn2.getResponseCode() != 200) {
                 throw new Exception("HTTP " + conn2.getResponseCode());

@@ -424,7 +424,7 @@ public final class CustomVoice {
         Intrinsics.checkNotNull(openConnection, "null cannot be cast to non-null type java.net.HttpURLConnection");
         HttpURLConnection conn = (HttpURLConnection) openConnection;
         conn.setRequestMethod(method);
-        conn.setConnectTimeout(12000);
+        conn.setConnectTimeout(UpdateDownloadCore.DL_CONNECT_MS);
         conn.setReadTimeout(30000);
         conn.setDoOutput(true);
         conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
@@ -443,7 +443,7 @@ public final class CustomVoice {
             Intrinsics.checkNotNull(openConnection, "null cannot be cast to non-null type java.net.HttpURLConnection");
             HttpURLConnection conn2 = (HttpURLConnection) openConnection;
             conn2.setRequestMethod("POST");
-            conn2.setConnectTimeout(15000);
+            conn2.setConnectTimeout(UpdateDownloadCore.DL_READ_MS);
             conn2.setReadTimeout(120000);
             boolean z = true;
             conn2.setDoOutput(true);
@@ -515,7 +515,7 @@ public final class CustomVoice {
             URLConnection openConnection = new URL(url).openConnection();
             Intrinsics.checkNotNull(openConnection, "null cannot be cast to non-null type java.net.HttpURLConnection");
             HttpURLConnection conn2 = (HttpURLConnection) openConnection;
-            conn2.setConnectTimeout(12000);
+            conn2.setConnectTimeout(UpdateDownloadCore.DL_CONNECT_MS);
             conn2.setReadTimeout(60000);
             if (apiKey.length() > 0) {
                 conn2.setRequestProperty("Authorization", "Bearer " + apiKey);

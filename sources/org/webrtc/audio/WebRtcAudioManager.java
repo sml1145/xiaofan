@@ -4,6 +4,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
+import com.xiaofan.bangfan.UpdateDownloadCore;
 import org.webrtc.Logging;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes5.dex */
@@ -46,7 +47,7 @@ class WebRtcAudioManager {
     public static int getSampleRate(AudioManager audioManager) {
         if (WebRtcAudioUtils.runningOnEmulator()) {
             Logging.d(TAG, "Running emulator, overriding sample rate to 8 kHz.");
-            return 8000;
+            return UpdateDownloadCore.PROBE_READ_MS;
         }
         int sampleRateHz = getSampleRateForApiLevel(audioManager);
         Logging.d(TAG, "Sample rate is set to " + sampleRateHz + " Hz");

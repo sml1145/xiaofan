@@ -170,7 +170,7 @@ public final class GomokuAi {
                 case 1:
                     return 1000L;
                 case 2:
-                    return 10000L;
+                    return UpdateDownloadCore.STALL_WINDOW_MS;
                 default:
                     return 0L;
             }

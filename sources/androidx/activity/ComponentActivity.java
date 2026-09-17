@@ -63,6 +63,7 @@ import androidx.savedstate.SavedStateRegistryController;
 import androidx.savedstate.SavedStateRegistryOwner;
 import androidx.savedstate.ViewTreeSavedStateRegistryOwner;
 import androidx.tracing.Trace;
+import com.xiaofan.bangfan.UpdateDownloadCore;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
@@ -799,7 +800,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class ReportFullyDrawnExecutorApi16Impl implements ReportFullyDrawnExecutor, ViewTreeObserver.OnDrawListener, Runnable {
-        final long mEndWatchTimeMillis = SystemClock.uptimeMillis() + 10000;
+        final long mEndWatchTimeMillis = SystemClock.uptimeMillis() + UpdateDownloadCore.STALL_WINDOW_MS;
         boolean mOnDrawScheduled = false;
         Runnable mRunnable;
 

@@ -1,6 +1,7 @@
 package okio;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import com.xiaofan.bangfan.UpdateDownloadCore;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -1326,7 +1327,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
             negative$iv = true;
         }
         if (v$iv < 100000000) {
-            if (v$iv < 10000) {
+            if (v$iv < UpdateDownloadCore.STALL_WINDOW_MS) {
                 if (v$iv < 100) {
                     if (v$iv < 10) {
                         width$iv = 1;

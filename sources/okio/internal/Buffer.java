@@ -1,6 +1,7 @@
 package okio.internal;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import com.xiaofan.bangfan.UpdateDownloadCore;
 import java.io.EOFException;
 import kotlin.Metadata;
 import kotlin.UByte;
@@ -520,7 +521,7 @@ public final class Buffer {
             negative = true;
         }
         if (v2 < 100000000) {
-            if (v2 < 10000) {
+            if (v2 < UpdateDownloadCore.STALL_WINDOW_MS) {
                 if (v2 < 100) {
                     if (v2 < 10) {
                         width = 1;

@@ -248,11 +248,11 @@ public final class FloatBallService extends Service implements TurnManager.Liste
                     AppPrefs.INSTANCE.addCompanionSeconds(FloatBallService.this, seconds);
                 }
                 handler = FloatBallService.this.main;
-                handler.postDelayed(this, 10000L);
+                handler.postDelayed(this, UpdateDownloadCore.STALL_WINDOW_MS);
             }
         };
         this.companionTask = runnable;
-        this.main.postDelayed(runnable, 10000L);
+        this.main.postDelayed(runnable, UpdateDownloadCore.STALL_WINDOW_MS);
     }
 
     private final void stopCompanionTimer() {
@@ -870,7 +870,7 @@ public final class FloatBallService extends Service implements TurnManager.Liste
             Boolean last = this.lastAnnouncedPresence;
             boolean directionChanged = last == null || !Intrinsics.areEqual(last, Boolean.valueOf(present));
             long now = System.currentTimeMillis();
-            if (directionChanged || now - this.lastPresenceAnnounceAt >= 10000) {
+            if (directionChanged || now - this.lastPresenceAnnounceAt >= UpdateDownloadCore.STALL_WINDOW_MS) {
                 this.lastAnnouncedPresence = Boolean.valueOf(present);
                 this.lastPresenceAnnounceAt = now;
                 XiaoFanVoice.INSTANCE.tip(this, present ? "你回来啦，继续帮你翻页" : "你离开了，我先暂停翻页");

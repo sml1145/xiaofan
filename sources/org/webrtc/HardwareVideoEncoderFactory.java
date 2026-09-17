@@ -3,6 +3,7 @@ package org.webrtc;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Build;
+import com.xiaofan.bangfan.UpdateDownloadCore;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -149,7 +150,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
 
     private int getForcedKeyFrameIntervalMs(VideoCodecMimeType type, String codecName) {
         if (type == VideoCodecMimeType.VP8 && codecName.startsWith("OMX.qcom.")) {
-            return 15000;
+            return UpdateDownloadCore.DL_READ_MS;
         }
         return 0;
     }

@@ -1,6 +1,7 @@
 package kotlinx.coroutines.scheduling;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import com.xiaofan.bangfan.UpdateDownloadCore;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
@@ -332,7 +333,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        shutdown(10000L);
+        shutdown(UpdateDownloadCore.STALL_WINDOW_MS);
     }
 
     public final void shutdown(long timeout) {

@@ -386,7 +386,7 @@ public final class ReaderActivity extends BaseActivity {
     }
 
     private final void showCustomIntervalDialog() {
-        final long[] intervals = {2000, 3000, 4000, 5000, AppPrefs.FALLBACK_READ_MS, 8000, 10000, 15000};
+        final long[] intervals = {2000, 3000, 4000, 5000, AppPrefs.FALLBACK_READ_MS, 8000, UpdateDownloadCore.STALL_WINDOW_MS, UpdateDownloadCore.MIN_PROBE_SPEED};
         Collection destination$iv$iv = new ArrayList(intervals.length);
         for (long item$iv$iv : intervals) {
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;

@@ -74,7 +74,7 @@ public final class LocationManagerCompat {
         final Location location = locationManager.getLastKnownLocation(provider);
         if (location != null) {
             long locationAgeMs = SystemClock.elapsedRealtime() - LocationCompat.getElapsedRealtimeMillis(location);
-            if (locationAgeMs < MAX_CURRENT_LOCATION_AGE_MS) {
+            if (locationAgeMs < 10000) {
                 executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$$ExternalSyntheticLambda1
                     @Override // java.lang.Runnable
                     public final void run() {
