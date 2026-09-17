@@ -32,10 +32,10 @@ public final class ResumeAwaitOnCompletion<T> extends JobNode {
         }
         if (state instanceof CompletedExceptionally) {
             Result.Companion companion = Result.Companion;
-            this.continuation.resumeWith(Result.m273constructorimpl(ResultKt.createFailure(((CompletedExceptionally) state).cause)));
+            this.continuation.resumeWith(Result.m275constructorimpl(ResultKt.createFailure(((CompletedExceptionally) state).cause)));
             return;
         }
         Result.Companion companion2 = Result.Companion;
-        this.continuation.resumeWith(Result.m273constructorimpl(JobSupportKt.unboxState(state)));
+        this.continuation.resumeWith(Result.m275constructorimpl(JobSupportKt.unboxState(state)));
     }
 }

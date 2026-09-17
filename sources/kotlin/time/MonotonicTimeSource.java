@@ -15,12 +15,12 @@ public final class MonotonicTimeSource implements TimeSource.WithComparableMarks
 
     @Override // kotlin.time.TimeSource.WithComparableMarks, kotlin.time.TimeSource
     public /* bridge */ /* synthetic */ ComparableTimeMark markNow() {
-        return TimeSource.Monotonic.ValueTimeMark.m1739boximpl(m1733markNowz9LOYto());
+        return TimeSource.Monotonic.ValueTimeMark.m1741boximpl(m1735markNowz9LOYto());
     }
 
     @Override // kotlin.time.TimeSource
     public /* bridge */ /* synthetic */ TimeMark markNow() {
-        return TimeSource.Monotonic.ValueTimeMark.m1739boximpl(m1733markNowz9LOYto());
+        return TimeSource.Monotonic.ValueTimeMark.m1741boximpl(m1735markNowz9LOYto());
     }
 
     private final long read() {
@@ -32,22 +32,22 @@ public final class MonotonicTimeSource implements TimeSource.WithComparableMarks
     }
 
     /* renamed from: markNow-z9LOYto  reason: not valid java name */
-    public long m1733markNowz9LOYto() {
-        return TimeSource.Monotonic.ValueTimeMark.m1742constructorimpl(read());
+    public long m1735markNowz9LOYto() {
+        return TimeSource.Monotonic.ValueTimeMark.m1744constructorimpl(read());
     }
 
     /* renamed from: elapsedFrom-6eNON_k  reason: not valid java name */
-    public final long m1732elapsedFrom6eNON_k(long timeMark) {
+    public final long m1734elapsedFrom6eNON_k(long timeMark) {
         return LongSaturatedMathKt.saturatingDiff(read(), timeMark, DurationUnit.NANOSECONDS);
     }
 
     /* renamed from: differenceBetween-fRLX17w  reason: not valid java name */
-    public final long m1731differenceBetweenfRLX17w(long one, long another) {
+    public final long m1733differenceBetweenfRLX17w(long one, long another) {
         return LongSaturatedMathKt.saturatingOriginsDiff(one, another, DurationUnit.NANOSECONDS);
     }
 
     /* renamed from: adjustReading-6QKq23U  reason: not valid java name */
-    public final long m1730adjustReading6QKq23U(long timeMark, long duration) {
-        return TimeSource.Monotonic.ValueTimeMark.m1742constructorimpl(LongSaturatedMathKt.m1728saturatingAddNuflL3o(timeMark, DurationUnit.NANOSECONDS, duration));
+    public final long m1732adjustReading6QKq23U(long timeMark, long duration) {
+        return TimeSource.Monotonic.ValueTimeMark.m1744constructorimpl(LongSaturatedMathKt.m1730saturatingAddNuflL3o(timeMark, DurationUnit.NANOSECONDS, duration));
     }
 }

@@ -60,7 +60,7 @@ final class ULongProgressionIterator implements Iterator<ULong>, KMappedMarker {
             r1 = r2
         L1c:
             r3.hasNext = r1
-            long r0 = kotlin.ULong.m447constructorimpl(r8)
+            long r0 = kotlin.ULong.m449constructorimpl(r8)
             r3.step = r0
             boolean r0 = r3.hasNext
             if (r0 == 0) goto L2a
@@ -77,7 +77,7 @@ final class ULongProgressionIterator implements Iterator<ULong>, KMappedMarker {
 
     @Override // java.util.Iterator
     public /* bridge */ /* synthetic */ ULong next() {
-        return ULong.m441boximpl(m1509nextsVKNKU());
+        return ULong.m443boximpl(m1511nextsVKNKU());
     }
 
     @Override // java.util.Iterator
@@ -86,7 +86,7 @@ final class ULongProgressionIterator implements Iterator<ULong>, KMappedMarker {
     }
 
     /* renamed from: next-s-VKNKU  reason: not valid java name */
-    public long m1509nextsVKNKU() {
+    public long m1511nextsVKNKU() {
         long value = this.next;
         if (value == this.finalElement) {
             if (!this.hasNext) {
@@ -94,7 +94,7 @@ final class ULongProgressionIterator implements Iterator<ULong>, KMappedMarker {
             }
             this.hasNext = false;
         } else {
-            this.next = ULong.m447constructorimpl(this.next + this.step);
+            this.next = ULong.m449constructorimpl(this.next + this.step);
         }
         return value;
     }

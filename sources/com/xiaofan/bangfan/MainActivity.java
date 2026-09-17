@@ -37,16 +37,22 @@ import com.xiaofan.bangfan.ai.LocalBrain;
 import com.xiaofan.bangfan.ai.OfflineBrain;
 import com.xiaofan.bangfan.ai.OfflineModels;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Locale;
 import kotlin.Metadata;
+import kotlin.Pair;
+import kotlin.TuplesKt;
 import kotlin.Unit;
+import kotlin.collections.CollectionsKt;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.ranges.RangesKt;
 import kotlin.text.StringsKt;
 import kotlinx.coroutines.DebugKt;
 /* compiled from: MainActivity.kt */
-@Metadata(d1 = {"\u0000¦\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\f\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\t\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0015\n\u0002\b \n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 \u008f\u00012\u00020\u00012\u00020\u0002:\u0002\u008f\u0001B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010)\u001a\u00020*H\u0002J\u0018\u0010+\u001a\u00020*2\u0006\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020-H\u0002J\u0010\u0010/\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\u0010\u00100\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\u0018\u00101\u001a\u00020*2\u0006\u00102\u001a\u00020-2\u0006\u00103\u001a\u00020-H\u0002J\u0012\u00104\u001a\u00020*2\b\u00105\u001a\u0004\u0018\u00010\u001fH\u0002J\u0010\u00106\u001a\u00020*2\u0006\u00107\u001a\u00020-H\u0002J\b\u00108\u001a\u00020*H\u0002J\u0010\u00109\u001a\u00020:2\u0006\u0010;\u001a\u00020:H\u0002J\u0010\u0010<\u001a\u00020*2\u0006\u0010=\u001a\u00020\u0005H\u0002J\u0018\u0010>\u001a\u00020*2\u0006\u0010?\u001a\u00020@2\u0006\u0010A\u001a\u00020-H\u0002J\b\u0010B\u001a\u00020@H\u0002J\b\u0010C\u001a\u00020@H\u0002J\b\u0010D\u001a\u00020-H\u0002J\b\u0010E\u001a\u00020@H\u0002J\u0012\u0010F\u001a\u0004\u0018\u00010-2\u0006\u0010,\u001a\u00020-H\u0002J\b\u0010G\u001a\u00020:H\u0002J\u0010\u0010H\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\u0010\u0010I\u001a\u00020-2\u0006\u0010J\u001a\u00020KH\u0002J(\u0010L\u001a\u00020@2\u0006\u0010M\u001a\u00020-2\u0006\u0010N\u001a\u00020-2\u0006\u0010O\u001a\u00020-2\u0006\u0010A\u001a\u00020-H\u0002J\b\u0010P\u001a\u00020*H\u0002J\u0012\u0010Q\u001a\u00020\u00112\b\u00107\u001a\u0004\u0018\u00010-H\u0002J\b\u0010R\u001a\u00020*H\u0002J(\u0010S\u001a\u00020@2\u0006\u0010M\u001a\u00020-2\u0006\u0010N\u001a\u00020-2\u0006\u0010O\u001a\u00020-2\u0006\u0010A\u001a\u00020-H\u0002J\b\u0010T\u001a\u00020\u000bH\u0002J\"\u0010U\u001a\u00020*2\u0006\u0010V\u001a\u00020:2\u0006\u0010W\u001a\u00020:2\b\u0010X\u001a\u0004\u0018\u00010YH\u0014J\u0010\u0010Z\u001a\u00020*2\u0006\u0010J\u001a\u00020:H\u0016J\u0010\u0010[\u001a\u00020*2\u0006\u0010\\\u001a\u00020-H\u0016J\u0010\u0010]\u001a\u00020*2\u0006\u0010^\u001a\u00020\u0011H\u0016J\b\u0010_\u001a\u00020*H\u0016J\u0012\u0010`\u001a\u00020*2\b\u0010a\u001a\u0004\u0018\u00010bH\u0014J\b\u0010c\u001a\u00020*H\u0014J\b\u0010d\u001a\u00020*H\u0014J\u0010\u0010e\u001a\u00020*2\u0006\u0010f\u001a\u00020\u0011H\u0016J\u0018\u0010g\u001a\u00020*2\u0006\u0010h\u001a\u00020-2\u0006\u0010i\u001a\u00020-H\u0016J-\u0010j\u001a\u00020*2\u0006\u0010V\u001a\u00020:2\u000e\u0010k\u001a\n\u0012\u0006\b\u0001\u0012\u00020-0\u001a2\u0006\u0010l\u001a\u00020mH\u0016¢\u0006\u0002\u0010nJ\b\u0010o\u001a\u00020*H\u0014J\u0010\u0010p\u001a\u00020*2\u0006\u0010q\u001a\u00020\u0011H\u0016J\b\u0010r\u001a\u00020*H\u0014J\u0018\u0010s\u001a\u00020*2\u0006\u0010t\u001a\u00020\u00112\u0006\u0010u\u001a\u00020KH\u0016J\u0010\u0010v\u001a\u00020*2\u0006\u0010\\\u001a\u00020-H\u0016J\u0010\u0010w\u001a\u00020*2\u0006\u0010\\\u001a\u00020-H\u0016J\u0010\u0010x\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\b\u0010y\u001a\u00020-H\u0002J\b\u0010z\u001a\u00020*H\u0002J\b\u0010{\u001a\u00020*H\u0002J\b\u0010|\u001a\u00020*H\u0002J\u0010\u0010}\u001a\u00020*2\u0006\u0010~\u001a\u00020:H\u0002J\u0010\u0010\u007f\u001a\u00020*2\u0006\u00103\u001a\u00020-H\u0002J\u0011\u0010\u0080\u0001\u001a\u00020*2\u0006\u00103\u001a\u00020-H\u0002J\t\u0010\u0081\u0001\u001a\u00020*H\u0002J\t\u0010\u0082\u0001\u001a\u00020*H\u0002J\u0012\u0010\u0083\u0001\u001a\u00020*2\u0007\u0010\u0084\u0001\u001a\u00020\u0011H\u0002J\t\u0010\u0085\u0001\u001a\u00020*H\u0002J\t\u0010\u0086\u0001\u001a\u00020*H\u0002J\t\u0010\u0087\u0001\u001a\u00020*H\u0002J\u0011\u0010\u0088\u0001\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\t\u0010\u0089\u0001\u001a\u00020*H\u0002J\t\u0010\u008a\u0001\u001a\u00020*H\u0002J\t\u0010\u008b\u0001\u001a\u00020*H\u0002J\t\u0010\u008c\u0001\u001a\u00020*H\u0002J\u0012\u0010\u008d\u0001\u001a\u00030\u008e\u00012\u0006\u0010?\u001a\u00020@H\u0002R\u0010\u0010\u0004\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0019\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0005\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u001bR\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001e\u001a\u0004\u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010!\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\"\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010$\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010&\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0090\u0001"}, d2 = {"Lcom/xiaofan/bangfan/MainActivity;", "Lcom/xiaofan/bangfan/BaseActivity;", "Lcom/xiaofan/bangfan/TurnManager$Listener;", "()V", "ballBtn", "Landroid/widget/TextView;", "bubbleHideTask", "Ljava/lang/Runnable;", "chatInput", "Landroid/widget/EditText;", "chatLog", "Landroid/widget/LinearLayout;", "companionText", "companionTimeText", "dictate", "Lcom/xiaofan/bangfan/DictationController;", "dictating", "", "identityText", "main", "Landroid/os/Handler;", "mascotAvatarBtn", "mascotView", "Lcom/xiaofan/bangfan/MascotView;", "nightBtn", "pageDots", "", "[Landroid/widget/TextView;", "pager", "Lcom/xiaofan/bangfan/HorizontalPager;", "profileAvatar", "Landroid/widget/ImageView;", "profileNameText", "profileSubText", "quickStatus", "refreshTask", "roleBadge", "sendBtnRef", "speechBubble", "updateCheckPosted", "wentBackground", "afterProfileChanged", "", "answerByCloudThenLocal", "text", "", "endpoint", "answerByLocalBrain", "answerOpenQuestion", "appendChat", "sender", NotificationCompat.CATEGORY_MESSAGE, "applyAvatarTo", "imageView", "applyNickname", "name", "autoStartBallIfNeeded", "avatarRes", "", "index", "beginDictation", "btn", "bindModuleClick", "view", "Landroid/view/View;", "target", "buildPage1", "buildPage2", "buildQuickStatus", "buildUi", "builtinChatReply", "countMissingPerms", "externalFallback", "fmtSeconds", "seconds", "", "fullWidthCell", "emoji", "title", "desc", "greetOnce", "isReservedPlannerName", "maybeAskDefaultVoiceMic", "moduleCell", "newPage", "onActivityResult", "requestCode", "resultCode", "data", "Landroid/content/Intent;", "onAdCountdown", "onAdDetected", "reason", "onAutoTurnChanged", DebugKt.DEBUG_PROPERTY_VALUE_ON, "onBackPressed", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "onDestroy", "onPause", "onPresenceChanged", "present", "onProgress", "book", "chapter", "onRequestPermissionsResult", "permissions", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onResume", "onServiceReady", "ready", "onStop", "onTimedTurnChanged", "running", "interval", "onTurnFailed", "onTurned", "openQwen", "pickGreeting", "pickImageFromGallery", "postRefresh", "refreshAll", "refreshDots", "page", "replaceLastXiaoFan", "reply", "sendChat", "showAvatarChooser", "showIdentityDialog", "first", "showMascotAvatarDialog", "showNicknameDialog", "showNightModeDialog", "showSpeechBubble", "startBallService", "startPeriodicRefresh", "stopPeriodicRefresh", "toggleBall", "wrapScroll", "Landroid/widget/ScrollView;", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000°\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\f\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\t\n\u0002\b\b\n\u0002\u0010\u0007\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0015\n\u0002\b\"\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 \u0094\u00012\u00020\u00012\u00020\u0002:\u0002\u0094\u0001B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010)\u001a\u00020*H\u0002J\u0018\u0010+\u001a\u00020*2\u0006\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020-H\u0002J\u0010\u0010/\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\u0010\u00100\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\u0018\u00101\u001a\u00020*2\u0006\u00102\u001a\u00020-2\u0006\u00103\u001a\u00020-H\u0002J\u0012\u00104\u001a\u00020*2\b\u00105\u001a\u0004\u0018\u00010\u001fH\u0002J\u0010\u00106\u001a\u00020*2\u0006\u00107\u001a\u00020-H\u0002J\b\u00108\u001a\u00020*H\u0002J\u0010\u00109\u001a\u00020:2\u0006\u0010;\u001a\u00020:H\u0002J\u0010\u0010<\u001a\u00020*2\u0006\u0010=\u001a\u00020\u0005H\u0002J\u0018\u0010>\u001a\u00020*2\u0006\u0010?\u001a\u00020@2\u0006\u0010A\u001a\u00020-H\u0002J\b\u0010B\u001a\u00020@H\u0002J\b\u0010C\u001a\u00020@H\u0002J\b\u0010D\u001a\u00020-H\u0002J\b\u0010E\u001a\u00020@H\u0002J\u0012\u0010F\u001a\u0004\u0018\u00010-2\u0006\u0010,\u001a\u00020-H\u0002J\b\u0010G\u001a\u00020:H\u0002J\u0010\u0010H\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\u0010\u0010I\u001a\u00020-2\u0006\u0010J\u001a\u00020KH\u0002J(\u0010L\u001a\u00020@2\u0006\u0010M\u001a\u00020-2\u0006\u0010N\u001a\u00020-2\u0006\u0010O\u001a\u00020-2\u0006\u0010A\u001a\u00020-H\u0002J\b\u0010P\u001a\u00020*H\u0002J\u0012\u0010Q\u001a\u00020\u00112\b\u00107\u001a\u0004\u0018\u00010-H\u0002J\u001a\u0010R\u001a\u00020\u00052\u0006\u0010,\u001a\u00020-2\b\b\u0002\u0010S\u001a\u00020TH\u0002J\b\u0010U\u001a\u00020*H\u0002J(\u0010V\u001a\u00020@2\u0006\u0010M\u001a\u00020-2\u0006\u0010N\u001a\u00020-2\u0006\u0010O\u001a\u00020-2\u0006\u0010A\u001a\u00020-H\u0002J\b\u0010W\u001a\u00020\u000bH\u0002J\"\u0010X\u001a\u00020*2\u0006\u0010Y\u001a\u00020:2\u0006\u0010Z\u001a\u00020:2\b\u0010[\u001a\u0004\u0018\u00010\\H\u0014J\u0010\u0010]\u001a\u00020*2\u0006\u0010J\u001a\u00020:H\u0016J\u0010\u0010^\u001a\u00020*2\u0006\u0010_\u001a\u00020-H\u0016J\u0010\u0010`\u001a\u00020*2\u0006\u0010a\u001a\u00020\u0011H\u0016J\b\u0010b\u001a\u00020*H\u0016J\u0012\u0010c\u001a\u00020*2\b\u0010d\u001a\u0004\u0018\u00010eH\u0014J\b\u0010f\u001a\u00020*H\u0014J\b\u0010g\u001a\u00020*H\u0014J\u0010\u0010h\u001a\u00020*2\u0006\u0010i\u001a\u00020\u0011H\u0016J\u0018\u0010j\u001a\u00020*2\u0006\u0010k\u001a\u00020-2\u0006\u0010l\u001a\u00020-H\u0016J-\u0010m\u001a\u00020*2\u0006\u0010Y\u001a\u00020:2\u000e\u0010n\u001a\n\u0012\u0006\b\u0001\u0012\u00020-0\u001a2\u0006\u0010o\u001a\u00020pH\u0016¢\u0006\u0002\u0010qJ\b\u0010r\u001a\u00020*H\u0014J\u0010\u0010s\u001a\u00020*2\u0006\u0010t\u001a\u00020\u0011H\u0016J\b\u0010u\u001a\u00020*H\u0014J\u0018\u0010v\u001a\u00020*2\u0006\u0010w\u001a\u00020\u00112\u0006\u0010x\u001a\u00020KH\u0016J\u0010\u0010y\u001a\u00020*2\u0006\u0010_\u001a\u00020-H\u0016J\u0010\u0010z\u001a\u00020*2\u0006\u0010_\u001a\u00020-H\u0016J\u0010\u0010{\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\b\u0010|\u001a\u00020-H\u0002J\b\u0010}\u001a\u00020*H\u0002J\b\u0010~\u001a\u00020*H\u0002J\b\u0010\u007f\u001a\u00020*H\u0002J\u0012\u0010\u0080\u0001\u001a\u00020*2\u0007\u0010\u0081\u0001\u001a\u00020:H\u0002J\u0011\u0010\u0082\u0001\u001a\u00020*2\u0006\u00103\u001a\u00020-H\u0002J\u0011\u0010\u0083\u0001\u001a\u00020*2\u0006\u00103\u001a\u00020-H\u0002J\t\u0010\u0084\u0001\u001a\u00020*H\u0002J\t\u0010\u0085\u0001\u001a\u00020*H\u0002J\t\u0010\u0086\u0001\u001a\u00020*H\u0002J\u0012\u0010\u0087\u0001\u001a\u00020*2\u0007\u0010\u0088\u0001\u001a\u00020\u0011H\u0002J\t\u0010\u0089\u0001\u001a\u00020*H\u0002J\t\u0010\u008a\u0001\u001a\u00020*H\u0002J\t\u0010\u008b\u0001\u001a\u00020*H\u0002J\t\u0010\u008c\u0001\u001a\u00020*H\u0002J\u0011\u0010\u008d\u0001\u001a\u00020*2\u0006\u0010,\u001a\u00020-H\u0002J\t\u0010\u008e\u0001\u001a\u00020*H\u0002J\t\u0010\u008f\u0001\u001a\u00020*H\u0002J\t\u0010\u0090\u0001\u001a\u00020*H\u0002J\t\u0010\u0091\u0001\u001a\u00020*H\u0002J\u0012\u0010\u0092\u0001\u001a\u00030\u0093\u00012\u0006\u0010?\u001a\u00020@H\u0002R\u0010\u0010\u0004\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0019\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0005\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u001bR\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001e\u001a\u0004\u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010!\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\"\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010$\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010&\u001a\u0004\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0095\u0001"}, d2 = {"Lcom/xiaofan/bangfan/MainActivity;", "Lcom/xiaofan/bangfan/BaseActivity;", "Lcom/xiaofan/bangfan/TurnManager$Listener;", "()V", "ballBtn", "Landroid/widget/TextView;", "bubbleHideTask", "Ljava/lang/Runnable;", "chatInput", "Landroid/widget/EditText;", "chatLog", "Landroid/widget/LinearLayout;", "companionText", "companionTimeText", "dictate", "Lcom/xiaofan/bangfan/DictationController;", "dictating", "", "identityText", "main", "Landroid/os/Handler;", "mascotView", "Lcom/xiaofan/bangfan/MascotView;", "overflowDialog", "Landroid/app/AlertDialog;", "pageDots", "", "[Landroid/widget/TextView;", "pager", "Lcom/xiaofan/bangfan/HorizontalPager;", "profileAvatar", "Landroid/widget/ImageView;", "profileNameText", "profileSubText", "quickStatus", "refreshTask", "roleBadge", "sendBtnRef", "speechBubble", "updateCheckPosted", "wentBackground", "afterProfileChanged", "", "answerByCloudThenLocal", "text", "", "endpoint", "answerByLocalBrain", "answerOpenQuestion", "appendChat", "sender", NotificationCompat.CATEGORY_MESSAGE, "applyAvatarTo", "imageView", "applyNickname", "name", "autoStartBallIfNeeded", "avatarRes", "", "index", "beginDictation", "btn", "bindModuleClick", "view", "Landroid/view/View;", "target", "buildPage1", "buildPage2", "buildQuickStatus", "buildUi", "builtinChatReply", "countMissingPerms", "externalFallback", "fmtSeconds", "seconds", "", "fullWidthCell", "emoji", "title", "desc", "greetOnce", "isReservedPlannerName", "makeOutlineButton", "textSize", "", "maybeAskDefaultVoiceMic", "moduleCell", "newPage", "onActivityResult", "requestCode", "resultCode", "data", "Landroid/content/Intent;", "onAdCountdown", "onAdDetected", "reason", "onAutoTurnChanged", DebugKt.DEBUG_PROPERTY_VALUE_ON, "onBackPressed", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "onDestroy", "onPause", "onPresenceChanged", "present", "onProgress", "book", "chapter", "onRequestPermissionsResult", "permissions", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onResume", "onServiceReady", "ready", "onStop", "onTimedTurnChanged", "running", "interval", "onTurnFailed", "onTurned", "openQwen", "pickGreeting", "pickImageFromGallery", "postRefresh", "refreshAll", "refreshDots", "page", "replaceLastXiaoFan", "reply", "sendChat", "showAvatarChooser", "showBackgroundDialog", "showIdentityDialog", "first", "showMascotAvatarDialog", "showNicknameDialog", "showNightModeDialog", "showPage2OverflowDialog", "showSpeechBubble", "startBallService", "startPeriodicRefresh", "stopPeriodicRefresh", "toggleBall", "wrapScroll", "Landroid/widget/ScrollView;", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class MainActivity extends BaseActivity implements TurnManager.Listener {
     public static final Companion Companion = new Companion(null);
@@ -64,9 +70,8 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     private DictationController dictate;
     private boolean dictating;
     private TextView identityText;
-    private TextView mascotAvatarBtn;
     private MascotView mascotView;
-    private TextView nightBtn;
+    private AlertDialog overflowDialog;
     private TextView[] pageDots;
     private HorizontalPager pager;
     private ImageView profileAvatar;
@@ -144,7 +149,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
             if (checkSelfPermission("android.permission.RECORD_AUDIO") == 0) {
                 AppPrefs.INSTANCE.setVoiceMicAsked(this, true);
             } else {
-                this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda23
+                this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda19
                     @Override // java.lang.Runnable
                     public final void run() {
                         MainActivity.maybeAskDefaultVoiceMic$lambda$0(MainActivity.this);
@@ -172,7 +177,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         if (AppPrefs.INSTANCE.speakOn(this)) {
             final String msg = GreetingHelper.INSTANCE.coldGreeting();
             appendChat("小翻", msg);
-            this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda10
+            this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda6
                 @Override // java.lang.Runnable
                 public final void run() {
                     MainActivity.greetOnce$lambda$2(MainActivity.this, msg);
@@ -190,7 +195,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         if (mascotView != null) {
             mascotView.setSpeaking(true);
         }
-        this$0.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda7
+        this$0.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda3
             @Override // java.lang.Runnable
             public final void run() {
                 MainActivity.greetOnce$lambda$2$lambda$1(MainActivity.this);
@@ -225,7 +230,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         } catch (Throwable th) {
             Toast.makeText(this, "悬浮球启动失败：" + th.getMessage(), 1).show();
         }
-        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda6
+        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda2
             @Override // java.lang.Runnable
             public final void run() {
                 MainActivity.startBallService$lambda$3(MainActivity.this);
@@ -252,7 +257,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         if (this.wentBackground && !this.updateCheckPosted) {
             this.wentBackground = false;
             this.updateCheckPosted = true;
-            this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda20
+            this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda16
                 @Override // java.lang.Runnable
                 public final void run() {
                     MainActivity.onResume$lambda$4(MainActivity.this);
@@ -334,7 +339,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
             Intrinsics.checkNotNull(textViewArr5);
             TextView textView4 = textViewArr5[i];
             Intrinsics.checkNotNull(textView4);
-            textView4.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda34
+            textView4.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda35
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
                     MainActivity.buildUi$lambda$5(MainActivity.this, target, view);
@@ -516,13 +521,13 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         sendBtn.setBackground(sendBg);
         LinearLayout.LayoutParams sendLp = new LinearLayout.LayoutParams(-2, -2);
         sendLp.leftMargin = UiKit.INSTANCE.dp(this, 8.0f);
-        sendBtn.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda12
+        sendBtn.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda7
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 MainActivity.buildPage1$lambda$6(MainActivity.this, view);
             }
         });
-        sendBtn.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda13
+        sendBtn.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda8
             @Override // android.view.View.OnLongClickListener
             public final boolean onLongClick(View view) {
                 boolean buildPage1$lambda$7;
@@ -530,7 +535,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
                 return buildPage1$lambda$7;
             }
         });
-        sendBtn.setOnTouchListener(new View.OnTouchListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda14
+        sendBtn.setOnTouchListener(new View.OnTouchListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda9
             @Override // android.view.View.OnTouchListener
             public final boolean onTouch(View view, MotionEvent motionEvent) {
                 boolean buildPage1$lambda$8;
@@ -564,7 +569,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         imageView3.setBackground(avatarBg);
         ImageView imageView4 = this.profileAvatar;
         Intrinsics.checkNotNull(imageView4);
-        imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda15
+        imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda10
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 MainActivity.buildPage1$lambda$9(MainActivity.this, view);
@@ -572,7 +577,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         });
         ImageView imageView5 = this.profileAvatar;
         Intrinsics.checkNotNull(imageView5);
-        imageView5.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda16
+        imageView5.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda12
             @Override // android.view.View.OnLongClickListener
             public final boolean onLongClick(View view) {
                 boolean buildPage1$lambda$10;
@@ -612,7 +617,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         editName.setTextColor(UiKit.INSTANCE.color(this, R.color.brand));
         editName.setTextSize(12.0f);
         editName.setPadding(UiKit.INSTANCE.dp(this, 10.0f), UiKit.INSTANCE.dp(this, 6.0f), UiKit.INSTANCE.dp(this, 4.0f), UiKit.INSTANCE.dp(this, 6.0f));
-        editName.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda17
+        editName.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda13
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 MainActivity.buildPage1$lambda$11(MainActivity.this, view);
@@ -624,7 +629,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         dataEntry.setTextColor(UiKit.INSTANCE.color(this, R.color.muted));
         dataEntry.setTextSize(12.0f);
         dataEntry.setPadding(UiKit.INSTANCE.dp(this, 4.0f), UiKit.INSTANCE.dp(this, 6.0f), 0, UiKit.INSTANCE.dp(this, 6.0f));
-        dataEntry.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda18
+        dataEntry.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda14
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 MainActivity.buildPage1$lambda$12(MainActivity.this, view);
@@ -707,7 +712,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         bubble.setText(text);
         bubble.setAlpha(1.0f);
         bubble.setVisibility(0);
-        Runnable fadeTask = new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda28
+        Runnable fadeTask = new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda29
             @Override // java.lang.Runnable
             public final void run() {
                 MainActivity.showSpeechBubble$lambda$15(bubble);
@@ -720,7 +725,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     /* JADX INFO: Access modifiers changed from: private */
     public static final void showSpeechBubble$lambda$15(final TextView bubble) {
         Intrinsics.checkNotNullParameter(bubble, "$bubble");
-        bubble.animate().alpha(0.0f).setDuration(800L).withEndAction(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda35
+        bubble.animate().alpha(0.0f).setDuration(800L).withEndAction(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda36
             @Override // java.lang.Runnable
             public final void run() {
                 MainActivity.showSpeechBubble$lambda$15$lambda$14(bubble);
@@ -745,76 +750,44 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         title.setTextSize(24.0f);
         title.getPaint().setFakeBoldText(true);
         header.addView(title, new LinearLayout.LayoutParams(0, -2, 1.0f));
-        this.nightBtn = new TextView(this);
-        TextView textView = this.nightBtn;
-        Intrinsics.checkNotNull(textView);
-        textView.setTextColor(UiKit.INSTANCE.color(this, R.color.brand));
-        TextView textView2 = this.nightBtn;
-        Intrinsics.checkNotNull(textView2);
-        textView2.setTextSize(18.0f);
-        TextView textView3 = this.nightBtn;
-        Intrinsics.checkNotNull(textView3);
-        textView3.setPadding(UiKit.INSTANCE.dp(this, 8.0f), UiKit.INSTANCE.dp(this, 4.0f), UiKit.INSTANCE.dp(this, 8.0f), UiKit.INSTANCE.dp(this, 4.0f));
-        TextView textView4 = this.nightBtn;
-        Intrinsics.checkNotNull(textView4);
-        textView4.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda31
+        TextView overflowBtn = makeOutlineButton("⋯", 20.0f);
+        overflowBtn.setContentDescription("更多设置");
+        overflowBtn.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda32
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 MainActivity.buildPage2$lambda$16(MainActivity.this, view);
             }
         });
-        header.addView(this.nightBtn);
-        this.mascotAvatarBtn = new TextView(this);
-        TextView textView5 = this.mascotAvatarBtn;
-        Intrinsics.checkNotNull(textView5);
-        textView5.setText("小翻形象");
-        TextView textView6 = this.mascotAvatarBtn;
-        Intrinsics.checkNotNull(textView6);
-        textView6.setTextColor(UiKit.INSTANCE.color(this, R.color.brand));
-        TextView textView7 = this.mascotAvatarBtn;
-        Intrinsics.checkNotNull(textView7);
-        textView7.setTextSize(13.0f);
-        TextView textView8 = this.mascotAvatarBtn;
-        Intrinsics.checkNotNull(textView8);
-        textView8.setPadding(UiKit.INSTANCE.dp(this, 8.0f), UiKit.INSTANCE.dp(this, 6.0f), 0, UiKit.INSTANCE.dp(this, 6.0f));
-        TextView textView9 = this.mascotAvatarBtn;
-        Intrinsics.checkNotNull(textView9);
-        textView9.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda32
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                MainActivity.buildPage2$lambda$17(MainActivity.this, view);
-            }
-        });
-        header.addView(this.mascotAvatarBtn);
+        header.addView(overflowBtn);
         page.addView(header, UiKit.INSTANCE.matchWrap());
         this.ballBtn = new TextView(this);
-        TextView textView10 = this.ballBtn;
-        Intrinsics.checkNotNull(textView10);
-        textView10.setGravity(17);
-        TextView textView11 = this.ballBtn;
-        Intrinsics.checkNotNull(textView11);
-        textView11.setTextColor(-1);
-        TextView textView12 = this.ballBtn;
-        Intrinsics.checkNotNull(textView12);
-        textView12.setTextSize(17.0f);
-        TextView textView13 = this.ballBtn;
-        Intrinsics.checkNotNull(textView13);
-        textView13.getPaint().setFakeBoldText(true);
-        TextView textView14 = this.ballBtn;
-        Intrinsics.checkNotNull(textView14);
-        textView14.setPadding(UiKit.INSTANCE.dp(this, 16.0f), UiKit.INSTANCE.dp(this, 15.0f), UiKit.INSTANCE.dp(this, 16.0f), UiKit.INSTANCE.dp(this, 15.0f));
+        TextView textView = this.ballBtn;
+        Intrinsics.checkNotNull(textView);
+        textView.setGravity(17);
+        TextView textView2 = this.ballBtn;
+        Intrinsics.checkNotNull(textView2);
+        textView2.setTextColor(-1);
+        TextView textView3 = this.ballBtn;
+        Intrinsics.checkNotNull(textView3);
+        textView3.setTextSize(17.0f);
+        TextView textView4 = this.ballBtn;
+        Intrinsics.checkNotNull(textView4);
+        textView4.getPaint().setFakeBoldText(true);
+        TextView textView5 = this.ballBtn;
+        Intrinsics.checkNotNull(textView5);
+        textView5.setPadding(UiKit.INSTANCE.dp(this, 16.0f), UiKit.INSTANCE.dp(this, 15.0f), UiKit.INSTANCE.dp(this, 16.0f), UiKit.INSTANCE.dp(this, 15.0f));
         GradientDrawable ballBg = new GradientDrawable();
         ballBg.setColor(UiKit.INSTANCE.color(this, R.color.brand));
         ballBg.setCornerRadius(UiKit.INSTANCE.dp(this, 16.0f));
-        TextView textView15 = this.ballBtn;
-        Intrinsics.checkNotNull(textView15);
-        textView15.setBackground(ballBg);
-        TextView textView16 = this.ballBtn;
-        Intrinsics.checkNotNull(textView16);
-        textView16.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda33
+        TextView textView6 = this.ballBtn;
+        Intrinsics.checkNotNull(textView6);
+        textView6.setBackground(ballBg);
+        TextView textView7 = this.ballBtn;
+        Intrinsics.checkNotNull(textView7);
+        textView7.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda33
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                MainActivity.buildPage2$lambda$18(MainActivity.this, view);
+                MainActivity.buildPage2$lambda$17(MainActivity.this, view);
             }
         });
         page.addView(this.ballBtn, UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 14.0f), 0, UiKit.INSTANCE.dp(this, 12.0f)));
@@ -848,17 +821,11 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     /* JADX INFO: Access modifiers changed from: private */
     public static final void buildPage2$lambda$16(MainActivity this$0, View it) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
-        this$0.showNightModeDialog();
+        this$0.showPage2OverflowDialog();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final void buildPage2$lambda$17(MainActivity this$0, View it) {
-        Intrinsics.checkNotNullParameter(this$0, "this$0");
-        this$0.showMascotAvatarDialog();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void buildPage2$lambda$18(MainActivity this$0, View it) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.toggleBall();
     }
@@ -945,16 +912,16 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     }
 
     private final void bindModuleClick(View view, final String target) {
-        view.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda8
+        view.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda4
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
-                MainActivity.bindModuleClick$lambda$19(MainActivity.this, target, view2);
+                MainActivity.bindModuleClick$lambda$18(MainActivity.this, target, view2);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void bindModuleClick$lambda$19(MainActivity this$0, String target, View it) {
+    public static final void bindModuleClick$lambda$18(MainActivity this$0, String target, View it) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(target, "$target");
         ClickFx.INSTANCE.play(this$0);
@@ -1181,16 +1148,16 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     }
 
     private final void answerByCloudThenLocal(final String text, final String endpoint) {
-        new Thread(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda36
+        new Thread(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda1
             @Override // java.lang.Runnable
             public final void run() {
-                MainActivity.answerByCloudThenLocal$lambda$22(endpoint, this, text);
+                MainActivity.answerByCloudThenLocal$lambda$21(endpoint, this, text);
             }
         }, "xf-chat-cloud").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByCloudThenLocal$lambda$22(String endpoint, final MainActivity this$0, final String text) {
+    public static final void answerByCloudThenLocal$lambda$21(String endpoint, final MainActivity this$0, final String text) {
         final String cloud = "";
         Intrinsics.checkNotNullParameter(endpoint, "$endpoint");
         Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -1204,16 +1171,16 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         } catch (Throwable th) {
             Log.w("XFCHAT", "cloud failed, fallback local", th);
         }
-        this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda24
+        this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda37
             @Override // java.lang.Runnable
             public final void run() {
-                MainActivity.answerByCloudThenLocal$lambda$22$lambda$21(cloud, this$0, text);
+                MainActivity.answerByCloudThenLocal$lambda$21$lambda$20(cloud, this$0, text);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByCloudThenLocal$lambda$22$lambda$21(String cloud, final MainActivity this$0, String text) {
+    public static final void answerByCloudThenLocal$lambda$21$lambda$20(String cloud, final MainActivity this$0, String text) {
         Intrinsics.checkNotNullParameter(cloud, "$cloud");
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(text, "$text");
@@ -1224,10 +1191,10 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
             if (mascotView != null) {
                 mascotView.setSpeaking(true);
             }
-            this$0.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda11
+            this$0.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda28
                 @Override // java.lang.Runnable
                 public final void run() {
-                    MainActivity.answerByCloudThenLocal$lambda$22$lambda$21$lambda$20(MainActivity.this);
+                    MainActivity.answerByCloudThenLocal$lambda$21$lambda$20$lambda$19(MainActivity.this);
                 }
             }, Math.min((long) AppPrefs.FALLBACK_READ_MS, cloud.length() * 220));
         } else if (LocalBrain.INSTANCE.isReady(this$0)) {
@@ -1238,7 +1205,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByCloudThenLocal$lambda$22$lambda$21$lambda$20(MainActivity this$0) {
+    public static final void answerByCloudThenLocal$lambda$21$lambda$20$lambda$19(MainActivity this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         MascotView mascotView = this$0.mascotView;
         if (mascotView != null) {
@@ -1250,31 +1217,31 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         new Thread(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                MainActivity.answerByLocalBrain$lambda$28(MainActivity.this, text);
+                MainActivity.answerByLocalBrain$lambda$27(MainActivity.this, text);
             }
         }, "xf-chat-local").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByLocalBrain$lambda$28(final MainActivity this$0, final String text) {
+    public static final void answerByLocalBrain$lambda$27(final MainActivity this$0, final String text) {
         final String ans;
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(text, "$text");
         Log.i("XFCHAT", "answerByLocalBrain start ready=" + LocalBrain.INSTANCE.isReady(this$0));
-        this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda1
+        this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda21
             @Override // java.lang.Runnable
             public final void run() {
-                MainActivity.answerByLocalBrain$lambda$28$lambda$23(MainActivity.this);
+                MainActivity.answerByLocalBrain$lambda$27$lambda$22(MainActivity.this);
             }
         });
         try {
             boolean warmed = LocalBrain.INSTANCE.loadBlocking(this$0, 30000L);
             Log.i("XFCHAT", "warmed=" + warmed);
             if (!warmed) {
-                this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda2
+                this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda23
                     @Override // java.lang.Runnable
                     public final void run() {
-                        MainActivity.answerByLocalBrain$lambda$28$lambda$24(MainActivity.this, text);
+                        MainActivity.answerByLocalBrain$lambda$27$lambda$23(MainActivity.this, text);
                     }
                 });
                 return;
@@ -1289,24 +1256,24 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
             if (ans == null) {
                 ans = "";
             }
-            this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda4
+            this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda25
                 @Override // java.lang.Runnable
                 public final void run() {
-                    MainActivity.answerByLocalBrain$lambda$28$lambda$26(ans, this$0, text);
+                    MainActivity.answerByLocalBrain$lambda$27$lambda$25(ans, this$0, text);
                 }
             });
         } finally {
-            this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda3
+            this$0.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda24
                 @Override // java.lang.Runnable
                 public final void run() {
-                    MainActivity.answerByLocalBrain$lambda$28$lambda$27(MainActivity.this);
+                    MainActivity.answerByLocalBrain$lambda$27$lambda$26(MainActivity.this);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByLocalBrain$lambda$28$lambda$23(MainActivity this$0) {
+    public static final void answerByLocalBrain$lambda$27$lambda$22(MainActivity this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.replaceLastXiaoFan("我想一想…");
         MascotView mascotView = this$0.mascotView;
@@ -1316,14 +1283,14 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByLocalBrain$lambda$28$lambda$24(MainActivity this$0, String text) {
+    public static final void answerByLocalBrain$lambda$27$lambda$23(MainActivity this$0, String text) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(text, "$text");
         this$0.externalFallback(text);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByLocalBrain$lambda$28$lambda$26(String ans, final MainActivity this$0, String text) {
+    public static final void answerByLocalBrain$lambda$27$lambda$25(String ans, final MainActivity this$0, String text) {
         Intrinsics.checkNotNullParameter(ans, "$ans");
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(text, "$text");
@@ -1337,16 +1304,16 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         if (mascotView != null) {
             mascotView.setSpeaking(true);
         }
-        this$0.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda27
+        this$0.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda17
             @Override // java.lang.Runnable
             public final void run() {
-                MainActivity.answerByLocalBrain$lambda$28$lambda$26$lambda$25(MainActivity.this);
+                MainActivity.answerByLocalBrain$lambda$27$lambda$25$lambda$24(MainActivity.this);
             }
         }, Math.min((long) AppPrefs.FALLBACK_READ_MS, ans.length() * 220));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByLocalBrain$lambda$28$lambda$26$lambda$25(MainActivity this$0) {
+    public static final void answerByLocalBrain$lambda$27$lambda$25$lambda$24(MainActivity this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         MascotView mascotView = this$0.mascotView;
         if (mascotView != null) {
@@ -1355,7 +1322,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void answerByLocalBrain$lambda$28$lambda$27(MainActivity this$0) {
+    public static final void answerByLocalBrain$lambda$27$lambda$26(MainActivity this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         MascotView mascotView = this$0.mascotView;
         if (mascotView != null) {
@@ -1525,16 +1492,16 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         container.setPadding(UiKit.INSTANCE.dp(this, 20.0f), UiKit.INSTANCE.dp(this, 8.0f), UiKit.INSTANCE.dp(this, 20.0f), 0);
         container.addView(UiKit.INSTANCE.bodyText(this, "我会用这个称呼跟你说话。"));
         container.addView(input, UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 12.0f), 0, 0));
-        new AlertDialog.Builder(this).setTitle("我的称呼").setView(container).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda9
+        new AlertDialog.Builder(this).setTitle("我的称呼").setView(container).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda5
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                MainActivity.showNicknameDialog$lambda$29(MainActivity.this, input, dialogInterface, i);
+                MainActivity.showNicknameDialog$lambda$28(MainActivity.this, input, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showNicknameDialog$lambda$29(MainActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
+    public static final void showNicknameDialog$lambda$28(MainActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(input, "$input");
         this$0.applyNickname(StringsKt.trim((CharSequence) input.getText().toString()).toString());
@@ -1596,37 +1563,38 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         container.setPadding(UiKit.INSTANCE.dp(this, 20.0f), UiKit.INSTANCE.dp(this, 8.0f), UiKit.INSTANCE.dp(this, 20.0f), 0);
         container.addView(UiKit.INSTANCE.bodyText(this, first ? "先给自己设个称呼吧，之后我就这么叫你。\n头像和小翻形象稍后都能在「我的」里改。" : "修改称呼"));
         container.addView(input, UiKit.INSTANCE.margin(this, 0, UiKit.INSTANCE.dp(this, 12.0f), 0, 0));
-        new AlertDialog.Builder(this).setTitle(first ? "认识一下" : "我的称呼").setView(container).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda21
+        new AlertDialog.Builder(this).setTitle(first ? "认识一下" : "我的称呼").setView(container).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda18
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                MainActivity.showIdentityDialog$lambda$31(MainActivity.this, input, dialogInterface, i);
+                MainActivity.showIdentityDialog$lambda$30(MainActivity.this, input, dialogInterface, i);
             }
         }).setNegativeButton(first ? "稍后再说" : "取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showIdentityDialog$lambda$31(final MainActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
+    public static final void showIdentityDialog$lambda$30(final MainActivity this$0, EditText input, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(input, "$input");
         this$0.applyNickname(StringsKt.trim((CharSequence) input.getText().toString()).toString());
         if (TextUtils.isEmpty(AppPrefs.INSTANCE.role(this$0))) {
-            this$0.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda5
+            this$0.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda20
                 @Override // java.lang.Runnable
                 public final void run() {
-                    MainActivity.showIdentityDialog$lambda$31$lambda$30(MainActivity.this);
+                    MainActivity.showIdentityDialog$lambda$30$lambda$29(MainActivity.this);
                 }
             }, 500L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showIdentityDialog$lambda$31$lambda$30(MainActivity this$0) {
+    public static final void showIdentityDialog$lambda$30$lambda$29(MainActivity this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         AppPrefs.INSTANCE.setRole(this$0, "reader");
         this$0.refreshAll();
     }
 
-    private final void showMascotAvatarDialog() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void showMascotAvatarDialog() {
         LinearLayout container = new LinearLayout(this);
         container.setOrientation(1);
         char c = 0;
@@ -1653,7 +1621,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
             thumb.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda22
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
-                    MainActivity.showMascotAvatarDialog$lambda$32(selected, i2, preview, this, thumbs, view);
+                    MainActivity.showMascotAvatarDialog$lambda$31(selected, i2, preview, this, thumbs, view);
                 }
             });
             LinearLayout.LayoutParams thumbLp = new LinearLayout.LayoutParams(UiKit.INSTANCE.dp(this, 56.0f), UiKit.INSTANCE.dp(this, 56.0f));
@@ -1669,16 +1637,16 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         container.addView(hScroll, UiKit.INSTANCE.matchWrap());
         ScrollView scroll = new ScrollView(this);
         scroll.addView(container);
-        new AlertDialog.Builder(this).setTitle("小翻形象").setView(scroll).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda30
+        new AlertDialog.Builder(this).setTitle("小翻形象").setView(scroll).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda31
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i3) {
-                MainActivity.showMascotAvatarDialog$lambda$33(MainActivity.this, selected, dialogInterface, i3);
+                MainActivity.showMascotAvatarDialog$lambda$32(MainActivity.this, selected, dialogInterface, i3);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showMascotAvatarDialog$lambda$32(int[] selected, int $i, ImageView preview, MainActivity this$0, LinearLayout thumbs, View it) {
+    public static final void showMascotAvatarDialog$lambda$31(int[] selected, int $i, ImageView preview, MainActivity this$0, LinearLayout thumbs, View it) {
         Intrinsics.checkNotNullParameter(selected, "$selected");
         Intrinsics.checkNotNullParameter(preview, "$preview");
         Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -1692,7 +1660,7 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showMascotAvatarDialog$lambda$33(MainActivity this$0, int[] selected, DialogInterface dialogInterface, int i) {
+    public static final void showMascotAvatarDialog$lambda$32(MainActivity this$0, int[] selected, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(selected, "$selected");
         AppPrefs.INSTANCE.setAvatarIndex(this$0, selected[0]);
@@ -1873,20 +1841,20 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     private final void toggleBall() {
         if (FloatBallService.Companion.isRunning()) {
             stopService(new Intent(this, FloatBallService.class));
-            this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda25
+            this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda26
                 @Override // java.lang.Runnable
                 public final void run() {
-                    MainActivity.toggleBall$lambda$38(MainActivity.this);
+                    MainActivity.toggleBall$lambda$37(MainActivity.this);
                 }
             }, 350L);
         } else if (!UiKit.INSTANCE.canOverlay(this)) {
             Toast.makeText(this, "请先在「前置准备」里开启悬浮窗权限", 1).show();
             UiKit.INSTANCE.openOverlaySettings(this);
         } else if (!UiKit.INSTANCE.isA11yEnabled(this)) {
-            new AlertDialog.Builder(this).setTitle("需要无障碍服务").setMessage("小翻靠无障碍服务来帮你翻页、读屏、拦截音量键。\n开启后系统会提示「可访问你的屏幕内容」——这是对所有无障碍服务的标准提示，小翻只在本机识别页面，不上传任何内容。").setPositiveButton("去开启", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda26
+            new AlertDialog.Builder(this).setTitle("需要无障碍服务").setMessage("小翻靠无障碍服务来帮你翻页、读屏、拦截音量键。\n开启后系统会提示「可访问你的屏幕内容」——这是对所有无障碍服务的标准提示，小翻只在本机识别页面，不上传任何内容。").setPositiveButton("去开启", new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda27
                 @Override // android.content.DialogInterface.OnClickListener
                 public final void onClick(DialogInterface dialogInterface, int i) {
-                    MainActivity.toggleBall$lambda$39(MainActivity.this, dialogInterface, i);
+                    MainActivity.toggleBall$lambda$38(MainActivity.this, dialogInterface, i);
                 }
             }).setNegativeButton("先不开", (DialogInterface.OnClickListener) null).show();
         } else if (!AppPrefs.INSTANCE.profileDone(this)) {
@@ -1898,13 +1866,13 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void toggleBall$lambda$38(MainActivity this$0) {
+    public static final void toggleBall$lambda$37(MainActivity this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.refreshAll();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void toggleBall$lambda$39(MainActivity this$0, DialogInterface dialogInterface, int i) {
+    public static final void toggleBall$lambda$38(MainActivity this$0, DialogInterface dialogInterface, int i) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         UiKit.INSTANCE.openA11ySettings(this$0);
     }
@@ -1958,6 +1926,10 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         if (mascotView2 != null) {
             mascotView2.setNightGlow(isNightUi());
         }
+        MascotView mascotView3 = this.mascotView;
+        if (mascotView3 != null) {
+            mascotView3.applyBackgroundPrefs(this);
+        }
         long j = 0;
         if (FloatBallService.Companion.isRunning() && (companion = FloatBallService.Companion.getInstance()) != null) {
             j = companion.liveCompanionSeconds();
@@ -1980,34 +1952,31 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         if (textView5 != null) {
             textView5.setText(buildQuickStatus());
         }
-        TextView textView6 = this.nightBtn;
-        if (textView6 != null) {
-            textView6.setText(isNightUi() ? "☀" : "☾");
-        }
         applyAvatarTo(this.profileAvatar);
-        TextView textView7 = this.profileNameText;
-        if (textView7 != null) {
-            textView7.setText(AppPrefs.INSTANCE.nickname(this));
+        TextView textView6 = this.profileNameText;
+        if (textView6 != null) {
+            textView6.setText(AppPrefs.INSTANCE.nickname(this));
         }
-        TextView textView8 = this.profileSubText;
-        if (textView8 == null) {
+        TextView textView7 = this.profileSubText;
+        if (textView7 == null) {
             return;
         }
-        textView8.setText(isPlanner ? "策划身份 · 金色胸灯标识" : "点头像换照片 · 长按恢复默认");
+        textView7.setText(isPlanner ? "策划身份 · 金色胸灯标识" : "点头像换照片 · 长按恢复默认");
     }
 
-    private final void showNightModeDialog() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void showNightModeDialog() {
         int state = AppPrefs.INSTANCE.nightModeState(this);
-        new AlertDialog.Builder(this).setTitle("夜间模式").setSingleChoiceItems(new String[]{"日间模式", "夜间模式", "跟随系统（默认）"}, state, new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda29
+        new AlertDialog.Builder(this).setTitle("夜间模式").setSingleChoiceItems(new String[]{"日间模式", "夜间模式", "跟随系统（默认）"}, state, new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda30
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
-                MainActivity.showNightModeDialog$lambda$41(MainActivity.this, dialogInterface, i);
+                MainActivity.showNightModeDialog$lambda$40(MainActivity.this, dialogInterface, i);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void showNightModeDialog$lambda$41(MainActivity this$0, DialogInterface dialogInterface, int which) {
+    public static final void showNightModeDialog$lambda$40(MainActivity this$0, DialogInterface dialogInterface, int which) {
         int i;
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         AppPrefs appPrefs = AppPrefs.INSTANCE;
@@ -2026,6 +1995,179 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
         appPrefs.setNightModeState(mainActivity, i);
         this$0.refreshAll();
         this$0.recreate();
+    }
+
+    static /* synthetic */ TextView makeOutlineButton$default(MainActivity mainActivity, String str, float f, int i, Object obj) {
+        if ((i & 2) != 0) {
+            f = 14.0f;
+        }
+        return mainActivity.makeOutlineButton(str, f);
+    }
+
+    private final TextView makeOutlineButton(String text, float textSize) {
+        TextView btn = new TextView(this);
+        btn.setText(text);
+        btn.setTextSize(textSize);
+        btn.setTextColor(UiKit.INSTANCE.color(this, R.color.brand));
+        btn.setGravity(17);
+        int padV = UiKit.INSTANCE.dp(this, 8.0f);
+        int padH = UiKit.INSTANCE.dp(this, 14.0f);
+        btn.setPadding(padH, padV, padH, padV);
+        GradientDrawable bg = new GradientDrawable();
+        bg.setColor(UiKit.INSTANCE.color(this, R.color.card));
+        bg.setCornerRadius(UiKit.INSTANCE.dp(this, 10.0f));
+        bg.setStroke(UiKit.INSTANCE.dp(this, 1.0f), UiKit.INSTANCE.color(this, R.color.brand));
+        btn.setBackground(bg);
+        btn.setMinWidth(UiKit.INSTANCE.dp(this, 96.0f));
+        return btn;
+    }
+
+    private final void showPage2OverflowDialog() {
+        String nightLabel;
+        LinearLayout box = new LinearLayout(this);
+        box.setOrientation(1);
+        int pad = UiKit.INSTANCE.dp(this, 18.0f);
+        box.setPadding(pad, pad, pad, UiKit.INSTANCE.dp(this, 6.0f));
+        int gap = UiKit.INSTANCE.dp(this, 12.0f);
+        switch (AppPrefs.INSTANCE.nightModeState(this)) {
+            case 0:
+                nightLabel = "夜间模式（当前：日间）";
+                break;
+            case 1:
+                nightLabel = "夜间模式（当前：夜间）";
+                break;
+            default:
+                nightLabel = "夜间模式（当前：跟随系统）";
+                break;
+        }
+        String bgLabel = Intrinsics.areEqual(AppPrefs.INSTANCE.bgMode(this), AppPrefs.BG_MODE_CUSTOM) ? "背景设置（当前：固定背景）" : "背景设置（当前：随时间）";
+        List btns = CollectionsKt.listOf((Object[]) new Pair[]{TuplesKt.to(makeOutlineButton$default(this, nightLabel, 0.0f, 2, null), new Function0<Unit>() { // from class: com.xiaofan.bangfan.MainActivity$showPage2OverflowDialog$btns$1
+            /* JADX INFO: Access modifiers changed from: package-private */
+            {
+                super(0);
+            }
+
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Unit invoke() {
+                invoke2();
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2() {
+                MainActivity.this.showNightModeDialog();
+            }
+        }), TuplesKt.to(makeOutlineButton$default(this, "小翻形象", 0.0f, 2, null), new Function0<Unit>() { // from class: com.xiaofan.bangfan.MainActivity$showPage2OverflowDialog$btns$2
+            /* JADX INFO: Access modifiers changed from: package-private */
+            {
+                super(0);
+            }
+
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Unit invoke() {
+                invoke2();
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2() {
+                MainActivity.this.showMascotAvatarDialog();
+            }
+        }), TuplesKt.to(makeOutlineButton$default(this, bgLabel, 0.0f, 2, null), new Function0<Unit>() { // from class: com.xiaofan.bangfan.MainActivity$showPage2OverflowDialog$btns$3
+            /* JADX INFO: Access modifiers changed from: package-private */
+            {
+                super(0);
+            }
+
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Unit invoke() {
+                invoke2();
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2() {
+                MainActivity.this.showBackgroundDialog();
+            }
+        })});
+        List $this$forEachIndexed$iv = btns;
+        int i = 0;
+        for (Object item$iv : $this$forEachIndexed$iv) {
+            int index$iv = i + 1;
+            if (i < 0) {
+                CollectionsKt.throwIndexOverflow();
+            }
+            Pair pair = (Pair) item$iv;
+            TextView btn = (TextView) pair.component1();
+            final Function0 action = (Function0) pair.component2();
+            List btns2 = btns;
+            int pad2 = pad;
+            String nightLabel2 = nightLabel;
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
+            if (i > 0) {
+                lp.topMargin = gap;
+            }
+            box.addView(btn, lp);
+            btn.setOnClickListener(new View.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda34
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view) {
+                    MainActivity.showPage2OverflowDialog$lambda$42$lambda$41(MainActivity.this, action, view);
+                }
+            });
+            i = index$iv;
+            btns = btns2;
+            pad = pad2;
+            nightLabel = nightLabel2;
+        }
+        this.overflowDialog = new AlertDialog.Builder(this).setTitle("更多设置").setView(box).setNegativeButton("关闭", (DialogInterface.OnClickListener) null).show();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void showPage2OverflowDialog$lambda$42$lambda$41(MainActivity this$0, Function0 action, View it) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        Intrinsics.checkNotNullParameter(action, "$action");
+        ClickFx.INSTANCE.play(this$0);
+        AlertDialog alertDialog = this$0.overflowDialog;
+        if (alertDialog != null) {
+            alertDialog.dismiss();
+        }
+        action.invoke();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void showBackgroundDialog() {
+        int current;
+        final String[] titles = {"随时间变换（早/夕阳/夜/星空自动切换）", "常驻 · 太阳蓝天白云", "常驻 · 夕阳火烧云", "常驻 · 月亮夜空", "常驻 · 满天星"};
+        if (Intrinsics.areEqual(AppPrefs.INSTANCE.bgMode(this), AppPrefs.BG_MODE_CUSTOM)) {
+            current = RangesKt.coerceIn(AppPrefs.INSTANCE.customBgScene(this) + 1, 1, 4);
+        } else {
+            current = 0;
+        }
+        new AlertDialog.Builder(this).setTitle("背景设置").setSingleChoiceItems(titles, current, new DialogInterface.OnClickListener() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda11
+            @Override // android.content.DialogInterface.OnClickListener
+            public final void onClick(DialogInterface dialogInterface, int i) {
+                MainActivity.showBackgroundDialog$lambda$43(MainActivity.this, titles, dialogInterface, i);
+            }
+        }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).show();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void showBackgroundDialog$lambda$43(MainActivity this$0, String[] titles, DialogInterface d, int which) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        Intrinsics.checkNotNullParameter(titles, "$titles");
+        if (which == 0) {
+            AppPrefs.INSTANCE.setBgMode(this$0, "time");
+            Toast.makeText(this$0, "已切换为随时间变换背景", 0).show();
+        } else {
+            AppPrefs.INSTANCE.setBgMode(this$0, AppPrefs.BG_MODE_CUSTOM);
+            AppPrefs.INSTANCE.setCustomBgScene(this$0, which - 1);
+            Toast.makeText(this$0, "背景已固定为" + StringsKt.removePrefix(titles[which], (CharSequence) "常驻 · "), 0).show();
+        }
+        MascotView mascotView = this$0.mascotView;
+        if (mascotView != null) {
+            mascotView.applyBackgroundPrefs(this$0);
+        }
+        d.dismiss();
     }
 
     private final String fmtSeconds(long seconds) {
@@ -2091,16 +2233,16 @@ public final class MainActivity extends BaseActivity implements TurnManager.List
     }
 
     private final void postRefresh() {
-        this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda19
+        this.main.post(new Runnable() { // from class: com.xiaofan.bangfan.MainActivity$$ExternalSyntheticLambda15
             @Override // java.lang.Runnable
             public final void run() {
-                MainActivity.postRefresh$lambda$42(MainActivity.this);
+                MainActivity.postRefresh$lambda$44(MainActivity.this);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void postRefresh$lambda$42(MainActivity this$0) {
+    public static final void postRefresh$lambda$44(MainActivity this$0) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         if (this$0.isFinishing()) {
             return;

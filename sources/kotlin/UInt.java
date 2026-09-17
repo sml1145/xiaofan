@@ -18,22 +18,22 @@ public final class UInt implements Comparable<UInt> {
     private final int data;
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ UInt m362boximpl(int i) {
+    public static final /* synthetic */ UInt m364boximpl(int i) {
         return new UInt(i);
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static int m368constructorimpl(int i) {
+    public static int m370constructorimpl(int i) {
         return i;
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m374equalsimpl(int i, Object obj) {
-        return (obj instanceof UInt) && i == ((UInt) obj).m420unboximpl();
+    public static boolean m376equalsimpl(int i, Object obj) {
+        return (obj instanceof UInt) && i == ((UInt) obj).m422unboximpl();
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m375equalsimpl0(int i, int i2) {
+    public static final boolean m377equalsimpl0(int i, int i2) {
         return i == i2;
     }
 
@@ -41,26 +41,26 @@ public final class UInt implements Comparable<UInt> {
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m380hashCodeimpl(int i) {
+    public static int m382hashCodeimpl(int i) {
         return Integer.hashCode(i);
     }
 
     public boolean equals(Object obj) {
-        return m374equalsimpl(this.data, obj);
+        return m376equalsimpl(this.data, obj);
     }
 
     public int hashCode() {
-        return m380hashCodeimpl(this.data);
+        return m382hashCodeimpl(this.data);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ int m420unboximpl() {
+    public final /* synthetic */ int m422unboximpl() {
         return this.data;
     }
 
     @Override // java.lang.Comparable
     public /* bridge */ /* synthetic */ int compareTo(UInt uInt) {
-        return UnsignedKt.uintCompare(m420unboximpl(), uInt.m420unboximpl());
+        return UnsignedKt.uintCompare(m422unboximpl(), uInt.m422unboximpl());
     }
 
     private /* synthetic */ UInt(int data) {
@@ -80,282 +80,282 @@ public final class UInt implements Comparable<UInt> {
     }
 
     /* renamed from: compareTo-7apg3OU  reason: not valid java name */
-    private static final int m363compareTo7apg3OU(int arg0, byte other) {
+    private static final int m365compareTo7apg3OU(int arg0, byte other) {
         int compare;
-        compare = Integer.compare(arg0 ^ Integer.MIN_VALUE, m368constructorimpl(other & UByte.MAX_VALUE) ^ Integer.MIN_VALUE);
+        compare = Integer.compare(arg0 ^ Integer.MIN_VALUE, m370constructorimpl(other & UByte.MAX_VALUE) ^ Integer.MIN_VALUE);
         return compare;
     }
 
     /* renamed from: compareTo-xj2QHRw  reason: not valid java name */
-    private static final int m367compareToxj2QHRw(int arg0, short other) {
+    private static final int m369compareToxj2QHRw(int arg0, short other) {
         int compare;
-        compare = Integer.compare(arg0 ^ Integer.MIN_VALUE, m368constructorimpl(65535 & other) ^ Integer.MIN_VALUE);
+        compare = Integer.compare(arg0 ^ Integer.MIN_VALUE, m370constructorimpl(65535 & other) ^ Integer.MIN_VALUE);
         return compare;
     }
 
     /* renamed from: compareTo-WZ4Q5Ns  reason: not valid java name */
-    private int m365compareToWZ4Q5Ns(int other) {
-        return UnsignedKt.uintCompare(m420unboximpl(), other);
+    private int m367compareToWZ4Q5Ns(int other) {
+        return UnsignedKt.uintCompare(m422unboximpl(), other);
     }
 
     /* renamed from: compareTo-WZ4Q5Ns  reason: not valid java name */
-    private static int m366compareToWZ4Q5Ns(int arg0, int other) {
+    private static int m368compareToWZ4Q5Ns(int arg0, int other) {
         return UnsignedKt.uintCompare(arg0, other);
     }
 
     /* renamed from: compareTo-VKZWuLQ  reason: not valid java name */
-    private static final int m364compareToVKZWuLQ(int arg0, long other) {
+    private static final int m366compareToVKZWuLQ(int arg0, long other) {
         int compare;
-        compare = Long.compare(ULong.m447constructorimpl(arg0 & 4294967295L) ^ Long.MIN_VALUE, other ^ Long.MIN_VALUE);
+        compare = Long.compare(ULong.m449constructorimpl(arg0 & 4294967295L) ^ Long.MIN_VALUE, other ^ Long.MIN_VALUE);
         return compare;
     }
 
     /* renamed from: plus-7apg3OU  reason: not valid java name */
-    private static final int m392plus7apg3OU(int arg0, byte other) {
-        return m368constructorimpl(m368constructorimpl(other & UByte.MAX_VALUE) + arg0);
+    private static final int m394plus7apg3OU(int arg0, byte other) {
+        return m370constructorimpl(m370constructorimpl(other & UByte.MAX_VALUE) + arg0);
     }
 
     /* renamed from: plus-xj2QHRw  reason: not valid java name */
-    private static final int m395plusxj2QHRw(int arg0, short other) {
-        return m368constructorimpl(m368constructorimpl(65535 & other) + arg0);
+    private static final int m397plusxj2QHRw(int arg0, short other) {
+        return m370constructorimpl(m370constructorimpl(65535 & other) + arg0);
     }
 
     /* renamed from: plus-WZ4Q5Ns  reason: not valid java name */
-    private static final int m394plusWZ4Q5Ns(int arg0, int other) {
-        return m368constructorimpl(arg0 + other);
+    private static final int m396plusWZ4Q5Ns(int arg0, int other) {
+        return m370constructorimpl(arg0 + other);
     }
 
     /* renamed from: plus-VKZWuLQ  reason: not valid java name */
-    private static final long m393plusVKZWuLQ(int arg0, long other) {
-        return ULong.m447constructorimpl(ULong.m447constructorimpl(arg0 & 4294967295L) + other);
+    private static final long m395plusVKZWuLQ(int arg0, long other) {
+        return ULong.m449constructorimpl(ULong.m449constructorimpl(arg0 & 4294967295L) + other);
     }
 
     /* renamed from: minus-7apg3OU  reason: not valid java name */
-    private static final int m383minus7apg3OU(int arg0, byte other) {
-        return m368constructorimpl(arg0 - m368constructorimpl(other & UByte.MAX_VALUE));
+    private static final int m385minus7apg3OU(int arg0, byte other) {
+        return m370constructorimpl(arg0 - m370constructorimpl(other & UByte.MAX_VALUE));
     }
 
     /* renamed from: minus-xj2QHRw  reason: not valid java name */
-    private static final int m386minusxj2QHRw(int arg0, short other) {
-        return m368constructorimpl(arg0 - m368constructorimpl(65535 & other));
+    private static final int m388minusxj2QHRw(int arg0, short other) {
+        return m370constructorimpl(arg0 - m370constructorimpl(65535 & other));
     }
 
     /* renamed from: minus-WZ4Q5Ns  reason: not valid java name */
-    private static final int m385minusWZ4Q5Ns(int arg0, int other) {
-        return m368constructorimpl(arg0 - other);
+    private static final int m387minusWZ4Q5Ns(int arg0, int other) {
+        return m370constructorimpl(arg0 - other);
     }
 
     /* renamed from: minus-VKZWuLQ  reason: not valid java name */
-    private static final long m384minusVKZWuLQ(int arg0, long other) {
-        return ULong.m447constructorimpl(ULong.m447constructorimpl(arg0 & 4294967295L) - other);
+    private static final long m386minusVKZWuLQ(int arg0, long other) {
+        return ULong.m449constructorimpl(ULong.m449constructorimpl(arg0 & 4294967295L) - other);
     }
 
     /* renamed from: times-7apg3OU  reason: not valid java name */
-    private static final int m404times7apg3OU(int arg0, byte other) {
-        return m368constructorimpl(m368constructorimpl(other & UByte.MAX_VALUE) * arg0);
+    private static final int m406times7apg3OU(int arg0, byte other) {
+        return m370constructorimpl(m370constructorimpl(other & UByte.MAX_VALUE) * arg0);
     }
 
     /* renamed from: times-xj2QHRw  reason: not valid java name */
-    private static final int m407timesxj2QHRw(int arg0, short other) {
-        return m368constructorimpl(m368constructorimpl(65535 & other) * arg0);
+    private static final int m409timesxj2QHRw(int arg0, short other) {
+        return m370constructorimpl(m370constructorimpl(65535 & other) * arg0);
     }
 
     /* renamed from: times-WZ4Q5Ns  reason: not valid java name */
-    private static final int m406timesWZ4Q5Ns(int arg0, int other) {
-        return m368constructorimpl(arg0 * other);
+    private static final int m408timesWZ4Q5Ns(int arg0, int other) {
+        return m370constructorimpl(arg0 * other);
     }
 
     /* renamed from: times-VKZWuLQ  reason: not valid java name */
-    private static final long m405timesVKZWuLQ(int arg0, long other) {
-        return ULong.m447constructorimpl(ULong.m447constructorimpl(arg0 & 4294967295L) * other);
+    private static final long m407timesVKZWuLQ(int arg0, long other) {
+        return ULong.m449constructorimpl(ULong.m449constructorimpl(arg0 & 4294967295L) * other);
     }
 
     /* renamed from: div-7apg3OU  reason: not valid java name */
-    private static final int m370div7apg3OU(int arg0, byte other) {
-        return UByte$$ExternalSyntheticBackport1.m(arg0, m368constructorimpl(other & UByte.MAX_VALUE));
+    private static final int m372div7apg3OU(int arg0, byte other) {
+        return UByte$$ExternalSyntheticBackport1.m(arg0, m370constructorimpl(other & UByte.MAX_VALUE));
     }
 
     /* renamed from: div-xj2QHRw  reason: not valid java name */
-    private static final int m373divxj2QHRw(int arg0, short other) {
-        return UByte$$ExternalSyntheticBackport1.m(arg0, m368constructorimpl(65535 & other));
+    private static final int m375divxj2QHRw(int arg0, short other) {
+        return UByte$$ExternalSyntheticBackport1.m(arg0, m370constructorimpl(65535 & other));
     }
 
     /* renamed from: div-WZ4Q5Ns  reason: not valid java name */
-    private static final int m372divWZ4Q5Ns(int arg0, int other) {
-        return UnsignedKt.m624uintDivideJ1ME1BU(arg0, other);
+    private static final int m374divWZ4Q5Ns(int arg0, int other) {
+        return UnsignedKt.m626uintDivideJ1ME1BU(arg0, other);
     }
 
     /* renamed from: div-VKZWuLQ  reason: not valid java name */
-    private static final long m371divVKZWuLQ(int arg0, long other) {
-        return UByte$$ExternalSyntheticBackport5.m(ULong.m447constructorimpl(arg0 & 4294967295L), other);
+    private static final long m373divVKZWuLQ(int arg0, long other) {
+        return UByte$$ExternalSyntheticBackport5.m(ULong.m449constructorimpl(arg0 & 4294967295L), other);
     }
 
     /* renamed from: rem-7apg3OU  reason: not valid java name */
-    private static final int m398rem7apg3OU(int arg0, byte other) {
-        return UByte$$ExternalSyntheticBackport0.m(arg0, m368constructorimpl(other & UByte.MAX_VALUE));
+    private static final int m400rem7apg3OU(int arg0, byte other) {
+        return UByte$$ExternalSyntheticBackport0.m(arg0, m370constructorimpl(other & UByte.MAX_VALUE));
     }
 
     /* renamed from: rem-xj2QHRw  reason: not valid java name */
-    private static final int m401remxj2QHRw(int arg0, short other) {
-        return UByte$$ExternalSyntheticBackport0.m(arg0, m368constructorimpl(65535 & other));
+    private static final int m403remxj2QHRw(int arg0, short other) {
+        return UByte$$ExternalSyntheticBackport0.m(arg0, m370constructorimpl(65535 & other));
     }
 
     /* renamed from: rem-WZ4Q5Ns  reason: not valid java name */
-    private static final int m400remWZ4Q5Ns(int arg0, int other) {
-        return UnsignedKt.m625uintRemainderJ1ME1BU(arg0, other);
+    private static final int m402remWZ4Q5Ns(int arg0, int other) {
+        return UnsignedKt.m627uintRemainderJ1ME1BU(arg0, other);
     }
 
     /* renamed from: rem-VKZWuLQ  reason: not valid java name */
-    private static final long m399remVKZWuLQ(int arg0, long other) {
-        return UByte$$ExternalSyntheticBackport3.m(ULong.m447constructorimpl(arg0 & 4294967295L), other);
+    private static final long m401remVKZWuLQ(int arg0, long other) {
+        return UByte$$ExternalSyntheticBackport3.m(ULong.m449constructorimpl(arg0 & 4294967295L), other);
     }
 
     /* renamed from: floorDiv-7apg3OU  reason: not valid java name */
-    private static final int m376floorDiv7apg3OU(int arg0, byte other) {
-        return UByte$$ExternalSyntheticBackport1.m(arg0, m368constructorimpl(other & UByte.MAX_VALUE));
+    private static final int m378floorDiv7apg3OU(int arg0, byte other) {
+        return UByte$$ExternalSyntheticBackport1.m(arg0, m370constructorimpl(other & UByte.MAX_VALUE));
     }
 
     /* renamed from: floorDiv-xj2QHRw  reason: not valid java name */
-    private static final int m379floorDivxj2QHRw(int arg0, short other) {
-        return UByte$$ExternalSyntheticBackport1.m(arg0, m368constructorimpl(65535 & other));
+    private static final int m381floorDivxj2QHRw(int arg0, short other) {
+        return UByte$$ExternalSyntheticBackport1.m(arg0, m370constructorimpl(65535 & other));
     }
 
     /* renamed from: floorDiv-WZ4Q5Ns  reason: not valid java name */
-    private static final int m378floorDivWZ4Q5Ns(int arg0, int other) {
+    private static final int m380floorDivWZ4Q5Ns(int arg0, int other) {
         return UByte$$ExternalSyntheticBackport1.m(arg0, other);
     }
 
     /* renamed from: floorDiv-VKZWuLQ  reason: not valid java name */
-    private static final long m377floorDivVKZWuLQ(int arg0, long other) {
-        return UByte$$ExternalSyntheticBackport5.m(ULong.m447constructorimpl(arg0 & 4294967295L), other);
+    private static final long m379floorDivVKZWuLQ(int arg0, long other) {
+        return UByte$$ExternalSyntheticBackport5.m(ULong.m449constructorimpl(arg0 & 4294967295L), other);
     }
 
     /* renamed from: mod-7apg3OU  reason: not valid java name */
-    private static final byte m387mod7apg3OU(int arg0, byte other) {
-        return UByte.m291constructorimpl((byte) UByte$$ExternalSyntheticBackport0.m(arg0, m368constructorimpl(other & UByte.MAX_VALUE)));
+    private static final byte m389mod7apg3OU(int arg0, byte other) {
+        return UByte.m293constructorimpl((byte) UByte$$ExternalSyntheticBackport0.m(arg0, m370constructorimpl(other & UByte.MAX_VALUE)));
     }
 
     /* renamed from: mod-xj2QHRw  reason: not valid java name */
-    private static final short m390modxj2QHRw(int arg0, short other) {
-        return UShort.m554constructorimpl((short) UByte$$ExternalSyntheticBackport0.m(arg0, m368constructorimpl(65535 & other)));
+    private static final short m392modxj2QHRw(int arg0, short other) {
+        return UShort.m556constructorimpl((short) UByte$$ExternalSyntheticBackport0.m(arg0, m370constructorimpl(65535 & other)));
     }
 
     /* renamed from: mod-WZ4Q5Ns  reason: not valid java name */
-    private static final int m389modWZ4Q5Ns(int arg0, int other) {
+    private static final int m391modWZ4Q5Ns(int arg0, int other) {
         return UByte$$ExternalSyntheticBackport0.m(arg0, other);
     }
 
     /* renamed from: mod-VKZWuLQ  reason: not valid java name */
-    private static final long m388modVKZWuLQ(int arg0, long other) {
-        return UByte$$ExternalSyntheticBackport3.m(ULong.m447constructorimpl(arg0 & 4294967295L), other);
+    private static final long m390modVKZWuLQ(int arg0, long other) {
+        return UByte$$ExternalSyntheticBackport3.m(ULong.m449constructorimpl(arg0 & 4294967295L), other);
     }
 
     /* renamed from: inc-pVg5ArA  reason: not valid java name */
-    private static final int m381incpVg5ArA(int arg0) {
-        return m368constructorimpl(arg0 + 1);
+    private static final int m383incpVg5ArA(int arg0) {
+        return m370constructorimpl(arg0 + 1);
     }
 
     /* renamed from: dec-pVg5ArA  reason: not valid java name */
-    private static final int m369decpVg5ArA(int arg0) {
-        return m368constructorimpl(arg0 - 1);
+    private static final int m371decpVg5ArA(int arg0) {
+        return m370constructorimpl(arg0 - 1);
     }
 
     /* renamed from: rangeTo-WZ4Q5Ns  reason: not valid java name */
-    private static final UIntRange m396rangeToWZ4Q5Ns(int arg0, int other) {
+    private static final UIntRange m398rangeToWZ4Q5Ns(int arg0, int other) {
         return new UIntRange(arg0, other, null);
     }
 
     /* renamed from: rangeUntil-WZ4Q5Ns  reason: not valid java name */
-    private static final UIntRange m397rangeUntilWZ4Q5Ns(int arg0, int other) {
-        return URangesKt.m1542untilJ1ME1BU(arg0, other);
+    private static final UIntRange m399rangeUntilWZ4Q5Ns(int arg0, int other) {
+        return URangesKt.m1544untilJ1ME1BU(arg0, other);
     }
 
     /* renamed from: shl-pVg5ArA  reason: not valid java name */
-    private static final int m402shlpVg5ArA(int arg0, int bitCount) {
-        return m368constructorimpl(arg0 << bitCount);
+    private static final int m404shlpVg5ArA(int arg0, int bitCount) {
+        return m370constructorimpl(arg0 << bitCount);
     }
 
     /* renamed from: shr-pVg5ArA  reason: not valid java name */
-    private static final int m403shrpVg5ArA(int arg0, int bitCount) {
-        return m368constructorimpl(arg0 >>> bitCount);
+    private static final int m405shrpVg5ArA(int arg0, int bitCount) {
+        return m370constructorimpl(arg0 >>> bitCount);
     }
 
     /* renamed from: and-WZ4Q5Ns  reason: not valid java name */
-    private static final int m361andWZ4Q5Ns(int arg0, int other) {
-        return m368constructorimpl(arg0 & other);
+    private static final int m363andWZ4Q5Ns(int arg0, int other) {
+        return m370constructorimpl(arg0 & other);
     }
 
     /* renamed from: or-WZ4Q5Ns  reason: not valid java name */
-    private static final int m391orWZ4Q5Ns(int arg0, int other) {
-        return m368constructorimpl(arg0 | other);
+    private static final int m393orWZ4Q5Ns(int arg0, int other) {
+        return m370constructorimpl(arg0 | other);
     }
 
     /* renamed from: xor-WZ4Q5Ns  reason: not valid java name */
-    private static final int m419xorWZ4Q5Ns(int arg0, int other) {
-        return m368constructorimpl(arg0 ^ other);
+    private static final int m421xorWZ4Q5Ns(int arg0, int other) {
+        return m370constructorimpl(arg0 ^ other);
     }
 
     /* renamed from: inv-pVg5ArA  reason: not valid java name */
-    private static final int m382invpVg5ArA(int arg0) {
-        return m368constructorimpl(~arg0);
+    private static final int m384invpVg5ArA(int arg0) {
+        return m370constructorimpl(~arg0);
     }
 
     /* renamed from: toByte-impl  reason: not valid java name */
-    private static final byte m408toByteimpl(int arg0) {
+    private static final byte m410toByteimpl(int arg0) {
         return (byte) arg0;
     }
 
     /* renamed from: toShort-impl  reason: not valid java name */
-    private static final short m413toShortimpl(int arg0) {
+    private static final short m415toShortimpl(int arg0) {
         return (short) arg0;
     }
 
     /* renamed from: toInt-impl  reason: not valid java name */
-    private static final int m411toIntimpl(int arg0) {
+    private static final int m413toIntimpl(int arg0) {
         return arg0;
     }
 
     /* renamed from: toLong-impl  reason: not valid java name */
-    private static final long m412toLongimpl(int arg0) {
+    private static final long m414toLongimpl(int arg0) {
         return arg0 & 4294967295L;
     }
 
     /* renamed from: toUByte-w2LRezQ  reason: not valid java name */
-    private static final byte m415toUBytew2LRezQ(int arg0) {
-        return UByte.m291constructorimpl((byte) arg0);
+    private static final byte m417toUBytew2LRezQ(int arg0) {
+        return UByte.m293constructorimpl((byte) arg0);
     }
 
     /* renamed from: toUShort-Mh2AYeg  reason: not valid java name */
-    private static final short m418toUShortMh2AYeg(int arg0) {
-        return UShort.m554constructorimpl((short) arg0);
+    private static final short m420toUShortMh2AYeg(int arg0) {
+        return UShort.m556constructorimpl((short) arg0);
     }
 
     /* renamed from: toUInt-pVg5ArA  reason: not valid java name */
-    private static final int m416toUIntpVg5ArA(int arg0) {
+    private static final int m418toUIntpVg5ArA(int arg0) {
         return arg0;
     }
 
     /* renamed from: toULong-s-VKNKU  reason: not valid java name */
-    private static final long m417toULongsVKNKU(int arg0) {
-        return ULong.m447constructorimpl(arg0 & 4294967295L);
+    private static final long m419toULongsVKNKU(int arg0) {
+        return ULong.m449constructorimpl(arg0 & 4294967295L);
     }
 
     /* renamed from: toFloat-impl  reason: not valid java name */
-    private static final float m410toFloatimpl(int arg0) {
+    private static final float m412toFloatimpl(int arg0) {
         return (float) UnsignedKt.uintToDouble(arg0);
     }
 
     /* renamed from: toDouble-impl  reason: not valid java name */
-    private static final double m409toDoubleimpl(int arg0) {
+    private static final double m411toDoubleimpl(int arg0) {
         return UnsignedKt.uintToDouble(arg0);
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m414toStringimpl(int arg0) {
+    public static String m416toStringimpl(int arg0) {
         return String.valueOf(arg0 & 4294967295L);
     }
 
     public String toString() {
-        return m414toStringimpl(this.data);
+        return m416toStringimpl(this.data);
     }
 }

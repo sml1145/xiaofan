@@ -62,7 +62,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public void mo1832dispatch(CoroutineContext context, Runnable block) {
+    public void mo1834dispatch(CoroutineContext context, Runnable block) {
         if (!this.handler.post(block)) {
             cancelOnRejection(context, block);
         }
@@ -70,7 +70,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
 
     @Override // kotlinx.coroutines.Delay
     /* renamed from: scheduleResumeAfterDelay */
-    public void mo1833scheduleResumeAfterDelay(long timeMillis, final CancellableContinuation<? super Unit> cancellableContinuation) {
+    public void mo1835scheduleResumeAfterDelay(long timeMillis, final CancellableContinuation<? super Unit> cancellableContinuation) {
         final Runnable block = new Runnable() { // from class: kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {
@@ -125,7 +125,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
 
     private final void cancelOnRejection(CoroutineContext context, Runnable block) {
         JobKt.cancel(context, new CancellationException("The task was rejected, the handler underlying the dispatcher '" + this + "' was closed"));
-        Dispatchers.getIO().mo1832dispatch(context, block);
+        Dispatchers.getIO().mo1834dispatch(context, block);
     }
 
     @Override // kotlinx.coroutines.MainCoroutineDispatcher, kotlinx.coroutines.CoroutineDispatcher

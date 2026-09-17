@@ -22,9 +22,8 @@ public abstract class Utf8 {
         DEFAULT = instance;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class DecodeUtil {
+    static class DecodeUtil {
         DecodeUtil() {
         }
 

@@ -293,7 +293,7 @@ public final class XiaoFanBrain {
                         intent.setConfidence(0.95f);
                         return intent;
                     }
-                    intent.setType(INTENT_TIME);
+                    intent.setType("time");
                     intent.setConfidence(0.95f);
                     return intent;
                 }
@@ -361,7 +361,7 @@ public final class XiaoFanBrain {
                 }
                 break;
             case 3560141:
-                if (type.equals(INTENT_TIME)) {
+                if (type.equals("time")) {
                     callback.onSpeak(speakTimeNow());
                     return;
                 }

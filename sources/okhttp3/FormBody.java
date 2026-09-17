@@ -37,7 +37,7 @@ public final class FormBody extends RequestBody {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "moved to val", replaceWith = @ReplaceWith(expression = "size", imports = {}))
     /* renamed from: -deprecated_size  reason: not valid java name */
-    public final int m1885deprecated_size() {
+    public final int m1887deprecated_size() {
         return size();
     }
 

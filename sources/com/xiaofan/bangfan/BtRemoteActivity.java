@@ -218,6 +218,12 @@ public final class BtRemoteActivity extends BaseActivity implements BluetoothRem
     public static final void onCreate$lambda$4(BtRemoteActivity this$0, boolean v) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         AppPrefs.INSTANCE.setBtVolumeRemote(this$0, v);
+        try {
+            Intent i = new Intent(this$0, BluetoothRemoteService.class).setAction(BluetoothRemoteService.ACTION_RELOAD_VOLUME_CHANNEL);
+            Intrinsics.checkNotNullExpressionValue(i, "setAction(...)");
+            this$0.startService(i);
+        } catch (Throwable th) {
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */

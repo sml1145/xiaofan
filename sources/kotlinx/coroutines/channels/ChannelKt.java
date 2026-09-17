@@ -11,12 +11,12 @@ import kotlinx.coroutines.channels.ChannelResult;
 public final class ChannelKt {
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: getOrElse-WpGqRn0 */
-    public static final <T> T m1782getOrElseWpGqRn0(Object $this$getOrElse_u2dWpGqRn0, Function1<? super Throwable, ? extends T> function1) {
-        return $this$getOrElse_u2dWpGqRn0 instanceof ChannelResult.Failed ? function1.invoke(ChannelResult.m1790exceptionOrNullimpl($this$getOrElse_u2dWpGqRn0)) : $this$getOrElse_u2dWpGqRn0;
+    public static final <T> T m1784getOrElseWpGqRn0(Object $this$getOrElse_u2dWpGqRn0, Function1<? super Throwable, ? extends T> function1) {
+        return $this$getOrElse_u2dWpGqRn0 instanceof ChannelResult.Failed ? function1.invoke(ChannelResult.m1792exceptionOrNullimpl($this$getOrElse_u2dWpGqRn0)) : $this$getOrElse_u2dWpGqRn0;
     }
 
     /* renamed from: onSuccess-WpGqRn0 */
-    public static final <T> Object m1785onSuccessWpGqRn0(Object $this$onSuccess_u2dWpGqRn0, Function1<? super T, Unit> function1) {
+    public static final <T> Object m1787onSuccessWpGqRn0(Object $this$onSuccess_u2dWpGqRn0, Function1<? super T, Unit> function1) {
         if (!($this$onSuccess_u2dWpGqRn0 instanceof ChannelResult.Failed)) {
             function1.invoke($this$onSuccess_u2dWpGqRn0);
         }
@@ -24,17 +24,17 @@ public final class ChannelKt {
     }
 
     /* renamed from: onFailure-WpGqRn0 */
-    public static final <T> Object m1784onFailureWpGqRn0(Object $this$onFailure_u2dWpGqRn0, Function1<? super Throwable, Unit> function1) {
+    public static final <T> Object m1786onFailureWpGqRn0(Object $this$onFailure_u2dWpGqRn0, Function1<? super Throwable, Unit> function1) {
         if ($this$onFailure_u2dWpGqRn0 instanceof ChannelResult.Failed) {
-            function1.invoke(ChannelResult.m1790exceptionOrNullimpl($this$onFailure_u2dWpGqRn0));
+            function1.invoke(ChannelResult.m1792exceptionOrNullimpl($this$onFailure_u2dWpGqRn0));
         }
         return $this$onFailure_u2dWpGqRn0;
     }
 
     /* renamed from: onClosed-WpGqRn0 */
-    public static final <T> Object m1783onClosedWpGqRn0(Object $this$onClosed_u2dWpGqRn0, Function1<? super Throwable, Unit> function1) {
+    public static final <T> Object m1785onClosedWpGqRn0(Object $this$onClosed_u2dWpGqRn0, Function1<? super Throwable, Unit> function1) {
         if ($this$onClosed_u2dWpGqRn0 instanceof ChannelResult.Closed) {
-            function1.invoke(ChannelResult.m1790exceptionOrNullimpl($this$onClosed_u2dWpGqRn0));
+            function1.invoke(ChannelResult.m1792exceptionOrNullimpl($this$onClosed_u2dWpGqRn0));
         }
         return $this$onClosed_u2dWpGqRn0;
     }

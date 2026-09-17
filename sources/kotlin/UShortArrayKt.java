@@ -11,13 +11,13 @@ public final class UShortArrayKt {
         Intrinsics.checkNotNullParameter(init, "init");
         short[] sArr = new short[size];
         for (int i = 0; i < size; i++) {
-            sArr[i] = init.invoke(Integer.valueOf(i)).m604unboximpl();
+            sArr[i] = init.invoke(Integer.valueOf(i)).m606unboximpl();
         }
-        return UShortArray.m607constructorimpl(sArr);
+        return UShortArray.m609constructorimpl(sArr);
     }
 
     /* renamed from: ushortArrayOf-rL5Bavg  reason: not valid java name */
-    private static final short[] m623ushortArrayOfrL5Bavg(short... elements) {
+    private static final short[] m625ushortArrayOfrL5Bavg(short... elements) {
         Intrinsics.checkNotNullParameter(elements, "elements");
         return elements;
     }

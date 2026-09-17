@@ -693,7 +693,7 @@ public final class WeatherManager {
             JSONObject hourly = root.optJSONObject("hourly");
             if (hourly != null) {
                 JSONArray probs = hourly.optJSONArray("precipitation_probability");
-                JSONArray times = hourly.optJSONArray(XiaoFanBrain.INTENT_TIME);
+                JSONArray times = hourly.optJSONArray("time");
                 if (probs != null && times != null) {
                     String prefix = new SimpleDateFormat("yyyy-MM-dd'T'HH", Locale.CHINA).format(new Date());
                     int i = 0;
@@ -718,7 +718,7 @@ public final class WeatherManager {
                 }
             }
         }
-        JSONArray dates = daily.getJSONArray(XiaoFanBrain.INTENT_TIME);
+        JSONArray dates = daily.getJSONArray("time");
         JSONArray codes2 = daily.getJSONArray("weather_code");
         JSONArray maxTemps2 = daily.getJSONArray("temperature_2m_max");
         JSONArray minTemps = daily.getJSONArray("temperature_2m_min");

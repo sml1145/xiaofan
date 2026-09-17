@@ -60,7 +60,7 @@ public final class BroadcastChannelImpl<E> extends BufferedChannel<E> implements
                 return s;
             }
             if (this.lastConflatedElement != BroadcastChannelKt.access$getNO_ELEMENT$p()) {
-                s.mo1776trySendJP2dKIU(getValue());
+                s.mo1778trySendJP2dKIU(getValue());
             }
             this.subscribers = CollectionsKt.plus((Collection<? extends BufferedChannel>) this.subscribers, s);
             reentrantLock.unlock();
@@ -225,13 +225,13 @@ public final class BroadcastChannelImpl<E> extends BufferedChannel<E> implements
 
     @Override // kotlinx.coroutines.channels.BufferedChannel, kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU  reason: not valid java name */
-    public Object mo1776trySendJP2dKIU(E e) {
+    public Object mo1778trySendJP2dKIU(E e) {
         ReentrantLock $this$withLock$iv = this.lock;
         ReentrantLock reentrantLock = $this$withLock$iv;
         reentrantLock.lock();
         try {
             if (isClosedForSend()) {
-                return super.mo1776trySendJP2dKIU(e);
+                return super.mo1778trySendJP2dKIU(e);
             }
             Iterable $this$any$iv = this.subscribers;
             boolean z = false;
@@ -251,7 +251,7 @@ public final class BroadcastChannelImpl<E> extends BufferedChannel<E> implements
             }
             boolean shouldSuspend = z;
             if (shouldSuspend) {
-                return ChannelResult.Companion.m1800failurePtdJZtk();
+                return ChannelResult.Companion.m1802failurePtdJZtk();
             }
             if (this.capacity == -1) {
                 this.lastConflatedElement = e;
@@ -259,9 +259,9 @@ public final class BroadcastChannelImpl<E> extends BufferedChannel<E> implements
             Iterable $this$forEach$iv = this.subscribers;
             for (Object element$iv2 : $this$forEach$iv) {
                 BufferedChannel it3 = (BufferedChannel) element$iv2;
-                it3.mo1776trySendJP2dKIU(e);
+                it3.mo1778trySendJP2dKIU(e);
             }
-            return ChannelResult.Companion.m1801successJP2dKIU(Unit.INSTANCE);
+            return ChannelResult.Companion.m1803successJP2dKIU(Unit.INSTANCE);
         } finally {
             reentrantLock.unlock();
         }

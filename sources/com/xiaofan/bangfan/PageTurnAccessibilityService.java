@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.util.DisplayMetrics;
@@ -31,7 +32,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt;
 import kotlin.text.StringsKt;
 /* compiled from: PageTurnAccessibilityService.kt */
-@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0010\u0011\n\u0002\b\u0006\u0018\u0000 Y2\u00020\u0001:\u0001YB\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\u001c\u001a\u00020\u001dJ\u0016\u0010\u001e\u001a\u00020\u00042\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020 J\b\u0010\"\u001a\u0004\u0018\u00010\fJ\u0010\u0010#\u001a\u00020\u00042\u0006\u0010$\u001a\u00020\u0006H\u0002J \u0010%\u001a\u00020\u001d2\u0006\u0010&\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\f2\u0006\u0010(\u001a\u00020\u0004H\u0002J \u0010)\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\f2\u0006\u0010*\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0004H\u0002J\u0006\u0010,\u001a\u00020\u0006J\u0006\u0010-\u001a\u00020\u0006J\u0006\u0010.\u001a\u00020\u0006J\n\u0010/\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u00100\u001a\u00020\u001d2\u0006\u00101\u001a\u000202H\u0002J\u0006\u00103\u001a\u00020\u0004J\u0006\u00104\u001a\u00020\u0004J\u0012\u00105\u001a\u00020\u00042\b\u00106\u001a\u0004\u0018\u00010\fH\u0002J\u0012\u00107\u001a\u00020\u00042\b\u00106\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u00108\u001a\u00020\u0004J\u0012\u00109\u001a\u00020\u001d2\b\u0010:\u001a\u0004\u0018\u00010;H\u0016J\b\u0010<\u001a\u00020\u001dH\u0016J\b\u0010=\u001a\u00020\u001dH\u0016J\u0012\u0010>\u001a\u00020\u00042\b\u0010:\u001a\u0004\u0018\u00010?H\u0014J\b\u0010@\u001a\u00020\u001dH\u0014J\u0012\u0010A\u001a\u00020\u00042\b\u0010B\u001a\u0004\u0018\u00010CH\u0016J\u000e\u0010D\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\u000e\u0010E\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\u000e\u0010F\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\u000e\u0010G\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\u0016\u0010H\u001a\u00020\u00042\u0006\u0010&\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\fJ\n\u0010I\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010J\u001a\u00020\u001d2\u0006\u0010K\u001a\u00020\u0004H\u0002J\b\u0010L\u001a\u00020\u001dH\u0002J\b\u0010M\u001a\u00020\u001dH\u0002J\b\u0010N\u001a\u00020\u001dH\u0002J\u0006\u0010O\u001a\u00020\u001dJ\b\u0010P\u001a\u00020\u001dH\u0002J\u0010\u0010Q\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\u0004H\u0002J\u001f\u0010R\u001a\u00020\u00042\u0012\u0010S\u001a\n\u0012\u0006\b\u0001\u0012\u00020\f0T\"\u00020\f¢\u0006\u0002\u0010UJ\u0018\u0010V\u001a\u00020\u001d2\u0006\u0010W\u001a\u00020\u00062\u0006\u0010X\u001a\u00020\u0004H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006Z"}, d2 = {"Lcom/xiaofan/bangfan/PageTurnAccessibilityService;", "Landroid/accessibilityservice/AccessibilityService;", "()V", "adPageActive", "", "adRemainingSeconds", "", "adTickTask", "Ljava/lang/Runnable;", "adWatchDeadline", "", "basePkg", "", "busy", "foregroundPkg", "lastTurnAt", "lastVerticalAt", "lastVolDownAt", "lastVolUpAt", "main", "Landroid/os/Handler;", "maxVerticalQueued", "normalCharsBase", "normalSamples", "pollTask", "screenH", "screenW", "verticalQueued", "analyzeNow", "", "clickAt", "x", "", "y", "currentForegroundPackage", "debounceVolumeKey", "keyCode", "dispatchVerticalSwipe", "up", "reason", "retry", "doTurn", "prev", "timed", "getAdRemainingSeconds", "getScreenHeight", "getScreenWidth", "getTopActivityPackage", "handleAdPage", "result", "Lcom/xiaofan/bangfan/AdDetector$Result;", "isAdPageActive", "isCurrentPageBookEnd", "isNoisePackage", "pkg", "isNonReaderPackage", "isReaderAppInForeground", "onAccessibilityEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/accessibility/AccessibilityEvent;", "onDestroy", "onInterrupt", "onKeyEvent", "Landroid/view/KeyEvent;", "onServiceConnected", "onUnbind", "intent", "Landroid/content/Intent;", "performFastForward", "performPageTurn", "performPrevPage", "performTimedPageTurn", "performVerticalSwipe", "resolveForegroundPackage", "setAdPageActive", "active", "startAdTick", "startPolling", "stopAdTickOnly", "stopAdWatching", "stopPolling", "swipePage", "toggleReaderOption", "texts", "", "([Ljava/lang/String;)Z", "updateBaseline", "chars", "speedUp", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
+@Metadata(d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0012\n\u0002\u0010\u0011\n\u0002\b\u0006\u0018\u0000 _2\u00020\u0001:\u0001_B\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\u001f\u001a\u00020 J\u0016\u0010!\u001a\u00020\u00042\u0006\u0010\"\u001a\u00020#2\u0006\u0010$\u001a\u00020#J\b\u0010%\u001a\u0004\u0018\u00010\fJ\u0010\u0010&\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\u0006H\u0002J(\u0010(\u001a\u00020 2\u0006\u0010)\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\f2\u0006\u0010+\u001a\u00020\u00042\u0006\u0010,\u001a\u00020\nH\u0002J \u0010-\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\f2\u0006\u0010.\u001a\u00020\u00042\u0006\u0010/\u001a\u00020\u0004H\u0002J\u0006\u00100\u001a\u00020\u0006J\u0006\u00101\u001a\u00020\u0006J\u0006\u00102\u001a\u00020\u0006J\n\u00103\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u00104\u001a\u00020 2\u0006\u00105\u001a\u000206H\u0002J\u0006\u00107\u001a\u00020\u0004J\u0006\u00108\u001a\u00020\u0004J\u0012\u00109\u001a\u00020\u00042\b\u0010:\u001a\u0004\u0018\u00010\fH\u0002J\u0012\u0010;\u001a\u00020\u00042\b\u0010:\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u0010<\u001a\u00020\u0004J\u0012\u0010=\u001a\u00020 2\b\u0010>\u001a\u0004\u0018\u00010?H\u0016J\b\u0010@\u001a\u00020 H\u0016J\b\u0010A\u001a\u00020 H\u0016J\u0012\u0010B\u001a\u00020\u00042\b\u0010>\u001a\u0004\u0018\u00010CH\u0014J\b\u0010D\u001a\u00020 H\u0014J\u0012\u0010E\u001a\u00020\u00042\b\u0010F\u001a\u0004\u0018\u00010GH\u0016J\u000e\u0010H\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\fJ\u000e\u0010I\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\fJ\u000e\u0010J\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\fJ\u000e\u0010K\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\fJ\u0016\u0010L\u001a\u00020\u00042\u0006\u0010)\u001a\u00020\u00042\u0006\u0010*\u001a\u00020\fJ\n\u0010M\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010N\u001a\u00020 2\u0006\u0010O\u001a\u00020\u0004H\u0002J\b\u0010P\u001a\u00020 H\u0002J\b\u0010Q\u001a\u00020 H\u0002J\b\u0010R\u001a\u00020 H\u0002J\b\u0010S\u001a\u00020 H\u0002J\u0006\u0010T\u001a\u00020 J\b\u0010U\u001a\u00020 H\u0002J\b\u0010V\u001a\u00020 H\u0002J\u0010\u0010W\u001a\u00020\u00042\u0006\u0010.\u001a\u00020\u0004H\u0002J\u001f\u0010X\u001a\u00020\u00042\u0012\u0010Y\u001a\n\u0012\u0006\b\u0001\u0012\u00020\f0Z\"\u00020\f¢\u0006\u0002\u0010[J\u0018\u0010\\\u001a\u00020 2\u0006\u0010]\u001a\u00020\u00062\u0006\u0010^\u001a\u00020\u0004H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001b\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006`"}, d2 = {"Lcom/xiaofan/bangfan/PageTurnAccessibilityService;", "Landroid/accessibilityservice/AccessibilityService;", "()V", "adPageActive", "", "adRemainingSeconds", "", "adTickTask", "Ljava/lang/Runnable;", "adWatchDeadline", "", "basePkg", "", "busy", "foregroundPkg", "gestureHandler", "Landroid/os/Handler;", "gestureThread", "Landroid/os/HandlerThread;", "lastTurnAt", "lastVerticalAt", "lastVolDownAt", "lastVolUpAt", "main", "maxVerticalQueued", "normalCharsBase", "normalSamples", "pollTask", "screenH", "screenW", "verticalQueued", "analyzeNow", "", "clickAt", "x", "", "y", "currentForegroundPackage", "debounceVolumeKey", "keyCode", "dispatchVerticalSwipe", "up", "reason", "retry", "enqueueAt", "doTurn", "prev", "timed", "getAdRemainingSeconds", "getScreenHeight", "getScreenWidth", "getTopActivityPackage", "handleAdPage", "result", "Lcom/xiaofan/bangfan/AdDetector$Result;", "isAdPageActive", "isCurrentPageBookEnd", "isNoisePackage", "pkg", "isNonReaderPackage", "isReaderAppInForeground", "onAccessibilityEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/accessibility/AccessibilityEvent;", "onDestroy", "onInterrupt", "onKeyEvent", "Landroid/view/KeyEvent;", "onServiceConnected", "onUnbind", "intent", "Landroid/content/Intent;", "performFastForward", "performPageTurn", "performPrevPage", "performTimedPageTurn", "performVerticalSwipe", "resolveForegroundPackage", "setAdPageActive", "active", "startAdTick", "startGestureThread", "startPolling", "stopAdTickOnly", "stopAdWatching", "stopGestureThread", "stopPolling", "swipePage", "toggleReaderOption", "texts", "", "([Ljava/lang/String;)Z", "updateBaseline", "chars", "speedUp", "Companion", "app_debug"}, k = 1, mv = {1, 9, 0}, xi = ConstraintLayout.LayoutParams.Table.LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE)
 /* loaded from: classes4.dex */
 public final class PageTurnAccessibilityService extends AccessibilityService {
     public static final Companion Companion = new Companion(null);
@@ -43,6 +44,8 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     private Runnable adTickTask;
     private volatile long adWatchDeadline;
     private volatile boolean busy;
+    private Handler gestureHandler;
+    private HandlerThread gestureThread;
     private volatile long lastTurnAt;
     private volatile long lastVerticalAt;
     private long lastVolDownAt;
@@ -52,7 +55,7 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     private Runnable pollTask;
     private int screenH;
     private int screenW;
-    private int verticalQueued;
+    private volatile int verticalQueued;
     private final Handler main = new Handler(Looper.getMainLooper());
     private volatile int adRemainingSeconds = -1;
     private volatile String foregroundPkg = "";
@@ -111,12 +114,37 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     protected void onServiceConnected() {
         super.onServiceConnected();
         instance = this;
+        startGestureThread();
         DisplayMetrics dm = getResources().getDisplayMetrics();
         this.screenW = dm.widthPixels;
         this.screenH = dm.heightPixels;
         startPolling();
         TurnManager.INSTANCE.notifyServiceReady(true);
         Log.i(TAG, "accessibility service connected");
+    }
+
+    private final void startGestureThread() {
+        if (this.gestureThread != null) {
+            return;
+        }
+        HandlerThread t = new HandlerThread("xf-gesture", -4);
+        t.start();
+        this.gestureThread = t;
+        this.gestureHandler = new Handler(t.getLooper());
+    }
+
+    private final void stopGestureThread() {
+        try {
+            HandlerThread handlerThread = this.gestureThread;
+            if (handlerThread != null) {
+                handlerThread.quitSafely();
+            }
+        } catch (Throwable th) {
+        }
+        this.gestureThread = null;
+        this.gestureHandler = null;
+        this.verticalQueued = 0;
+        this.lastVerticalAt = 0L;
     }
 
     @Override // android.accessibilityservice.AccessibilityService
@@ -134,6 +162,7 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     public boolean onUnbind(Intent intent) {
         stopPolling();
         stopAdWatching();
+        stopGestureThread();
         instance = null;
         TurnManager.INSTANCE.notifyServiceReady(false);
         return super.onUnbind(intent);
@@ -143,6 +172,7 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     public void onDestroy() {
         stopPolling();
         stopAdWatching();
+        stopGestureThread();
         instance = null;
         TurnManager.INSTANCE.notifyServiceReady(false);
         super.onDestroy();
@@ -477,65 +507,105 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
             this.screenW = dm.widthPixels;
             this.screenH = dm.heightPixels;
         }
+        Handler h = this.gestureHandler;
+        if (h == null) {
+            startGestureThread();
+            Log.w(TAG, "gesture thread absent, restarted");
+        }
+        Handler handler = this.gestureHandler;
+        if (handler == null) {
+            handler = this.main;
+        }
+        Handler handler2 = handler;
         if (this.verticalQueued >= this.maxVerticalQueued) {
             Log.w(TAG, "vertical swipe queue full, drop " + reason);
             return false;
         }
+        final long enqueueAt = SystemClock.uptimeMillis();
         this.verticalQueued++;
-        long wait = RangesKt.coerceAtLeast((this.lastVerticalAt + 210) - SystemClock.uptimeMillis(), 0L);
-        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda0
+        long wait = RangesKt.coerceAtLeast((this.lastVerticalAt + 170) - SystemClock.uptimeMillis(), 0L);
+        handler2.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda2
             @Override // java.lang.Runnable
             public final void run() {
-                PageTurnAccessibilityService.performVerticalSwipe$lambda$5(PageTurnAccessibilityService.this, up, reason);
+                PageTurnAccessibilityService.performVerticalSwipe$lambda$5(PageTurnAccessibilityService.this, up, reason, enqueueAt);
             }
         }, wait);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void performVerticalSwipe$lambda$5(PageTurnAccessibilityService this$0, boolean $up, String reason) {
+    public static final void performVerticalSwipe$lambda$5(PageTurnAccessibilityService this$0, boolean $up, String reason, long $enqueueAt) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(reason, "$reason");
         this$0.verticalQueued--;
         this$0.lastVerticalAt = SystemClock.uptimeMillis();
-        this$0.dispatchVerticalSwipe($up, reason, true);
+        Log.i(TAG, "vertical swipe dequeue up=" + $up + " reason=" + reason + " queuedMs=" + (this$0.lastVerticalAt - $enqueueAt));
+        this$0.dispatchVerticalSwipe($up, reason, true, $enqueueAt);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void dispatchVerticalSwipe(final boolean up, final String reason, boolean retry) {
+    public final void dispatchVerticalSwipe(final boolean up, final String reason, boolean retry, final long enqueueAt) {
+        Pair pair;
         boolean dispatched;
         float x = this.screenW * 0.5f;
         float f = this.screenH;
-        Pair pair = up ? TuplesKt.to(Float.valueOf(f * 0.8f), Float.valueOf(this.screenH * 0.26f)) : TuplesKt.to(Float.valueOf(f * 0.26f), Float.valueOf(this.screenH * 0.8f));
+        if (up) {
+            pair = TuplesKt.to(Float.valueOf(f * 0.8f), Float.valueOf(this.screenH * 0.26f));
+        } else {
+            pair = TuplesKt.to(Float.valueOf(f * 0.26f), Float.valueOf(this.screenH * 0.8f));
+        }
         float fromY = ((Number) pair.component1()).floatValue();
         float toY = ((Number) pair.component2()).floatValue();
         Path path = new Path();
         path.moveTo(x, fromY);
         path.lineTo(x, toY);
-        GestureDescription gesture = new GestureDescription.Builder().addStroke(new GestureDescription.StrokeDescription(path, 0L, 210L)).build();
-        PageTurnAccessibilityService$dispatchVerticalSwipe$cb$1 cb = new PageTurnAccessibilityService$dispatchVerticalSwipe$cb$1(up, reason, retry, this);
+        GestureDescription gesture = new GestureDescription.Builder().addStroke(new GestureDescription.StrokeDescription(path, 0L, 170L)).build();
+        long dispatchAt = SystemClock.uptimeMillis();
+        PageTurnAccessibilityService$dispatchVerticalSwipe$cb$1 cb = new PageTurnAccessibilityService$dispatchVerticalSwipe$cb$1(up, reason, enqueueAt, retry, this);
         try {
-            dispatched = dispatchGesture(gesture, cb, this.main);
+            PageTurnAccessibilityService$dispatchVerticalSwipe$cb$1 pageTurnAccessibilityService$dispatchVerticalSwipe$cb$1 = cb;
+            Handler handler = this.gestureHandler;
+            if (handler == null) {
+                handler = this.main;
+            }
+            dispatched = dispatchGesture(gesture, pageTurnAccessibilityService$dispatchVerticalSwipe$cb$1, handler);
         } catch (Throwable th) {
             Log.w(TAG, "vertical swipe dispatch threw", th);
             dispatched = false;
         }
-        if (dispatched || !retry) {
-            return;
-        }
-        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda2
-            @Override // java.lang.Runnable
-            public final void run() {
-                PageTurnAccessibilityService.dispatchVerticalSwipe$lambda$6(PageTurnAccessibilityService.this, up, reason);
+        if (!dispatched && retry) {
+            Handler handler2 = this.gestureHandler;
+            if (handler2 != null) {
+                handler2.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda0
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        PageTurnAccessibilityService.dispatchVerticalSwipe$lambda$6(PageTurnAccessibilityService.this, up, reason, enqueueAt);
+                    }
+                }, 70L);
+            } else {
+                this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda1
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        PageTurnAccessibilityService.dispatchVerticalSwipe$lambda$7(PageTurnAccessibilityService.this, up, reason, enqueueAt);
+                    }
+                }, 70L);
             }
-        }, 90L);
+        }
+        Log.i(TAG, "vertical swipe dispatch up=" + up + " reason=" + reason + " dispatchMs=" + (SystemClock.uptimeMillis() - dispatchAt));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void dispatchVerticalSwipe$lambda$6(PageTurnAccessibilityService this$0, boolean $up, String reason) {
+    public static final void dispatchVerticalSwipe$lambda$6(PageTurnAccessibilityService this$0, boolean $up, String reason, long $enqueueAt) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         Intrinsics.checkNotNullParameter(reason, "$reason");
-        this$0.dispatchVerticalSwipe($up, reason, false);
+        this$0.dispatchVerticalSwipe($up, reason, false, $enqueueAt);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void dispatchVerticalSwipe$lambda$7(PageTurnAccessibilityService this$0, boolean $up, String reason, long $enqueueAt) {
+        Intrinsics.checkNotNullParameter(this$0, "this$0");
+        Intrinsics.checkNotNullParameter(reason, "$reason");
+        this$0.dispatchVerticalSwipe($up, reason, false, $enqueueAt);
     }
 
     public final boolean performFastForward(String reason) {
@@ -548,10 +618,10 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
         final float x = this.screenW * 0.74f;
         final float y = this.screenH * 0.5f;
         boolean first = clickAt(x, y);
-        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda1
+        this.main.postDelayed(new Runnable() { // from class: com.xiaofan.bangfan.PageTurnAccessibilityService$$ExternalSyntheticLambda3
             @Override // java.lang.Runnable
             public final void run() {
-                PageTurnAccessibilityService.performFastForward$lambda$7(PageTurnAccessibilityService.this, x, y);
+                PageTurnAccessibilityService.performFastForward$lambda$8(PageTurnAccessibilityService.this, x, y);
             }
         }, 110L);
         Log.i(TAG, "fast-forward double tap reason=" + reason + " scheduled=" + first);
@@ -559,7 +629,7 @@ public final class PageTurnAccessibilityService extends AccessibilityService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void performFastForward$lambda$7(PageTurnAccessibilityService this$0, float $x, float $y) {
+    public static final void performFastForward$lambda$8(PageTurnAccessibilityService this$0, float $x, float $y) {
         Intrinsics.checkNotNullParameter(this$0, "this$0");
         this$0.clickAt($x, $y);
     }

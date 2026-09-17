@@ -25,17 +25,17 @@ public final class AgentPremain {
     }
 
     static {
-        Object m273constructorimpl;
+        Object m275constructorimpl;
         AgentPremain agentPremain = INSTANCE;
         try {
             Result.Companion companion = Result.Companion;
             String property = System.getProperty("kotlinx.coroutines.debug.enable.creation.stack.trace");
-            m273constructorimpl = Result.m273constructorimpl(property != null ? Boolean.valueOf(Boolean.parseBoolean(property)) : null);
+            m275constructorimpl = Result.m275constructorimpl(property != null ? Boolean.valueOf(Boolean.parseBoolean(property)) : null);
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m273constructorimpl = Result.m273constructorimpl(ResultKt.createFailure(th));
+            m275constructorimpl = Result.m275constructorimpl(ResultKt.createFailure(th));
         }
-        Boolean bool = Result.m279isFailureimpl(m273constructorimpl) ? null : m273constructorimpl;
+        Boolean bool = Result.m281isFailureimpl(m275constructorimpl) ? null : m275constructorimpl;
         enableCreationStackTraces = bool != null ? bool.booleanValue() : DebugProbesImpl.INSTANCE.getEnableCreationStackTraces$kotlinx_coroutines_core();
     }
 

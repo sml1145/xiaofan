@@ -6,18 +6,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 /* loaded from: classes.dex */
 public final class UByteKt {
     private static final byte toUByte(byte $this$toUByte) {
-        return UByte.m291constructorimpl($this$toUByte);
+        return UByte.m293constructorimpl($this$toUByte);
     }
 
     private static final byte toUByte(short $this$toUByte) {
-        return UByte.m291constructorimpl((byte) $this$toUByte);
+        return UByte.m293constructorimpl((byte) $this$toUByte);
     }
 
     private static final byte toUByte(int $this$toUByte) {
-        return UByte.m291constructorimpl((byte) $this$toUByte);
+        return UByte.m293constructorimpl((byte) $this$toUByte);
     }
 
     private static final byte toUByte(long $this$toUByte) {
-        return UByte.m291constructorimpl((byte) $this$toUByte);
+        return UByte.m293constructorimpl((byte) $this$toUByte);
     }
 }

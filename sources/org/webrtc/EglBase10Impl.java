@@ -14,8 +14,9 @@ import javax.microedition.khronos.egl.EGLSurface;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase10;
 import org.webrtc.EglBase10Impl;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-class EglBase10Impl implements EglBase10 {
+public class EglBase10Impl implements EglBase10 {
     private static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
     private static final EglConnection EGL_NO_CONNECTION = new EglConnection();
     private static final String TAG = "EglBase10Impl";
@@ -23,7 +24,7 @@ class EglBase10Impl implements EglBase10 {
     private EGLSurface eglSurface = EGL10.EGL_NO_SURFACE;
 
     /* renamed from: -$$Nest$smnativeGetCurrentNativeEGLContext  reason: not valid java name */
-    static /* bridge */ /* synthetic */ long m2090$$Nest$smnativeGetCurrentNativeEGLContext() {
+    static /* bridge */ /* synthetic */ long m2092$$Nest$smnativeGetCurrentNativeEGLContext() {
         return nativeGetCurrentNativeEGLContext();
     }
 
@@ -58,7 +59,7 @@ class EglBase10Impl implements EglBase10 {
                         throw new GLException(this.egl.eglGetError(), "Failed to make temporary EGL surface active: " + this.egl.eglGetError());
                     }
                 }
-                return EglBase10Impl.m2090$$Nest$smnativeGetCurrentNativeEGLContext();
+                return EglBase10Impl.m2092$$Nest$smnativeGetCurrentNativeEGLContext();
             } finally {
                 if (0 != 0) {
                     this.egl.eglMakeCurrent(currentDisplay, previousDrawSurface, previousReadSurface, previousContext);
@@ -94,14 +95,14 @@ class EglBase10Impl implements EglBase10 {
             this.refCountDelegate = new RefCountDelegate(new Runnable() { // from class: org.webrtc.EglBase10Impl$EglConnection$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    EglBase10Impl.EglConnection.this.m2091lambda$new$0$orgwebrtcEglBase10Impl$EglConnection();
+                    EglBase10Impl.EglConnection.this.m2093lambda$new$0$orgwebrtcEglBase10Impl$EglConnection();
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$new$0$org-webrtc-EglBase10Impl$EglConnection  reason: not valid java name */
-        public /* synthetic */ void m2091lambda$new$0$orgwebrtcEglBase10Impl$EglConnection() {
+        public /* synthetic */ void m2093lambda$new$0$orgwebrtcEglBase10Impl$EglConnection() {
             synchronized (EglBase.lock) {
                 this.egl.eglMakeCurrent(this.eglDisplay, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
             }
